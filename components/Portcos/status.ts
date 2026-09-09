@@ -5,7 +5,7 @@
 
 import { getBoardMembers, getEa, getPartner } from "@/lib/data";
 import { firstName, sinceLabel } from "@/lib/format";
-import { allPartnersYes, allPicked, boardConfirmedQuarter, boardMembersOf, bucketOf, inviteCounts, openConflicts, portcoPhase, portcoStage, primaryAction, travelBookedCount, type Bucket } from "@/lib/pipeline";
+import { allAccepted, allPartnersYes, allPicked, boardConfirmedQuarter, boardMembersOf, bucketOf, inviteCounts, invitesOut, openConflicts, portcoPhase, portcoStage, primaryAction, travelBookedCount, type Bucket } from "@/lib/pipeline";
 import { fmtDate } from "@/lib/scheduling";
 import type { ConflictData, Portco, Quarter } from "@/lib/types";
 import { STAGE_NAMES } from "@/lib/types";
@@ -59,20 +59,28 @@ export function rowStatus(p: Portco): RowStatus {
   let pill = "";
   let sentence = "";
   let button: RowStatus["button"] = { label: "Open", kind: "secondary" };
-  let progress = phase === "done" ? "All four meetings locked" : phase === "idle" ? "Not started" : `Step ${stage} of 5, ${STAGE_NAMES[stage]}`;
+  let progress = phase === "done" ? "All invites accepted" : phase === "idle" ? "Not started" : `Step ${stage} of 6, ${STAGE_NAMES[stage]}`;
 
   if (phase === "idle") {
     pill = "Not started";
     sentence = `${word(p.partnerIds.length)[0].toUpperCase() + word(p.partnerIds.length).slice(1)} partners assigned. Calendars connected.`;
     button = { label: "Find dates", kind: "brand" };
   } else if (phase === "done") {
-    pill = "Locked";
+    pill = "All accepted";
+    sentence = "Every invite accepted. Travel booked for all partners.";
+    button = { label: "View", kind: "secondary" };
+  } else if (stage === 6 && phase === "waiting") {
     const inv = inviteCounts(p, members);
     const tr = travelBookedCount(p);
+    pill = "Invites out";
     sentence = inv.replied
       ? `Invites accepted ${inv.accepted} of ${inv.total}. Travel booked for ${tr.booked === tr.total ? "all" : word(tr.booked)} ${tr.booked === 1 ? "partner" : "partners"}.`
-      : "All four meetings booked. Invites out from Outlook, no replies yet.";
-    button = { label: "View", kind: "secondary" };
+      : "Invites out. No replies yet.";
+    button = { label: "Open", kind: "secondary" };
+  } else if (stage === 6 && phase === "review") {
+    pill = "Locked";
+    sentence = "Dates and venues locked. Four invites ready to send.";
+    button = { label: action?.label ?? "Open", kind: "you" };
   } else if (phase === "waiting") {
     if (p.waitingOn === "partners") {
       const yes = p.partnerIds.filter((id) => p.quarters[firstQ].internalApprovals[id]);
@@ -132,8 +140,12 @@ export function quarterChip(p: Portco, q: Quarter): { tone: Tone; label: string;
   const date = pick ?? (qs.status !== "notStarted" ? proposed : undefined);
   const label = date ? fmtDate(date.start).replace(/^\w+ /, "") : "";
   const conflict = p.drafts[`conflict:${q}`] && !p.drafts[`conflict:${q}`].approved;
-  const locked = qs.status === "locked" && !!qs.logistics;
-  if (locked) return { tone: "lock", label, caption: "booked", locked: true };
+  const locked = (qs.status === "locked" || qs.status === "invited") && !!qs.logistics;
+  if (locked) {
+    const ids = [...(p.checkedPartnerIds ?? p.partnerIds), "exec", ...members.map((m) => m.id)];
+    const accepted = qs.status === "invited" && ids.every((id) => p.attendance?.[q]?.[id] === "accepted");
+    return { tone: "lock", label, caption: accepted ? "accepted" : qs.status === "invited" ? "invites out" : "booked", locked: true };
+  }
   if (conflict) return { tone: "you", label, caption: "re-send ready", locked: false };
   if (boardConfirmedQuarter(p, q, members)) return { tone: "lock", label, caption: "confirmed", locked: false };
   if (qs.status === "notStarted") return { tone: "idle", label: "", caption: "No date", locked: false };

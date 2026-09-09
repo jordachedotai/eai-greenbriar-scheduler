@@ -20,6 +20,9 @@ Draft email to the board. Approve and send. Shift+P, then Board conflict. Raymon
 ## Beat 5: lock and book (30 seconds)
 Press Lock and book. Hotel and restaurant per meeting, near the office, one reason each. Approve and lock. Four lock icons. Work strip: Confirmed 8 of 20.
 
+## Beat 6a: send invites (25 seconds)
+Step 6 opens with four calendar invites, one per meeting, dinner as a second entry, everyone in the room on each. "She used to type these by hand. Now she reads them." Approve and send invites. Shift+P, then Invites accepted: 34 of 36, one tentative, one no reply, travel booked for four of five. "Two stragglers. It tells her who." Shift+P, then Stragglers reply: all accepted, the row turns fully green.
+
 ## Beat 6: the scale picture (25 seconds, Devrin)
 Toggle to "All assistants." Eighteen rows. Open Calendar. 2027 fills with meetings. "Three assistants, fifteen companies. The portfolio is twenty-five. And when the next fund goes to market, the same engine schedules two hundred and fifty LP meetings."
 
@@ -30,3 +33,4 @@ Load `council-at-board` and start at Beat 4. The conflict is the wow moment. Nev
 - No dollar figure. Devrin owes it. Say "two months to days" and stop.
 - No vendor names. Say "the agent."
 - Do not claim it reads Greenbriar calendars today. Say "connected to calendars." The connector list carries the production conversation.
+- Reset and Jump to state reload the fixtures. Any company added in Settings, and any team change, is gone after either. Add companies only after the reset you plan to use.

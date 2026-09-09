@@ -116,9 +116,13 @@ function toLockReview(p: Portco, withConflict: boolean): Portco {
   return T.applyLogistics(p, mockLogistics(logisticsPayload(p)), false, 0, deps);
 }
 
-function toLocked(p: Portco, withConflict: boolean, withInvites = true): Portco {
+// Stage 6: invites sent, then replies. "mixed" leaves stragglers, "all" is done.
+function toInvited(p: Portco, withConflict: boolean, replies: "none" | "mixed" | "all"): Portco {
   p = T.approveAndLock(toLockReview(p, withConflict), deps);
-  return withInvites ? T.simulateInvites(p, deps) : p;
+  p = T.sendInvites(p, deps);
+  if (replies === "mixed") p = T.simulateInvites(p, deps, "mixed");
+  if (replies === "all") p = T.simulateInvites(p, deps, "all");
+  return p;
 }
 
 // ---------- states ----------
@@ -138,8 +142,8 @@ function council(walkthroughAtBoard: boolean): DemoState {
   step("radwell-international", 2, 14, (p) => toWaitingBoard(p, 1));
   step("sparkstone-electrical-group", 1, 15, toWaitingPartners);
   // Barbara (ea2): two locked, one on the board, one on the portco, one not started.
-  step("jegs-automotive", 9, 9, (p) => toLocked(p, false));
-  step("ontrac", 8, 10, (p) => toLocked(p, true));
+  step("jegs-automotive", 9, 9, (p) => toInvited(p, false, "all"));
+  step("ontrac", 8, 10, (p) => toInvited(p, true, "mixed"));
   step("randys", 4, 11, (p) => toWaitingBoard(p, 2));
   step("renuity", 2, 9, toWaitingPortco);
   // Sofia (ea3): one on the board, one on the portco, one on partners, one not started.
@@ -147,7 +151,7 @@ function council(walkthroughAtBoard: boolean): DemoState {
   step("the-facilities-group", 3, 16, toWaitingPortco);
   step("towne", 1, 9, toWaitingPartners);
   // Jaquelyn (ea4): one locked, one on the portco, two not started.
-  step("west-star-aviation", 7, 9, (p) => toLocked(p, false));
+  step("west-star-aviation", 7, 9, (p) => toInvited(p, false, "none"));
   step("wineshipping", 2, 11, toWaitingPortco);
   return {
     description: walkthroughAtBoard

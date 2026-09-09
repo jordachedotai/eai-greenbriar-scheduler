@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { getBoardMembers, getDemoStates } from "@/lib/data";
-import { allBoardConfirmed, allPartnersYes, allPicked, inviteCounts, openConflicts, portcoPhase, portcoStage } from "@/lib/pipeline";
+import { allAccepted, allBoardConfirmed, allPartnersYes, allPicked, inviteCounts, invitesOut, openConflicts, portcoPhase, portcoStage } from "@/lib/pipeline";
 import { boardMembersOf } from "@/lib/pipeline";
 import { simulateBoardConfirms, simulateBoardConflict, simulateInvites, simulatePartnerReplies, simulatePortcoPicks } from "@/lib/actions";
 import type { Portco } from "@/lib/types";
@@ -54,9 +54,16 @@ function stepsFor(p: Portco | undefined): Step[] {
     {
       key: "invites",
       label: "Invites accepted",
-      state: phase !== "done" ? "off" : inviteCounts(p, members).replied ? "done" : "next",
-      note: "after lock",
-      run: () => simulateInvites(p.id),
+      state: !invitesOut(p) ? "off" : inviteCounts(p, members).replied ? "done" : "next",
+      note: "after sending",
+      run: () => simulateInvites(p.id, "mixed"),
+    },
+    {
+      key: "invites-all",
+      label: "Stragglers reply, all accepted",
+      state: !invitesOut(p) || !inviteCounts(p, members).replied ? "off" : allAccepted(p, members) ? "done" : "next",
+      note: "after replies",
+      run: () => simulateInvites(p.id, "all"),
     },
   ];
   // Only one step is "next": the first one marked next; the conflict step
@@ -122,7 +129,7 @@ export function PresenterMenu() {
           <div className={rowBase + " bg-white/6 text-white/60"}>Open a company to simulate its replies.</div>
         ) : (
           steps.map((s) => {
-            const testId = `sim-${s.key === "partners" ? "partner-replies" : s.key === "picks" ? "portco-picks" : s.key === "conflict" ? "board-conflict" : s.key === "confirms" ? "board-confirms" : "invites"}`;
+            const testId = `sim-${s.key === "partners" ? "partner-replies" : s.key === "picks" ? "portco-picks" : s.key === "conflict" ? "board-conflict" : s.key === "confirms" ? "board-confirms" : s.key}`;
             if (s.state === "next" || (s.key === "confirms" && portco.waitingOn === "board" && !working)) {
               const next = s.state === "next";
               return (

@@ -158,9 +158,13 @@ export async function primary(id: string) {
         await draftLogistics(id);
       }
       return;
-    default:
+    case 5:
       if (phase === "needsDraft") await draftLogistics(id);
       else apply(id, (cur) => T.approveAndLock(cur, deps));
+      return;
+    default:
+      if (phase === "needsDraft") apply(id, (cur) => T.withDraft(cur, "invites", { kind: "invites", portcoId: id, text: "", approved: false, data: T.buildInvites(cur, deps) }));
+      else if (phase === "review") apply(id, (cur) => T.sendInvites(cur, deps));
   }
 }
 
@@ -169,13 +173,13 @@ export async function primary(id: string) {
 export async function regenerate(id: string) {
   const p = get(id);
   const stage = portcoStage(p);
-  const key = ["", "onepager", "partnerEmail", "portcoEmail", "boardEmail", "logistics"][stage];
+  const key = ["", "onepager", "partnerEmail", "portcoEmail", "boardEmail", "logistics", "invites"][stage];
   const variant = (p.drafts[key]?.variant ?? 0) + 1;
   if (stage === 1) await draftOnepager(id, variant);
   else if (stage === 2) await draftPartnerEmail(id, variant);
   else if (stage === 3) await draftPortcoEmail(id, variant);
   else if (stage === 4) await draftBoardEmail(id, variant);
-  else await draftLogistics(id, variant);
+  else if (stage === 5) await draftLogistics(id, variant);
 }
 
 export function editDraft(id: string, key: string, text: string) {
@@ -200,8 +204,8 @@ export function simulateBoardConfirms(id: string) {
   apply(id, (p) => T.boardConfirmAll(p, deps));
 }
 
-export function simulateInvites(id: string) {
-  apply(id, (p) => T.simulateInvites(p, deps));
+export function simulateInvites(id: string, mode: "mixed" | "all" = "mixed") {
+  apply(id, (p) => T.simulateInvites(p, deps, mode));
 }
 
 export async function simulateBoardConflict(id: string) {

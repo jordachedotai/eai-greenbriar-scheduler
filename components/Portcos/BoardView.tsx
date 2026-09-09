@@ -19,10 +19,10 @@ export function BoardView() {
   const { visible } = usePortcoList();
   return (
     <section aria-label="Board" className="overflow-x-auto" data-testid="board-view">
-      <div className="grid min-w-[1080px] grid-cols-5 gap-3.5">
+      <div className="grid min-w-[1300px] grid-cols-6 gap-3.5">
         {STAGES.map((stage) => {
           const cards = visible.filter((p) => portcoStage(p) === stage);
-          const last = stage === 5;
+          const last = stage === 6;
           return (
             <div
               key={stage}
@@ -36,7 +36,7 @@ export function BoardView() {
                   ) : (
                     <span className="inline-flex h-[22px] w-[22px] items-center justify-center rounded-full border border-ring bg-white text-[12px] font-bold text-mut">{stage}</span>
                   )}
-                  <span className={"text-[15px] font-semibold " + (last ? "text-brand2" : "")}>{last ? "Locked and booked" : STAGE_NAMES[stage as Stage]}</span>
+                  <span className={"text-[15px] font-semibold " + (last ? "text-brand2" : "")}>{last ? "Invites out" : STAGE_NAMES[stage as Stage]}</span>
                 </div>
                 <span className={"text-[13px] font-semibold " + (last ? "text-brand" : "text-mut")} data-testid={`column-count-${stage}`}>{cards.length}</span>
               </div>

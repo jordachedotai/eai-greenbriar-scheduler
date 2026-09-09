@@ -3,7 +3,7 @@
 // Settings: calendar connections, the assistant roster, meeting defaults,
 // team assignment per company, and adding a company.
 
-import { getDealTeamPartners, getEas } from "@/lib/data";
+import { getEas, getPartners } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import { Face } from "@/components/ui/Face";
 import { LogoTile } from "@/components/ui/LogoTile";
@@ -25,10 +25,10 @@ function Card({ id, title, sub, children }: { id: string; title: string; sub: st
 export function SettingsPage() {
   const portcos = useStore((s) => s.portcos);
   const eas = getEas();
-  const partners = getDealTeamPartners();
+  const partners = getPartners();
   return (
     <div className="flex flex-col gap-[18px]">
-      <Card id="calendars" title="Calendar connections" sub="Whose calendars Find dates can read. Everyone on a deal team is connected through Outlook.">
+      <Card id="calendars" title="Calendar connections" sub="Whose calendars Find dates can read. Everyone on the roster is connected through Outlook.">
         <div className="grid grid-cols-2 gap-2 lg:grid-cols-3" data-testid="calendar-connections">
           {partners.map((p) => (
             <div key={p.id} className="flex items-center gap-2.5 rounded-[10px] border border-line px-3 py-2">

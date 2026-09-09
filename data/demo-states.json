@@ -986,142 +986,142 @@
         },
         "log": [
           {
-            "at": "2026-09-03T12:28:00.000Z",
+            "at": "2026-09-03T12:35:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Jill Raker, Michael Wang, James Peng and Will Stewart and ranked the top three windows per quarter. Windows found, Q1: 13, Q2: 9, Q3: 7, Q4: 6."
           },
           {
-            "at": "2026-09-03T12:36:00.000Z",
+            "at": "2026-09-03T13:11:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Karen Delgado."
           },
           {
-            "at": "2026-09-03T12:45:00.000Z",
+            "at": "2026-09-03T13:39:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-03T13:22:00.000Z",
+            "at": "2026-09-03T14:18:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Jill Raker, Michael Wang, James Peng and Will Stewart."
           },
           {
-            "at": "2026-09-03T13:43:00.000Z",
+            "at": "2026-09-03T14:54:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Jill Raker, Michael Wang, James Peng and Will Stewart for sign-off."
           },
           {
-            "at": "2026-09-03T13:53:00.000Z",
+            "at": "2026-09-03T15:28:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-03T14:16:00.000Z",
+            "at": "2026-09-03T16:01:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-03T14:50:00.000Z",
+            "at": "2026-09-03T16:31:00.000Z",
             "actor": "partner",
             "text": "James Peng replied yes.",
             "personId": "james-peng"
           },
           {
-            "at": "2026-09-03T15:26:00.000Z",
+            "at": "2026-09-03T16:53:00.000Z",
             "actor": "partner",
             "text": "Will Stewart replied yes.",
             "personId": "will-stewart"
           },
           {
-            "at": "2026-09-03T16:29:00.000Z",
+            "at": "2026-09-03T17:38:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-03T16:44:00.000Z",
+            "at": "2026-09-03T18:17:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Karen Delgado."
           },
           {
-            "at": "2026-09-03T17:26:00.000Z",
+            "at": "2026-09-03T18:25:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Karen Delgado."
           },
           {
-            "at": "2026-09-03T17:51:00.000Z",
+            "at": "2026-09-03T18:50:00.000Z",
             "actor": "portco",
             "text": "Karen Delgado picked: Q1 Wed Jan 27, 10am to 2pm; Q2 Tue Jun 22, 10am to 2pm; Q3 Wed Sep 22, 9am to 1pm; Q4 Tue Dec 14, 9am to 1pm."
           },
           {
-            "at": "2026-09-03T18:39:00.000Z",
+            "at": "2026-09-03T19:37:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-03T18:51:00.000Z",
+            "at": "2026-09-03T19:50:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Gordon Reyes, Linda Farrow and Marcus Bell."
           },
           {
-            "at": "2026-09-03T19:00:00.000Z",
+            "at": "2026-09-03T20:04:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-03T19:10:00.000Z",
+            "at": "2026-09-03T20:17:00.000Z",
             "actor": "board",
             "text": "Gordon Reyes confirmed every quarter.",
             "personId": "b4"
           },
           {
-            "at": "2026-09-03T19:26:00.000Z",
+            "at": "2026-09-03T20:24:00.000Z",
             "actor": "board",
             "text": "Linda Farrow confirmed every quarter except Q3. Cannot make Wed Sep 22, 9am to 1pm.",
             "personId": "b5"
           },
           {
-            "at": "2026-09-03T19:35:00.000Z",
+            "at": "2026-09-03T20:56:00.000Z",
             "actor": "board",
             "text": "Marcus Bell confirmed every quarter.",
             "personId": "b6"
           },
           {
-            "at": "2026-09-03T20:47:00.000Z",
+            "at": "2026-09-03T21:16:00.000Z",
             "actor": "agent",
             "text": "Went back to the approved shortlist and proposed the number 2 Q3 window, Wed Aug 18, 1pm to 5pm. Re-checked Jill Raker, Michael Wang, James Peng and Will Stewart: all still free."
           },
           {
-            "at": "2026-09-03T21:05:00.000Z",
+            "at": "2026-09-03T21:25:00.000Z",
             "actor": "ea",
             "text": "Re-sent to the board. Q3 now proposed for Wed Aug 18, 1pm to 5pm."
           },
           {
-            "at": "2026-09-03T21:29:00.000Z",
+            "at": "2026-09-03T21:32:00.000Z",
             "actor": "board",
             "text": "Gordon Reyes confirmed every quarter.",
             "personId": "b4"
           },
           {
-            "at": "2026-09-03T21:41:00.000Z",
+            "at": "2026-09-03T22:00:00.000Z",
             "actor": "board",
             "text": "Linda Farrow confirmed every quarter.",
             "personId": "b5"
           },
           {
-            "at": "2026-09-03T21:55:00.000Z",
+            "at": "2026-09-03T22:21:00.000Z",
             "actor": "board",
             "text": "Marcus Bell confirmed every quarter.",
             "personId": "b6"
           },
           {
-            "at": "2026-09-03T22:38:00.000Z",
+            "at": "2026-09-03T23:03:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Wed Jan 27, Q2 Tue Jun 22, Q3 Wed Aug 18, Q4 Tue Dec 14."
           },
           {
-            "at": "2026-09-03T22:42:00.000Z",
+            "at": "2026-09-03T23:13:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 6300 NW Prairie View Road, Suite 200, Parkville, MO for each meeting."
           }
@@ -2333,60 +2333,60 @@
         },
         "log": [
           {
-            "at": "2026-09-06T13:31:00.000Z",
+            "at": "2026-09-06T13:07:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Jill Raker, Michael Wang and Jack Morris and ranked the top three windows per quarter. Windows found, Q1: 10, Q2: 14, Q3: 7, Q4: 10. Skipped 4 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-06T13:35:00.000Z",
+            "at": "2026-09-06T13:46:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Renee Ashby."
           },
           {
-            "at": "2026-09-06T13:56:00.000Z",
+            "at": "2026-09-06T14:05:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-06T14:34:00.000Z",
+            "at": "2026-09-06T14:36:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Jill Raker, Michael Wang and Jack Morris."
           },
           {
-            "at": "2026-09-06T14:50:00.000Z",
+            "at": "2026-09-06T15:04:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Jill Raker, Michael Wang and Jack Morris for sign-off."
           },
           {
-            "at": "2026-09-06T15:07:00.000Z",
+            "at": "2026-09-06T15:29:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-06T15:20:00.000Z",
+            "at": "2026-09-06T15:38:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-06T15:53:00.000Z",
+            "at": "2026-09-06T15:56:00.000Z",
             "actor": "partner",
             "text": "Jack Morris replied yes.",
             "personId": "jack-morris"
           },
           {
-            "at": "2026-09-06T16:44:00.000Z",
+            "at": "2026-09-06T17:11:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-06T17:09:00.000Z",
+            "at": "2026-09-06T17:17:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Renee Ashby."
           },
           {
-            "at": "2026-09-06T17:35:00.000Z",
+            "at": "2026-09-06T17:27:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Renee Ashby."
           }
@@ -2487,7 +2487,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-06T17:35:00.000Z"
+        "waitingSince": "2026-09-06T17:27:00.000Z"
       },
       "radwell-international": {
         "id": "radwell-international",
@@ -3415,91 +3415,91 @@
         },
         "log": [
           {
-            "at": "2026-09-07T17:17:00.000Z",
+            "at": "2026-09-07T17:22:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Niall McComiskey, Michael Wang, Max Elgart and John Landry and ranked the top three windows per quarter. Windows found, Q1: 9, Q2: 12, Q3: 4, Q4: 7. Skipped 8 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-07T17:54:00.000Z",
+            "at": "2026-09-07T17:42:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Dale Whitcomb."
           },
           {
-            "at": "2026-09-07T17:58:00.000Z",
+            "at": "2026-09-07T18:22:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-07T18:03:00.000Z",
+            "at": "2026-09-07T18:32:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Niall McComiskey, Michael Wang, Max Elgart and John Landry."
           },
           {
-            "at": "2026-09-07T18:33:00.000Z",
+            "at": "2026-09-07T19:01:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Niall McComiskey, Michael Wang, Max Elgart and John Landry for sign-off."
           },
           {
-            "at": "2026-09-07T18:40:00.000Z",
+            "at": "2026-09-07T19:28:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-07T18:58:00.000Z",
+            "at": "2026-09-07T20:10:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-07T19:14:00.000Z",
+            "at": "2026-09-07T20:52:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-07T19:52:00.000Z",
+            "at": "2026-09-07T21:17:00.000Z",
             "actor": "partner",
             "text": "John Landry replied yes.",
             "personId": "john-landry"
           },
           {
-            "at": "2026-09-07T21:02:00.000Z",
+            "at": "2026-09-07T22:28:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-07T21:14:00.000Z",
+            "at": "2026-09-07T23:07:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Dale Whitcomb."
           },
           {
-            "at": "2026-09-07T21:43:00.000Z",
+            "at": "2026-09-07T23:37:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Dale Whitcomb."
           },
           {
-            "at": "2026-09-07T22:09:00.000Z",
+            "at": "2026-09-08T00:02:00.000Z",
             "actor": "portco",
             "text": "Dale Whitcomb picked: Q1 Wed Mar 24, 9am to 1pm; Q2 Mon May 10, 10am to 2pm; Q3 Wed Sep 22, 10am to 2pm; Q4 Tue Oct 12, 9am to 1pm."
           },
           {
-            "at": "2026-09-07T22:48:00.000Z",
+            "at": "2026-09-08T01:18:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-07T23:03:00.000Z",
+            "at": "2026-09-08T01:25:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Ruth Calloway, Hector Ramos and Beth Lindgren."
           },
           {
-            "at": "2026-09-07T23:25:00.000Z",
+            "at": "2026-09-08T02:03:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-07T23:39:00.000Z",
+            "at": "2026-09-08T02:11:00.000Z",
             "actor": "board",
             "text": "Ruth Calloway confirmed every quarter.",
             "personId": "b16"
@@ -3631,7 +3631,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T23:25:00.000Z"
+        "waitingSince": "2026-09-08T02:03:00.000Z"
       },
       "sparkstone-electrical-group": {
         "id": "sparkstone-electrical-group",
@@ -4557,27 +4557,27 @@
         },
         "log": [
           {
-            "at": "2026-09-08T18:37:00.000Z",
+            "at": "2026-09-08T18:29:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Niall McComiskey, Michael Wang, James Peng and Will Stewart and ranked the top three windows per quarter. Windows found, Q1: 9, Q2: 13, Q3: 6, Q4: 5. Skipped 12 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-08T19:16:00.000Z",
+            "at": "2026-09-08T18:34:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Jenna Holt."
           },
           {
-            "at": "2026-09-08T19:53:00.000Z",
+            "at": "2026-09-08T19:03:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-08T20:33:00.000Z",
+            "at": "2026-09-08T19:10:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Niall McComiskey, Michael Wang, James Peng and Will Stewart."
           },
           {
-            "at": "2026-09-08T21:01:00.000Z",
+            "at": "2026-09-08T19:47:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Niall McComiskey, Michael Wang, James Peng and Will Stewart for sign-off."
           }
@@ -4658,7 +4658,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-08T21:01:00.000Z"
+        "waitingSince": "2026-09-08T19:47:00.000Z"
       },
       "jegs-automotive": {
         "id": "jegs-automotive",
@@ -4686,7 +4686,7 @@
         "waitingOn": "none",
         "quarters": {
           "Q1": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q1-2027-01-11-10",
@@ -5033,7 +5033,7 @@
             }
           },
           "Q2": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q2-2027-04-05-10",
@@ -5460,7 +5460,7 @@
             }
           },
           "Q3": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q3-2027-07-13-13",
@@ -5823,7 +5823,7 @@
             }
           },
           "Q4": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q4-2027-10-05-13",
@@ -6108,124 +6108,124 @@
         },
         "log": [
           {
-            "at": "2026-08-31T12:09:00.000Z",
+            "at": "2026-08-31T12:37:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Matt Burke and Andrew Witherell and ranked the top three windows per quarter. Windows found, Q1: 16, Q2: 21, Q3: 17, Q4: 12."
           },
           {
-            "at": "2026-08-31T12:29:00.000Z",
+            "at": "2026-08-31T13:05:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Miguel Santana."
           },
           {
-            "at": "2026-08-31T13:07:00.000Z",
+            "at": "2026-08-31T13:15:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-08-31T13:28:00.000Z",
+            "at": "2026-08-31T13:27:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Matt Burke and Andrew Witherell."
           },
           {
-            "at": "2026-08-31T13:50:00.000Z",
+            "at": "2026-08-31T13:43:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Matt Burke and Andrew Witherell for sign-off."
           },
           {
-            "at": "2026-08-31T14:05:00.000Z",
+            "at": "2026-08-31T13:59:00.000Z",
             "actor": "partner",
             "text": "Matt Burke replied yes.",
             "personId": "matt-burke"
           },
           {
-            "at": "2026-08-31T14:23:00.000Z",
+            "at": "2026-08-31T14:08:00.000Z",
             "actor": "partner",
             "text": "Andrew Witherell replied yes.",
             "personId": "andrew-witherell"
           },
           {
-            "at": "2026-08-31T15:43:00.000Z",
+            "at": "2026-08-31T14:51:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-08-31T16:02:00.000Z",
+            "at": "2026-08-31T15:04:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Miguel Santana."
           },
           {
-            "at": "2026-08-31T16:25:00.000Z",
+            "at": "2026-08-31T15:09:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Miguel Santana."
           },
           {
-            "at": "2026-08-31T16:53:00.000Z",
+            "at": "2026-08-31T15:29:00.000Z",
             "actor": "portco",
             "text": "Miguel Santana picked: Q1 Tue Feb 9, 10am to 2pm; Q2 Wed May 5, 10am to 2pm; Q3 Wed Aug 18, 10am to 2pm; Q4 Tue Nov 2, 10am to 2pm."
           },
           {
-            "at": "2026-08-31T17:28:00.000Z",
+            "at": "2026-08-31T16:12:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-08-31T18:04:00.000Z",
+            "at": "2026-08-31T16:51:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Janet Kowalski, Robert Tran and Elaine Porter."
           },
           {
-            "at": "2026-08-31T18:29:00.000Z",
+            "at": "2026-08-31T17:29:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-08-31T19:07:00.000Z",
+            "at": "2026-08-31T17:57:00.000Z",
             "actor": "board",
             "text": "Janet Kowalski confirmed every quarter.",
             "personId": "b10"
           },
           {
-            "at": "2026-08-31T19:23:00.000Z",
+            "at": "2026-08-31T18:35:00.000Z",
             "actor": "board",
             "text": "Robert Tran confirmed every quarter.",
             "personId": "b11"
           },
           {
-            "at": "2026-08-31T19:59:00.000Z",
+            "at": "2026-08-31T18:58:00.000Z",
             "actor": "board",
             "text": "Elaine Porter confirmed every quarter.",
             "personId": "b12"
           },
           {
-            "at": "2026-08-31T20:48:00.000Z",
+            "at": "2026-08-31T19:58:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Tue Feb 9, Q2 Wed May 5, Q3 Wed Aug 18, Q4 Tue Nov 2."
           },
           {
-            "at": "2026-08-31T21:01:00.000Z",
+            "at": "2026-08-31T20:17:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 101 Innovation Drive, Suite 400, Delaware, OH for each meeting."
           },
           {
-            "at": "2026-08-31T21:10:00.000Z",
+            "at": "2026-08-31T20:23:00.000Z",
             "actor": "ea",
             "text": "Locked all four meetings with hotel and dinner."
           },
           {
-            "at": "2026-08-31T21:44:00.000Z",
+            "at": "2026-08-31T20:56:00.000Z",
             "actor": "agent",
-            "text": "Calendar invites went out from Outlook to 6 people for all four meetings. Travel requests opened for Matt Burke and Andrew Witherell."
+            "text": "Drafted four calendar invites, one per meeting, for 6 people each."
           },
           {
-            "at": "2026-08-31T21:59:00.000Z",
+            "at": "2026-08-31T21:21:00.000Z",
+            "actor": "ea",
+            "text": "Sent four calendar invites to 6 people. Travel requests opened for Matt Burke and Andrew Witherell."
+          },
+          {
+            "at": "2026-08-31T21:31:00.000Z",
             "actor": "board",
-            "text": "Invites accepted, 22 of 24. Robert Tran is tentative for Q2. Andrew Witherell has not replied for Q4."
-          },
-          {
-            "at": "2026-08-31T22:36:00.000Z",
-            "actor": "agent",
-            "text": "Travel booked for Matt Burke. Andrew Witherell still pending."
+            "text": "Every invite accepted, 24 of 24. Travel booked for all partners."
           }
         ],
         "drafts": {
@@ -6382,6 +6382,96 @@
                 "reason": "Hilton Columbus at Easton is 16 miles from the office. Easton, reliable, needs a car. Veritas for dinner, 22 miles away. Downtown Columbus, tasting menu, private room, needs a car."
               }
             }
+          },
+          "invites": {
+            "kind": "invites",
+            "portcoId": "jegs-automotive",
+            "text": "JEGS Automotive quarterly meeting, Q1 2027: Tue Feb 9, 10am to 2pm\nJEGS Automotive quarterly meeting, Q2 2027: Wed May 5, 10am to 2pm\nJEGS Automotive quarterly meeting, Q3 2027: Wed Aug 18, 10am to 2pm\nJEGS Automotive quarterly meeting, Q4 2027: Tue Nov 2, 10am to 2pm",
+            "approved": true,
+            "offline": false,
+            "variant": 0,
+            "data": [
+              {
+                "quarter": "Q1",
+                "title": "JEGS Automotive quarterly meeting, Q1 2027",
+                "start": "2027-02-09T10:00:00",
+                "end": "2027-02-09T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Veritas",
+                  "start": "2027-02-09T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Veritas."
+              },
+              {
+                "quarter": "Q2",
+                "title": "JEGS Automotive quarterly meeting, Q2 2027",
+                "start": "2027-05-05T10:00:00",
+                "end": "2027-05-05T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Lindey's",
+                  "start": "2027-05-05T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Lindey's."
+              },
+              {
+                "quarter": "Q3",
+                "title": "JEGS Automotive quarterly meeting, Q3 2027",
+                "start": "2027-08-18T10:00:00",
+                "end": "2027-08-18T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Amato's Woodfired Pizza",
+                  "start": "2027-08-18T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Amato's Woodfired Pizza."
+              },
+              {
+                "quarter": "Q4",
+                "title": "JEGS Automotive quarterly meeting, Q4 2027",
+                "start": "2027-11-02T10:00:00",
+                "end": "2027-11-02T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Veritas",
+                  "start": "2027-11-02T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Veritas."
+              }
+            ]
           }
         },
         "attendance": {
@@ -6398,7 +6488,7 @@
             "andrew-witherell": "accepted",
             "exec": "accepted",
             "b10": "accepted",
-            "b11": "tentative",
+            "b11": "accepted",
             "b12": "accepted"
           },
           "Q3": {
@@ -6411,7 +6501,7 @@
           },
           "Q4": {
             "matt-burke": "accepted",
-            "andrew-witherell": "noReply",
+            "andrew-witherell": "accepted",
             "exec": "accepted",
             "b10": "accepted",
             "b11": "accepted",
@@ -6420,7 +6510,7 @@
         },
         "travel": {
           "matt-burke": "booked",
-          "andrew-witherell": "pending"
+          "andrew-witherell": "booked"
         }
       },
       "ontrac": {
@@ -6448,10 +6538,10 @@
           "Q4"
         ],
         "eaId": "ea2",
-        "waitingOn": "none",
+        "waitingOn": "attendees",
         "quarters": {
           "Q1": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q1-2027-01-11-10",
@@ -6767,7 +6857,7 @@
             }
           },
           "Q2": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q2-2027-04-01-13",
@@ -7066,7 +7156,7 @@
             }
           },
           "Q3": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q3-2027-07-08-09",
@@ -7297,7 +7387,7 @@
             }
           },
           "Q4": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q4-2027-10-11-09",
@@ -7513,156 +7603,161 @@
         },
         "log": [
           {
-            "at": "2026-09-01T13:10:00.000Z",
+            "at": "2026-09-01T13:37:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Jill Raker, Max Elgart and Will Stewart and ranked the top three windows per quarter. Windows found, Q1: 13, Q2: 12, Q3: 8, Q4: 7. Skipped 16 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-01T13:39:00.000Z",
+            "at": "2026-09-01T14:00:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Priya Raman."
           },
           {
-            "at": "2026-09-01T14:10:00.000Z",
+            "at": "2026-09-01T14:12:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-01T14:48:00.000Z",
+            "at": "2026-09-01T14:27:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Jill Raker, Max Elgart and Will Stewart."
           },
           {
-            "at": "2026-09-01T15:27:00.000Z",
+            "at": "2026-09-01T14:57:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Jill Raker, Max Elgart and Will Stewart for sign-off."
           },
           {
-            "at": "2026-09-01T15:44:00.000Z",
+            "at": "2026-09-01T15:23:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-01T16:13:00.000Z",
+            "at": "2026-09-01T15:44:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-01T16:39:00.000Z",
+            "at": "2026-09-01T16:07:00.000Z",
             "actor": "partner",
             "text": "Will Stewart replied yes.",
             "personId": "will-stewart"
           },
           {
-            "at": "2026-09-01T17:38:00.000Z",
+            "at": "2026-09-01T17:14:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-01T18:13:00.000Z",
+            "at": "2026-09-01T17:28:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Priya Raman."
           },
           {
-            "at": "2026-09-01T18:35:00.000Z",
+            "at": "2026-09-01T17:49:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Priya Raman."
           },
           {
-            "at": "2026-09-01T18:42:00.000Z",
+            "at": "2026-09-01T18:02:00.000Z",
             "actor": "portco",
             "text": "Priya Raman picked: Q1 Tue Mar 9, 10am to 2pm; Q2 Wed May 5, 10am to 2pm; Q3 Tue Aug 3, 10am to 2pm; Q4 Thu Nov 4, 10am to 2pm."
           },
           {
-            "at": "2026-09-01T19:28:00.000Z",
+            "at": "2026-09-01T18:14:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-01T19:44:00.000Z",
+            "at": "2026-09-01T18:30:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Samuel Adeyemi, Nancy Whitaker and Paul Brennan."
           },
           {
-            "at": "2026-09-01T19:55:00.000Z",
+            "at": "2026-09-01T18:51:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-01T20:26:00.000Z",
+            "at": "2026-09-01T19:30:00.000Z",
             "actor": "board",
             "text": "Samuel Adeyemi confirmed every quarter.",
             "personId": "b13"
           },
           {
-            "at": "2026-09-01T20:48:00.000Z",
+            "at": "2026-09-01T20:01:00.000Z",
             "actor": "board",
             "text": "Nancy Whitaker confirmed every quarter except Q3. Cannot make Tue Aug 3, 10am to 2pm.",
             "personId": "b14"
           },
           {
-            "at": "2026-09-01T21:22:00.000Z",
+            "at": "2026-09-01T20:12:00.000Z",
             "actor": "board",
             "text": "Paul Brennan confirmed every quarter.",
             "personId": "b15"
           },
           {
-            "at": "2026-09-01T21:43:00.000Z",
+            "at": "2026-09-01T20:24:00.000Z",
             "actor": "agent",
             "text": "Went back to the approved shortlist and proposed the number 2 Q3 window, Wed Aug 4, 9am to 1pm. Re-checked Jill Raker, Max Elgart and Will Stewart: all still free."
           },
           {
-            "at": "2026-09-01T21:56:00.000Z",
+            "at": "2026-09-01T21:03:00.000Z",
             "actor": "ea",
             "text": "Re-sent to the board. Q3 now proposed for Wed Aug 4, 9am to 1pm."
           },
           {
-            "at": "2026-09-01T22:03:00.000Z",
+            "at": "2026-09-01T21:12:00.000Z",
             "actor": "board",
             "text": "Samuel Adeyemi confirmed every quarter.",
             "personId": "b13"
           },
           {
-            "at": "2026-09-01T22:16:00.000Z",
+            "at": "2026-09-01T21:43:00.000Z",
             "actor": "board",
             "text": "Nancy Whitaker confirmed every quarter.",
             "personId": "b14"
           },
           {
-            "at": "2026-09-01T22:45:00.000Z",
+            "at": "2026-09-01T22:16:00.000Z",
             "actor": "board",
             "text": "Paul Brennan confirmed every quarter.",
             "personId": "b15"
           },
           {
-            "at": "2026-09-01T23:32:00.000Z",
+            "at": "2026-09-01T22:51:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Tue Mar 9, Q2 Wed May 5, Q3 Wed Aug 4, Q4 Thu Nov 4."
           },
           {
-            "at": "2026-09-01T23:51:00.000Z",
+            "at": "2026-09-01T23:32:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 2501 West Chandler Boulevard, Suite 500, Chandler, AZ for each meeting."
           },
           {
-            "at": "2026-09-02T00:30:00.000Z",
+            "at": "2026-09-01T23:48:00.000Z",
             "actor": "ea",
             "text": "Locked all four meetings with hotel and dinner."
           },
           {
-            "at": "2026-09-02T01:12:00.000Z",
+            "at": "2026-09-02T00:31:00.000Z",
             "actor": "agent",
-            "text": "Calendar invites went out from Outlook to 7 people for all four meetings. Travel requests opened for Jill Raker, Max Elgart and Will Stewart."
+            "text": "Drafted four calendar invites, one per meeting, for 7 people each."
           },
           {
-            "at": "2026-09-02T01:35:00.000Z",
+            "at": "2026-09-02T00:55:00.000Z",
+            "actor": "ea",
+            "text": "Sent four calendar invites to 7 people. Travel requests opened for Jill Raker, Max Elgart and Will Stewart."
+          },
+          {
+            "at": "2026-09-02T01:29:00.000Z",
             "actor": "board",
             "text": "Invites accepted, 26 of 28. Nancy Whitaker is tentative for Q2. Will Stewart has not replied for Q4."
           },
           {
-            "at": "2026-09-02T01:47:00.000Z",
+            "at": "2026-09-02T01:59:00.000Z",
             "actor": "agent",
             "text": "Travel booked for Jill Raker and Max Elgart. Will Stewart still pending."
           }
@@ -7861,8 +7956,103 @@
                 "reason": "Sheraton Grand at Wild Horse Pass is 6.5 miles from the office. Resort, quiet, partners have stayed before. Kai for dinner, 6.5 miles away. Wild Horse Pass, tasting menu, memorable, book early."
               }
             }
+          },
+          "invites": {
+            "kind": "invites",
+            "portcoId": "ontrac",
+            "text": "OnTrac quarterly meeting, Q1 2027: Tue Mar 9, 10am to 2pm\nOnTrac quarterly meeting, Q2 2027: Wed May 5, 10am to 2pm\nOnTrac quarterly meeting, Q3 2027: Wed Aug 4, 9am to 1pm\nOnTrac quarterly meeting, Q4 2027: Thu Nov 4, 10am to 2pm",
+            "approved": true,
+            "offline": false,
+            "variant": 0,
+            "data": [
+              {
+                "quarter": "Q1",
+                "title": "OnTrac quarterly meeting, Q1 2027",
+                "start": "2027-03-09T10:00:00",
+                "end": "2027-03-09T14:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "Kai",
+                  "start": "2027-03-09T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at Kai."
+              },
+              {
+                "quarter": "Q2",
+                "title": "OnTrac quarterly meeting, Q2 2027",
+                "start": "2027-05-05T10:00:00",
+                "end": "2027-05-05T14:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "The Keg Steakhouse and Bar Chandler",
+                  "start": "2027-05-05T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at The Keg Steakhouse and Bar Chandler."
+              },
+              {
+                "quarter": "Q3",
+                "title": "OnTrac quarterly meeting, Q3 2027",
+                "start": "2027-08-04T09:00:00",
+                "end": "2027-08-04T13:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "Sibley's West",
+                  "start": "2027-08-04T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at Sibley's West."
+              },
+              {
+                "quarter": "Q4",
+                "title": "OnTrac quarterly meeting, Q4 2027",
+                "start": "2027-11-04T10:00:00",
+                "end": "2027-11-04T14:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "Kai",
+                  "start": "2027-11-04T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at Kai."
+              }
+            ]
           }
         },
+        "waitingSince": "2026-09-02T00:55:00.000Z",
         "attendance": {
           "Q1": {
             "jill-raker": "accepted",
@@ -9158,91 +9348,91 @@
         },
         "log": [
           {
-            "at": "2026-09-05T14:15:00.000Z",
+            "at": "2026-09-05T14:41:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Noah Roy, Matt Burke and James Karle and ranked the top three windows per quarter. Windows found, Q1: 12, Q2: 17, Q3: 12, Q4: 13. Skipped 4 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-05T14:19:00.000Z",
+            "at": "2026-09-05T14:57:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Ingrid Solberg."
           },
           {
-            "at": "2026-09-05T14:56:00.000Z",
+            "at": "2026-09-05T15:11:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-05T15:11:00.000Z",
+            "at": "2026-09-05T15:32:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Noah Roy, Matt Burke and James Karle."
           },
           {
-            "at": "2026-09-05T15:21:00.000Z",
+            "at": "2026-09-05T15:47:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Noah Roy, Matt Burke and James Karle for sign-off."
           },
           {
-            "at": "2026-09-05T15:50:00.000Z",
+            "at": "2026-09-05T16:02:00.000Z",
             "actor": "partner",
             "text": "Noah Roy replied yes.",
             "personId": "noah-roy"
           },
           {
-            "at": "2026-09-05T16:05:00.000Z",
+            "at": "2026-09-05T16:37:00.000Z",
             "actor": "partner",
             "text": "Matt Burke replied yes.",
             "personId": "matt-burke"
           },
           {
-            "at": "2026-09-05T16:43:00.000Z",
+            "at": "2026-09-05T17:13:00.000Z",
             "actor": "partner",
             "text": "James Karle replied yes.",
             "personId": "james-karle"
           },
           {
-            "at": "2026-09-05T17:48:00.000Z",
+            "at": "2026-09-05T18:27:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-05T18:07:00.000Z",
+            "at": "2026-09-05T18:43:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Ingrid Solberg."
           },
           {
-            "at": "2026-09-05T18:37:00.000Z",
+            "at": "2026-09-05T19:02:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Ingrid Solberg."
           },
           {
-            "at": "2026-09-05T18:57:00.000Z",
+            "at": "2026-09-05T19:25:00.000Z",
             "actor": "portco",
             "text": "Ingrid Solberg picked: Q1 Wed Jan 27, 10am to 2pm; Q2 Thu May 20, 9am to 1pm; Q3 Tue Aug 17, 9am to 1pm; Q4 Wed Nov 10, 9am to 1pm."
           },
           {
-            "at": "2026-09-05T19:45:00.000Z",
+            "at": "2026-09-05T19:42:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-05T20:04:00.000Z",
+            "at": "2026-09-05T19:47:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Arne Johansen, Grace Ito and Leonard Price."
           },
           {
-            "at": "2026-09-05T20:34:00.000Z",
+            "at": "2026-09-05T20:15:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-05T20:47:00.000Z",
+            "at": "2026-09-05T20:24:00.000Z",
             "actor": "board",
             "text": "Arne Johansen confirmed every quarter.",
             "personId": "b19"
           },
           {
-            "at": "2026-09-05T20:53:00.000Z",
+            "at": "2026-09-05T21:05:00.000Z",
             "actor": "board",
             "text": "Grace Ito confirmed every quarter.",
             "personId": "b20"
@@ -9374,7 +9564,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-05T20:34:00.000Z"
+        "waitingSince": "2026-09-05T20:15:00.000Z"
       },
       "renuity": {
         "id": "renuity",
@@ -10301,60 +10491,60 @@
         },
         "log": [
           {
-            "at": "2026-09-07T12:05:00.000Z",
+            "at": "2026-09-07T12:42:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Niall McComiskey, Michael Wang and Frances Sperry and ranked the top three windows per quarter. Windows found, Q1: 6, Q2: 12, Q3: 7, Q4: 11. Skipped 16 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-07T12:25:00.000Z",
+            "at": "2026-09-07T13:05:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Marcus Greene."
           },
           {
-            "at": "2026-09-07T12:42:00.000Z",
+            "at": "2026-09-07T13:12:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-07T13:14:00.000Z",
+            "at": "2026-09-07T13:25:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Niall McComiskey, Michael Wang and Frances Sperry."
           },
           {
-            "at": "2026-09-07T13:57:00.000Z",
+            "at": "2026-09-07T13:36:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Niall McComiskey, Michael Wang and Frances Sperry for sign-off."
           },
           {
-            "at": "2026-09-07T14:23:00.000Z",
+            "at": "2026-09-07T14:10:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-07T14:49:00.000Z",
+            "at": "2026-09-07T14:53:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-07T14:55:00.000Z",
+            "at": "2026-09-07T15:26:00.000Z",
             "actor": "partner",
             "text": "Frances Sperry replied yes.",
             "personId": "frances-sperry"
           },
           {
-            "at": "2026-09-07T15:44:00.000Z",
+            "at": "2026-09-07T16:06:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-07T16:16:00.000Z",
+            "at": "2026-09-07T16:11:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Marcus Greene."
           },
           {
-            "at": "2026-09-07T16:40:00.000Z",
+            "at": "2026-09-07T16:25:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Marcus Greene."
           }
@@ -10455,7 +10645,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T16:40:00.000Z"
+        "waitingSince": "2026-09-07T16:25:00.000Z"
       },
       "sunvair-aerospace-group": {
         "id": "sunvair-aerospace-group",
@@ -11640,27 +11830,27 @@
         },
         "log": [
           {
-            "at": "2026-09-04T16:43:00.000Z",
+            "at": "2026-09-04T16:22:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Noah Blitzer, Noah Roy and John Cofer and ranked the top three windows per quarter. Windows found, Q1: 12, Q2: 20, Q3: 8, Q4: 10. Skipped 4 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-04T17:00:00.000Z",
+            "at": "2026-09-04T17:03:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Lorraine Pike."
           },
           {
-            "at": "2026-09-04T17:22:00.000Z",
+            "at": "2026-09-04T17:11:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-04T17:31:00.000Z",
+            "at": "2026-09-04T17:48:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Noah Blitzer, Noah Roy and John Cofer."
           },
           {
-            "at": "2026-09-04T17:41:00.000Z",
+            "at": "2026-09-04T17:53:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Noah Blitzer, Noah Roy and John Cofer for sign-off."
           },
@@ -11671,49 +11861,49 @@
             "personId": "noah-blitzer"
           },
           {
-            "at": "2026-09-04T18:39:00.000Z",
+            "at": "2026-09-04T18:55:00.000Z",
             "actor": "partner",
             "text": "Noah Roy replied yes.",
             "personId": "noah-roy"
           },
           {
-            "at": "2026-09-04T19:07:00.000Z",
+            "at": "2026-09-04T19:15:00.000Z",
             "actor": "partner",
             "text": "John Cofer replied yes.",
             "personId": "john-cofer"
           },
           {
-            "at": "2026-09-04T20:17:00.000Z",
+            "at": "2026-09-04T20:06:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-04T20:33:00.000Z",
+            "at": "2026-09-04T20:24:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Lorraine Pike."
           },
           {
-            "at": "2026-09-04T21:10:00.000Z",
+            "at": "2026-09-04T20:56:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Lorraine Pike."
           },
           {
-            "at": "2026-09-04T21:16:00.000Z",
+            "at": "2026-09-04T21:28:00.000Z",
             "actor": "portco",
             "text": "Lorraine Pike picked: Q1 Tue Mar 9, 10am to 2pm; Q2 Wed Apr 14, 10am to 2pm; Q3 Tue Aug 3, 9am to 1pm; Q4 Tue Oct 12, 10am to 2pm."
           },
           {
-            "at": "2026-09-04T21:40:00.000Z",
+            "at": "2026-09-04T21:43:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-04T22:04:00.000Z",
+            "at": "2026-09-04T22:11:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Carlos Vega, Sheila Grant and Nate Ferguson."
           },
           {
-            "at": "2026-09-04T22:33:00.000Z",
+            "at": "2026-09-04T22:53:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           }
@@ -11844,7 +12034,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-04T22:33:00.000Z"
+        "waitingSince": "2026-09-04T22:53:00.000Z"
       },
       "the-facilities-group": {
         "id": "the-facilities-group",
@@ -12684,60 +12874,60 @@
         },
         "log": [
           {
-            "at": "2026-09-06T19:14:00.000Z",
+            "at": "2026-09-06T19:06:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Weiss, Niall McComiskey and John Cofer and ranked the top three windows per quarter. Windows found, Q1: 8, Q2: 14, Q3: 2, Q4: 8. Q3 is thin. Skipped 15 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-06T19:18:00.000Z",
+            "at": "2026-09-06T19:24:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Curtis Hale."
           },
           {
-            "at": "2026-09-06T19:59:00.000Z",
+            "at": "2026-09-06T19:49:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-06T20:05:00.000Z",
+            "at": "2026-09-06T19:59:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Weiss, Niall McComiskey and John Cofer."
           },
           {
-            "at": "2026-09-06T20:27:00.000Z",
+            "at": "2026-09-06T20:04:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Weiss, Niall McComiskey and John Cofer for sign-off."
           },
           {
-            "at": "2026-09-06T20:32:00.000Z",
+            "at": "2026-09-06T20:14:00.000Z",
             "actor": "partner",
             "text": "Michael Weiss replied yes.",
             "personId": "michael-weiss"
           },
           {
-            "at": "2026-09-06T21:07:00.000Z",
+            "at": "2026-09-06T20:34:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-06T21:14:00.000Z",
+            "at": "2026-09-06T20:57:00.000Z",
             "actor": "partner",
             "text": "John Cofer replied yes.",
             "personId": "john-cofer"
           },
           {
-            "at": "2026-09-06T22:10:00.000Z",
+            "at": "2026-09-06T21:44:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-06T22:49:00.000Z",
+            "at": "2026-09-06T22:25:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Curtis Hale."
           },
           {
-            "at": "2026-09-06T23:14:00.000Z",
+            "at": "2026-09-06T22:38:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Curtis Hale."
           }
@@ -12838,7 +13028,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-06T23:14:00.000Z"
+        "waitingSince": "2026-09-06T22:38:00.000Z"
       },
       "towne": {
         "id": "towne",
@@ -13495,27 +13685,27 @@
         },
         "log": [
           {
-            "at": "2026-09-08T12:13:00.000Z",
+            "at": "2026-09-08T12:28:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell and ranked the top three windows per quarter. Windows found, Q1: 6, Q2: 6, Q3: 3, Q4: 3. Skipped 25 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-08T12:42:00.000Z",
+            "at": "2026-09-08T12:35:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Angela Ruiz."
           },
           {
-            "at": "2026-09-08T12:52:00.000Z",
+            "at": "2026-09-08T13:01:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-08T13:14:00.000Z",
+            "at": "2026-09-08T13:40:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Weiss, Michael Wang, John Cofer and Andrew Witherell."
           },
           {
-            "at": "2026-09-08T13:42:00.000Z",
+            "at": "2026-09-08T13:51:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Weiss, Michael Wang, John Cofer and Andrew Witherell for sign-off."
           }
@@ -13596,7 +13786,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-08T13:42:00.000Z"
+        "waitingSince": "2026-09-08T13:51:00.000Z"
       },
       "west-star-aviation": {
         "id": "west-star-aviation",
@@ -13622,10 +13812,10 @@
           "Q4"
         ],
         "eaId": "ea4",
-        "waitingOn": "none",
+        "waitingOn": "attendees",
         "quarters": {
           "Q1": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q1-2027-01-11-09",
@@ -13890,7 +14080,7 @@
             }
           },
           "Q2": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q2-2027-04-01-10",
@@ -14240,7 +14430,7 @@
             }
           },
           "Q3": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q3-2027-07-15-10",
@@ -14420,7 +14610,7 @@
             }
           },
           "Q4": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q4-2027-10-05-13",
@@ -14653,130 +14843,125 @@
         },
         "log": [
           {
-            "at": "2026-09-02T12:13:00.000Z",
+            "at": "2026-09-02T12:21:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Noah Blitzer, Noah Roy and Max Elgart and ranked the top three windows per quarter. Windows found, Q1: 10, Q2: 15, Q3: 5, Q4: 8. Skipped 14 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-02T12:47:00.000Z",
+            "at": "2026-09-02T12:53:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Sandra Okoye."
           },
           {
-            "at": "2026-09-02T13:17:00.000Z",
+            "at": "2026-09-02T13:36:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-02T13:42:00.000Z",
+            "at": "2026-09-02T14:05:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Noah Blitzer, Noah Roy and Max Elgart."
           },
           {
-            "at": "2026-09-02T14:17:00.000Z",
+            "at": "2026-09-02T14:20:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Noah Blitzer, Noah Roy and Max Elgart for sign-off."
           },
           {
-            "at": "2026-09-02T14:52:00.000Z",
+            "at": "2026-09-02T14:41:00.000Z",
             "actor": "partner",
             "text": "Noah Blitzer replied yes.",
             "personId": "noah-blitzer"
           },
           {
-            "at": "2026-09-02T15:00:00.000Z",
+            "at": "2026-09-02T15:17:00.000Z",
             "actor": "partner",
             "text": "Noah Roy replied yes.",
             "personId": "noah-roy"
           },
           {
-            "at": "2026-09-02T15:32:00.000Z",
+            "at": "2026-09-02T16:00:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-02T16:09:00.000Z",
+            "at": "2026-09-02T17:03:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-02T16:25:00.000Z",
+            "at": "2026-09-02T17:29:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Sandra Okoye."
           },
           {
-            "at": "2026-09-02T17:03:00.000Z",
+            "at": "2026-09-02T17:35:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Sandra Okoye."
           },
           {
-            "at": "2026-09-02T17:24:00.000Z",
+            "at": "2026-09-02T17:57:00.000Z",
             "actor": "portco",
             "text": "Sandra Okoye picked: Q1 Wed Feb 3, 9am to 1pm; Q2 Thu May 27, 10am to 2pm; Q3 Thu Jul 15, 10am to 2pm; Q4 Tue Dec 7, 9am to 1pm."
           },
           {
-            "at": "2026-09-02T18:03:00.000Z",
+            "at": "2026-09-02T18:15:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-02T18:28:00.000Z",
+            "at": "2026-09-02T18:26:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Howard Fitch, Amara Nwosu and Philip Sandoval."
           },
           {
-            "at": "2026-09-02T18:42:00.000Z",
+            "at": "2026-09-02T19:01:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-02T19:23:00.000Z",
+            "at": "2026-09-02T19:29:00.000Z",
             "actor": "board",
             "text": "Howard Fitch confirmed every quarter.",
             "personId": "b43"
           },
           {
-            "at": "2026-09-02T19:53:00.000Z",
+            "at": "2026-09-02T20:11:00.000Z",
             "actor": "board",
             "text": "Amara Nwosu confirmed every quarter.",
             "personId": "b44"
           },
           {
-            "at": "2026-09-02T20:11:00.000Z",
+            "at": "2026-09-02T20:48:00.000Z",
             "actor": "board",
             "text": "Philip Sandoval confirmed every quarter.",
             "personId": "b45"
           },
           {
-            "at": "2026-09-02T20:44:00.000Z",
+            "at": "2026-09-02T21:05:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Wed Feb 3, Q2 Thu May 27, Q3 Thu Jul 15, Q4 Tue Dec 7."
           },
           {
-            "at": "2026-09-02T21:11:00.000Z",
+            "at": "2026-09-02T21:21:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 2 Terminal Drive, Suite 200, East Alton, IL for each meeting."
           },
           {
-            "at": "2026-09-02T21:31:00.000Z",
+            "at": "2026-09-02T21:35:00.000Z",
             "actor": "ea",
             "text": "Locked all four meetings with hotel and dinner."
           },
           {
-            "at": "2026-09-02T21:48:00.000Z",
+            "at": "2026-09-02T22:05:00.000Z",
             "actor": "agent",
-            "text": "Calendar invites went out from Outlook to 7 people for all four meetings. Travel requests opened for Noah Blitzer, Noah Roy and Max Elgart."
+            "text": "Drafted four calendar invites, one per meeting, for 7 people each."
           },
           {
             "at": "2026-09-02T22:18:00.000Z",
-            "actor": "board",
-            "text": "Invites accepted, 26 of 28. Amara Nwosu is tentative for Q2. Max Elgart has not replied for Q4."
-          },
-          {
-            "at": "2026-09-02T22:41:00.000Z",
-            "actor": "agent",
-            "text": "Travel booked for Noah Blitzer and Noah Roy. Max Elgart still pending."
+            "actor": "ea",
+            "text": "Sent four calendar invites to 7 people. Travel requests opened for Noah Blitzer, Noah Roy and Max Elgart."
           }
         ],
         "drafts": {
@@ -14933,49 +15118,144 @@
                 "reason": "Four Seasons Hotel St. Louis is 21 miles from the office. Downtown St. Louis, quiet, needs a car. Tony's for dinner, 21 miles away. Downtown St. Louis, classic, private room."
               }
             }
+          },
+          "invites": {
+            "kind": "invites",
+            "portcoId": "west-star-aviation",
+            "text": "West Star Aviation quarterly meeting, Q1 2027: Wed Feb 3, 9am to 1pm\nWest Star Aviation quarterly meeting, Q2 2027: Thu May 27, 10am to 2pm\nWest Star Aviation quarterly meeting, Q3 2027: Thu Jul 15, 10am to 2pm\nWest Star Aviation quarterly meeting, Q4 2027: Tue Dec 7, 9am to 1pm",
+            "approved": true,
+            "offline": false,
+            "variant": 0,
+            "data": [
+              {
+                "quarter": "Q1",
+                "title": "West Star Aviation quarterly meeting, Q1 2027",
+                "start": "2027-02-03T09:00:00",
+                "end": "2027-02-03T13:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Tony's",
+                  "start": "2027-02-03T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Tony's."
+              },
+              {
+                "quarter": "Q2",
+                "title": "West Star Aviation quarterly meeting, Q2 2027",
+                "start": "2027-05-27T10:00:00",
+                "end": "2027-05-27T14:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Cinder House",
+                  "start": "2027-05-27T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Cinder House."
+              },
+              {
+                "quarter": "Q3",
+                "title": "West Star Aviation quarterly meeting, Q3 2027",
+                "start": "2027-07-15T10:00:00",
+                "end": "2027-07-15T14:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Gentelin's on Broadway",
+                  "start": "2027-07-15T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Gentelin's on Broadway."
+              },
+              {
+                "quarter": "Q4",
+                "title": "West Star Aviation quarterly meeting, Q4 2027",
+                "start": "2027-12-07T09:00:00",
+                "end": "2027-12-07T13:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Tony's",
+                  "start": "2027-12-07T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Tony's."
+              }
+            ]
           }
         },
+        "waitingSince": "2026-09-02T22:18:00.000Z",
         "attendance": {
           "Q1": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
-            "max-elgart": "accepted",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "accepted",
-            "b45": "accepted"
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
+            "max-elgart": "noReply",
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           },
           "Q2": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
-            "max-elgart": "accepted",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "tentative",
-            "b45": "accepted"
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
+            "max-elgart": "noReply",
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           },
           "Q3": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
-            "max-elgart": "accepted",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "accepted",
-            "b45": "accepted"
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
+            "max-elgart": "noReply",
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           },
           "Q4": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
             "max-elgart": "noReply",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "accepted",
-            "b45": "accepted"
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           }
         },
         "travel": {
-          "noah-blitzer": "booked",
-          "noah-roy": "booked",
+          "noah-blitzer": "pending",
+          "noah-roy": "pending",
           "max-elgart": "pending"
         }
       },
@@ -15819,60 +16099,60 @@
         },
         "log": [
           {
-            "at": "2026-09-07T14:42:00.000Z",
+            "at": "2026-09-07T14:30:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Weiss, Jill Raker and Ben Cox and ranked the top three windows per quarter. Windows found, Q1: 9, Q2: 12, Q3: 4, Q4: 6. Skipped 16 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-07T15:09:00.000Z",
+            "at": "2026-09-07T14:58:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Daniel Brightwater."
           },
           {
-            "at": "2026-09-07T15:46:00.000Z",
+            "at": "2026-09-07T15:21:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-07T16:23:00.000Z",
+            "at": "2026-09-07T15:30:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Weiss, Jill Raker and Ben Cox."
           },
           {
-            "at": "2026-09-07T16:40:00.000Z",
+            "at": "2026-09-07T16:11:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Weiss, Jill Raker and Ben Cox for sign-off."
           },
           {
-            "at": "2026-09-07T16:51:00.000Z",
+            "at": "2026-09-07T16:17:00.000Z",
             "actor": "partner",
             "text": "Michael Weiss replied yes.",
             "personId": "michael-weiss"
           },
           {
-            "at": "2026-09-07T17:21:00.000Z",
+            "at": "2026-09-07T16:41:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-07T17:32:00.000Z",
+            "at": "2026-09-07T17:15:00.000Z",
             "actor": "partner",
             "text": "Ben Cox replied yes.",
             "personId": "ben-cox"
           },
           {
-            "at": "2026-09-07T18:40:00.000Z",
+            "at": "2026-09-07T17:48:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-07T19:08:00.000Z",
+            "at": "2026-09-07T17:53:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Daniel Brightwater."
           },
           {
-            "at": "2026-09-07T19:24:00.000Z",
+            "at": "2026-09-07T18:29:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Daniel Brightwater."
           }
@@ -15973,7 +16253,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T19:24:00.000Z"
+        "waitingSince": "2026-09-07T18:29:00.000Z"
       }
     }
   },
@@ -16915,87 +17195,87 @@
         },
         "log": [
           {
-            "at": "2026-09-09T11:21:00.000Z",
+            "at": "2026-09-09T11:29:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox and ranked the top three windows per quarter. Windows found, Q1: 9, Q2: 10, Q3: 2, Q4: 10. Q3 is thin."
           },
           {
-            "at": "2026-09-09T11:33:00.000Z",
+            "at": "2026-09-09T11:55:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Tom Haggerty."
           },
           {
-            "at": "2026-09-09T11:37:00.000Z",
+            "at": "2026-09-09T12:28:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-09T11:44:00.000Z",
+            "at": "2026-09-09T12:54:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox."
           },
           {
-            "at": "2026-09-09T11:50:00.000Z",
+            "at": "2026-09-09T13:29:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox for sign-off."
           },
           {
-            "at": "2026-09-09T12:28:00.000Z",
+            "at": "2026-09-09T13:40:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-09T13:08:00.000Z",
+            "at": "2026-09-09T13:57:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-09T13:25:00.000Z",
+            "at": "2026-09-09T14:29:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-09T14:06:00.000Z",
+            "at": "2026-09-09T15:11:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-09T14:13:00.000Z",
+            "at": "2026-09-09T15:47:00.000Z",
             "actor": "partner",
             "text": "Ben Cox replied yes.",
             "personId": "ben-cox"
           },
           {
-            "at": "2026-09-09T15:21:00.000Z",
+            "at": "2026-09-09T16:33:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-09T16:04:00.000Z",
+            "at": "2026-09-09T17:16:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Tom Haggerty."
           },
           {
-            "at": "2026-09-09T16:08:00.000Z",
+            "at": "2026-09-09T17:30:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Tom Haggerty."
           },
           {
-            "at": "2026-09-09T16:42:00.000Z",
+            "at": "2026-09-09T17:43:00.000Z",
             "actor": "portco",
             "text": "Tom Haggerty picked: Q1 Wed Feb 3, 9am to 1pm; Q2 Wed May 5, 1pm to 5pm; Q3 Tue Jul 20, 9am to 1pm; Q4 Mon Nov 22, 10am to 2pm."
           },
           {
-            "at": "2026-09-09T17:36:00.000Z",
+            "at": "2026-09-09T18:25:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-09T17:58:00.000Z",
+            "at": "2026-09-09T18:54:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Helen Marsh, Raymond Cho and Denise Walker."
           }
@@ -18053,142 +18333,142 @@
         },
         "log": [
           {
-            "at": "2026-09-03T12:41:00.000Z",
+            "at": "2026-09-03T12:13:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Jill Raker, Michael Wang, James Peng and Will Stewart and ranked the top three windows per quarter. Windows found, Q1: 12, Q2: 8, Q3: 7, Q4: 5. Skipped 4 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-03T12:58:00.000Z",
+            "at": "2026-09-03T12:26:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Karen Delgado."
           },
           {
-            "at": "2026-09-03T13:30:00.000Z",
+            "at": "2026-09-03T12:34:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-03T14:08:00.000Z",
+            "at": "2026-09-03T13:10:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Jill Raker, Michael Wang, James Peng and Will Stewart."
           },
           {
-            "at": "2026-09-03T14:16:00.000Z",
+            "at": "2026-09-03T13:32:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Jill Raker, Michael Wang, James Peng and Will Stewart for sign-off."
           },
           {
-            "at": "2026-09-03T14:51:00.000Z",
+            "at": "2026-09-03T14:14:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-03T15:06:00.000Z",
+            "at": "2026-09-03T14:24:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-03T15:40:00.000Z",
+            "at": "2026-09-03T14:34:00.000Z",
             "actor": "partner",
             "text": "James Peng replied yes.",
             "personId": "james-peng"
           },
           {
-            "at": "2026-09-03T16:13:00.000Z",
+            "at": "2026-09-03T15:11:00.000Z",
             "actor": "partner",
             "text": "Will Stewart replied yes.",
             "personId": "will-stewart"
           },
           {
-            "at": "2026-09-03T16:50:00.000Z",
+            "at": "2026-09-03T15:47:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-03T16:55:00.000Z",
+            "at": "2026-09-03T16:10:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Karen Delgado."
           },
           {
-            "at": "2026-09-03T17:21:00.000Z",
+            "at": "2026-09-03T16:30:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Karen Delgado."
           },
           {
-            "at": "2026-09-03T17:59:00.000Z",
+            "at": "2026-09-03T16:48:00.000Z",
             "actor": "portco",
             "text": "Karen Delgado picked: Q1 Wed Jan 27, 10am to 2pm; Q2 Tue Jun 22, 10am to 2pm; Q3 Wed Sep 22, 9am to 1pm; Q4 Thu Nov 4, 9am to 1pm."
           },
           {
-            "at": "2026-09-03T18:30:00.000Z",
+            "at": "2026-09-03T17:30:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-03T18:46:00.000Z",
+            "at": "2026-09-03T17:59:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Gordon Reyes, Linda Farrow and Marcus Bell."
           },
           {
-            "at": "2026-09-03T18:51:00.000Z",
+            "at": "2026-09-03T18:42:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-03T18:55:00.000Z",
+            "at": "2026-09-03T19:10:00.000Z",
             "actor": "board",
             "text": "Gordon Reyes confirmed every quarter.",
             "personId": "b4"
           },
           {
-            "at": "2026-09-03T19:15:00.000Z",
+            "at": "2026-09-03T19:36:00.000Z",
             "actor": "board",
             "text": "Linda Farrow confirmed every quarter except Q3. Cannot make Wed Sep 22, 9am to 1pm.",
             "personId": "b5"
           },
           {
-            "at": "2026-09-03T19:23:00.000Z",
+            "at": "2026-09-03T19:51:00.000Z",
             "actor": "board",
             "text": "Marcus Bell confirmed every quarter.",
             "personId": "b6"
           },
           {
-            "at": "2026-09-03T20:18:00.000Z",
+            "at": "2026-09-03T20:31:00.000Z",
             "actor": "agent",
             "text": "Went back to the approved shortlist and proposed the number 2 Q3 window, Wed Aug 18, 1pm to 5pm. Re-checked Jill Raker, Michael Wang, James Peng and Will Stewart: all still free."
           },
           {
-            "at": "2026-09-03T21:00:00.000Z",
+            "at": "2026-09-03T21:14:00.000Z",
             "actor": "ea",
             "text": "Re-sent to the board. Q3 now proposed for Wed Aug 18, 1pm to 5pm."
           },
           {
-            "at": "2026-09-03T21:41:00.000Z",
+            "at": "2026-09-03T21:24:00.000Z",
             "actor": "board",
             "text": "Gordon Reyes confirmed every quarter.",
             "personId": "b4"
           },
           {
-            "at": "2026-09-03T22:17:00.000Z",
+            "at": "2026-09-03T21:30:00.000Z",
             "actor": "board",
             "text": "Linda Farrow confirmed every quarter.",
             "personId": "b5"
           },
           {
-            "at": "2026-09-03T22:26:00.000Z",
+            "at": "2026-09-03T21:54:00.000Z",
             "actor": "board",
             "text": "Marcus Bell confirmed every quarter.",
             "personId": "b6"
           },
           {
-            "at": "2026-09-03T23:18:00.000Z",
+            "at": "2026-09-03T22:37:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Wed Jan 27, Q2 Tue Jun 22, Q3 Wed Aug 18, Q4 Thu Nov 4."
           },
           {
-            "at": "2026-09-03T23:43:00.000Z",
+            "at": "2026-09-03T23:15:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 6300 NW Prairie View Road, Suite 200, Parkville, MO for each meeting."
           }
@@ -19337,55 +19617,55 @@
             "text": "Checked calendars for Jill Raker, Michael Wang and Jack Morris and ranked the top three windows per quarter. Windows found, Q1: 9, Q2: 13, Q3: 7, Q4: 8. Skipped 8 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-06T13:58:00.000Z",
+            "at": "2026-09-06T13:43:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Renee Ashby."
           },
           {
-            "at": "2026-09-06T14:30:00.000Z",
+            "at": "2026-09-06T13:51:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-06T14:43:00.000Z",
+            "at": "2026-09-06T13:57:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Jill Raker, Michael Wang and Jack Morris."
           },
           {
-            "at": "2026-09-06T14:49:00.000Z",
+            "at": "2026-09-06T14:12:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Jill Raker, Michael Wang and Jack Morris for sign-off."
           },
           {
-            "at": "2026-09-06T15:17:00.000Z",
+            "at": "2026-09-06T14:41:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-06T15:42:00.000Z",
+            "at": "2026-09-06T15:12:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-06T16:01:00.000Z",
+            "at": "2026-09-06T15:42:00.000Z",
             "actor": "partner",
             "text": "Jack Morris replied yes.",
             "personId": "jack-morris"
           },
           {
-            "at": "2026-09-06T16:47:00.000Z",
+            "at": "2026-09-06T16:31:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-06T17:24:00.000Z",
+            "at": "2026-09-06T16:57:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Renee Ashby."
           },
           {
-            "at": "2026-09-06T17:53:00.000Z",
+            "at": "2026-09-06T17:09:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Renee Ashby."
           }
@@ -19486,7 +19766,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-06T17:53:00.000Z"
+        "waitingSince": "2026-09-06T17:09:00.000Z"
       },
       "radwell-international": {
         "id": "radwell-international",
@@ -20360,91 +20640,91 @@
         },
         "log": [
           {
-            "at": "2026-09-07T17:43:00.000Z",
+            "at": "2026-09-07T17:33:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Niall McComiskey, Michael Wang, Max Elgart and John Landry and ranked the top three windows per quarter. Windows found, Q1: 8, Q2: 11, Q3: 4, Q4: 6. Skipped 12 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-07T18:08:00.000Z",
+            "at": "2026-09-07T18:11:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Dale Whitcomb."
           },
           {
-            "at": "2026-09-07T18:16:00.000Z",
+            "at": "2026-09-07T18:47:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-07T18:37:00.000Z",
+            "at": "2026-09-07T19:25:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Niall McComiskey, Michael Wang, Max Elgart and John Landry."
           },
           {
-            "at": "2026-09-07T18:47:00.000Z",
+            "at": "2026-09-07T19:41:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Niall McComiskey, Michael Wang, Max Elgart and John Landry for sign-off."
           },
           {
-            "at": "2026-09-07T19:07:00.000Z",
+            "at": "2026-09-07T20:07:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-07T19:30:00.000Z",
+            "at": "2026-09-07T20:45:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-07T20:08:00.000Z",
+            "at": "2026-09-07T21:03:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-07T20:37:00.000Z",
+            "at": "2026-09-07T21:26:00.000Z",
             "actor": "partner",
             "text": "John Landry replied yes.",
             "personId": "john-landry"
           },
           {
-            "at": "2026-09-07T21:06:00.000Z",
+            "at": "2026-09-07T22:03:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-07T21:38:00.000Z",
+            "at": "2026-09-07T22:11:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Dale Whitcomb."
           },
           {
-            "at": "2026-09-07T21:50:00.000Z",
+            "at": "2026-09-07T22:20:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Dale Whitcomb."
           },
           {
-            "at": "2026-09-07T22:21:00.000Z",
+            "at": "2026-09-07T22:43:00.000Z",
             "actor": "portco",
             "text": "Dale Whitcomb picked: Q1 Wed Mar 24, 9am to 1pm; Q2 Mon May 10, 10am to 2pm; Q3 Wed Sep 22, 10am to 2pm; Q4 Tue Oct 5, 1pm to 5pm."
           },
           {
-            "at": "2026-09-07T22:51:00.000Z",
+            "at": "2026-09-07T23:49:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-07T23:04:00.000Z",
+            "at": "2026-09-07T23:56:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Ruth Calloway, Hector Ramos and Beth Lindgren."
           },
           {
-            "at": "2026-09-07T23:10:00.000Z",
+            "at": "2026-09-08T00:05:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-07T23:22:00.000Z",
+            "at": "2026-09-08T00:21:00.000Z",
             "actor": "board",
             "text": "Ruth Calloway confirmed every quarter.",
             "personId": "b16"
@@ -20576,7 +20856,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T23:10:00.000Z"
+        "waitingSince": "2026-09-08T00:05:00.000Z"
       },
       "sparkstone-electrical-group": {
         "id": "sparkstone-electrical-group",
@@ -21430,27 +21710,27 @@
         },
         "log": [
           {
-            "at": "2026-09-08T18:22:00.000Z",
+            "at": "2026-09-08T18:14:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Niall McComiskey, Michael Wang, James Peng and Will Stewart and ranked the top three windows per quarter. Windows found, Q1: 8, Q2: 12, Q3: 6, Q4: 3. Skipped 16 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-08T18:26:00.000Z",
+            "at": "2026-09-08T18:34:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Jenna Holt."
           },
           {
-            "at": "2026-09-08T19:02:00.000Z",
+            "at": "2026-09-08T18:39:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-08T19:41:00.000Z",
+            "at": "2026-09-08T19:20:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Niall McComiskey, Michael Wang, James Peng and Will Stewart."
           },
           {
-            "at": "2026-09-08T19:47:00.000Z",
+            "at": "2026-09-08T19:54:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Niall McComiskey, Michael Wang, James Peng and Will Stewart for sign-off."
           }
@@ -21531,7 +21811,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-08T19:47:00.000Z"
+        "waitingSince": "2026-09-08T19:54:00.000Z"
       },
       "jegs-automotive": {
         "id": "jegs-automotive",
@@ -21559,7 +21839,7 @@
         "waitingOn": "none",
         "quarters": {
           "Q1": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q1-2027-01-11-10",
@@ -21906,7 +22186,7 @@
             }
           },
           "Q2": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q2-2027-04-05-10",
@@ -22333,7 +22613,7 @@
             }
           },
           "Q3": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q3-2027-07-13-13",
@@ -22696,7 +22976,7 @@
             }
           },
           "Q4": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "jegs-automotive-Q4-2027-10-05-13",
@@ -22981,69 +23261,69 @@
         },
         "log": [
           {
-            "at": "2026-08-31T12:17:00.000Z",
+            "at": "2026-08-31T12:38:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Matt Burke and Andrew Witherell and ranked the top three windows per quarter. Windows found, Q1: 16, Q2: 21, Q3: 17, Q4: 12."
           },
           {
-            "at": "2026-08-31T12:56:00.000Z",
+            "at": "2026-08-31T13:14:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Miguel Santana."
           },
           {
-            "at": "2026-08-31T13:16:00.000Z",
+            "at": "2026-08-31T13:27:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-08-31T13:36:00.000Z",
+            "at": "2026-08-31T13:56:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Matt Burke and Andrew Witherell."
           },
           {
-            "at": "2026-08-31T14:05:00.000Z",
+            "at": "2026-08-31T14:23:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Matt Burke and Andrew Witherell for sign-off."
           },
           {
-            "at": "2026-08-31T14:24:00.000Z",
+            "at": "2026-08-31T14:39:00.000Z",
             "actor": "partner",
             "text": "Matt Burke replied yes.",
             "personId": "matt-burke"
           },
           {
-            "at": "2026-08-31T15:01:00.000Z",
+            "at": "2026-08-31T15:05:00.000Z",
             "actor": "partner",
             "text": "Andrew Witherell replied yes.",
             "personId": "andrew-witherell"
           },
           {
-            "at": "2026-08-31T16:00:00.000Z",
+            "at": "2026-08-31T16:09:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-08-31T16:27:00.000Z",
+            "at": "2026-08-31T16:50:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Miguel Santana."
           },
           {
-            "at": "2026-08-31T16:44:00.000Z",
+            "at": "2026-08-31T17:03:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Miguel Santana."
           },
           {
-            "at": "2026-08-31T16:52:00.000Z",
+            "at": "2026-08-31T17:21:00.000Z",
             "actor": "portco",
             "text": "Miguel Santana picked: Q1 Tue Feb 9, 10am to 2pm; Q2 Wed May 5, 10am to 2pm; Q3 Wed Aug 18, 10am to 2pm; Q4 Tue Nov 2, 10am to 2pm."
           },
           {
-            "at": "2026-08-31T17:53:00.000Z",
+            "at": "2026-08-31T17:59:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-08-31T18:14:00.000Z",
+            "at": "2026-08-31T18:31:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Janet Kowalski, Robert Tran and Elaine Porter."
           },
@@ -23053,52 +23333,52 @@
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-08-31T19:01:00.000Z",
+            "at": "2026-08-31T19:06:00.000Z",
             "actor": "board",
             "text": "Janet Kowalski confirmed every quarter.",
             "personId": "b10"
           },
           {
-            "at": "2026-08-31T19:36:00.000Z",
+            "at": "2026-08-31T19:37:00.000Z",
             "actor": "board",
             "text": "Robert Tran confirmed every quarter.",
             "personId": "b11"
           },
           {
-            "at": "2026-08-31T20:12:00.000Z",
+            "at": "2026-08-31T19:44:00.000Z",
             "actor": "board",
             "text": "Elaine Porter confirmed every quarter.",
             "personId": "b12"
           },
           {
-            "at": "2026-08-31T20:56:00.000Z",
+            "at": "2026-08-31T20:38:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Tue Feb 9, Q2 Wed May 5, Q3 Wed Aug 18, Q4 Tue Nov 2."
           },
           {
-            "at": "2026-08-31T21:22:00.000Z",
+            "at": "2026-08-31T21:18:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 101 Innovation Drive, Suite 400, Delaware, OH for each meeting."
           },
           {
-            "at": "2026-08-31T21:48:00.000Z",
+            "at": "2026-08-31T22:01:00.000Z",
             "actor": "ea",
             "text": "Locked all four meetings with hotel and dinner."
           },
           {
-            "at": "2026-08-31T22:02:00.000Z",
+            "at": "2026-08-31T22:39:00.000Z",
             "actor": "agent",
-            "text": "Calendar invites went out from Outlook to 6 people for all four meetings. Travel requests opened for Matt Burke and Andrew Witherell."
+            "text": "Drafted four calendar invites, one per meeting, for 6 people each."
           },
           {
-            "at": "2026-08-31T22:18:00.000Z",
+            "at": "2026-08-31T23:07:00.000Z",
+            "actor": "ea",
+            "text": "Sent four calendar invites to 6 people. Travel requests opened for Matt Burke and Andrew Witherell."
+          },
+          {
+            "at": "2026-08-31T23:23:00.000Z",
             "actor": "board",
-            "text": "Invites accepted, 22 of 24. Robert Tran is tentative for Q2. Andrew Witherell has not replied for Q4."
-          },
-          {
-            "at": "2026-08-31T22:50:00.000Z",
-            "actor": "agent",
-            "text": "Travel booked for Matt Burke. Andrew Witherell still pending."
+            "text": "Every invite accepted, 24 of 24. Travel booked for all partners."
           }
         ],
         "drafts": {
@@ -23255,6 +23535,96 @@
                 "reason": "Hilton Columbus at Easton is 16 miles from the office. Easton, reliable, needs a car. Veritas for dinner, 22 miles away. Downtown Columbus, tasting menu, private room, needs a car."
               }
             }
+          },
+          "invites": {
+            "kind": "invites",
+            "portcoId": "jegs-automotive",
+            "text": "JEGS Automotive quarterly meeting, Q1 2027: Tue Feb 9, 10am to 2pm\nJEGS Automotive quarterly meeting, Q2 2027: Wed May 5, 10am to 2pm\nJEGS Automotive quarterly meeting, Q3 2027: Wed Aug 18, 10am to 2pm\nJEGS Automotive quarterly meeting, Q4 2027: Tue Nov 2, 10am to 2pm",
+            "approved": true,
+            "offline": false,
+            "variant": 0,
+            "data": [
+              {
+                "quarter": "Q1",
+                "title": "JEGS Automotive quarterly meeting, Q1 2027",
+                "start": "2027-02-09T10:00:00",
+                "end": "2027-02-09T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Veritas",
+                  "start": "2027-02-09T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Veritas."
+              },
+              {
+                "quarter": "Q2",
+                "title": "JEGS Automotive quarterly meeting, Q2 2027",
+                "start": "2027-05-05T10:00:00",
+                "end": "2027-05-05T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Lindey's",
+                  "start": "2027-05-05T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Lindey's."
+              },
+              {
+                "quarter": "Q3",
+                "title": "JEGS Automotive quarterly meeting, Q3 2027",
+                "start": "2027-08-18T10:00:00",
+                "end": "2027-08-18T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Amato's Woodfired Pizza",
+                  "start": "2027-08-18T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Amato's Woodfired Pizza."
+              },
+              {
+                "quarter": "Q4",
+                "title": "JEGS Automotive quarterly meeting, Q4 2027",
+                "start": "2027-11-02T10:00:00",
+                "end": "2027-11-02T14:00:00",
+                "location": "101 Innovation Drive, Suite 400, Delaware, OH",
+                "dinner": {
+                  "venue": "Veritas",
+                  "start": "2027-11-02T18:30:00"
+                },
+                "attendeeIds": [
+                  "matt-burke",
+                  "andrew-witherell",
+                  "exec",
+                  "b10",
+                  "b11",
+                  "b12"
+                ],
+                "body": "Quarterly meeting between JEGS Automotive and Greenbriar at the Delaware office. Dinner follows at Veritas."
+              }
+            ]
           }
         },
         "attendance": {
@@ -23271,7 +23641,7 @@
             "andrew-witherell": "accepted",
             "exec": "accepted",
             "b10": "accepted",
-            "b11": "tentative",
+            "b11": "accepted",
             "b12": "accepted"
           },
           "Q3": {
@@ -23284,7 +23654,7 @@
           },
           "Q4": {
             "matt-burke": "accepted",
-            "andrew-witherell": "noReply",
+            "andrew-witherell": "accepted",
             "exec": "accepted",
             "b10": "accepted",
             "b11": "accepted",
@@ -23293,7 +23663,7 @@
         },
         "travel": {
           "matt-burke": "booked",
-          "andrew-witherell": "pending"
+          "andrew-witherell": "booked"
         }
       },
       "ontrac": {
@@ -23321,10 +23691,10 @@
           "Q4"
         ],
         "eaId": "ea2",
-        "waitingOn": "none",
+        "waitingOn": "attendees",
         "quarters": {
           "Q1": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q1-2027-01-11-10",
@@ -23623,7 +23993,7 @@
             }
           },
           "Q2": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q2-2027-04-01-13",
@@ -23905,7 +24275,7 @@
             }
           },
           "Q3": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q3-2027-07-08-09",
@@ -24136,7 +24506,7 @@
             }
           },
           "Q4": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "ontrac-Q4-2027-10-11-09",
@@ -24352,156 +24722,161 @@
         },
         "log": [
           {
-            "at": "2026-09-01T13:27:00.000Z",
+            "at": "2026-09-01T13:07:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Jill Raker, Max Elgart and Will Stewart and ranked the top three windows per quarter. Windows found, Q1: 12, Q2: 11, Q3: 8, Q4: 7. Skipped 20 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-01T13:58:00.000Z",
+            "at": "2026-09-01T13:46:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Priya Raman."
           },
           {
-            "at": "2026-09-01T14:34:00.000Z",
+            "at": "2026-09-01T14:20:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-01T15:09:00.000Z",
+            "at": "2026-09-01T14:58:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Jill Raker, Max Elgart and Will Stewart."
           },
           {
-            "at": "2026-09-01T15:32:00.000Z",
+            "at": "2026-09-01T15:37:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Jill Raker, Max Elgart and Will Stewart for sign-off."
           },
           {
-            "at": "2026-09-01T16:06:00.000Z",
+            "at": "2026-09-01T16:08:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-01T16:29:00.000Z",
+            "at": "2026-09-01T16:46:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-01T16:37:00.000Z",
+            "at": "2026-09-01T16:52:00.000Z",
             "actor": "partner",
             "text": "Will Stewart replied yes.",
             "personId": "will-stewart"
           },
           {
-            "at": "2026-09-01T17:57:00.000Z",
+            "at": "2026-09-01T17:20:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-01T18:32:00.000Z",
+            "at": "2026-09-01T17:31:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Priya Raman."
           },
           {
-            "at": "2026-09-01T19:14:00.000Z",
+            "at": "2026-09-01T17:46:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Priya Raman."
           },
           {
-            "at": "2026-09-01T19:54:00.000Z",
+            "at": "2026-09-01T17:53:00.000Z",
             "actor": "portco",
             "text": "Priya Raman picked: Q1 Wed Feb 24, 9am to 1pm; Q2 Wed Jun 23, 10am to 2pm; Q3 Tue Aug 3, 10am to 2pm; Q4 Tue Oct 12, 9am to 1pm."
           },
           {
-            "at": "2026-09-01T20:43:00.000Z",
+            "at": "2026-09-01T18:24:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-01T20:54:00.000Z",
+            "at": "2026-09-01T18:55:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Samuel Adeyemi, Nancy Whitaker and Paul Brennan."
           },
           {
-            "at": "2026-09-01T21:15:00.000Z",
+            "at": "2026-09-01T19:37:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-01T21:36:00.000Z",
+            "at": "2026-09-01T20:15:00.000Z",
             "actor": "board",
             "text": "Samuel Adeyemi confirmed every quarter.",
             "personId": "b13"
           },
           {
-            "at": "2026-09-01T21:59:00.000Z",
+            "at": "2026-09-01T20:21:00.000Z",
             "actor": "board",
             "text": "Nancy Whitaker confirmed every quarter except Q3. Cannot make Tue Aug 3, 10am to 2pm.",
             "personId": "b14"
           },
           {
-            "at": "2026-09-01T22:26:00.000Z",
+            "at": "2026-09-01T20:51:00.000Z",
             "actor": "board",
             "text": "Paul Brennan confirmed every quarter.",
             "personId": "b15"
           },
           {
-            "at": "2026-09-01T23:31:00.000Z",
+            "at": "2026-09-01T21:29:00.000Z",
             "actor": "agent",
             "text": "Went back to the approved shortlist and proposed the number 2 Q3 window, Wed Aug 4, 9am to 1pm. Re-checked Jill Raker, Max Elgart and Will Stewart: all still free."
           },
           {
-            "at": "2026-09-01T23:36:00.000Z",
+            "at": "2026-09-01T21:59:00.000Z",
             "actor": "ea",
             "text": "Re-sent to the board. Q3 now proposed for Wed Aug 4, 9am to 1pm."
           },
           {
-            "at": "2026-09-01T23:42:00.000Z",
+            "at": "2026-09-01T22:37:00.000Z",
             "actor": "board",
             "text": "Samuel Adeyemi confirmed every quarter.",
             "personId": "b13"
           },
           {
-            "at": "2026-09-01T23:55:00.000Z",
+            "at": "2026-09-01T23:01:00.000Z",
             "actor": "board",
             "text": "Nancy Whitaker confirmed every quarter.",
             "personId": "b14"
           },
           {
-            "at": "2026-09-02T00:35:00.000Z",
+            "at": "2026-09-01T23:12:00.000Z",
             "actor": "board",
             "text": "Paul Brennan confirmed every quarter.",
             "personId": "b15"
           },
           {
-            "at": "2026-09-02T01:39:00.000Z",
+            "at": "2026-09-02T00:01:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Wed Feb 24, Q2 Wed Jun 23, Q3 Wed Aug 4, Q4 Tue Oct 12."
           },
           {
-            "at": "2026-09-02T02:14:00.000Z",
+            "at": "2026-09-02T00:26:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 2501 West Chandler Boulevard, Suite 500, Chandler, AZ for each meeting."
           },
           {
-            "at": "2026-09-02T02:23:00.000Z",
+            "at": "2026-09-02T01:04:00.000Z",
             "actor": "ea",
             "text": "Locked all four meetings with hotel and dinner."
           },
           {
-            "at": "2026-09-02T02:36:00.000Z",
+            "at": "2026-09-02T01:44:00.000Z",
             "actor": "agent",
-            "text": "Calendar invites went out from Outlook to 7 people for all four meetings. Travel requests opened for Jill Raker, Max Elgart and Will Stewart."
+            "text": "Drafted four calendar invites, one per meeting, for 7 people each."
           },
           {
-            "at": "2026-09-02T03:11:00.000Z",
+            "at": "2026-09-02T02:13:00.000Z",
+            "actor": "ea",
+            "text": "Sent four calendar invites to 7 people. Travel requests opened for Jill Raker, Max Elgart and Will Stewart."
+          },
+          {
+            "at": "2026-09-02T02:26:00.000Z",
             "actor": "board",
             "text": "Invites accepted, 26 of 28. Nancy Whitaker is tentative for Q2. Will Stewart has not replied for Q4."
           },
           {
-            "at": "2026-09-02T03:19:00.000Z",
+            "at": "2026-09-02T03:03:00.000Z",
             "actor": "agent",
             "text": "Travel booked for Jill Raker and Max Elgart. Will Stewart still pending."
           }
@@ -24700,8 +25075,103 @@
                 "reason": "Sheraton Grand at Wild Horse Pass is 6.5 miles from the office. Resort, quiet, partners have stayed before. Kai for dinner, 6.5 miles away. Wild Horse Pass, tasting menu, memorable, book early."
               }
             }
+          },
+          "invites": {
+            "kind": "invites",
+            "portcoId": "ontrac",
+            "text": "OnTrac quarterly meeting, Q1 2027: Wed Feb 24, 9am to 1pm\nOnTrac quarterly meeting, Q2 2027: Wed Jun 23, 10am to 2pm\nOnTrac quarterly meeting, Q3 2027: Wed Aug 4, 9am to 1pm\nOnTrac quarterly meeting, Q4 2027: Tue Oct 12, 9am to 1pm",
+            "approved": true,
+            "offline": false,
+            "variant": 0,
+            "data": [
+              {
+                "quarter": "Q1",
+                "title": "OnTrac quarterly meeting, Q1 2027",
+                "start": "2027-02-24T09:00:00",
+                "end": "2027-02-24T13:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "Kai",
+                  "start": "2027-02-24T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at Kai."
+              },
+              {
+                "quarter": "Q2",
+                "title": "OnTrac quarterly meeting, Q2 2027",
+                "start": "2027-06-23T10:00:00",
+                "end": "2027-06-23T14:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "The Keg Steakhouse and Bar Chandler",
+                  "start": "2027-06-23T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at The Keg Steakhouse and Bar Chandler."
+              },
+              {
+                "quarter": "Q3",
+                "title": "OnTrac quarterly meeting, Q3 2027",
+                "start": "2027-08-04T09:00:00",
+                "end": "2027-08-04T13:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "Sibley's West",
+                  "start": "2027-08-04T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at Sibley's West."
+              },
+              {
+                "quarter": "Q4",
+                "title": "OnTrac quarterly meeting, Q4 2027",
+                "start": "2027-10-12T09:00:00",
+                "end": "2027-10-12T13:00:00",
+                "location": "2501 West Chandler Boulevard, Suite 500, Chandler, AZ",
+                "dinner": {
+                  "venue": "Kai",
+                  "start": "2027-10-12T18:30:00"
+                },
+                "attendeeIds": [
+                  "jill-raker",
+                  "max-elgart",
+                  "will-stewart",
+                  "exec",
+                  "b13",
+                  "b14",
+                  "b15"
+                ],
+                "body": "Quarterly meeting between OnTrac and Greenbriar at the Chandler office. Dinner follows at Kai."
+              }
+            ]
           }
         },
+        "waitingSince": "2026-09-02T02:13:00.000Z",
         "attendance": {
           "Q1": {
             "jill-raker": "accepted",
@@ -25997,91 +26467,91 @@
         },
         "log": [
           {
-            "at": "2026-09-05T14:42:00.000Z",
+            "at": "2026-09-05T14:07:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Noah Roy, Matt Burke and James Karle and ranked the top three windows per quarter. Windows found, Q1: 12, Q2: 17, Q3: 12, Q4: 13. Skipped 4 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-05T14:59:00.000Z",
+            "at": "2026-09-05T14:45:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Ingrid Solberg."
           },
           {
-            "at": "2026-09-05T15:16:00.000Z",
+            "at": "2026-09-05T15:04:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-05T15:51:00.000Z",
+            "at": "2026-09-05T15:47:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Noah Roy, Matt Burke and James Karle."
           },
           {
-            "at": "2026-09-05T16:18:00.000Z",
+            "at": "2026-09-05T16:29:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Noah Roy, Matt Burke and James Karle for sign-off."
           },
           {
-            "at": "2026-09-05T16:32:00.000Z",
+            "at": "2026-09-05T16:42:00.000Z",
             "actor": "partner",
             "text": "Noah Roy replied yes.",
             "personId": "noah-roy"
           },
           {
-            "at": "2026-09-05T16:36:00.000Z",
+            "at": "2026-09-05T17:18:00.000Z",
             "actor": "partner",
             "text": "Matt Burke replied yes.",
             "personId": "matt-burke"
           },
           {
-            "at": "2026-09-05T16:49:00.000Z",
+            "at": "2026-09-05T17:29:00.000Z",
             "actor": "partner",
             "text": "James Karle replied yes.",
             "personId": "james-karle"
           },
           {
-            "at": "2026-09-05T17:38:00.000Z",
+            "at": "2026-09-05T18:18:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-05T18:01:00.000Z",
+            "at": "2026-09-05T18:37:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Ingrid Solberg."
           },
           {
-            "at": "2026-09-05T18:26:00.000Z",
+            "at": "2026-09-05T18:45:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Ingrid Solberg."
           },
           {
-            "at": "2026-09-05T18:49:00.000Z",
+            "at": "2026-09-05T18:54:00.000Z",
             "actor": "portco",
             "text": "Ingrid Solberg picked: Q1 Wed Jan 27, 10am to 2pm; Q2 Thu May 20, 9am to 1pm; Q3 Tue Aug 17, 9am to 1pm; Q4 Wed Nov 10, 9am to 1pm."
           },
           {
-            "at": "2026-09-05T19:40:00.000Z",
+            "at": "2026-09-05T19:20:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-05T19:46:00.000Z",
+            "at": "2026-09-05T19:42:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Arne Johansen, Grace Ito and Leonard Price."
           },
           {
-            "at": "2026-09-05T20:26:00.000Z",
+            "at": "2026-09-05T20:25:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-05T21:09:00.000Z",
+            "at": "2026-09-05T20:52:00.000Z",
             "actor": "board",
             "text": "Arne Johansen confirmed every quarter.",
             "personId": "b19"
           },
           {
-            "at": "2026-09-05T21:40:00.000Z",
+            "at": "2026-09-05T21:21:00.000Z",
             "actor": "board",
             "text": "Grace Ito confirmed every quarter.",
             "personId": "b20"
@@ -26213,7 +26683,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-05T20:26:00.000Z"
+        "waitingSince": "2026-09-05T20:25:00.000Z"
       },
       "renuity": {
         "id": "renuity",
@@ -27072,60 +27542,60 @@
         },
         "log": [
           {
-            "at": "2026-09-07T12:09:00.000Z",
+            "at": "2026-09-07T12:32:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Niall McComiskey, Michael Wang and Frances Sperry and ranked the top three windows per quarter. Windows found, Q1: 5, Q2: 11, Q3: 7, Q4: 9. Skipped 20 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-07T12:32:00.000Z",
+            "at": "2026-09-07T12:37:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Marcus Greene."
           },
           {
-            "at": "2026-09-07T13:11:00.000Z",
+            "at": "2026-09-07T13:17:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-07T13:49:00.000Z",
+            "at": "2026-09-07T13:53:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Niall McComiskey, Michael Wang and Frances Sperry."
           },
           {
-            "at": "2026-09-07T14:10:00.000Z",
+            "at": "2026-09-07T14:27:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Niall McComiskey, Michael Wang and Frances Sperry for sign-off."
           },
           {
-            "at": "2026-09-07T14:43:00.000Z",
+            "at": "2026-09-07T15:02:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-07T14:54:00.000Z",
+            "at": "2026-09-07T15:28:00.000Z",
             "actor": "partner",
             "text": "Michael Wang replied yes.",
             "personId": "michael-wang"
           },
           {
-            "at": "2026-09-07T15:17:00.000Z",
+            "at": "2026-09-07T15:37:00.000Z",
             "actor": "partner",
             "text": "Frances Sperry replied yes.",
             "personId": "frances-sperry"
           },
           {
-            "at": "2026-09-07T16:41:00.000Z",
+            "at": "2026-09-07T16:14:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-07T16:46:00.000Z",
+            "at": "2026-09-07T16:38:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Marcus Greene."
           },
           {
-            "at": "2026-09-07T17:12:00.000Z",
+            "at": "2026-09-07T16:42:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Marcus Greene."
           }
@@ -27226,7 +27696,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T17:12:00.000Z"
+        "waitingSince": "2026-09-07T16:42:00.000Z"
       },
       "sunvair-aerospace-group": {
         "id": "sunvair-aerospace-group",
@@ -28411,7 +28881,7 @@
         },
         "log": [
           {
-            "at": "2026-09-04T16:27:00.000Z",
+            "at": "2026-09-04T16:24:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Noah Blitzer, Noah Roy and John Cofer and ranked the top three windows per quarter. Windows found, Q1: 12, Q2: 20, Q3: 8, Q4: 10. Skipped 4 days already held for other portfolio company meetings."
           },
@@ -28421,70 +28891,70 @@
             "text": "Drafted the one-pager for Lorraine Pike."
           },
           {
-            "at": "2026-09-04T17:01:00.000Z",
+            "at": "2026-09-04T17:14:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-04T17:24:00.000Z",
+            "at": "2026-09-04T17:35:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Noah Blitzer, Noah Roy and John Cofer."
           },
           {
-            "at": "2026-09-04T17:50:00.000Z",
+            "at": "2026-09-04T17:56:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Noah Blitzer, Noah Roy and John Cofer for sign-off."
           },
           {
-            "at": "2026-09-04T17:55:00.000Z",
+            "at": "2026-09-04T18:17:00.000Z",
             "actor": "partner",
             "text": "Noah Blitzer replied yes.",
             "personId": "noah-blitzer"
           },
           {
-            "at": "2026-09-04T18:02:00.000Z",
+            "at": "2026-09-04T18:55:00.000Z",
             "actor": "partner",
             "text": "Noah Roy replied yes.",
             "personId": "noah-roy"
           },
           {
-            "at": "2026-09-04T18:22:00.000Z",
+            "at": "2026-09-04T19:02:00.000Z",
             "actor": "partner",
             "text": "John Cofer replied yes.",
             "personId": "john-cofer"
           },
           {
-            "at": "2026-09-04T19:11:00.000Z",
+            "at": "2026-09-04T20:07:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-04T19:39:00.000Z",
+            "at": "2026-09-04T20:28:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Lorraine Pike."
           },
           {
-            "at": "2026-09-04T20:09:00.000Z",
+            "at": "2026-09-04T20:34:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Lorraine Pike."
           },
           {
-            "at": "2026-09-04T20:46:00.000Z",
+            "at": "2026-09-04T20:39:00.000Z",
             "actor": "portco",
             "text": "Lorraine Pike picked: Q1 Tue Mar 9, 10am to 2pm; Q2 Wed Apr 14, 10am to 2pm; Q3 Tue Aug 3, 9am to 1pm; Q4 Tue Oct 12, 10am to 2pm."
           },
           {
-            "at": "2026-09-04T21:27:00.000Z",
+            "at": "2026-09-04T21:20:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-04T22:05:00.000Z",
+            "at": "2026-09-04T22:00:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Carlos Vega, Sheila Grant and Nate Ferguson."
           },
           {
-            "at": "2026-09-04T22:36:00.000Z",
+            "at": "2026-09-04T22:30:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           }
@@ -28615,7 +29085,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-04T22:36:00.000Z"
+        "waitingSince": "2026-09-04T22:30:00.000Z"
       },
       "the-facilities-group": {
         "id": "the-facilities-group",
@@ -29387,12 +29857,12 @@
         },
         "log": [
           {
-            "at": "2026-09-06T19:24:00.000Z",
+            "at": "2026-09-06T19:20:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Weiss, Niall McComiskey and John Cofer and ranked the top three windows per quarter. Windows found, Q1: 7, Q2: 13, Q3: 2, Q4: 6. Q3 is thin. Skipped 20 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-06T19:57:00.000Z",
+            "at": "2026-09-06T20:00:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Curtis Hale."
           },
@@ -29402,45 +29872,45 @@
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-06T21:07:00.000Z",
+            "at": "2026-09-06T21:12:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Weiss, Niall McComiskey and John Cofer."
           },
           {
-            "at": "2026-09-06T21:35:00.000Z",
+            "at": "2026-09-06T21:37:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Weiss, Niall McComiskey and John Cofer for sign-off."
           },
           {
-            "at": "2026-09-06T21:47:00.000Z",
+            "at": "2026-09-06T21:50:00.000Z",
             "actor": "partner",
             "text": "Michael Weiss replied yes.",
             "personId": "michael-weiss"
           },
           {
-            "at": "2026-09-06T22:24:00.000Z",
+            "at": "2026-09-06T22:16:00.000Z",
             "actor": "partner",
             "text": "Niall McComiskey replied yes.",
             "personId": "niall-mccomiskey"
           },
           {
-            "at": "2026-09-06T22:41:00.000Z",
+            "at": "2026-09-06T22:39:00.000Z",
             "actor": "partner",
             "text": "John Cofer replied yes.",
             "personId": "john-cofer"
           },
           {
-            "at": "2026-09-06T23:26:00.000Z",
+            "at": "2026-09-06T23:14:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-06T23:52:00.000Z",
+            "at": "2026-09-06T23:18:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Curtis Hale."
           },
           {
-            "at": "2026-09-07T00:31:00.000Z",
+            "at": "2026-09-06T23:43:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Curtis Hale."
           }
@@ -29541,7 +30011,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T00:31:00.000Z"
+        "waitingSince": "2026-09-06T23:43:00.000Z"
       },
       "towne": {
         "id": "towne",
@@ -30180,27 +30650,27 @@
         },
         "log": [
           {
-            "at": "2026-09-08T12:41:00.000Z",
+            "at": "2026-09-08T12:40:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell and ranked the top three windows per quarter. Windows found, Q1: 5, Q2: 6, Q3: 3, Q4: 3. Skipped 30 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-08T13:05:00.000Z",
+            "at": "2026-09-08T13:22:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Angela Ruiz."
           },
           {
-            "at": "2026-09-08T13:43:00.000Z",
+            "at": "2026-09-08T14:00:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-08T13:54:00.000Z",
+            "at": "2026-09-08T14:05:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Weiss, Michael Wang, John Cofer and Andrew Witherell."
           },
           {
-            "at": "2026-09-08T14:07:00.000Z",
+            "at": "2026-09-08T14:28:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Weiss, Michael Wang, John Cofer and Andrew Witherell for sign-off."
           }
@@ -30281,7 +30751,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-08T14:07:00.000Z"
+        "waitingSince": "2026-09-08T14:28:00.000Z"
       },
       "west-star-aviation": {
         "id": "west-star-aviation",
@@ -30307,10 +30777,10 @@
           "Q4"
         ],
         "eaId": "ea4",
-        "waitingOn": "none",
+        "waitingOn": "attendees",
         "quarters": {
           "Q1": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q1-2027-01-11-09",
@@ -30558,7 +31028,7 @@
             }
           },
           "Q2": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q2-2027-04-01-10",
@@ -30891,7 +31361,7 @@
             }
           },
           "Q3": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q3-2027-07-15-10",
@@ -31071,7 +31541,7 @@
             }
           },
           "Q4": {
-            "status": "locked",
+            "status": "invited",
             "windows": [
               {
                 "id": "west-star-aviation-Q4-2027-10-11-13",
@@ -31304,130 +31774,125 @@
         },
         "log": [
           {
-            "at": "2026-09-02T12:32:00.000Z",
+            "at": "2026-09-02T12:40:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Noah Blitzer, Noah Roy and Max Elgart and ranked the top three windows per quarter. Windows found, Q1: 9, Q2: 14, Q3: 5, Q4: 8. Skipped 19 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-02T13:14:00.000Z",
+            "at": "2026-09-02T13:02:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Sandra Okoye."
           },
           {
-            "at": "2026-09-02T13:42:00.000Z",
+            "at": "2026-09-02T13:41:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-02T14:14:00.000Z",
+            "at": "2026-09-02T14:23:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Noah Blitzer, Noah Roy and Max Elgart."
           },
           {
-            "at": "2026-09-02T14:40:00.000Z",
+            "at": "2026-09-02T14:48:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Noah Blitzer, Noah Roy and Max Elgart for sign-off."
           },
           {
-            "at": "2026-09-02T15:19:00.000Z",
+            "at": "2026-09-02T14:54:00.000Z",
             "actor": "partner",
             "text": "Noah Blitzer replied yes.",
             "personId": "noah-blitzer"
           },
           {
-            "at": "2026-09-02T15:25:00.000Z",
+            "at": "2026-09-02T15:07:00.000Z",
             "actor": "partner",
             "text": "Noah Roy replied yes.",
             "personId": "noah-roy"
           },
           {
-            "at": "2026-09-02T16:01:00.000Z",
+            "at": "2026-09-02T15:11:00.000Z",
             "actor": "partner",
             "text": "Max Elgart replied yes.",
             "personId": "max-elgart"
           },
           {
-            "at": "2026-09-02T17:01:00.000Z",
+            "at": "2026-09-02T16:16:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-02T17:38:00.000Z",
+            "at": "2026-09-02T16:37:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Sandra Okoye."
           },
           {
-            "at": "2026-09-02T17:56:00.000Z",
+            "at": "2026-09-02T17:13:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Sandra Okoye."
           },
           {
-            "at": "2026-09-02T18:19:00.000Z",
+            "at": "2026-09-02T17:33:00.000Z",
             "actor": "portco",
             "text": "Sandra Okoye picked: Q1 Thu Jan 28, 10am to 2pm; Q2 Thu May 27, 10am to 2pm; Q3 Thu Jul 15, 10am to 2pm; Q4 Tue Nov 2, 9am to 1pm."
           },
           {
-            "at": "2026-09-02T19:03:00.000Z",
+            "at": "2026-09-02T18:01:00.000Z",
             "actor": "ea",
             "text": "Dates picked. Moving to the board."
           },
           {
-            "at": "2026-09-02T19:38:00.000Z",
+            "at": "2026-09-02T18:13:00.000Z",
             "actor": "agent",
             "text": "Drafted the confirmation email to Howard Fitch, Amara Nwosu and Philip Sandoval."
           },
           {
-            "at": "2026-09-02T20:01:00.000Z",
+            "at": "2026-09-02T18:36:00.000Z",
             "actor": "ea",
             "text": "Sent the confirmation email to the board."
           },
           {
-            "at": "2026-09-02T20:17:00.000Z",
+            "at": "2026-09-02T19:12:00.000Z",
             "actor": "board",
             "text": "Howard Fitch confirmed every quarter.",
             "personId": "b43"
           },
           {
-            "at": "2026-09-02T20:33:00.000Z",
+            "at": "2026-09-02T19:27:00.000Z",
             "actor": "board",
             "text": "Amara Nwosu confirmed every quarter.",
             "personId": "b44"
           },
           {
-            "at": "2026-09-02T20:48:00.000Z",
+            "at": "2026-09-02T19:47:00.000Z",
             "actor": "board",
             "text": "Philip Sandoval confirmed every quarter.",
             "personId": "b45"
           },
           {
-            "at": "2026-09-02T21:24:00.000Z",
+            "at": "2026-09-02T20:51:00.000Z",
             "actor": "ea",
             "text": "Board confirmed. Dates held: Q1 Thu Jan 28, Q2 Thu May 27, Q3 Thu Jul 15, Q4 Tue Nov 2."
           },
           {
-            "at": "2026-09-02T22:06:00.000Z",
+            "at": "2026-09-02T20:55:00.000Z",
             "actor": "agent",
             "text": "Picked a hotel and a restaurant near 2 Terminal Drive, Suite 200, East Alton, IL for each meeting."
           },
           {
-            "at": "2026-09-02T22:28:00.000Z",
+            "at": "2026-09-02T21:20:00.000Z",
             "actor": "ea",
             "text": "Locked all four meetings with hotel and dinner."
           },
           {
-            "at": "2026-09-02T23:02:00.000Z",
+            "at": "2026-09-02T21:42:00.000Z",
             "actor": "agent",
-            "text": "Calendar invites went out from Outlook to 7 people for all four meetings. Travel requests opened for Noah Blitzer, Noah Roy and Max Elgart."
+            "text": "Drafted four calendar invites, one per meeting, for 7 people each."
           },
           {
-            "at": "2026-09-02T23:34:00.000Z",
-            "actor": "board",
-            "text": "Invites accepted, 26 of 28. Amara Nwosu is tentative for Q2. Max Elgart has not replied for Q4."
-          },
-          {
-            "at": "2026-09-02T23:50:00.000Z",
-            "actor": "agent",
-            "text": "Travel booked for Noah Blitzer and Noah Roy. Max Elgart still pending."
+            "at": "2026-09-02T22:22:00.000Z",
+            "actor": "ea",
+            "text": "Sent four calendar invites to 7 people. Travel requests opened for Noah Blitzer, Noah Roy and Max Elgart."
           }
         ],
         "drafts": {
@@ -31584,49 +32049,144 @@
                 "reason": "Four Seasons Hotel St. Louis is 21 miles from the office. Downtown St. Louis, quiet, needs a car. Tony's for dinner, 21 miles away. Downtown St. Louis, classic, private room."
               }
             }
+          },
+          "invites": {
+            "kind": "invites",
+            "portcoId": "west-star-aviation",
+            "text": "West Star Aviation quarterly meeting, Q1 2027: Thu Jan 28, 10am to 2pm\nWest Star Aviation quarterly meeting, Q2 2027: Thu May 27, 10am to 2pm\nWest Star Aviation quarterly meeting, Q3 2027: Thu Jul 15, 10am to 2pm\nWest Star Aviation quarterly meeting, Q4 2027: Tue Nov 2, 9am to 1pm",
+            "approved": true,
+            "offline": false,
+            "variant": 0,
+            "data": [
+              {
+                "quarter": "Q1",
+                "title": "West Star Aviation quarterly meeting, Q1 2027",
+                "start": "2027-01-28T10:00:00",
+                "end": "2027-01-28T14:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Tony's",
+                  "start": "2027-01-28T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Tony's."
+              },
+              {
+                "quarter": "Q2",
+                "title": "West Star Aviation quarterly meeting, Q2 2027",
+                "start": "2027-05-27T10:00:00",
+                "end": "2027-05-27T14:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Cinder House",
+                  "start": "2027-05-27T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Cinder House."
+              },
+              {
+                "quarter": "Q3",
+                "title": "West Star Aviation quarterly meeting, Q3 2027",
+                "start": "2027-07-15T10:00:00",
+                "end": "2027-07-15T14:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Gentelin's on Broadway",
+                  "start": "2027-07-15T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Gentelin's on Broadway."
+              },
+              {
+                "quarter": "Q4",
+                "title": "West Star Aviation quarterly meeting, Q4 2027",
+                "start": "2027-11-02T09:00:00",
+                "end": "2027-11-02T13:00:00",
+                "location": "2 Terminal Drive, Suite 200, East Alton, IL",
+                "dinner": {
+                  "venue": "Tony's",
+                  "start": "2027-11-02T18:30:00"
+                },
+                "attendeeIds": [
+                  "noah-blitzer",
+                  "noah-roy",
+                  "max-elgart",
+                  "exec",
+                  "b43",
+                  "b44",
+                  "b45"
+                ],
+                "body": "Quarterly meeting between West Star Aviation and Greenbriar at the East Alton office. Dinner follows at Tony's."
+              }
+            ]
           }
         },
+        "waitingSince": "2026-09-02T22:22:00.000Z",
         "attendance": {
           "Q1": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
-            "max-elgart": "accepted",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "accepted",
-            "b45": "accepted"
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
+            "max-elgart": "noReply",
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           },
           "Q2": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
-            "max-elgart": "accepted",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "tentative",
-            "b45": "accepted"
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
+            "max-elgart": "noReply",
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           },
           "Q3": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
-            "max-elgart": "accepted",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "accepted",
-            "b45": "accepted"
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
+            "max-elgart": "noReply",
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           },
           "Q4": {
-            "noah-blitzer": "accepted",
-            "noah-roy": "accepted",
+            "noah-blitzer": "noReply",
+            "noah-roy": "noReply",
             "max-elgart": "noReply",
-            "exec": "accepted",
-            "b43": "accepted",
-            "b44": "accepted",
-            "b45": "accepted"
+            "exec": "noReply",
+            "b43": "noReply",
+            "b44": "noReply",
+            "b45": "noReply"
           }
         },
         "travel": {
-          "noah-blitzer": "booked",
-          "noah-roy": "booked",
+          "noah-blitzer": "pending",
+          "noah-roy": "pending",
           "max-elgart": "pending"
         }
       },
@@ -32402,60 +32962,60 @@
         },
         "log": [
           {
-            "at": "2026-09-07T14:27:00.000Z",
+            "at": "2026-09-07T14:11:00.000Z",
             "actor": "agent",
             "text": "Checked calendars for Michael Weiss, Jill Raker and Ben Cox and ranked the top three windows per quarter. Windows found, Q1: 8, Q2: 10, Q3: 4, Q4: 5. Skipped 22 days already held for other portfolio company meetings."
           },
           {
-            "at": "2026-09-07T14:42:00.000Z",
+            "at": "2026-09-07T14:40:00.000Z",
             "actor": "agent",
             "text": "Drafted the one-pager for Daniel Brightwater."
           },
           {
-            "at": "2026-09-07T15:01:00.000Z",
+            "at": "2026-09-07T14:55:00.000Z",
             "actor": "ea",
             "text": "Approved the one-pager."
           },
           {
-            "at": "2026-09-07T15:14:00.000Z",
+            "at": "2026-09-07T15:05:00.000Z",
             "actor": "agent",
             "text": "Drafted the sign-off email to Michael Weiss, Jill Raker and Ben Cox."
           },
           {
-            "at": "2026-09-07T15:30:00.000Z",
+            "at": "2026-09-07T15:09:00.000Z",
             "actor": "ea",
             "text": "Sent the one-pager to Michael Weiss, Jill Raker and Ben Cox for sign-off."
           },
           {
-            "at": "2026-09-07T15:59:00.000Z",
+            "at": "2026-09-07T15:35:00.000Z",
             "actor": "partner",
             "text": "Michael Weiss replied yes.",
             "personId": "michael-weiss"
           },
           {
-            "at": "2026-09-07T16:08:00.000Z",
+            "at": "2026-09-07T16:15:00.000Z",
             "actor": "partner",
             "text": "Jill Raker replied yes.",
             "personId": "jill-raker"
           },
           {
-            "at": "2026-09-07T16:34:00.000Z",
+            "at": "2026-09-07T16:35:00.000Z",
             "actor": "partner",
             "text": "Ben Cox replied yes.",
             "personId": "ben-cox"
           },
           {
-            "at": "2026-09-07T17:20:00.000Z",
+            "at": "2026-09-07T17:28:00.000Z",
             "actor": "ea",
             "text": "All partners signed off. Moving to the company."
           },
           {
-            "at": "2026-09-07T17:27:00.000Z",
+            "at": "2026-09-07T18:08:00.000Z",
             "actor": "agent",
             "text": "Drafted the proposal email to Daniel Brightwater."
           },
           {
-            "at": "2026-09-07T17:44:00.000Z",
+            "at": "2026-09-07T18:51:00.000Z",
             "actor": "ea",
             "text": "Sent the proposal and one-pager to Daniel Brightwater."
           }
@@ -32556,7 +33116,7 @@
             }
           }
         },
-        "waitingSince": "2026-09-07T17:44:00.000Z"
+        "waitingSince": "2026-09-07T18:51:00.000Z"
       }
     }
   }

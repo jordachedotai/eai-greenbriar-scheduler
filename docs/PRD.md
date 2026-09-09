@@ -88,7 +88,7 @@ Fifteen portcos across three EAs. Peggy has five. EA 2 and EA 3 are placeholders
 - Every draft is a draft until the EA approves it. The activity log shows EA and agent actions separately.
 
 ## Out of scope
-Real connectors. Real auth. Calendar invite sending (the Lock stage notes that invites go out from Outlook). Travel booking. Budgets. LP meetings, which stay narrated.
+Real connectors. Real auth. Travel booking beyond the booked status. Budgets. LP meetings, which stay narrated. Stage 6 sends the invites and tracks replies; in production that runs through Outlook.
 
 ## Vision layer, narrated
 The Calendar page under "All EAs" is the scale picture. Devrin's line: fifteen now, twenty-five across the portfolio, two hundred and fifty LP meetings when the next fund goes to market. Production plumbing is Outlook and Graph, gated on the AI Council connector list.

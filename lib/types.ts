@@ -36,16 +36,17 @@ export type PortcoSeed = {
   eaId: string; // placeholder until Peggy confirms
 };
 
-export type Stage = 1 | 2 | 3 | 4 | 5;
-export const STAGES: Stage[] = [1, 2, 3, 4, 5];
+export type Stage = 1 | 2 | 3 | 4 | 5 | 6;
+export const STAGES: Stage[] = [1, 2, 3, 4, 5, 6];
 
-export type StageKey = "findDates" | "partnerSignoff" | "portcoPicks" | "boardConfirms" | "lockAndBook";
+export type StageKey = "findDates" | "partnerSignoff" | "portcoPicks" | "boardConfirms" | "lockAndBook" | "sendInvites";
 export const STAGE_KEY: Record<Stage, StageKey> = {
   1: "findDates",
   2: "partnerSignoff",
   3: "portcoPicks",
   4: "boardConfirms",
   5: "lockAndBook",
+  6: "sendInvites",
 };
 
 export const STAGE_NAMES: Record<Stage, string> = {
@@ -54,9 +55,10 @@ export const STAGE_NAMES: Record<Stage, string> = {
   3: "Company picks",
   4: "Board confirms",
   5: "Lock and book",
+  6: "Send invites",
 };
 
-export type WaitingOn = "none" | "partners" | "portco" | "board";
+export type WaitingOn = "none" | "partners" | "portco" | "board" | "attendees";
 
 export type QuarterStatus =
   | "notStarted"
@@ -64,7 +66,8 @@ export type QuarterStatus =
   | "partnersSignedOff"
   | "portcoPicked"
   | "boardConfirmed"
-  | "locked";
+  | "locked"
+  | "invited";
 
 // The stage a quarter is in, given its status.
 export const STATUS_STAGE: Record<QuarterStatus, Stage> = {
@@ -73,7 +76,8 @@ export const STATUS_STAGE: Record<QuarterStatus, Stage> = {
   partnersSignedOff: 3,
   portcoPicked: 4,
   boardConfirmed: 5,
-  locked: 5,
+  locked: 6,
+  invited: 6,
 };
 
 export const STATUS_LABEL: Record<QuarterStatus, string> = {
@@ -83,6 +87,7 @@ export const STATUS_LABEL: Record<QuarterStatus, string> = {
   portcoPicked: "Company picked",
   boardConfirmed: "Board confirmed",
   locked: "Locked",
+  invited: "Invites out",
 };
 
 // Free blocks per person, not busy. Times are naive ISO local wall-clock
@@ -131,7 +136,19 @@ export type TravelStatus = "booked" | "pending";
 export type LogActor = "ea" | "agent" | "portco" | "board" | "partner";
 export type LogEntry = { at: string; actor: LogActor; text: string; personId?: string };
 
-export type DraftKind = "onepager" | "partnerEmail" | "portcoEmail" | "boardEmail" | "conflict" | "logistics";
+export type DraftKind = "onepager" | "partnerEmail" | "portcoEmail" | "boardEmail" | "conflict" | "logistics" | "invites";
+
+// One calendar invite per meeting, built by code at lock time.
+export type Invite = {
+  quarter: Quarter;
+  title: string;
+  start: string; // naive ISO
+  end: string;
+  location: string;
+  dinner: { venue: string; start: string };
+  attendeeIds: string[]; // partners, "exec", board members
+  body: string;
+};
 
 // Every email and the one-pager share one structure, so one renderer
 // draws them all with the same line breaks. `lists` holds date blocks.

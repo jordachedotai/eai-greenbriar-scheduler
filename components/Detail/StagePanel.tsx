@@ -8,6 +8,7 @@ import { PartnerSignoff } from "@/components/Stages/PartnerSignoff";
 import { PortcoPicks } from "@/components/Stages/PortcoPicks";
 import { BoardConfirms } from "@/components/Stages/BoardConfirms";
 import { LockAndBook } from "@/components/Stages/LockAndBook";
+import { SendInvites } from "@/components/Stages/SendInvites";
 
 export function StagePanel() {
   const { stage, viewStep } = useDetail();
@@ -22,7 +23,9 @@ export function StagePanel() {
       return <PortcoPicks readOnly={readOnly} />;
     case 4:
       return <BoardConfirms readOnly={readOnly} />;
-    default:
+    case 5:
       return <LockAndBook readOnly={readOnly} />;
+    default:
+      return <SendInvites readOnly={readOnly} />;
   }
 }

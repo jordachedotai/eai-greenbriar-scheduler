@@ -11,21 +11,20 @@ import { Working } from "@/components/Drafts/DraftViewer";
 import { IconLock } from "@/components/ui/icons";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { PanelHeader } from "./shared";
-import { Attendance } from "./Attendance";
 
 export function LockAndBook({ readOnly }: { readOnly: boolean }) {
   const { portco, phase, working } = useDetail();
   const draft = portco.drafts.logistics;
   const data = (draft?.data ?? {}) as LogisticsData;
-  const done = phase === "done";
+  const done = readOnly || portco.targetQuarters.every((q) => isLocked(portco, q));
   const hotels = getVenues(portco.city).filter((v) => v.type === "hotel");
   const restaurants = getVenues(portco.city).filter((v) => v.type === "restaurant");
 
   return (
     <div>
-      <PanelHeader title={done ? "All four meetings are locked" : "Lock the dates and book"}>
+      <PanelHeader title={done ? "Dates and venues locked" : "Lock the dates and book"}>
         {done
-          ? "Each meeting has a hotel and a dinner. Invites went out from Outlook. Replies and partner travel show below."
+          ? "Each meeting has a hotel and a dinner. The invites are the next step."
           : working
             ? "The board confirmed all four dates. Picking a hotel and a restaurant near the office for each meeting."
             : phase === "needsDraft"
@@ -34,12 +33,6 @@ export function LockAndBook({ readOnly }: { readOnly: boolean }) {
       </PanelHeader>
 
       {working ? <Working label={working} /> : null}
-
-      {done ? (
-        <div className="mb-5">
-          <Attendance />
-        </div>
-      ) : null}
 
       {!working && (draft || done) ? (
         <div className="flex flex-col gap-2.5" data-testid="logistics">

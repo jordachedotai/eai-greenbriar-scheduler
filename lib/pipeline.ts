@@ -46,7 +46,7 @@ export function activePartners(p: Portco): string[] {
 }
 
 export function portcoStage(p: Portco): Stage {
-  let min: Stage = 5;
+  let min: Stage = 6;
   for (const q of p.targetQuarters) {
     const s = STATUS_STAGE[p.quarters[q].status];
     if (s < min) min = s;
@@ -69,14 +69,28 @@ export const STAGE_DRAFT: Record<Stage, string> = {
   3: "portcoEmail",
   4: "boardEmail",
   5: "logistics",
+  6: "invites",
 };
 
+// Dates and venues locked (stage 5 approved).
 export function isLocked(p: Portco, q: Quarter): boolean {
-  return p.quarters[q].status === "locked" && !!p.quarters[q].logistics;
+  const s = p.quarters[q].status;
+  return (s === "locked" || s === "invited") && !!p.quarters[q].logistics;
 }
 
 export function allLocked(p: Portco): boolean {
   return p.targetQuarters.every((q) => isLocked(p, q));
+}
+
+export function invitesOut(p: Portco): boolean {
+  return p.targetQuarters.every((q) => p.quarters[q].status === "invited");
+}
+
+// Done means every invite for every meeting is accepted.
+export function allAccepted(p: Portco, members: BoardMember[]): boolean {
+  if (!invitesOut(p)) return false;
+  const ids = attendeeIds(p, members);
+  return p.targetQuarters.every((q) => ids.every((id) => p.attendance?.[q]?.[id] === "accepted"));
 }
 
 export function allPartnersYes(p: Portco): boolean {
@@ -89,7 +103,7 @@ export function allPicked(p: Portco): boolean {
 
 export function boardConfirmedQuarter(p: Portco, q: Quarter, members: BoardMember[]): boolean {
   const qs = p.quarters[q];
-  if (qs.status === "boardConfirmed" || qs.status === "locked") return true;
+  if (qs.status === "boardConfirmed" || qs.status === "locked" || qs.status === "invited") return true;
   return members.length > 0 && members.every((m) => qs.boardResponses[m.id] === "confirmed");
 }
 
@@ -106,7 +120,12 @@ export function openConflicts(p: Portco): Quarter[] {
 
 export function portcoPhase(p: Portco, members: BoardMember[]): Phase {
   const stage = portcoStage(p);
-  if (stage === 5 && allLocked(p)) return "done";
+  if (stage === 6) {
+    if (allAccepted(p, members)) return "done";
+    const inv = p.drafts.invites;
+    if (!inv) return "needsDraft";
+    return inv.approved ? "waiting" : "review";
+  }
   const draft = p.drafts[STAGE_DRAFT[stage]];
   if (stage === 1) {
     const found = p.targetQuarters.some((q) => p.quarters[q].windows.length > 0);
@@ -149,14 +168,18 @@ export function primaryAction(p: Portco, members: BoardMember[]): PrimaryAction 
       if (phase === "conflict") return { label: "Approve and re-send to board", enabled: true };
       if (phase === "waiting") return { label: "Waiting on the board", enabled: false };
       return { label: "Lock and book", enabled: allBoardConfirmed(p, members) };
-    default:
+    case 5:
       if (phase === "needsDraft") return { label: "Pick hotels and restaurants", enabled: true };
       return { label: "Approve and lock", enabled: true };
+    default:
+      if (phase === "needsDraft") return { label: "Draft the invites", enabled: true };
+      if (phase === "review") return { label: "Approve and send invites", enabled: true };
+      return { label: "Waiting on replies", enabled: false };
   }
 }
 
 export function waitingLabel(w: WaitingOn): string {
-  return w === "partners" ? "the partners" : w === "portco" ? "the company" : w === "board" ? "the board" : "nobody";
+  return w === "partners" ? "the partners" : w === "portco" ? "the company" : w === "board" ? "the board" : w === "attendees" ? "invite replies" : "nobody";
 }
 
 // ---------- work strip ----------

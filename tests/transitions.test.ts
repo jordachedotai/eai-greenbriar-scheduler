@@ -11,7 +11,7 @@ import {
   hydratePortco,
   personName,
 } from "@/lib/data";
-import { allLocked, confirmedMeetings, inviteCounts, portcoPhase, portcoStage, primaryAction, travelBookedCount } from "@/lib/pipeline";
+import { allAccepted, allLocked, confirmedMeetings, inviteCounts, portcoPhase, portcoStage, primaryAction, travelBookedCount } from "@/lib/pipeline";
 import { CONFLICT_QUARTER, conflictMember, simulatedPicks } from "@/lib/simulate";
 import * as T from "@/lib/transitions";
 import { mockBoardEmail, mockConflict, mockLogistics, mockPartnerEmail, mockPortcoEmail, mockShortlist } from "@/lib/mockAgent";
@@ -143,20 +143,35 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     p = T.applyLogistics(p, result, false, 0, deps);
     p = T.approveAndLock(p, deps);
     expect(allLocked(p)).toBe(true);
-    expect(portcoPhase(p, members)).toBe("done");
-    expect(primaryAction(p, members)).toBeNull();
     expect(p.quarters.Q3.logistics?.hotel.city).toBe("Itasca, IL");
-    // Invites went out, nobody has replied.
-    expect(inviteCounts(p, members)).toMatchObject({ total: 36, noReply: 36, replied: false });
+    // Stage 6: the invites are drafted, nothing has been sent.
+    expect(portcoStage(p)).toBe(6);
+    expect(portcoPhase(p, members)).toBe("review");
+    expect(primaryAction(p, members)?.label).toBe("Approve and send invites");
+    const invites = p.drafts.invites.data as { quarter: string; attendeeIds: string[]; dinner: { venue: string } }[];
+    expect(invites).toHaveLength(4);
+    expect(invites[0].attendeeIds).toHaveLength(9);
+    expect(invites[0].dinner.venue).toBe(p.quarters.Q1.logistics?.restaurant.name);
+    expect(p.attendance).toBeUndefined();
   });
 
-  it("simulates invite replies and travel after lock", () => {
-    p = T.simulateInvites(p, deps);
+  it("sends the invites, then simulates replies and travel", () => {
+    p = T.sendInvites(p, deps);
+    expect(p.quarters.Q1.status).toBe("invited");
+    expect(p.waitingOn).toBe("attendees");
+    expect(portcoPhase(p, members)).toBe("waiting");
+    expect(inviteCounts(p, members)).toMatchObject({ total: 36, noReply: 36, replied: false });
+    p = T.simulateInvites(p, deps, "mixed");
     const c = inviteCounts(p, members);
     expect(c).toMatchObject({ accepted: 34, tentative: 1, noReply: 1, total: 36, replied: true });
     expect(p.attendance?.Q2?.b2).toBe("tentative");
     expect(p.attendance?.Q4?.["ben-cox"]).toBe("noReply");
     expect(travelBookedCount(p)).toEqual({ booked: 4, total: 5 });
-    expect(p.log.at(-2)?.text).toContain("Invites accepted, 34 of 36");
+    expect(allAccepted(p, members)).toBe(false);
+    p = T.simulateInvites(p, deps, "all");
+    expect(allAccepted(p, members)).toBe(true);
+    expect(portcoPhase(p, members)).toBe("done");
+    expect(primaryAction(p, members)).toBeNull();
+    expect(travelBookedCount(p)).toEqual({ booked: 5, total: 5 });
   });
 });

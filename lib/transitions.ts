@@ -22,6 +22,7 @@ import type {
   Partner,
   Portco,
   Quarter,
+  Invite,
   QuarterState,
   TravelStatus,
   Venue,
@@ -384,9 +385,43 @@ export function approveAndLock(p: Portco, deps: Deps): Portco {
   });
   next = withDraft(next, "logistics", { ...next.drafts.logistics, approved: true });
   next = withLog(next, "ea", "Locked all four meetings with hotel and dinner.", deps.now());
-  // Invites go out from Outlook. Nobody has replied yet.
-  const members = membersOf(next, deps);
-  const ids = attendeeIds(next, members);
+  // Stage 6 begins: the invites are drafted by code from the locked dates.
+  const invites = buildInvites(next, deps);
+  next = withDraft(next, "invites", draftOf(next, "invites", invites.map((i) => `${i.title}: ${fmtWindow({ start: i.start, end: i.end } as Window)}`).join("\n"), false, 0, { data: invites }));
+  return withLog(next, "agent", `Drafted four calendar invites, one per meeting, for ${attendeeIds(next, membersOf(next, deps)).length} people each.`, deps.now());
+}
+
+// ---------- stage 6: send invites ----------
+
+export function buildInvites(p: Portco, deps: Deps): Invite[] {
+  const members = membersOf(p, deps);
+  const ids = attendeeIds(p, members);
+  const out: Invite[] = [];
+  for (const q of p.targetQuarters) {
+    const qs = p.quarters[q];
+    const w = pickedWindow(p, q);
+    if (!w) continue;
+    const dinner = qs.logistics?.restaurant.name ?? "dinner to follow";
+    out.push({
+      quarter: q,
+      title: `${p.name} quarterly meeting, ${q} 2027`,
+      start: w.start,
+      end: w.end,
+      location: p.officeAddress,
+      dinner: { venue: dinner, start: w.dinnerStart },
+      attendeeIds: ids,
+      body: `Quarterly meeting between ${p.name} and Greenbriar at the ${p.city.split(",")[0]} office. Dinner follows at ${dinner}.`,
+    });
+  }
+  return out;
+}
+
+export function sendInvites(p: Portco, deps: Deps): Portco {
+  const at = deps.now();
+  const members = membersOf(p, deps);
+  const ids = attendeeIds(p, members);
+  let next = withDraft(p, "invites", { ...p.drafts.invites, approved: true });
+  next = mapQuarters(next, (_q, qs) => ({ ...qs, status: "invited" }));
   const attendance: Portco["attendance"] = {};
   for (const q of next.targetQuarters) {
     const row: Record<string, AttendanceStatus> = {};
@@ -396,38 +431,45 @@ export function approveAndLock(p: Portco, deps: Deps): Portco {
   const travel: Record<string, TravelStatus> = {};
   for (const id of activePartners(next)) travel[id] = "pending";
   next = { ...next, attendance, travel };
-  return withLog(next, "agent", `Calendar invites went out from Outlook to ${ids.length} people for all four meetings. Travel requests opened for ${joinNames(activePartners(next).map(deps.name))}.`, deps.now());
+  next = waiting(next, "attendees", at);
+  return withLog(next, "ea", `Sent four calendar invites to ${ids.length} people. Travel requests opened for ${joinNames(activePartners(next).map(deps.name))}.`, at);
 }
 
-// ---------- after lock: attendance ----------
+// ---------- after sending: attendance ----------
 
-// Simulated replies to the invites. Deterministic: everyone accepts except
-// the second board member, tentative for Q2, and the last partner, no reply
-// for Q4. Travel booked for every partner but the last.
-export function simulateInvites(p: Portco, deps: Deps): Portco {
+// Simulated replies to the invites. "mixed": everyone accepts except the
+// second board member, tentative for Q2, and the last partner, no reply for
+// Q4; travel booked for every partner but the last. "all": the stragglers
+// come in, every invite accepted, all travel booked. That is done.
+export function simulateInvites(p: Portco, deps: Deps, mode: "mixed" | "all" = "mixed"): Portco {
   const members = membersOf(p, deps);
   const partners = activePartners(p);
   const ids = attendeeIds(p, members);
-  const tentativeId = members[1]?.id;
-  const quietId = partners[partners.length - 1];
+  const tentativeId = mode === "mixed" ? members[1]?.id : undefined;
+  const quietId = mode === "mixed" && partners.length > 1 ? partners[partners.length - 1] : undefined;
   const attendance: Portco["attendance"] = {};
   for (const q of p.targetQuarters) {
     const row: Record<string, AttendanceStatus> = {};
     for (const id of ids) {
-      row[id] = q === "Q2" && id === tentativeId ? "tentative" : q === "Q4" && id === quietId && partners.length > 1 ? "noReply" : "accepted";
+      row[id] = q === "Q2" && id === tentativeId ? "tentative" : q === "Q4" && id === quietId ? "noReply" : "accepted";
     }
     attendance[q] = row;
   }
   const travel: Record<string, TravelStatus> = {};
-  partners.forEach((id, i) => {
-    travel[id] = i === partners.length - 1 && partners.length > 1 ? "pending" : "booked";
+  partners.forEach((id) => {
+    travel[id] = id === quietId ? "pending" : "booked";
   });
   let next: Portco = { ...p, attendance, travel };
   const accepted = Object.values(attendance).reduce((n, row) => n + Object.values(row ?? {}).filter((v) => v === "accepted").length, 0);
   const total = ids.length * p.targetQuarters.length;
-  next = withLog(next, "board", `Invites accepted, ${accepted} of ${total}.` + (tentativeId ? ` ${deps.name(tentativeId)} is tentative for Q2.` : "") + (quietId && partners.length > 1 ? ` ${deps.name(quietId)} has not replied for Q4.` : ""), deps.now());
-  const booked = partners.filter((id) => travel[id] === "booked");
-  next = withLog(next, "agent", `Travel booked for ${joinNames(booked.map(deps.name))}.` + (booked.length < partners.length ? ` ${deps.name(partners[partners.length - 1])} still pending.` : ""), deps.now());
+  if (mode === "mixed") {
+    next = withLog(next, "board", `Invites accepted, ${accepted} of ${total}.` + (tentativeId ? ` ${deps.name(tentativeId)} is tentative for Q2.` : "") + (quietId ? ` ${deps.name(quietId)} has not replied for Q4.` : ""), deps.now());
+    const booked = partners.filter((id) => travel[id] === "booked");
+    next = withLog(next, "agent", `Travel booked for ${joinNames(booked.map(deps.name))}.` + (quietId ? ` ${deps.name(quietId)} still pending.` : ""), deps.now());
+  } else {
+    next = withLog(next, "board", `Every invite accepted, ${total} of ${total}. Travel booked for all partners.`, deps.now());
+    next = waiting(next, "none", deps.now());
+  }
   return next;
 }
 

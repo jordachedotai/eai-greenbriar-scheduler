@@ -41,7 +41,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-1")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("picker-partners").locator("[data-checked='true']")).toHaveCount(5);
   await expect(page.getByTestId("picker-email").locator("[data-testid^='picker-']")).toHaveCount(4);
-  await expect(page.getByTestId("action-hint")).toContainText("Step 1 of 5. Checks 5 calendars");
+  await expect(page.getByTestId("action-hint")).toContainText("Step 1 of 6. Checks 5 calendars");
   await expect(page.getByTestId("primary-action")).toHaveText("Find dates");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox");
@@ -136,11 +136,19 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and lock");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("quarter-strip").locator("[data-final='true']")).toHaveCount(4);
-  await expect(page.getByTestId("primary-action")).toHaveCount(0);
-  await expect(page.getByTestId("action-hint")).toContainText("All five steps done");
 
-  // After lock: invites are out, nobody has replied. The presenter simulates replies.
+  // Beat 6a: send invites. Four drafts, one per meeting, then replies from the presenter.
+  await expect(page.getByTestId("step-6")).toHaveAttribute("data-state", "current");
+  await expect(page.getByTestId("detail-pill")).toHaveText("Locked");
+  await expect(page.getByTestId("invite-drafts").locator("[data-testid^='invite-']")).toHaveCount(4);
+  await expect(page.getByTestId("invite-Q1")).toContainText("AIT Worldwide Logistics quarterly meeting, Q1 2027");
+  await expect(page.getByTestId("invite-Q1").locator("[data-testid='face']")).toHaveCount(9);
+  await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "off");
+  await expect(page.getByTestId("primary-action")).toHaveText("Approve and send invites");
+  await page.getByTestId("primary-action").click();
+  await expect(page.getByTestId("detail-pill")).toHaveText("Invites out");
   await expect(page.getByTestId("attendance-summary")).toContainText("No replies yet");
+  await expect(page.getByTestId("invites-sent")).toContainText("Four calendar invites");
   await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "next");
   await page.getByTestId("sim-invites").click();
   await expect(page.getByTestId("attendance-summary")).toContainText("Invites accepted 34 of 36");
@@ -149,6 +157,11 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("travel-michael-wang")).toHaveAttribute("data-status", "booked");
   await expect(page.getByTestId("travel-ben-cox")).toHaveAttribute("data-status", "pending");
   await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "done");
+  await expect(page.getByTestId("sim-invites-all")).toHaveAttribute("data-state", "next");
+  await page.getByTestId("sim-invites-all").click();
+  await expect(page.getByTestId("detail-pill")).toHaveText("All accepted");
+  await expect(page.getByTestId("primary-action")).toHaveCount(0);
+  await expect(page.getByTestId("action-hint")).toContainText("All six steps done");
 
   // A done step opens read-only.
   await page.getByTestId("step-4").click();
@@ -163,7 +176,9 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await page.getByTestId("nav-portfolio").click();
   await expect(page.getByTestId("count-confirmed")).toHaveText("8 of 20");
   await expect(page.getByTestId("count-notStarted")).toHaveText("0");
-  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-sentence")).toContainText("Invites accepted 34 of 36. Travel booked for four partners.");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("All accepted");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-sentence")).toContainText("Every invite accepted. Travel booked for all partners.");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").locator("[data-step='6']")).toHaveAttribute("data-state", "locked");
 
   // Beat 6: scale picture.
   await page.getByTestId("ea-all").click();
@@ -172,7 +187,8 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("row-ontrac").getByTestId("row-ea")).toHaveText("Barbara Palmer");
   await page.getByTestId("view-board").click();
   await expect(page.getByTestId("board-view")).toBeVisible();
-  await expect(page.getByTestId("column-count-5")).toHaveText("5");
+  await expect(page.getByTestId("column-count-6")).toHaveText("4");
+  await expect(page.getByTestId("column-count-5")).toHaveText("1");
   await page.getByTestId("nav-calendar").click();
   await expect(page.getByTestId("year-view")).toBeVisible();
   await expect(page.getByTestId("cal-locked")).toHaveText("20 confirmed");
@@ -206,6 +222,7 @@ test("If time is short: council-at-board starts at Beat 4", async ({ page }) => 
   await waitForAgent(page);
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("quarter-strip").locator("[data-final='true']")).toHaveCount(4);
+  await expect(page.getByTestId("primary-action")).toHaveText("Approve and send invites");
   expect(errors).toEqual([]);
 });
 

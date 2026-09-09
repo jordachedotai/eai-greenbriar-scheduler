@@ -32,7 +32,7 @@ export function Attendance() {
       <div className="flex items-center justify-between">
         <Label>Attendance</Label>
         <span className="text-[14px] text-mut" data-testid="attendance-summary">
-          {counts.replied ? `Invites accepted ${counts.accepted} of ${counts.total}` : "Invites out from Outlook. No replies yet."}
+          {counts.replied ? `Invites accepted ${counts.accepted} of ${counts.total}` : "Invites out. No replies yet."}
           {counts.tentative ? ` · ${counts.tentative} tentative` : ""}
           {counts.replied && counts.noReply ? ` · ${counts.noReply} no reply` : ""}
         </span>
@@ -91,7 +91,7 @@ export function Attendance() {
           })}
         </div>
         <span className="text-[13px] text-mut">
-          {travel.booked} of {travel.total} booked. In production this reads Outlook replies and the travel desk.
+          {travel.booked} of {travel.total} booked. In production the replies and bookings come from Outlook and the travel desk.
         </span>
       </div>
     </div>

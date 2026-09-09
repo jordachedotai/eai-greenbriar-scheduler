@@ -17,25 +17,28 @@ function useStepSentence(): string {
   const boardCount = members.length === 3 ? "all three" : `all ${members.length}`;
   switch (stage) {
     case 1:
-      if (phase === "idle") return `Step 1 of 5. Checks ${n} calendars, ranks the top three windows per quarter, and drafts the proposal for ${exec}.`;
-      if (phase === "needsDraft") return `Step 1 of 5. Drafts the proposal for ${exec} from the ranked windows.`;
-      return `Step 1 of 5. Approving the one-pager moves it to the partners for sign-off. Nothing goes to ${exec} yet.`;
+      if (phase === "idle") return `Step 1 of 6. Checks ${n} calendars, ranks the top three windows per quarter, and drafts the proposal for ${exec}.`;
+      if (phase === "needsDraft") return `Step 1 of 6. Drafts the proposal for ${exec} from the ranked windows.`;
+      return `Step 1 of 6. Approving the one-pager moves it to the partners for sign-off. Nothing goes to ${exec} yet.`;
     case 2:
-      if (phase === "waiting") return `Step 2 of 5. Waiting for each partner to reply yes. The company sees nothing until they do.`;
-      if (phase === "ready") return `Step 2 of 5. All partners signed off. Next, the cover email to ${exec}.`;
-      return `Step 2 of 5. Sends the one-pager to ${joinNames(portco.partnerIds.map(personName))} for a yes before ${exec} sees it.`;
+      if (phase === "waiting") return `Step 2 of 6. Waiting for each partner to reply yes. The company sees nothing until they do.`;
+      if (phase === "ready") return `Step 2 of 6. All partners signed off. Next, the cover email to ${exec}.`;
+      return `Step 2 of 6. Sends the one-pager to ${joinNames(portco.partnerIds.map(personName))} for a yes before ${exec} sees it.`;
     case 3:
-      if (phase === "waiting") return `Step 3 of 5. Waiting for ${exec} to pick one option per quarter.`;
-      if (phase === "ready") return `Step 3 of 5. Dates picked. Next, the confirmation email to the board.`;
-      return `Step 3 of 5. Sends the proposal and one-pager to ${exec}. They pick one option per quarter.`;
+      if (phase === "waiting") return `Step 3 of 6. Waiting for ${exec} to pick one option per quarter.`;
+      if (phase === "ready") return `Step 3 of 6. Dates picked. Next, the confirmation email to the board.`;
+      return `Step 3 of 6. Sends the proposal and one-pager to ${exec}. They pick one option per quarter.`;
     case 4:
-      if (phase === "conflict") return `Step 4 of 5. Sends the Q3 change to ${boardCount} board members. The other quarters stay as confirmed.`;
-      if (phase === "waiting") return `Step 4 of 5. Waiting for ${boardCount} board members to confirm the four dates.`;
-      if (phase === "ready") return `Step 4 of 5. Every board member confirmed. Lock the dates and book hotels and dinners.`;
-      return `Step 4 of 5. Sends the four picked dates to ${boardCount} board members for a yes.`;
+      if (phase === "conflict") return `Step 4 of 6. Sends the Q3 change to ${boardCount} board members. The other quarters stay as confirmed.`;
+      if (phase === "waiting") return `Step 4 of 6. Waiting for ${boardCount} board members to confirm the four dates.`;
+      if (phase === "ready") return `Step 4 of 6. Every board member confirmed. Lock the dates and book hotels and dinners.`;
+      return `Step 4 of 6. Sends the four picked dates to ${boardCount} board members for a yes.`;
+    case 5:
+      return "Step 5 of 6. Locks the four dates and books a hotel and a dinner for each. The invites come next.";
     default:
-      if (phase === "done") return "All five steps done. Calendar invites go out from Outlook.";
-      return "Step 5 of 5. Locks the four dates and books a hotel and a dinner for each. Invites go out from Outlook.";
+      if (phase === "done") return "All six steps done. Every invite accepted, travel booked.";
+      if (phase === "waiting") return "Step 6 of 6. Invites are out. Replies and travel show as they come in.";
+      return `Step 6 of 6. Sends one calendar invite per meeting to ${boardCount === "all three" ? "the partners, " + exec + ", and the board" : "everyone in the room"}, with the dinner as a second entry.`;
   }
 }
 

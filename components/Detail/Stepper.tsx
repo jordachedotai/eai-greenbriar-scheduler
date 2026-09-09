@@ -15,7 +15,7 @@ export function Stepper() {
   const ring = you ? "#2b5f9e" : "#1f5a2d";
   const halo = you ? "#e5edf7" : "#e6efe7";
   return (
-    <ol className="grid grid-cols-5" data-testid="stepper">
+    <ol className="grid grid-cols-6" data-testid="stepper">
       {STAGES.map((s, i) => {
         const done = allDone || s < stage;
         const current = !allDone && s === stage;
