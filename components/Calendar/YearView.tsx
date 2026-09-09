@@ -47,16 +47,16 @@ export function YearView() {
       <div className="flex flex-wrap items-center gap-5 rounded-[12px] border border-line bg-white px-[18px] py-3.5 shadow-[0_1px_2px_rgba(23,34,26,0.05)]">
         <span className="serif text-[22px] font-semibold">2027</span>
         <span className="text-[16px] text-mut">
-          <span className="font-semibold text-lock" data-testid="cal-locked">{locked} confirmed</span>
+          <span className="font-semibold text-lock" data-testid="cal-locked">{locked} locked</span>
           {" and "}
-          <span className="font-semibold text-wait" data-testid="cal-proposed">{meetings.length - locked} proposed</span>
+          <span className="font-semibold text-wait" data-testid="cal-proposed">{meetings.length - locked} waiting on others</span>
           {" meetings"}
         </span>
         <span className="ml-auto inline-flex items-center gap-2 text-[14px] text-mut">
-          <span className="inline-block h-3.5 w-3.5 rounded-[4px] bg-lock" /> confirmed or locked
+          <span className="rounded-full bg-lock-soft px-2 py-0.5 text-[12px] font-semibold text-lock">Locked</span> board confirmed or later
         </span>
         <span className="inline-flex items-center gap-2 text-[14px] text-mut">
-          <span className="inline-block h-3.5 w-3.5 rounded-[4px] border-2 border-amber" /> proposed
+          <span className="rounded-full bg-wait-soft px-2 py-0.5 text-[12px] font-semibold text-wait">Waiting on others</span> proposed
         </span>
       </div>
       <div className="grid grid-cols-2 gap-3.5 lg:grid-cols-3 2xl:grid-cols-4">

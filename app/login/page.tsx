@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useStore } from "@/lib/store";
 import { getCurrentEa } from "@/lib/data";
+import { Face } from "@/components/ui/Face";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -30,6 +31,13 @@ export default function LoginPage() {
           <div className="flex flex-col gap-1 text-center">
             <h1 className="serif text-[26px] font-semibold leading-tight">Portfolio meeting scheduler</h1>
             <p className="text-[16px] text-mut">Sign in to see your portfolio companies.</p>
+          </div>
+          <div className="flex items-center gap-3 rounded-[10px] border border-line bg-bg px-3.5 py-2.5" data-testid="login-user">
+            <Face person={{ id: ea.id, name: ea.name, avatar: ea.avatar }} size={40} className="shadow-[0_0_0_2px_#ffffff,0_0_0_3px_#dde3da]" />
+            <div className="flex flex-col leading-tight">
+              <span className="text-[15px] font-semibold">{ea.name}</span>
+              <span className="text-[13px] text-mut">{ea.title}, Greenbriar</span>
+            </div>
           </div>
           <label className="flex flex-col gap-1.5">
             <span className={label}>Email</span>
