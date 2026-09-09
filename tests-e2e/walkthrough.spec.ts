@@ -45,11 +45,13 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("looking-for")).toContainText("Four 4-hour blocks, Q1 2027 to Q4 2027, one per quarter, dinner at 6:30pm");
   await expect(page.getByTestId("primary-action")).toHaveText("Find dates");
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox");
-  await expect(page.getByTestId("explain")).toContainText("Helen Marsh, Raymond Cho and Denise Walker have not shared calendars");
-  await expect(page.getByTestId("explain")).toContainText("Tom Haggerty picks from the options in step 3");
+  await expect(page.getByTestId("explain")).toHaveText("Approving moves it to the partners for sign-off.");
+  await expect(page.getByTestId("who-calendars")).toContainText("Michael Wang, Jill Raker, Niall McComiskey, Max Elgart, Ben Cox");
+  await expect(page.getByTestId("who-email")).toContainText("Helen Marsh, Raymond Cho, Denise Walker · in step 4");
+  await expect(page.getByTestId("who-picks")).toContainText("Tom Haggerty · in step 3");
+  await expect(page.getByTestId("who-skipped")).toContainText(/\d+ days already held for other portfolio company meetings/);
   await expect(page.getByTestId("thin-2027-Q3")).toContainText("Only 2 windows in Q3");
-  await expect(page.getByTestId("explain").locator("[data-testid='face']")).toHaveCount(9);
+  await expect(page.getByTestId("who-block").locator("[data-testid='face']")).toHaveCount(9);
   await expect(page.getByTestId("shortlist-2027-Q1").locator('[data-testid="window"]')).toHaveCount(3);
   await waitForAgent(page);
   await expect(page.getByTestId("draft-onepager").getByTestId("draft-text")).toContainText("Dear Tom");
@@ -301,7 +303,7 @@ test("Unchecking a partner removes them from the calendar check", async ({ page 
   await expect(page.getByTestId("picker-ben-cox")).toHaveAttribute("data-checked", "false");
   await expect(page.getByTestId("action-hint")).toContainText("Checks 4 calendars");
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey and Max Elgart.");
+  await expect(page.getByTestId("who-calendars")).toHaveText("Michael Wang, Jill Raker, Niall McComiskey, Max Elgart");
   await expect(page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']").first().locator("[data-testid='face']")).toHaveCount(4);
 });
 
@@ -344,7 +346,7 @@ test("People, Templates, and Settings: add a company and change a team", async (
 
   // Find dates works with generated calendars and generic venues, and the row shows up.
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("explain")).toContainText("Checked calendars for Claire Ponnaiya and Anay Saraf");
+  await expect(page.getByTestId("who-calendars")).toHaveText("Claire Ponnaiya, Anay Saraf");
   await expect(page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']").first()).toBeVisible();
   await page.getByTestId("nav-portfolio").click();
   await expect(page.getByTestId("row-northgate-industrial")).toBeVisible();

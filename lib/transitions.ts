@@ -150,12 +150,15 @@ export function findDates(p: Portco, deps: Deps, excludeDays: Set<string> = new 
   const checked = activePartners(p);
   const availability = ensureAvailability(deps.availability, checked, yearsOf(p.targetQuarters));
   const res = findWindows({ portco: { ...p, partnerIds: checked }, partners: deps.partners, boardMembers: membersOf(p, deps), availability, excludeDays });
-  const next = mapQuarters(p, (q, qs) => ({
-    ...qs,
-    windows: res[q].windows,
-    thin: res[q].thin,
-    shortlist: rankWindows(res[q].windows),
-  }));
+  const next: Portco = {
+    ...mapQuarters(p, (q, qs) => ({
+      ...qs,
+      windows: res[q].windows,
+      thin: res[q].thin,
+      shortlist: rankWindows(res[q].windows),
+    })),
+    skippedDays: excludeDays.size,
+  };
   const lbl = (q: Quarter) => quarterLabel(q, p.targetQuarters);
   const parts = p.targetQuarters.map((q) => `${lbl(q)}: ${res[q].windows.length}`);
   const thin = p.targetQuarters.filter((q) => res[q].thin).map(lbl);

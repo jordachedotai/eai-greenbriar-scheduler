@@ -14,24 +14,26 @@ import { boardMembersOf } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
-import { Face, resolvePerson, type Person } from "@/components/ui/Face";
+import { Face, FaceStack, resolvePerson, type Person } from "@/components/ui/Face";
 import { IconCheck, IconPlus } from "@/components/ui/icons";
 import { Label, PanelHeader, Pill, Section, WindowCard } from "./shared";
 
+// Faces or initials inline with names, comma separated.
 function Names({ people }: { people: Person[] }) {
   return (
     <>
       {people.map((p, i) => (
-        <span key={p.id ?? p.name}>
-          {i > 0 ? (i === people.length - 1 ? " and " : ", ") : ""}
-          <span className="inline-flex items-center gap-1 align-middle">
-            <Face person={p} size={24} />
-            <span>{p.name}</span>
-          </span>
+        <span key={p.id ?? p.name} className="inline-flex items-center gap-1.5 align-middle">
+          <Face person={p} size={24} />
+          <span>{i < people.length - 1 ? `${p.name}, ` : `${p.name} `}</span>
         </span>
       ))}
     </>
   );
+}
+
+function RowLabel({ children }: { children: React.ReactNode }) {
+  return <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">{children}</span>;
 }
 
 function PersonRow({ person, sub, tag, checked, dimmed, onToggle, testId }: { person: Person; sub: string; tag: "Calendar" | "Email"; checked?: boolean; dimmed?: boolean; onToggle?: () => void; testId: string }) {
@@ -147,14 +149,32 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
     );
   }
 
+  const skipped = portco.skippedDays ?? held;
   return (
     <div>
       <PanelHeader title={readOnly ? "Dates found" : phase === "review" ? "Read the one-pager, then approve it" : "Dates found"}>
-        {readOnly ? null : phase === "review" ? <>Approving moves it to the partners for sign-off. </> : phase === "needsDraft" && !working ? <>Draft the one-pager to continue. </> : null}
-        Checked calendars for <Names people={partnerPeople} />. <Names people={emailPeople} /> have not shared calendars and will be asked by email in step 4.{" "}
-        <span className="inline-flex items-center gap-1 align-middle"><Face person={exec} size={24} /><span>{portco.execContact.name}</span></span> picks from the options in step 3.
-        {held > 0 ? ` Skipped ${held} days already held for other portfolio company meetings.` : ""}
+        {readOnly ? "Dates found and the one-pager approved." : phase === "review" ? "Approving moves it to the partners for sign-off." : working ? "Writing the reasons and the one-pager from the ranked windows." : "Draft the one-pager to continue."}
       </PanelHeader>
+
+      <div className="mb-4 grid grid-cols-[170px_1fr] items-center gap-x-4 gap-y-2.5 rounded-[12px] border border-line bg-bg px-[18px] py-3.5 text-[15px]" data-testid="who-block">
+        <RowLabel>Calendars checked</RowLabel>
+        <span className="flex flex-wrap items-center gap-2" data-testid="who-calendars">
+          <FaceStack ids={checked} size={24} />
+          <span>{partnerPeople.map((p) => p.name).join(", ")}</span>
+        </span>
+        <RowLabel>Asked by email</RowLabel>
+        <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1" data-testid="who-email">
+          {emailPeople.length ? <Names people={emailPeople} /> : <span>No one. Every board member shares a calendar.</span>}
+          <span className="text-mut">· in step 4</span>
+        </span>
+        <RowLabel>Picks the dates</RowLabel>
+        <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1" data-testid="who-picks">
+          <span className="inline-flex items-center gap-1.5 align-middle"><Face person={exec} size={24} /><span>{portco.execContact.name} </span></span>
+          <span className="text-mut">· in step 3</span>
+        </span>
+        <RowLabel>Skipped</RowLabel>
+        <span data-testid="who-skipped">{skipped > 0 ? `${skipped} days already held for other portfolio company meetings` : "No days held for other portfolio company meetings"}</span>
+      </div>
 
       <Section title="One-pager for the company">
         {working && !portco.drafts.onepager ? <Working label={working} /> : <DraftViewer draftKey="onepager" title={`One-pager to ${portco.execContact.name}`} sentLabel="Approved" />}

@@ -34,6 +34,7 @@ type Portco = {
   stage: Stage;
   waitingOn: WaitingOn;
   waitingSince?: string;        // ISO, shown as "since Tue"
+  skippedDays?: number;         // days Find dates skipped because other companies held them
   quarters: Record<Quarter, QuarterState>;
   log: LogEntry[];
 };

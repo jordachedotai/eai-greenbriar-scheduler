@@ -218,6 +218,7 @@ export type Portco = PortcoSeed & {
   replies?: ReplyEmail[]; // emails read or sent, newest last
   attendance?: Partial<Record<Quarter, Record<string, AttendanceStatus>>>; // after lock: invite replies per attendee ("exec" for the company contact)
   travel?: Record<string, TravelStatus>; // after lock: per partner
+  skippedDays?: number; // days Find dates skipped because other companies held them
   waitingOn: WaitingOn;
   waitingSince?: string; // ISO
   quarters: Record<Quarter, QuarterState>;
