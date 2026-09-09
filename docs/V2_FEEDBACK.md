@@ -75,3 +75,9 @@ Jordache walked the five-stage build. Login, sidebar, avatar, stepper, pinned ac
 2. **Settings gets "Add portfolio company."** A form: name, logo, HQ city, office address, executive contact, board members, assigned EA, Greenbriar team. Saves to the store (localStorage in the demo). New companies appear in Portfolio immediately at "not started."
 3. **Settings gets team assignment per portfolio company.** Pick the Greenbriar people on each company from the People roster with headshots, edit for existing companies, and the change flows into Find dates.
 4. **Find dates opens with an attendee picker, not a sentence.** Headshot, name, title, a Calendar or Email tag, and a checkbox per person. Partners checked by default. Board members and the portco executive listed with the Email tag, since they are asked later, not calendar-checked. Unchecking a partner removes them from the availability intersection. "Add someone" pulls from People.
+
+## Round 4 (2026-09-09, afternoon): presenter menu decision
+- **Simulate actions live in the Shift+P presenter menu, not inline.** Reverses the round 2 decision to show a "Demo: simulate reply" button inside waiting states. Jordache prefers the pop-up: it keeps the EA's screen clean and the room never sees a demo control unless the presenter opens it.
+- The presenter menu gets the redesign: dark brand-green panel, bottom right, one section "Simulate for this company" listing the steps in order with done ones dimmed and the next one highlighted, and a "Demo" section with Jump to state, Agent mode, the header demo-tag toggle, and Reset. Reference: `reference/design/Decline.dc.html`, shown open.
+- Waiting states still say who we are waiting on and since when. They just do not carry a button.
+- Detail page reference now exists: `reference/design/FindDates.dc.html` (stage 1 with the attendee picker, task 57) and `reference/design/Decline.dc.html` (stage 4 decline view, task 49, with the presenter menu open).

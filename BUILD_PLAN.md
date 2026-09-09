@@ -114,13 +114,17 @@ Inputs already in the repo: `data/source/greenbriar-portfolio.json` (18 current 
 51. Design pass: typeface, spacing scale, card elevation, status color system (needs you blue, waiting amber, locked green, not started gray), sidebar and stepper icons, brand color in the header bar.
 
 ### 5e. After lock: Attendance (day 2)
-52. Locked portcos get an Attendance panel: per meeting, per attendee, invite accepted / tentative / no reply; travel booked per partner. Simulated via a demo button. Rows view shows "3 of 6 accepted" for locked portcos instead of a bare green bar.
+52. Locked portcos get an Attendance panel: per meeting, per attendee, invite accepted / tentative / no reply; travel booked per partner. Simulated from the presenter menu ("Invites accepted"). Rows view shows "3 of 6 accepted" for locked portcos instead of a bare green bar.
 
 ### 5f. People, Settings, Templates (day 3)
 53. People: from `greenbriar-team.json`, grouped Investment Team and Portfolio Support, Finance & Administration, headshot, name, title. Click a person to see the portcos they sit on. Six people without a site headshot get initials.
 54. Settings: calendar connection per partner (all "Connected" in the demo), EA roster with portco assignments, meeting defaults (4 hours, dinner 6:30pm).
 55. Templates: the one-pager and the four emails as read-only templates with an Edit button that does nothing yet.
 
+
+### 5d addendum: detail page reference and presenter menu (round 4)
+50a. Build the detail page from `reference/design/FindDates.dc.html` and `reference/design/Decline.dc.html`: company header card with stepper and quarter strip, stage panel plus a 320px Activity panel with faces, and a pinned action bar with the step sentence on the left and the buttons on the right. Primary button is brand green, or blue when the stage needs the EA (a decline).
+50b. Presenter menu rebuilt to the Decline reference: dark brand-green panel bottom right, "Simulate for this company" listing the simulate steps in order (done dimmed, next highlighted, later ones labeled), then Jump to state, Agent mode, demo-tag toggle, Reset. Shift+P and the header icon open it. Remove every inline demo button from the waiting states.
 
 ### 5g. Round 3 additions (day 3, after 5f)
 56. Rename Portcos to Portfolio everywhere the user can read it: sidebar, page title, breadcrumb, work strip, empty states, demo script. Route can stay `/portcos` or move to `/portfolio` with a redirect. Code ids stay `portco`.

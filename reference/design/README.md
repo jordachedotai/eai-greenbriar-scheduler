@@ -1,6 +1,6 @@
 # Design reference: Portfolio rows view
 
-`Main.dc.html` is the approved look for the Portfolio rows view, as plain HTML with inline styles. `Tokens.dc.html` is the type, color, status, and control sheet with exact values. Both are static mockups (no interaction) and reference images by filename; the real images live in `public/logos/` and `public/avatars/`.
+`Main.dc.html` (rows), `Board.dc.html` (board), `FindDates.dc.html` (detail, step 1 with the attendee picker), and `Decline.dc.html` (detail, step 4 decline view with the presenter menu open) are the approved look, as plain HTML with inline styles. `Tokens.dc.html` is the type, color, status, and control sheet with exact values. Both are static mockups (no interaction) and reference images by filename; the real images live in `public/logos/` and `public/avatars/`.
 
 Live canvas: https://claude.ai/code/artifact/0b291dc4-da2a-4d20-b5e5-992b3e31dc02
 

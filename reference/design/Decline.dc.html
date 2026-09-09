@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+  <style>
+    body { margin: 0; font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif; color: #17221a; background: #f5f7f4; -webkit-font-smoothing: antialiased; }
+    a { color: #1f5a2d; text-decoration: none; } a:hover { color: #143f1f; }
+    .serif { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 1180px; display: flex; flex-direction: row; background: #f5f7f4; overflow: hidden; position: relative;">
+
+  <!-- Sidebar -->
+  <aside style="width: 232px; display: flex; flex-direction: column; justify-content: space-between; background: #ffffff; border-right: 1px solid #dde3da;">
+    <div style="display: flex; flex-direction: column;">
+      <div style="height: 64px; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid #dde3da;">
+        <img src="wordmark.png" alt="Greenbriar" style="height: 22px; width: auto;">
+      </div>
+      <nav style="display: flex; flex-direction: column; gap: 2px; padding: 12px 12px;">
+        <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 10px; background: #e6efe7; color: #143f1f; font-weight: 600; font-size: 16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 12h18"></path></svg>
+          <span>Portfolio</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 10px; color: #17221a; font-weight: 500; font-size: 16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#61705f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg>
+          <span>Calendar</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 10px; color: #17221a; font-weight: 500; font-size: 16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#61705f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M15.5 14.5a5 5 0 0 1 6 5"></path></svg>
+          <span>People</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 10px; color: #17221a; font-weight: 500; font-size: 16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#61705f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l5 5v13H6z"></path><path d="M14 3v5h5"></path><path d="M9 13h7"></path><path d="M9 17h7"></path></svg>
+          <span>Templates</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 10px; color: #17221a; font-weight: 500; font-size: 16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#61705f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10"></path><path d="M18 7h2"></path><circle cx="16" cy="7" r="2"></circle><path d="M4 17h2"></path><path d="M10 17h10"></path><circle cx="8" cy="17" r="2"></circle></svg>
+          <span>Settings</span>
+        </div>
+      </nav>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px 16px; border-top: 1px solid #dde3da;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="peggy.jpg" alt="Peggy Conway" style="width: 40px; height: 40px; border-radius: 999px; object-fit: cover; object-position: top; box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #dde3da;">
+        <div style="display: flex; flex-direction: column; line-height: 1.25;">
+          <span style="font-size: 15px; font-weight: 600; color: #17221a;">Peggy Conway</span>
+          <span style="font-size: 13px; color: #61705f;">Executive Assistant</span>
+        </div>
+      </div>
+      <div style="font-size: 13px; color: #61705f; display: flex; align-items: center; gap: 6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>
+        <span>Collapse</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main column -->
+  <div style="flex-grow: 1; display: flex; flex-direction: column; min-width: 0;">
+
+    <!-- Header band with breadcrumb -->
+    <header style="height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; background: #143f1f; color: #ffffff;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 16px;">
+        <span style="color: rgba(255,255,255,0.72);">Portfolio</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+        <span class="serif" style="font-size: 22px; font-weight: 600;">FragilePAK</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 13px; font-weight: 500; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9);">Demo data</span>
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: #ffffff; color: #143f1f;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path></svg></span>
+      </div>
+    </header>
+
+    <!-- Page body -->
+    <main style="display: flex; flex-direction: column; gap: 18px; padding: 22px 28px 0; overflow: hidden; flex-grow: 1; min-height: 0;">
+
+      <!-- Company header + stepper card -->
+      <section style="display: flex; flex-direction: column; gap: 18px; padding: 18px 22px; background: #ffffff; border: 1px solid #dde3da; border-radius: 14px; box-shadow: 0 1px 2px rgba(23,34,26,0.06), 0 8px 24px -18px rgba(23,34,26,0.20);">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 84px; height: 52px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid #e6ebe4; border-radius: 10px; padding: 6px;"><img src="logo-fragilepak.jpg" alt="FragilePAK" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 20px; font-weight: 600; line-height: 1.2;">FragilePAK</span>
+              <span style="font-size: 14px; color: #61705f;">Henderson, NV · 2225 Corporate Circle · Logistics</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #e5edf7; color: #2b5f9e;">Needs you</span>
+            <div style="display: flex; align-items: center; gap: 8px; padding: 4px 10px 4px 4px; border: 1px solid #dde3da; border-radius: 999px;">
+              <img src="peggy.jpg" alt="Peggy Conway" style="width: 24px; height: 24px; border-radius: 999px; object-fit: cover; object-position: top;">
+              <span style="font-size: 13px; color: #61705f;">Peggy Conway</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stepper: 1 to 3 done, 4 current, 5 next -->
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; align-items: start;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; width: 100%;">
+              <span style="flex-grow: 1; height: 2px; background: transparent;"></span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: #1f5a2d;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+              <span style="flex-grow: 1; height: 2px; background: #1f5a2d;"></span>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: #1f5a2d;">Find dates</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; width: 100%;">
+              <span style="flex-grow: 1; height: 2px; background: #1f5a2d;"></span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: #1f5a2d;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+              <span style="flex-grow: 1; height: 2px; background: #1f5a2d;"></span>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: #1f5a2d;">Partner sign-off</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; width: 100%;">
+              <span style="flex-grow: 1; height: 2px; background: #1f5a2d;"></span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: #1f5a2d;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+              <span style="flex-grow: 1; height: 2px; background: #1f5a2d;"></span>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: #1f5a2d;">Company picks</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; width: 100%;">
+              <span style="flex-grow: 1; height: 2px; background: #1f5a2d;"></span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: #ffffff; border: 3px solid #2b5f9e; box-sizing: border-box; font-size: 13px; font-weight: 700; color: #2b5f9e; box-shadow: 0 0 0 4px #e5edf7;">4</span>
+              <span style="flex-grow: 1; height: 2px; background: #dde3da;"></span>
+            </div>
+            <span style="font-size: 14px; font-weight: 600; color: #2b5f9e;">Board confirms</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; width: 100%;">
+              <span style="flex-grow: 1; height: 2px; background: #dde3da;"></span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: #ffffff; border: 2px solid #c9d3c8; box-sizing: border-box; font-size: 13px; font-weight: 700; color: #8a978a;">5</span>
+              <span style="flex-grow: 1; height: 2px; background: transparent;"></span>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: #8a978a;">Lock and book</span>
+          </div>
+        </div>
+
+        <!-- Quarter strip -->
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; background: #e3f4ea; border: 1px solid #c4e6d1;"><span style="font-size: 14px; font-weight: 700; color: #15733f;">Q1</span><span style="font-size: 15px; font-weight: 600;">Thu Mar 4, 1pm to 5pm</span><span style="font-size: 13px; color: #15733f;">confirmed</span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; background: #e3f4ea; border: 1px solid #c4e6d1;"><span style="font-size: 14px; font-weight: 700; color: #15733f;">Q2</span><span style="font-size: 15px; font-weight: 600;">Tue Jun 1, 9am to 1pm</span><span style="font-size: 13px; color: #15733f;">confirmed</span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; background: #e5edf7; border: 1px solid #c3d4ea;"><span style="font-size: 14px; font-weight: 700; color: #2b5f9e;">Q3</span><span style="font-size: 15px; font-weight: 600;">Tue Jul 13, 10am to 2pm</span><span style="font-size: 13px; color: #2b5f9e;">re-send ready</span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; background: #e3f4ea; border: 1px solid #c4e6d1;"><span style="font-size: 14px; font-weight: 700; color: #15733f;">Q4</span><span style="font-size: 15px; font-weight: 600;">Mon Oct 25, 10am to 2pm</span><span style="font-size: 13px; color: #15733f;">confirmed</span></div>
+        </div>
+      </section>
+
+      <!-- Stage panel + Activity -->
+      <section style="display: grid; grid-template-columns: 1fr 320px; gap: 18px; flex-grow: 1; min-height: 0;">
+
+        <!-- Stage 4 panel: decline -->
+        <div style="display: flex; flex-direction: column; gap: 16px; padding: 22px; background: #ffffff; border: 1px solid #dde3da; border-radius: 14px; box-shadow: 0 1px 2px rgba(23,34,26,0.06), 0 8px 24px -18px rgba(23,34,26,0.20);">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span class="serif" style="font-size: 22px; font-weight: 600;">A board member declined a date</span>
+            <span style="font-size: 16px; color: #61705f;">The agent went back to the shortlist the partners approved, proposed the next window, and re-checked the partners. Read the re-send and approve it.</span>
+          </div>
+
+          <!-- Conflict card -->
+          <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px 18px; border-radius: 12px; background: #f3f7fc; border: 1px solid #c3d4ea; border-left: 4px solid #2b5f9e;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; background: #ffffff; border: 1px solid #c3d4ea; color: #2b5f9e; font-size: 13px; font-weight: 700;">RC</span>
+              <div style="display: flex; flex-direction: column;">
+                <span style="font-size: 16px; font-weight: 600;">Raymond Cho declined Q3</span>
+                <span style="font-size: 14px; color: #61705f;">Independent Director · replied Sep 9, 9:38 AM</span>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 110px 1fr; gap: 8px 16px; align-items: center; font-size: 15px;">
+              <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f;">Declined</span>
+              <span style="text-decoration: line-through; color: #61705f;">Wed Aug 11, 9am to 1pm</span>
+              <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f;">Proposed</span>
+              <span style="display: flex; align-items: center; gap: 8px;"><span style="font-weight: 600;">Tue Jul 13, 10am to 2pm</span><span style="font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #e5edf7; color: #2b5f9e;">option 2 on the approved shortlist</span></span>
+              <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f;">Re-checked</span>
+              <span style="display: flex; align-items: center; gap: 10px;">
+                <span style="display: flex; align-items: center;">
+                  <img src="jill-raker.jpg" alt="Jill Raker" style="width: 24px; height: 24px; border-radius: 999px; object-fit: cover; border: 2px solid #ffffff;">
+                  <img src="michael-wang.jpg" alt="Michael Wang" style="width: 24px; height: 24px; border-radius: 999px; object-fit: cover; border: 2px solid #ffffff; margin-left: -8px;">
+                  <img src="jack-morris.jpg" alt="Jack Morris" style="width: 24px; height: 24px; border-radius: 999px; object-fit: cover; border: 2px solid #ffffff; margin-left: -8px;">
+                </span>
+                <span>Jill Raker, Michael Wang, and Jack Morris are still free</span>
+                <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: #15733f;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg>verified</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Re-send draft, structured -->
+          <div style="display: flex; flex-direction: column; border-radius: 12px; border: 1px solid #dde3da; overflow: hidden;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: #f5f7f4; border-bottom: 1px solid #dde3da;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f;">Re-send to the board: Q3 date change</span>
+                <span style="font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #fbf3dd; color: #8a5a08;">Draft</span>
+              </div>
+              <span style="font-size: 13px; color: #61705f;">To Helen Marsh, Raymond Cho, Denise Walker</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; font-size: 16px; line-height: 1.5;">
+              <span style="font-weight: 600;">Subject: FragilePAK Q3 meeting, new date to confirm</span>
+              <span>Dear Helen, Raymond, and Denise,</span>
+              <span>Raymond is unable to make the Q3 meeting on Wednesday, August 11, so we are dropping that date. The partners had already approved the alternate below, and all three can attend.</span>
+              <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 16px; border-radius: 10px; background: #f5f7f4; border: 1px solid #e3e9e1;">
+                <span style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 13px; font-weight: 700; color: #2b5f9e; width: 24px;">Q3</span><span style="font-weight: 600;">Tuesday, July 13, 10am to 2pm</span><span style="color: #61705f;">dinner at 6:30pm</span></span>
+              </div>
+              <span>Could each of you reply with a yes for the new date by Wednesday, September 23? Q1, Q2, and Q4 are unchanged.</span>
+              <span style="color: #61705f;">Thank you,<br>Peggy Conway, Executive Assistant to the Greenbriar Partners</span>
+            </div>
+          </div>
+
+          <!-- Collapsed sent email -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; border: 1px solid #e3e9e1; background: #fafbf9;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #61705f;">
+              <span style="font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Sent</span>
+              <span>Confirmation email to the board · Sep 9, 9:38 AM · 4 dates</span>
+            </div>
+            <span style="font-size: 14px; font-weight: 600; color: #1f5a2d;">Show</span>
+          </div>
+
+          <!-- Board replies table -->
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f; padding: 0 4px;">Board replies</span>
+            <div style="display: grid; grid-template-columns: 60px 1fr 150px 150px 150px; gap: 0; border: 1px solid #dde3da; border-radius: 10px; overflow: hidden; font-size: 15px;">
+              <span style="padding: 10px 12px; background: #f5f7f4; font-size: 13px; font-weight: 600; color: #61705f;">Qtr</span>
+              <span style="padding: 10px 12px; background: #f5f7f4; font-size: 13px; font-weight: 600; color: #61705f;">Date</span>
+              <span style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f7f4;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: #e6efe7; color: #143f1f; font-size: 12px; font-weight: 700;">HM</span><span style="font-size: 13px; font-weight: 600; color: #61705f;">H. Marsh</span></span>
+              <span style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f7f4;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: #e6efe7; color: #143f1f; font-size: 12px; font-weight: 700;">RC</span><span style="font-size: 13px; font-weight: 600; color: #61705f;">R. Cho</span></span>
+              <span style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f7f4;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: #e6efe7; color: #143f1f; font-size: 12px; font-weight: 700;">DW</span><span style="font-size: 13px; font-weight: 600; color: #61705f;">D. Walker</span></span>
+
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1; font-weight: 700; color: #61705f;">Q1</span>
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1;">Thu Mar 4, 1pm to 5pm</span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1; font-weight: 700; color: #61705f;">Q2</span>
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1;">Tue Jun 1, 9am to 1pm</span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1; background: #f3f7fc; font-weight: 700; color: #2b5f9e;">Q3</span>
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1; background: #f3f7fc;"><span style="text-decoration: line-through; color: #61705f;">Wed Aug 11</span> <span style="font-weight: 600;">Tue Jul 13, 10am to 2pm</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1; background: #f3f7fc;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #eef2ec; color: #61705f;">Re-asking</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1; background: #f3f7fc;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #fbe7e9; color: #c8434f;">Declined</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1; background: #f3f7fc;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #eef2ec; color: #61705f;">Re-asking</span></span>
+
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1; font-weight: 700; color: #61705f;">Q4</span>
+              <span style="padding: 10px 12px; border-top: 1px solid #e3e9e1;">Mon Oct 25, 10am to 2pm</span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+              <span style="padding: 8px 12px; border-top: 1px solid #e3e9e1;"><span style="font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Yes</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity panel -->
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px 18px; background: #ffffff; border: 1px solid #dde3da; border-radius: 14px; box-shadow: 0 1px 2px rgba(23,34,26,0.05);">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f;">Activity</span>
+            <span style="font-size: 13px; color: #8a978a;">19</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0;">
+            <div style="display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #143f1f; flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"></path><path d="M19 16l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></span>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #143f1f;">Agent</span> · 9:38 AM</span><span style="font-size: 14px; line-height: 1.4;">Went back to the approved shortlist and proposed option 2 for Q3. Re-checked Jill, Michael, and Jack: all free.</span></div>
+            </div>
+            <div style="display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #fbe7e9; color: #c8434f; font-size: 12px; font-weight: 700; flex-shrink: 0;">RC</span>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #17221a;">Raymond Cho</span> · 9:38 AM</span><span style="font-size: 14px; line-height: 1.4;">Confirmed every quarter except Q3. Cannot make Wed Aug 11.</span></div>
+            </div>
+            <div style="display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #e6efe7; color: #143f1f; font-size: 12px; font-weight: 700; flex-shrink: 0;">DW</span>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #17221a;">Denise Walker</span> · 9:38 AM</span><span style="font-size: 14px; line-height: 1.4;">Confirmed every quarter.</span></div>
+            </div>
+            <div style="display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #e6efe7; color: #143f1f; font-size: 12px; font-weight: 700; flex-shrink: 0;">HM</span>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #17221a;">Helen Marsh</span> · 9:38 AM</span><span style="font-size: 14px; line-height: 1.4;">Confirmed every quarter.</span></div>
+            </div>
+            <div style="display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec;">
+              <img src="peggy.jpg" alt="Peggy Conway" style="width: 28px; height: 28px; border-radius: 999px; object-fit: cover; object-position: top; flex-shrink: 0;">
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #17221a;">You</span> · 9:38 AM</span><span style="font-size: 14px; line-height: 1.4;">Sent the confirmation email to the board.</span></div>
+            </div>
+            <div style="display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #143f1f; flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"></path><path d="M19 16l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"></path></svg></span>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #143f1f;">Agent</span> · 9:37 AM</span><span style="font-size: 14px; line-height: 1.4;">Drafted the confirmation email to Helen Marsh, Raymond Cho, and Denise Walker.</span></div>
+            </div>
+            <div style="display: flex; gap: 10px; padding: 10px 0;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #e6efe7; color: #143f1f; font-size: 12px; font-weight: 700; flex-shrink: 0;">TH</span>
+              <div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; color: #61705f;"><span style="font-weight: 600; color: #17221a;">Tom Haggerty</span> · 9:37 AM</span><span style="font-size: 14px; line-height: 1.4;">Picked Q1 Mar 4, Q2 Jun 1, Q3 Aug 11, Q4 Oct 25.</span></div>
+            </div>
+          </div>
+          <span style="font-size: 14px; font-weight: 600; color: #1f5a2d; text-align: center;">Show 12 more</span>
+        </div>
+      </section>
+
+      <!-- Pinned action bar -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 -28px; padding: 14px 28px; background: #ffffff; border-top: 1px solid #dde3da; box-shadow: 0 -8px 24px -18px rgba(23,34,26,0.25);">
+        <span style="font-size: 14px; color: #61705f;">Step 4 of 5. Sends the Q3 change to all three board members. Q1, Q2, and Q4 stay as confirmed.</span>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="display: inline-flex; align-items: center; white-space: nowrap; height: 44px; padding: 0 18px; border-radius: 10px; background: #ffffff; border: 1px solid #c9d3c8; color: #17221a; font-size: 16px; font-weight: 600;">Edit</span>
+          <span style="display: inline-flex; align-items: center; white-space: nowrap; height: 44px; padding: 0 18px; border-radius: 10px; background: #ffffff; border: 1px solid #c9d3c8; color: #17221a; font-size: 16px; font-weight: 600;">Regenerate</span>
+          <span style="display: inline-flex; align-items: center; white-space: nowrap; gap: 10px; height: 44px; padding: 0 22px; border-radius: 10px; background: #2b5f9e; color: #ffffff; font-size: 16px; font-weight: 600; box-shadow: 0 1px 2px rgba(43,95,158,0.35);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4z"></path></svg>
+            <span>Approve and re-send to board</span>
+          </span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Presenter menu, open (Shift+P) -->
+  <div style="position: absolute; right: 28px; bottom: 92px; width: 340px; display: flex; flex-direction: column; background: #143f1f; color: #ffffff; border-radius: 14px; box-shadow: 0 18px 48px -12px rgba(20,63,31,0.55), 0 0 0 1px rgba(255,255,255,0.08) inset; overflow: hidden;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.12);">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8"></path><path d="M12 16v4"></path></svg>
+        <span style="font-size: 15px; font-weight: 600;">Presenter</span>
+      </div>
+      <span style="font-size: 12px; color: rgba(255,255,255,0.6);">Shift+P to close</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 12px;">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.55); padding: 4px 6px 2px;">Simulate for this company</span>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); font-size: 15px;"><span>Partner replies</span><span style="font-size: 12px;">done</span></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); font-size: 15px;"><span>Company picks</span><span style="font-size: 12px;">done</span></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); font-size: 15px;"><span>Board conflict, one declines Q3</span><span style="font-size: 12px;">done</span></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.14); font-size: 15px; font-weight: 600;"><span>Board confirms the re-send</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); font-size: 15px;"><span>Invites accepted</span><span style="font-size: 12px;">after lock</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 12px 12px; border-top: 1px solid rgba(255,255,255,0.12);">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.55); padding: 10px 6px 2px;">Demo</span>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; font-size: 15px;"><span>Jump to state</span><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.12);">council<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; font-size: 15px;"><span>Agent</span><span style="font-size: 13px; padding: 4px 10px; border-radius: 6px; background: rgba(255,255,255,0.12);">Demo data, offline</span></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 8px; font-size: 15px;"><span>Show demo tag in header</span><span style="display: inline-flex; align-items: center; width: 36px; height: 20px; border-radius: 999px; background: #1f9d57; padding: 2px; justify-content: flex-end;"><span style="width: 16px; height: 16px; border-radius: 999px; background: #ffffff;"></span></span></div>
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 4px; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.25); font-size: 15px; font-weight: 600;">Reset to council state</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
