@@ -49,11 +49,11 @@ export default function Page() {
           </div>
           <Board />
           <PortcoDrawer />
-          <PresenterMenu />
         </>
       ) : (
         <div className="py-20 text-center text-mut">Loading</div>
       )}
+      <PresenterMenu />
     </main>
   );
 }

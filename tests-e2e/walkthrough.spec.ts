@@ -112,6 +112,7 @@ test("jump ahead to the board beat and finish", async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => localStorage.clear());
   await page.reload();
+  await expect(page.getByTestId("card-pc1")).toBeVisible();
 
   await page.keyboard.press("Shift+P");
   await page.getByTestId("jump-state").selectOption("one-portco-at-board");
@@ -140,6 +141,7 @@ test("all-in-flight spreads the board", async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => localStorage.clear());
   await page.reload();
+  await expect(page.getByTestId("card-pc1")).toBeVisible();
   await page.keyboard.press("Shift+P");
   await page.getByTestId("jump-state").selectOption("all-in-flight");
   await expect(page.getByTestId("column-count-0")).toHaveText("0");

@@ -20,10 +20,16 @@ Opens on http://localhost:3000 with five portcos in Setup.
 | `npm run build` | Production build, also type-checks |
 | `npm test` | Unit tests for `lib/scheduling.ts` |
 | `npm run gen:fixtures` | Rebuild `data/availability.json` and `data/venues.json` |
+| `npm run gen:states` | Rebuild `data/demo-states.json` by running the app's own transitions over the mock outputs. Run after `gen:fixtures` or `gen:mock` |
 | `npm run gen:mock` | Rebuild `data/mock-agent-outputs.json` from templates, no network. Add `-- --live` to draft with the agent instead, then hand-check |
 | `npm run test:e2e` | Playwright walkthrough of one portco through all six stages in mock mode. Starts its own dev server on port 3111 |
 | `node scripts/smoke-shot.mjs <outDir> [baseUrl]` | Headless screenshots of the board and drawer, prints console errors |
 | `node scripts/demo-shots.mjs <outDir> [baseUrl]` | Walks the demo and saves a screenshot per beat |
+| `node scripts/state-shots.mjs <outDir> [baseUrl]` | Loads saved states and screenshots the board |
+
+## Regenerating data
+
+Order matters: `gen:fixtures`, then `gen:mock`, then `gen:states`. Names files (`partners.json`, `portcos.json`, `board-members.json`) are hand-edited and never overwritten.
 
 ## Modes
 
@@ -33,6 +39,8 @@ Opens on http://localhost:3000 with five portcos in Setup.
 
 Shift+P. Simulate partner sign-offs, the portco reply, board confirmations, or a board conflict in Q3. Toggle mode. Jump to a saved state. Reset.
 
+Saved states: `fresh`, `one-portco-at-shortlist`, `one-portco-at-board` (start at Beat 5), `one-portco-locked`, `all-in-flight`. Loading a state fills the reply-by date and shifts the timeline so it reads as just now.
+
 ## Status
 
-Phase 2 done: all six stage actions, mock and live agent layer, draft viewer with Approve, Edit, Regenerate, presenter menu, conflict path, Playwright walkthrough. Next is Phase 3: saved demo states, brand pass, metrics final. See `BUILD_PLAN.md`.
+Phase 3 done: saved demo states, presenter menu complete, brand and wording pass, three Playwright tests (full walkthrough, jump-ahead from Beat 5, all-in-flight and reset). Next is Phase 4: rehearse per `docs/DEMO_SCRIPT.md`, swap in real names if they land. See `BUILD_PLAN.md`.
