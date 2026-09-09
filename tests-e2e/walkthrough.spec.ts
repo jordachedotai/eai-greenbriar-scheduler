@@ -331,6 +331,29 @@ test("Work strip filters, demo buttons hide, reset restores council", async ({ p
   await expect(page.getByTestId("sidebar")).toHaveAttribute("data-collapsed", "true");
   await page.getByTestId("nav-people").click();
   await expect(page.getByTestId("header-title")).toHaveText("People");
+
+  // Sign out from the avatar menu keeps the saved state; signing back in finds the sidebar still collapsed.
+  await page.getByTestId("avatar-menu-toggle").click();
+  await expect(page.getByTestId("avatar-menu")).toContainText("Peggy Conway");
+  await expect(page.getByTestId("avatar-menu")).toContainText("Executive Assistant");
+  await page.getByTestId("sign-out").click();
+  await expect(page).toHaveURL(/\/login$/);
+  await page.getByTestId("sign-in").click();
+  await expect(page).toHaveURL(/\/portfolio$/);
+  await expect(page.getByTestId("sidebar")).toHaveAttribute("data-collapsed", "true");
+  await page.getByTestId("sidebar-toggle").click();
+
+  // Sign out and reset from the presenter menu: council state, login screen, one click.
+  await page.getByTestId("row-action-ait-worldwide-logistics").click();
+  await page.getByTestId("primary-action").click();
+  await expect(page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']").first()).toBeVisible();
+  await page.keyboard.press("Shift+P");
+  await page.getByTestId("presenter-signout-reset").click();
+  await expect(page).toHaveURL(/\/login$/);
+  await page.getByTestId("sign-in").click();
+  await expect(page.getByTestId("presenter-menu")).toHaveCount(0);
+  await expect(page.getByTestId("count-confirmed")).toHaveText("4 of 20");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Not started");
 });
 
 test("Unchecking a partner removes them from the calendar check", async ({ page }) => {

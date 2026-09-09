@@ -90,6 +90,7 @@ export function PresenterMenu() {
   const showDemoTag = useStore((s) => s.showDemoTag);
   const setShowDemoTag = useStore((s) => s.setShowDemoTag);
   const reset = useStore((s) => s.reset);
+  const setLoggedIn = useStore((s) => s.setLoggedIn);
   const loadState = useStore((s) => s.loadState);
   const working = useStore((s) => s.working);
   const pathname = usePathname();
@@ -200,6 +201,21 @@ export function PresenterMenu() {
           data-testid="presenter-reset"
         >
           Reset to council state
+        </button>
+        <button
+          type="button"
+          className="rounded-[8px] border border-white/25 px-3 py-2.5 text-[15px] font-semibold hover:bg-white/10 disabled:opacity-40"
+          disabled={!!working}
+          onClick={() => {
+            // Restart the script from the login screen: council state, signed out.
+            reset();
+            setOpen(false);
+            setLoggedIn(false);
+            router.push("/login");
+          }}
+          data-testid="presenter-signout-reset"
+        >
+          Sign out and reset
         </button>
       </div>
     </div>

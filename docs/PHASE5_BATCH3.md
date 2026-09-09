@@ -39,3 +39,7 @@ Keep the one-line sentence above it: "Approving moves it to the partners for sig
 ## 5. People page: sticky detail card
 
 The person card on the right stays in view as the roster scrolls: `position: sticky` at the top offset by the header band plus the page padding, inside a column that spans the full roster height. Clicking a person lower in the list swaps the card in place without scrolling the page. Same treatment for the Activity panel on the company page if it is not already sticky there.
+
+## 6. Sign out
+
+Clicking the avatar block at the bottom of the sidebar opens a small menu with the EA's name and title and one item, "Sign out". It sets loggedIn false, keeps every other saved state, and lands on /login. Also add "Sign out and reset" to the presenter menu's Demo section, which does the same after a reset to the council state, so the presenter can restart the script from the login screen in one click.

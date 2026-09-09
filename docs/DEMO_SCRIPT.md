@@ -38,4 +38,5 @@ Load `council-at-board` and start at Beat 4. The conflict is the wow moment. Nev
 - No vendor names. Say "the agent."
 - Do not claim it reads Greenbriar calendars today. Say "connected to calendars." The connector list carries the production conversation.
 - Nobody edits a draft live. An edited draft drops to plain text and loses its structure. Regenerate if a draft needs to change.
+- To run the script again from the top, Shift+P, then "Sign out and reset": council state, login screen, one click. The avatar block at the bottom of the sidebar has a plain "Sign out" that keeps the current state.
 - Reset and Jump to state reload the fixtures. Any company added in Settings, and any team change, is gone after either. Add companies only after the reset you plan to use.
