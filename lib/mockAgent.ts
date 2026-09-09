@@ -233,6 +233,8 @@ export function mockLogistics(p: LogisticsPayload, variant = 0): { picks: Record
     picks[m.quarter] = {
       hotelId: hotel.id,
       restaurantId: restaurant.id,
+      hotelReason: `${hotel.note}.`,
+      restaurantReason: `${restaurant.note}.`,
       reason: `${hotel.name} is ${hotel.distanceMi} miles from the office. ${hotel.note}. ${restaurant.name} for dinner, ${restaurant.distanceMi} miles away. ${restaurant.note}.`,
     };
   });

@@ -10,6 +10,7 @@ import { useStore } from "@/lib/store";
 import type { Portco } from "@/lib/types";
 import { FaceStack } from "@/components/ui/Face";
 import { LogoTile } from "@/components/ui/LogoTile";
+import { Menu } from "@/components/ui/Menu";
 import { PeoplePicker } from "./PeoplePicker";
 
 export function TeamAssignment() {
@@ -51,11 +52,7 @@ export function TeamAssignment() {
                   </span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <select className="rounded-[8px] border border-line bg-white px-2.5 py-1.5 text-[14px]" value={p.eaId} onChange={(e) => setEa(p.id, e.target.value)} data-testid={`team-ea-${p.id}`}>
-                    {eas.map((e) => (
-                      <option key={e.id} value={e.id}>{e.name}</option>
-                    ))}
-                  </select>
+                  <Menu value={p.eaId} onChange={(v) => setEa(p.id, v)} options={eas.map((e) => ({ value: e.id, label: e.name }))} testId={`team-ea-${p.id}`} className="w-[200px]" ariaLabel="Assistant" />
                 </td>
                 <td className="px-4 py-2.5">
                   <span className="flex items-center gap-2.5">

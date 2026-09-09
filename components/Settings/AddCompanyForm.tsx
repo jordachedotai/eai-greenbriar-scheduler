@@ -11,9 +11,11 @@ import { useStore } from "@/lib/store";
 import type { BoardMember, PortcoSeed } from "@/lib/types";
 import { LogoTile } from "@/components/ui/LogoTile";
 import { PeoplePicker } from "./PeoplePicker";
+import { Menu } from "@/components/ui/Menu";
 import { defaultWindow, quarterLong, quarterRange, windowQuarters, MAX_QUARTERS } from "@/lib/quarters";
 
 type BoardRow = { name: string; role: string; calendarVisible: boolean };
+const ROLES = ["Board Chair", "Independent Director", "Director", "Observer"];
 
 function slugify(name: string): string {
   return name.toLowerCase().replace(/&/g, " ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -111,24 +113,12 @@ export function AddCompanyForm() {
           <input className={input} value={execTitle} onChange={(e) => setExecTitle(e.target.value)} data-testid="add-exec-title" />
         </Field>
         <Field label="Assigned assistant">
-          <select className={input} value={eaId} onChange={(e) => setEaId(e.target.value)} data-testid="add-ea">
-            {eas.map((ea) => (
-              <option key={ea.id} value={ea.id}>{ea.name}</option>
-            ))}
-          </select>
+          <Menu value={eaId} onChange={setEaId} options={eas.map((ea) => ({ value: ea.id, label: ea.name }))} testId="add-ea" ariaLabel="Assigned assistant" />
         </Field>
         <Field label="Planning window">
           <div className="grid grid-cols-2 gap-2">
-            <select className={input} value={startQuarter} onChange={(e) => setStartQuarter(e.target.value)} data-testid="add-start">
-              {quarterRange(2026, 2028).map((q) => (
-                <option key={q} value={q}>Starts {quarterLong(q)}</option>
-              ))}
-            </select>
-            <select className={input} value={quarterCount} onChange={(e) => setQuarterCount(Number(e.target.value))} data-testid="add-count">
-              {Array.from({ length: MAX_QUARTERS }, (_, i) => i + 1).map((n) => (
-                <option key={n} value={n}>{n} quarter{n === 1 ? "" : "s"}</option>
-              ))}
-            </select>
+            <Menu value={startQuarter} onChange={setStartQuarter} options={quarterRange(2026, 2028).map((q) => ({ value: q, label: `Starts ${quarterLong(q)}` }))} testId="add-start" ariaLabel="Starting quarter" />
+            <Menu value={quarterCount} onChange={setQuarterCount} options={Array.from({ length: MAX_QUARTERS }, (_, i) => i + 1).map((n) => ({ value: n, label: `${n} quarter${n === 1 ? "" : "s"}` }))} testId="add-count" ariaLabel="How many quarters" />
           </div>
         </Field>
       </div>
@@ -138,12 +128,7 @@ export function AddCompanyForm() {
           {board.map((b, i) => (
             <div key={i} className="grid grid-cols-[1fr_200px_auto] items-center gap-2">
               <input className={input} value={b.name} placeholder="Name" onChange={(e) => setBoard(board.map((x, j) => (j === i ? { ...x, name: e.target.value } : x)))} data-testid={`add-board-name-${i}`} />
-              <select className={input} value={b.role} onChange={(e) => setBoard(board.map((x, j) => (j === i ? { ...x, role: e.target.value } : x)))}>
-                <option>Board Chair</option>
-                <option>Independent Director</option>
-                <option>Director</option>
-                <option>Observer</option>
-              </select>
+              <Menu value={b.role} onChange={(v) => setBoard(board.map((x, j) => (j === i ? { ...x, role: v } : x)))} options={ROLES.map((r) => ({ value: r, label: r }))} testId={`add-board-role-${i}`} ariaLabel="Board role" />
               <label className="flex items-center gap-2 text-[14px] text-mut">
                 <input type="checkbox" checked={b.calendarVisible} onChange={(e) => setBoard(board.map((x, j) => (j === i ? { ...x, calendarVisible: e.target.checked } : x)))} />
                 Calendar shared
@@ -173,10 +158,10 @@ export function AddCompanyForm() {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-1.5">
       <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">{label}</span>
       {children}
-    </label>
+    </div>
   );
 }
 

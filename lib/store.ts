@@ -10,7 +10,7 @@ import type { Bucket } from "./pipeline";
 import { hydratePortco, loadDemoState, setExtraBoardMembers, setExtraVenues } from "./data";
 import { nowIso } from "./pipeline";
 
-export const STORE_VERSION = 7; // 7: every window carries a reason, the shortlist is editable. 6: skippedDays on the company. 5: quarter keys became YYYY-Qn (planning windows)
+export const STORE_VERSION = 8; // 8: venue picks carry a reason per venue and "same as". 7: every window carries a reason, the shortlist is editable. 6: skippedDays on the company. 5: quarter keys became YYYY-Qn (planning windows)
 export const DEFAULT_STATE = "council";
 
 const DEFAULT_MOCK = process.env.MOCK_MODE !== "false";

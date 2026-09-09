@@ -55,7 +55,7 @@ type QuarterState = {
   portcoPick?: string;             // window id
   internalApprovals: Record<string, boolean>;   // partnerId -> approved
   boardResponses: Record<string, "pending" | "confirmed" | "declined">;
-  logistics?: { hotel: Venue; restaurant: Venue; reason: string };
+  logistics?: { hotel: Venue; restaurant: Venue; reason: string; hotelReason?: string; restaurantReason?: string; sameAs?: { hotel?: Quarter; restaurant?: Quarter } };
 };
 
 type Venue = { id: string; city: string; type: "hotel" | "restaurant"; name: string; distanceMi: number; note: string };

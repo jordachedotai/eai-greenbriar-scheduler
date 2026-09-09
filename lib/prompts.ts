@@ -148,10 +148,10 @@ Payload:
 ${json(payload)}`;
 
     case "logistics":
-      return `Pick one hotel and one restaurant for each meeting from the venue list. Only use venue ids from the list. Prefer places close to the office and suited to a partner group and a board dinner. Give one sentence per meeting on why, in the assistant's voice.
+      return `Pick one hotel and one restaurant for each meeting from the venue list. Only use venue ids from the list. Prefer places close to the office and suited to a partner group and a board dinner. Give one short sentence per venue on why ("hotelReason", "restaurantReason") and one sentence per meeting for the record ("reason"), in the assistant's voice. Do not repeat the distance; the card shows it.
 
 Return JSON only, keyed by each meeting's "quarter" key exactly as given:
-{"picks": {"2027-Q1": {"hotelId": "...", "restaurantId": "...", "reason": "..."}, "2027-Q2": {...}}}
+{"picks": {"2027-Q1": {"hotelId": "...", "restaurantId": "...", "hotelReason": "...", "restaurantReason": "...", "reason": "..."}, "2027-Q2": {...}}}
 
 Payload:
 ${json(payload)}`;

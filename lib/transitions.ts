@@ -531,7 +531,7 @@ export function approveAndLock(p: Portco, deps: Deps): Portco {
     const hotel = pick && venueOf(deps, pick.hotelId);
     const restaurant = pick && venueOf(deps, pick.restaurantId);
     if (!hotel || !restaurant) return qs;
-    return { ...qs, status: "locked", logistics: { hotel, restaurant, reason: pick.reason } };
+    return { ...qs, status: "locked", logistics: { hotel, restaurant, reason: pick.reason, hotelReason: pick.hotelReason, restaurantReason: pick.restaurantReason, sameAs: pick.sameAs } };
   });
   next = withDraft(next, "logistics", { ...next.drafts.logistics, approved: true });
   next = withLog(next, "ea", "Locked all four meetings with hotel and dinner.", deps.now());

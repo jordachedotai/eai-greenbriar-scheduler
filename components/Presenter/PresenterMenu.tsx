@@ -15,7 +15,8 @@ import { simulateBoardConfirms, simulateBoardConflict, simulateInvites, simulate
 import { conflictQuarter } from "@/lib/simulate";
 import { quarterLabel } from "@/lib/quarters";
 import type { Portco } from "@/lib/types";
-import { IconChevronDown, IconChevronRight, IconPresenter } from "@/components/ui/icons";
+import { IconChevronRight, IconPresenter } from "@/components/ui/icons";
+import { Menu } from "@/components/ui/Menu";
 
 type Step = { key: string; label: string; state: "done" | "next" | "later" | "off"; note?: string; run?: () => void };
 
@@ -153,31 +154,22 @@ export function PresenterMenu() {
 
       <div className="flex flex-col gap-1.5 border-t border-white/12 px-3 pb-3 pt-1">
         <span className="px-1.5 pb-0.5 pt-2.5 text-[12px] font-semibold uppercase tracking-[0.04em] text-white/55">Demo</span>
-        <label className={rowBase}>
+        <div className={rowBase}>
           <span>Jump to state</span>
-          <span className="relative inline-flex items-center gap-1.5 rounded-[6px] bg-white/12 px-2.5 py-1 text-[13px]">
-            <select
-              className="absolute inset-0 cursor-pointer opacity-0"
-              defaultValue=""
-              disabled={!!working}
-              onChange={(e) => {
-                if (e.target.value) {
-                  loadState(e.target.value);
-                  router.push("/portfolio");
-                }
-                e.target.value = "";
-              }}
-              data-testid="jump-state"
-            >
-              <option value="">Choose</option>
-              {Object.keys(states).map((k) => (
-                <option key={k} value={k}>{k}</option>
-              ))}
-            </select>
-            council
-            <IconChevronDown size={12} />
-          </span>
-        </label>
+          <Menu
+            dark
+            value={null}
+            placeholder="Choose"
+            options={Object.keys(states).map((k) => ({ value: k, label: k }))}
+            onChange={(k) => {
+              if (working) return;
+              loadState(k);
+              router.push("/portfolio");
+            }}
+            testId="jump-state"
+            ariaLabel="Jump to state"
+          />
+        </div>
         <div className={rowBase}>
           <span>Agent</span>
           <button type="button" className="rounded-[6px] bg-white/12 px-2.5 py-1 text-[13px] hover:bg-white/20" onClick={() => setMockMode(!mockMode)} data-testid="toggle-mode">

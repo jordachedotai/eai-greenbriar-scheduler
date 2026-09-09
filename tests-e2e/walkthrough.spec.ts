@@ -179,16 +179,28 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("step-5")).toHaveAttribute("data-state", "current");
   await waitForAgent(page);
-  await expect(page.getByTestId("logistics-2027-Q1")).toContainText("miles from the office");
+  await expect(page.getByTestId("logistics-2027-Q1")).toContainText("mi from the office");
+  // Venues are cards, no native selects. Change opens the alternatives; Use this swaps one in.
+  await expect(page.locator("select")).toHaveCount(0);
+  await expect(page.getByTestId("venue-hotel-2027-Q2")).toContainText("mi from the office");
+  const q2Hotel = (await page.getByTestId("venue-hotel-2027-Q2").getAttribute("data-venue")) as string;
+  await page.getByTestId("venue-hotel-2027-Q2-change").click();
+  await page.getByTestId("venue-hotel-2027-Q2-options").locator("[data-testid^='venue-hotel-2027-Q2-use-']").first().click();
+  await expect(page.getByTestId("venue-hotel-2027-Q2")).not.toHaveAttribute("data-venue", q2Hotel);
+  await expect(page.getByTestId("venue-hotel-2027-Q2-options")).toHaveCount(0);
   // The tool learns Peggy's venues: add one, it is selected, then use it for all four.
-  await page.getByTestId("venue-restaurant-2027-Q1-select").selectOption("__add__");
+  await page.getByTestId("venue-restaurant-2027-Q1-change").click();
+  await page.getByTestId("venue-restaurant-2027-Q1-add").click();
   await page.getByTestId("venue-restaurant-2027-Q1-name").fill("Gene and Georgetti Rosemont");
   await page.getByTestId("venue-restaurant-2027-Q1-address").fill("9421 West Higgins Road, Rosemont, IL");
   await page.getByTestId("venue-restaurant-2027-Q1-save").click();
-  await expect(page.getByTestId("logistics-2027-Q1")).toContainText("Added by Peggy Conway");
+  await expect(page.getByTestId("venue-restaurant-2027-Q1")).toContainText("Gene and Georgetti Rosemont");
+  await expect(page.getByTestId("venue-restaurant-2027-Q1")).toContainText("Added by Peggy Conway");
   await page.getByTestId("venue-restaurant-2027-Q1-all").click();
-  await expect(page.getByTestId("venue-restaurant-2027-Q4-select")).toHaveValue(/custom:/);
-  await expect(page.getByTestId("logistics-2027-Q4")).toContainText("Added by Peggy Conway");
+  await expect(page.getByTestId("venue-restaurant-2027-Q4")).toHaveAttribute("data-venue", /custom:/);
+  await expect(page.getByTestId("venue-restaurant-2027-Q4")).toContainText("Gene and Georgetti Rosemont");
+  await expect(page.getByTestId("venue-restaurant-2027-Q4")).toContainText("Same as Q1");
+  await expect(page.getByTestId("venue-restaurant-2027-Q1")).not.toContainText("Same as");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and lock");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("quarter-strip").locator("[data-final='true']")).toHaveCount(4);
@@ -269,7 +281,8 @@ test("If time is short: council-at-board starts at Beat 4", async ({ page }) => 
   page.on("pageerror", (e) => errors.push(String(e)));
   await signIn(page);
   await page.getByTestId("presenter-toggle").click();
-  await page.getByTestId("jump-state").selectOption("council-at-board");
+  await page.getByTestId("jump-state").click();
+  await page.getByTestId("jump-state-opt-council-at-board").click();
   await page.getByTestId("presenter-toggle").click();
   await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Needs you");
   await page.getByTestId("row-action-ait-worldwide-logistics").click();
@@ -323,6 +336,11 @@ test("Work strip filters, demo buttons hide, reset restores council", async ({ p
 test("Unchecking a partner removes them from the calendar check", async ({ page }) => {
   await signIn(page);
   await page.getByTestId("row-action-ait-worldwide-logistics").click();
+  await expect(page.locator("select")).toHaveCount(0);
+  await page.getByTestId("picker-add").click();
+  await page.getByTestId("picker-add-select-opt-tucker-catlin").click();
+  await expect(page.getByTestId("picker-partners").locator("[data-checked='true']")).toHaveCount(6);
+  await page.getByTestId("picker-tucker-catlin-check").click();
   await page.getByTestId("picker-ben-cox-check").click();
   await expect(page.getByTestId("picker-ben-cox")).toHaveAttribute("data-checked", "false");
   await expect(page.getByTestId("action-hint")).toContainText("Checks 4 calendars");
@@ -348,6 +366,12 @@ test("People, Templates, and Settings: add a company and change a team", async (
   // Settings: team assignment changes flow into Find dates.
   await page.getByTestId("nav-settings").click();
   await expect(page.getByTestId("calendar-connections")).toContainText("Connected");
+  await expect(page.locator("select")).toHaveCount(0);
+  await page.getByTestId("default-quarters").click();
+  await page.getByTestId("default-quarters-opt-2").click();
+  await expect(page.getByTestId("default-quarters")).toHaveAttribute("data-value", "2");
+  await page.getByTestId("default-quarters").click();
+  await page.getByTestId("default-quarters-opt-4").click();
   await page.getByTestId("team-edit-fragilepak").click();
   await page.getByTestId("team-picker-fragilepak-tucker-catlin").click();
   await page.getByTestId("team-save-fragilepak").click();
@@ -382,9 +406,13 @@ test("Step 1 Change control sets a two-quarter window that spans years", async (
   await signIn(page);
   await page.getByTestId("row-action-ait-worldwide-logistics").click();
   await page.getByTestId("looking-for-change").click();
-  await page.getByTestId("window-start").selectOption("2026-Q4");
-  await page.getByTestId("window-count").selectOption("2");
-  await page.getByTestId("window-hours").selectOption("3");
+  await expect(page.locator("select")).toHaveCount(0);
+  await page.getByTestId("window-start").click();
+  await page.getByTestId("window-start-opt-2026-Q4").click();
+  await page.getByTestId("window-count").click();
+  await page.getByTestId("window-count-opt-2").click();
+  await page.getByTestId("window-hours").click();
+  await page.getByTestId("window-hours-opt-3").click();
   await page.getByTestId("window-save").click();
   await expect(page.getByTestId("looking-for")).toContainText("Two 3-hour blocks, Q4 2026 to Q1 2027");
   await expect(page.getByTestId("quarter-strip").locator("[data-testid^='quarter-']")).toHaveCount(2);

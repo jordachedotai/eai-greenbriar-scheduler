@@ -18,6 +18,7 @@ import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Face, FaceStack, resolvePerson, type Person } from "@/components/ui/Face";
 import { IconCheck, IconChevronDown, IconChevronUp, IconPlus, IconX } from "@/components/ui/icons";
+import { Menu } from "@/components/ui/Menu";
 import { Label, PanelHeader, Pill, Section, WindowCard } from "./shared";
 
 // Faces or initials inline with names, comma separated.
@@ -105,24 +106,16 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
               );
             })}
             {adding ? (
-              <select
-                className="rounded-[10px] border border-dashed border-ring bg-white px-3 py-2.5 text-[15px] font-semibold text-brand"
-                defaultValue=""
-                autoFocus
-                data-testid="picker-add-select"
-                onBlur={() => setAdding(false)}
-                onChange={(e) => {
-                  if (e.target.value) addPartner(portco.id, e.target.value);
-                  setAdding(false);
-                }}
-              >
-                <option value="">Choose from People</option>
-                {roster.map((t) => (
-                  <option key={t.id} value={t.id}>
-                    {t.name}, {t.title}
-                  </option>
-                ))}
-              </select>
+              <Menu
+                value={null}
+                placeholder="Choose from People"
+                defaultOpen
+                onClose={() => setAdding(false)}
+                onChange={(id) => addPartner(portco.id, id)}
+                options={roster.map((t) => ({ value: t.id, label: t.name, sub: t.title }))}
+                testId="picker-add-select"
+                ariaLabel="Add someone from People"
+              />
             ) : (
               <button type="button" className="flex items-center gap-2.5 rounded-[10px] border border-dashed border-ring bg-white px-3 py-2.5 text-[15px] font-semibold text-brand hover:border-brand" onClick={() => setAdding(true)} data-testid="picker-add">
                 <IconPlus size={18} />
@@ -353,38 +346,22 @@ function LookingFor() {
     <div className="flex flex-col gap-3 rounded-[10px] border border-brand/40 bg-bg px-3.5 py-3" data-testid="looking-for-form">
       <span className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Planning window</span>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <label className="flex flex-col gap-1 text-[13px] text-mut">
+        <div className="flex flex-col gap-1 text-[13px] text-mut">
           Starting quarter
-          <select className={sel} value={start} onChange={(e) => setStart(e.target.value)} data-testid="window-start">
-            {quarterRange(2026, 2028).map((q) => (
-              <option key={q} value={q}>{quarterLong(q)}</option>
-            ))}
-          </select>
-        </label>
-        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          <Menu value={start} onChange={setStart} options={quarterRange(2026, 2028).map((q) => ({ value: q, label: quarterLong(q) }))} testId="window-start" ariaLabel="Starting quarter" />
+        </div>
+        <div className="flex flex-col gap-1 text-[13px] text-mut">
           How many quarters
-          <select className={sel} value={count} onChange={(e) => setCount(Number(e.target.value))} data-testid="window-count">
-            {Array.from({ length: MAX_QUARTERS }, (_, i) => i + 1).map((n) => (
-              <option key={n} value={n}>{n}</option>
-            ))}
-          </select>
-        </label>
-        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          <Menu value={count} onChange={setCount} options={Array.from({ length: MAX_QUARTERS }, (_, i) => i + 1).map((n) => ({ value: n, label: String(n) }))} testId="window-count" ariaLabel="How many quarters" />
+        </div>
+        <div className="flex flex-col gap-1 text-[13px] text-mut">
           Block length
-          <select className={sel} value={hours} onChange={(e) => setHours(Number(e.target.value))} data-testid="window-hours">
-            {[3, 4, 5, 6].map((h) => (
-              <option key={h} value={h}>{h} hours</option>
-            ))}
-          </select>
-        </label>
-        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          <Menu value={hours} onChange={setHours} options={[3, 4, 5, 6].map((h) => ({ value: h, label: `${h} hours` }))} testId="window-hours" ariaLabel="Block length" />
+        </div>
+        <div className="flex flex-col gap-1 text-[13px] text-mut">
           Dinner
-          <select className={sel} value={dinner} onChange={(e) => setDinner(e.target.value)} data-testid="window-dinner">
-            {["18:00", "18:30", "19:00", "19:30"].map((t) => (
-              <option key={t} value={t}>{dinnerLabel(t)}</option>
-            ))}
-          </select>
-        </label>
+          <Menu value={dinner} onChange={setDinner} options={["18:00", "18:30", "19:00", "19:30"].map((t) => ({ value: t, label: dinnerLabel(t) }))} testId="window-dinner" ariaLabel="Dinner" />
+        </div>
       </div>
       <div className="flex items-center justify-between">
         <span className="text-[13px] text-mut">{quarterLong(start)}{count > 1 ? ` to ${quarterLong(quarterRange(2026, 2030)[quarterRange(2026, 2030).indexOf(start) + count - 1] ?? start)}` : ""}. Chips show the year when the window crosses one.</span>
@@ -406,8 +383,6 @@ function LookingFor() {
     </div>
   );
 }
-
-const sel = "rounded-[8px] border border-line bg-white px-2.5 py-1.5 text-[14px] text-txt";
 
 function shortTitle(t: string): string {
   return t.replace("Chief Executive Officer", "CEO").replace("Chief Financial Officer", "CFO");

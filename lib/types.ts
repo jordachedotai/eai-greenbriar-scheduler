@@ -124,7 +124,11 @@ export type Venue = {
   addedAt?: string; // ISO
 };
 
-export type Logistics = { hotel: Venue; restaurant: Venue; reason: string };
+// Where each quarter inherits a venue from ("Use for all"), so the card
+// can say "Same as Q1" instead of repeating the reason.
+export type SameAs = { hotel?: Quarter; restaurant?: Quarter };
+
+export type Logistics = { hotel: Venue; restaurant: Venue; reason: string; hotelReason?: string; restaurantReason?: string; sameAs?: SameAs };
 
 export type BoardResponse = "pending" | "confirmed" | "declined";
 
@@ -197,7 +201,9 @@ export type Draft = {
   data?: unknown; // structured payload for conflict and logistics drafts
 };
 
-export type LogisticsPick = { hotelId: string; restaurantId: string; reason: string };
+// The agent's pick for one meeting: ids from the venue list, one reason
+// line per venue, and the combined sentence for the record.
+export type LogisticsPick = { hotelId: string; restaurantId: string; reason: string; hotelReason?: string; restaurantReason?: string; sameAs?: SameAs };
 export type LogisticsData = Partial<Record<Quarter, LogisticsPick>>;
 
 export type ConflictData = {
