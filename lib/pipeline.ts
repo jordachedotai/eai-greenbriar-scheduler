@@ -5,6 +5,12 @@
 import type { BoardMember, EA, Portco, Quarter, Stage, WaitingOn } from "./types";
 import { STATUS_STAGE } from "./types";
 
+// The partners whose calendars are checked. Sign-off still goes to everyone assigned.
+export function activePartners(p: Portco): string[] {
+  const checked = p.checkedPartnerIds?.filter((id) => p.partnerIds.includes(id));
+  return checked && checked.length ? checked : p.partnerIds;
+}
+
 export function portcoStage(p: Portco): Stage {
   let min: Stage = 5;
   for (const q of p.targetQuarters) {

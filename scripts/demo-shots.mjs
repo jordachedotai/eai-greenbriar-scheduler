@@ -32,6 +32,9 @@ await agent();
 await shot("4-partner-draft");
 await primary(); // send to partners
 await shot("5-waiting-partners");
+await page.keyboard.press("Shift+P");
+await t("presenter-menu").waitFor();
+await shot("5b-presenter-menu");
 await t("sim-partner-replies").click();
 await primary(); // draft portco email
 await agent();
@@ -51,6 +54,7 @@ await agent();
 await shot("8-lock-review");
 await primary(); // approve and lock
 await shot("9-locked");
+await page.keyboard.press("Shift+P");
 
 await t("nav-portfolio").click();
 await t("rows-view").waitFor();

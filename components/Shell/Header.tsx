@@ -1,10 +1,12 @@
 "use client";
 
 // The header band. Dark green, serif title, view and assistant toggles.
+// On a company page: breadcrumb, demo tag, presenter button.
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
+import { IconChevronRight, IconPresenter } from "@/components/ui/icons";
 
 const TITLES: Record<string, string> = {
   "/portfolio": "Portfolio",
@@ -20,39 +22,40 @@ export function Header() {
   const isDetail = base === "/portfolio" && pathname !== "/portfolio";
   const detailName = useStore((s) => (isDetail ? s.portcos[pathname.split("/")[2]]?.name : undefined));
   const mockMode = useStore((s) => s.mockMode);
+  const showDemoTag = useStore((s) => s.showDemoTag);
   const setPresenterOpen = useStore((s) => s.setPresenterOpen);
   const presenterOpen = useStore((s) => s.presenterOpen);
 
   return (
     <header className="flex h-[64px] shrink-0 items-center justify-between bg-header px-7 text-white">
-      <div className="flex items-baseline gap-3.5">
-        {isDetail ? (
-          <>
-            <Link href="/portfolio" className="serif text-[24px] font-semibold tracking-[-0.01em] text-white/72 hover:text-white">Portfolio</Link>
-            <span className="text-white/50">/</span>
-            <span className="serif text-[24px] font-semibold tracking-[-0.01em]" data-testid="header-title">{detailName ?? ""}</span>
-          </>
-        ) : (
-          <>
-            <span className="serif text-[24px] font-semibold tracking-[-0.01em]" data-testid="header-title">{TITLES[base] ?? "Greenbriar"}</span>
-            <span className="text-[15px] text-white/72">Quarterly meetings, 2027</span>
-          </>
-        )}
-      </div>
+      {isDetail ? (
+        <div className="flex items-center gap-2.5 text-[16px]">
+          <Link href="/portfolio" className="text-white/72 hover:text-white">Portfolio</Link>
+          <IconChevronRight size={14} stroke="rgba(255,255,255,0.5)" />
+          <span className="serif text-[22px] font-semibold" data-testid="header-title">{detailName ?? ""}</span>
+        </div>
+      ) : (
+        <div className="flex items-baseline gap-3.5">
+          <span className="serif text-[24px] font-semibold tracking-[-0.01em]" data-testid="header-title">{TITLES[base] ?? "Greenbriar"}</span>
+          <span className="text-[15px] text-white/72">Quarterly meetings, 2027</span>
+        </div>
+      )}
       <div className="flex items-center gap-3">
         {base === "/portfolio" && !isDetail ? <ViewToggle /> : null}
         {(base === "/portfolio" && !isDetail) || base === "/calendar" ? <EaFilter /> : null}
-        <span className="rounded-full bg-white/12 px-2.5 py-1 text-[13px] font-medium text-white/90" data-testid="mode-tag">
-          {mockMode ? "Demo data" : "Live agent"}
-        </span>
+        {showDemoTag ? (
+          <span className="rounded-full bg-white/12 px-2.5 py-1 text-[13px] font-medium text-white/90" data-testid="mode-tag">
+            {mockMode ? "Demo data" : "Live agent"}
+          </span>
+        ) : null}
         <button
           type="button"
           onClick={() => setPresenterOpen(!presenterOpen)}
           title="Presenter menu (Shift+P)"
           data-testid="presenter-toggle"
-          className="rounded-full bg-white/12 px-2.5 py-1 text-[13px] text-white/90 hover:bg-white/20"
+          className={"inline-flex h-[30px] w-[30px] items-center justify-center rounded-[8px] " + (presenterOpen ? "bg-white text-header" : "bg-white/12 text-white hover:bg-white/20")}
         >
-          ◐
+          <IconPresenter size={16} />
         </button>
       </div>
     </header>

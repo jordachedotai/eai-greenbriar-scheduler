@@ -10,7 +10,7 @@ import type { Bucket } from "./pipeline";
 import { loadDemoState } from "./data";
 import { nowIso } from "./pipeline";
 
-export const STORE_VERSION = 3;
+export const STORE_VERSION = 4;
 export const DEFAULT_STATE = "council";
 
 const DEFAULT_MOCK = process.env.MOCK_MODE !== "false";
@@ -25,7 +25,7 @@ export type AppState = {
   view: View;
   eaFilter: EaFilter;
   workFilter: Bucket | null;
-  showDemoButtons: boolean;
+  showDemoTag: boolean;
   sidebarCollapsed: boolean;
   presenterOpen: boolean;
   working: { portcoId: string; label: string } | null;
@@ -37,7 +37,7 @@ export type AppState = {
   setView: (v: View) => void;
   setEaFilter: (v: EaFilter) => void;
   setWorkFilter: (v: Bucket | null) => void;
-  setShowDemoButtons: (v: boolean) => void;
+  setShowDemoTag: (v: boolean) => void;
   setSidebarCollapsed: (v: boolean) => void;
   setPresenterOpen: (v: boolean) => void;
   setWorking: (w: { portcoId: string; label: string } | null) => void;
@@ -54,7 +54,7 @@ export const useStore = create<AppState>()(
       view: "rows",
       eaFilter: "mine",
       workFilter: null,
-      showDemoButtons: true,
+      showDemoTag: true,
       sidebarCollapsed: false,
       presenterOpen: false,
       working: null,
@@ -72,7 +72,7 @@ export const useStore = create<AppState>()(
       setView: (v) => set({ view: v }),
       setEaFilter: (v) => set({ eaFilter: v, workFilter: null }),
       setWorkFilter: (v) => set({ workFilter: v }),
-      setShowDemoButtons: (v) => set({ showDemoButtons: v }),
+      setShowDemoTag: (v) => set({ showDemoTag: v }),
       setSidebarCollapsed: (v) => set({ sidebarCollapsed: v }),
       setPresenterOpen: (v) => set({ presenterOpen: v }),
       setWorking: (working) => set({ working }),
@@ -89,7 +89,7 @@ export const useStore = create<AppState>()(
         loggedIn: s.loggedIn,
         view: s.view,
         eaFilter: s.eaFilter,
-        showDemoButtons: s.showDemoButtons,
+        showDemoTag: s.showDemoTag,
         sidebarCollapsed: s.sidebarCollapsed,
       }),
       migrate: () => ({ portcos: loadDemoState(DEFAULT_STATE), mockMode: DEFAULT_MOCK, loggedIn: false }) as Partial<AppState>,

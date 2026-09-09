@@ -3,6 +3,7 @@
 
 import partnersJson from "@/data/partners.json";
 import easJson from "@/data/eas.json";
+import teamJson from "@/data/source/greenbriar-team.json";
 import portcosJson from "@/data/portcos.json";
 import boardMembersJson from "@/data/board-members.json";
 import availabilityJson from "@/data/availability.json";
@@ -26,6 +27,12 @@ import { replyByDate } from "./simulate";
 
 export function getPartners(): Partner[] {
   return partnersJson as Partner[];
+}
+
+export type TeamMember = { id: string; name: string; title: string; group: string; avatar?: string };
+
+export function getTeam(): TeamMember[] {
+  return teamJson as TeamMember[];
 }
 
 export function getEas(): EA[] {

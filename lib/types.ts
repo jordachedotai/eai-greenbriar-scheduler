@@ -170,6 +170,7 @@ export type ConflictData = {
 // Runtime record. `stage` is derived from the quarters (lib/pipeline.ts),
 // not stored, so it can never disagree with them.
 export type Portco = PortcoSeed & {
+  checkedPartnerIds?: string[]; // whose calendars Find dates checks; defaults to partnerIds
   waitingOn: WaitingOn;
   waitingSince?: string; // ISO
   quarters: Record<Quarter, QuarterState>;

@@ -3,6 +3,7 @@
 // data. Only windows, names, cities, and venues. Never calendars.
 
 import { getBoardMembers, getPartner, getVenues, personName } from "./data";
+import { activePartners } from "./pipeline";
 import { fmtDate, fmtTime } from "./scheduling";
 import { EA_SIGNATURE } from "./simulate";
 import type {
@@ -51,7 +52,7 @@ export function shortlistPayload(p: Portco, replyBy: string): ShortlistPayload {
   return {
     portco: { name: p.name, city: p.city, officeAddress: p.officeAddress },
     execContact: p.execContact,
-    partners: partnerNames(p),
+    partners: activePartners(p).map((id) => getPartner(id)?.name ?? id),
     replyBy,
     quarters: p.targetQuarters.map((q) => ({
       quarter: q,

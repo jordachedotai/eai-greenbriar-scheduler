@@ -1,7 +1,9 @@
 "use client";
 
-// Shows an agent draft. Approve, Edit, and Regenerate live in the action
-// bar; this only renders the text and handles in-place editing.
+// Shows a draft with the header bar from the Decline reference: caps
+// title, Draft or Sent pill, "To ..." on the right. Approve, Edit, and
+// Regenerate live in the action bar; editing happens here in place. A sent
+// email can fold to one line so the draft on screen is the only full-size thing.
 
 import { useEffect, useState } from "react";
 import { editDraft } from "@/lib/actions";
@@ -10,9 +12,9 @@ import { useDetail } from "@/components/Detail/DetailContext";
 import { EmailDraft } from "./EmailDraft";
 import { fmtStamp } from "@/lib/format";
 
-type Props = { draftKey: string; title: string; sentLabel?: string; testId?: string; collapsed?: boolean; sentAt?: string };
+type Props = { draftKey: string; title: string; to?: string; sentLabel?: string; testId?: string; collapsed?: boolean; sentAt?: string; summary?: string };
 
-export function DraftViewer({ draftKey, title, sentLabel = "Sent", testId, collapsed = false, sentAt }: Props) {
+export function DraftViewer({ draftKey, title, to, sentLabel = "Sent", testId, collapsed = false, sentAt, summary }: Props) {
   const { portco, working, editingKey, setEditingKey } = useDetail();
   const draft: Draft | undefined = portco.drafts[draftKey];
   const editing = editingKey === draftKey;
@@ -21,17 +23,18 @@ export function DraftViewer({ draftKey, title, sentLabel = "Sent", testId, colla
   useEffect(() => setText(draft?.text ?? ""), [draft?.text]);
   useEffect(() => setOpen(!collapsed), [collapsed]);
 
-  // A sent email folds to one line so the draft on screen is the only
-  // full-size thing. Expand to read it.
   if (collapsed && !open && draft?.approved) {
     return (
-      <div className="flex items-center justify-between rounded-lg border border-line bg-panel px-3 py-2 text-[13px]" data-testid={testId ?? `draft-${draftKey}`} data-collapsed="true">
-        <span className="flex items-center gap-2">
-          <span className="rounded bg-brand-soft px-1.5 py-0.5 text-[11px] font-medium text-brand">{sentLabel}</span>
-          <span className="text-mut">{sentAt ? fmtStamp(sentAt) : ""}</span>
-          <span>{title}</span>
+      <div className="flex items-center justify-between rounded-[10px] border border-idle-line bg-[#fafbf9] px-3.5 py-2.5" data-testid={testId ?? `draft-${draftKey}`} data-collapsed="true">
+        <span className="flex items-center gap-2.5 text-[14px] text-mut">
+          <span className="rounded-full bg-lock-soft px-2 py-0.5 text-[12px] font-semibold text-lock">{sentLabel}</span>
+          <span>
+            {title}
+            {sentAt ? ` · ${fmtStamp(sentAt)}` : ""}
+            {summary ? ` · ${summary}` : ""}
+          </span>
         </span>
-        <button type="button" className="text-brand hover:underline" onClick={() => setOpen(true)} data-testid="draft-expand">
+        <button type="button" className="text-[14px] font-semibold text-brand hover:underline" onClick={() => setOpen(true)} data-testid="draft-expand">
           Show
         </button>
       </div>
@@ -39,18 +42,16 @@ export function DraftViewer({ draftKey, title, sentLabel = "Sent", testId, colla
   }
 
   return (
-    <div className="rounded-lg border border-line bg-panel" data-testid={testId ?? `draft-${draftKey}`}>
-      <div className="flex items-center justify-between border-b border-line px-3 py-2">
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-mut">{title}</span>
+    <div className="flex flex-col overflow-hidden rounded-[12px] border border-line" data-testid={testId ?? `draft-${draftKey}`}>
+      <div className="flex items-center justify-between gap-3 border-b border-line bg-bg px-[18px] py-3">
+        <div className="flex items-center gap-2.5">
+          <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">{title}</span>
           {draft?.approved ? (
-            <span className="rounded bg-brand-soft px-1.5 py-0.5 text-[10.5px] font-medium text-brand" data-testid="draft-status">{sentLabel}</span>
+            <span className="rounded-full bg-lock-soft px-2 py-0.5 text-[12px] font-semibold text-lock" data-testid="draft-status">{sentLabel}</span>
           ) : draft ? (
-            <span className="rounded bg-amber-soft px-1.5 py-0.5 text-[10.5px] font-medium text-amber" data-testid="draft-status">Draft</span>
+            <span className="rounded-full bg-wait-soft px-2 py-0.5 text-[12px] font-semibold text-wait" data-testid="draft-status">Draft</span>
           ) : null}
-          {draft?.offline ? (
-            <span className="rounded border border-line px-1.5 py-0.5 text-[10.5px] text-mut" title="The live call failed. This is the saved draft.">Offline draft</span>
-          ) : null}
+          {draft?.offline ? <span className="rounded-full border border-line px-2 py-0.5 text-[12px] text-mut" title="The live call failed. This is the saved draft.">Offline draft</span> : null}
         </div>
         {editing ? (
           <div className="flex gap-1.5">
@@ -59,21 +60,23 @@ export function DraftViewer({ draftKey, title, sentLabel = "Sent", testId, colla
           </div>
         ) : collapsed && open ? (
           <button type="button" className={small} onClick={() => setOpen(false)} data-testid="draft-collapse">Hide</button>
+        ) : to ? (
+          <span className="truncate text-[13px] text-mut">To {to}</span>
         ) : null}
       </div>
-      <div className="px-3 py-3">
+      <div className="bg-white px-[18px] py-[18px]">
         {working ? (
           <Working label={working} />
         ) : !draft ? (
-          <div className="text-[12.5px] text-mut">No draft yet.</div>
+          <div className="text-[15px] text-mut">No draft yet.</div>
         ) : editing ? (
-          <textarea className="min-h-[300px] w-full rounded border border-line bg-bg p-2 font-[inherit] text-[13px] leading-relaxed" value={text} onChange={(e) => setText(e.target.value)} data-testid="draft-textarea" />
+          <textarea className="min-h-[320px] w-full rounded-[8px] border border-line bg-bg p-3 font-[inherit] text-[15px] leading-relaxed" value={text} onChange={(e) => setText(e.target.value)} data-testid="draft-textarea" />
         ) : draft.email ? (
           <div data-testid="draft-text">
             <EmailDraft email={draft.email} />
           </div>
         ) : (
-          <pre className="whitespace-pre-wrap font-[inherit] text-[14px] leading-relaxed" data-testid="draft-text">{draft.text}</pre>
+          <pre className="whitespace-pre-wrap font-[inherit] text-[16px] leading-[1.5]" data-testid="draft-text">{draft.text}</pre>
         )}
       </div>
     </div>
@@ -82,11 +85,11 @@ export function DraftViewer({ draftKey, title, sentLabel = "Sent", testId, colla
 
 export function Working({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-2 py-4 text-[13px] text-brand" data-testid="working">
-      <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-brand" />
+    <div className="flex items-center gap-2.5 py-4 text-[15px] text-brand" data-testid="working">
+      <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-brand" />
       <span className="working">{label}</span>
     </div>
   );
 }
 
-const small = "rounded border border-line bg-panel px-2 py-0.5 text-[11.5px] hover:border-brand";
+const small = "rounded-[6px] border border-line bg-white px-2.5 py-1 text-[13px] font-medium hover:border-brand";

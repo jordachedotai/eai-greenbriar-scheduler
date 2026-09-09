@@ -1,18 +1,19 @@
 "use client";
 
-// Stage 4. Board email, per-member confirmations, and the conflict path.
+// Stage 4, per reference/design/Decline.dc.html when a member declines:
+// the conflict card, the re-send as the only full-size draft, the sent
+// email folded to one line, then the board replies table.
 
-import { simulateBoardConfirms, simulateBoardConflict } from "@/lib/actions";
 import { personName } from "@/lib/data";
-import { joinNames, shortName } from "@/lib/format";
-import { allBoardConfirmed, openConflicts } from "@/lib/pipeline";
+import { fmtStamp, joinNames, shortName } from "@/lib/format";
+import { activePartners, allBoardConfirmed, openConflicts } from "@/lib/pipeline";
 import { fmtWindow } from "@/lib/scheduling";
 import type { ConflictData } from "@/lib/types";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
-import { SimulateButton } from "@/components/Presenter/SimulateButton";
 import { useDetail } from "@/components/Detail/DetailContext";
-import { Explain, Section, WaitingState } from "./shared";
-import { Face, resolvePerson } from "@/components/ui/Face";
+import { Face, FaceStack, resolvePerson } from "@/components/ui/Face";
+import { IconCheck } from "@/components/ui/icons";
+import { PanelHeader, Pill, Section, WaitingState } from "./shared";
 
 function sentAt(log: { at: string; text: string }[], text: string): string | undefined {
   return log.find((e) => e.text === text)?.at;
@@ -24,30 +25,29 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
   const draft = portco.drafts.boardEmail;
   const confirmed = allBoardConfirmed(portco, members);
   const conflicts = openConflicts(portco);
-  const anyDeclined = portco.targetQuarters.some((q) => members.some((m) => portco.quarters[q].boardResponses[m.id] === "declined"));
+  const resendOut = portco.targetQuarters.some((q) => portco.drafts[`conflict:${q}`]?.approved);
   const conflictWorking = !!working && phase !== "needsDraft" && !!draft?.approved;
+  const boardSent = sentAt(portco.log, "Sent the confirmation email to the board.");
+  const decline = conflicts.length > 0;
+
+  const title = readOnly || confirmed ? "The board confirmed" : decline ? "A board member declined a date" : phase === "waiting" ? "Waiting on the board" : "The board confirms the dates";
 
   return (
     <div>
-      <Explain>
+      <PanelHeader title={title}>
         {readOnly || confirmed
           ? `${names} confirmed every quarter.`
-          : phase === "conflict"
-            ? "A board member declined a date. The agent went back to the shortlist the partners approved, proposed the next window, and re-checked the partners. Read the re-send and approve it."
+          : decline
+            ? "The agent went back to the shortlist the partners approved, proposed the next window, and re-checked the partners. Read the re-send and approve it."
             : phase === "waiting"
               ? `Sent to ${names}. Each member confirms the four dates. If one declines, the agent proposes the next window from the approved shortlist.`
               : working
                 ? `${names} confirm the dates ${portco.execContact.name} picked.`
                 : `${names} confirm the dates ${portco.execContact.name} picked. Read the email and approve it to send.`}
         {!readOnly && confirmed ? " Press Lock and book." : ""}
-      </Explain>
+      </PanelHeader>
 
-      {!readOnly && phase === "waiting" ? (
-        <WaitingState>
-          <SimulateButton label="simulate board confirms" onClick={() => simulateBoardConfirms(portco.id)} testId="sim-board-confirms" />
-          {!anyDeclined ? <SimulateButton label="simulate board conflict" onClick={() => void simulateBoardConflict(portco.id)} testId="sim-board-conflict" /> : null}
-        </WaitingState>
-      ) : null}
+      {!readOnly && phase === "waiting" ? <WaitingState /> : null}
 
       {conflictWorking && conflicts.length === 0 ? <Working label={working as string} /> : null}
 
@@ -55,45 +55,88 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
         const d = portco.drafts[`conflict:${q}`];
         const data = d?.data as ConflictData | undefined;
         if (!d || !data) return null;
+        const member = members.find((m) => m.id === data.memberId);
         const declined = portco.quarters[q].shortlist.find((w) => w.id === data.declinedWindowId);
         const fallback = portco.quarters[q].shortlist.find((w) => w.id === data.fallbackWindowId);
+        const repliedAt = [...portco.log].reverse().find((e) => e.personId === data.memberId && /cannot make/i.test(e.text))?.at;
+        const checkedIds = activePartners(portco);
         return (
-          <div key={q} className="mb-4 rounded-lg border border-amber/40 bg-amber-soft/40 p-3" data-testid={`conflict-${q}`}>
-            <div className="mb-1 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-amber">
-              <Face person={resolvePerson(data.memberId)} size={24} />
-              <span>{personName(data.memberId)} declined {q}</span>
+          <div key={q} className="mb-4 flex flex-col gap-4">
+            <div className="flex flex-col gap-3 rounded-[12px] border border-you-line border-l-4 border-l-you bg-[#f3f7fc] px-[18px] py-4" data-testid={`conflict-${q}`}>
+              <div className="flex items-center gap-3">
+                <span className="face-initials inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-you-line bg-white text-[13px] font-bold text-you" data-initials={(member?.name ?? "?").split(" ").map((n) => n[0]).join("").slice(0, 2)} />
+                <div className="flex flex-col">
+                  <span className="text-[16px] font-semibold">{personName(data.memberId)} declined {q}</span>
+                  <span className="text-[14px] text-mut">
+                    {member?.role}
+                    {repliedAt ? ` · replied ${fmtStamp(repliedAt)}` : ""}
+                  </span>
+                </div>
+              </div>
+              <p className="text-[15px]" data-testid="conflict-note">{data.note}</p>
+              <div className="grid grid-cols-[110px_1fr] items-center gap-x-4 gap-y-2 text-[15px]">
+                <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Declined</span>
+                <span className="text-mut line-through">{declined ? fmtWindow(declined) : ""}</span>
+                <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Proposed</span>
+                <span className="flex flex-wrap items-center gap-2">
+                  <span className="font-semibold">{fallback ? fmtWindow(fallback) : "No other window on the shortlist"}</span>
+                  {fallback ? <Pill tone="you">option {fallback.rank} on the approved shortlist</Pill> : null}
+                </span>
+                <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Re-checked</span>
+                <span className="flex flex-wrap items-center gap-2.5" data-testid="reverify">
+                  <FaceStack ids={checkedIds} size={24} />
+                  <span>
+                    {data.reverify.ok
+                      ? `${joinNames(checkedIds.map(personName))} are still free`
+                      : `${joinNames(data.reverify.busy.map(personName))} now busy`}
+                  </span>
+                  {data.reverify.ok ? (
+                    <span className="inline-flex items-center gap-1 text-[13px] font-semibold text-lock">
+                      <IconCheck size={14} />
+                      verified
+                    </span>
+                  ) : null}
+                </span>
+              </div>
             </div>
-            <p className="text-[13px]" data-testid="conflict-note">{data.note}</p>
-            <div className="mt-2 grid grid-cols-[110px_1fr] gap-x-3 gap-y-1 text-[12px]">
-              <span className="text-mut">Declined</span>
-              <span>{declined ? fmtWindow(declined) : ""}</span>
-              <span className="text-mut">Proposed</span>
-              <span>{fallback ? `${fmtWindow(fallback)}, option ${fallback.rank} on the shortlist the partners approved` : "No other window on the shortlist"}</span>
-              <span className="text-mut">Re-checked</span>
-              <span data-testid="reverify">
-                {data.reverify.ok
-                  ? `${joinNames(portco.partnerIds.map((id) => shortName(personName(id))))} still free`
-                  : `Now busy: ${joinNames(data.reverify.busy.map(personName))}`}
-              </span>
-            </div>
-            <div className="mt-3">
-              <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${q} date change`} testId="draft-conflict" />
-            </div>
+            <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${q} date change`} to={members.map((m) => m.name).join(", ")} testId="draft-conflict" />
           </div>
         );
       })}
 
+      {draft ? (
+        <div className="mb-4">
+          {working && !draft ? (
+            <Working label={working} />
+          ) : (
+            <DraftViewer
+              draftKey="boardEmail"
+              title="Confirmation email to the board"
+              to={members.map((m) => m.name).join(", ")}
+              collapsed={decline || confirmed || resendOut}
+              sentAt={boardSent}
+              summary={`${portco.targetQuarters.length} dates`}
+            />
+          )}
+        </div>
+      ) : working ? (
+        <Working label={working} />
+      ) : null}
+
       {draft?.approved || readOnly ? (
         <Section title="Board replies" testId="board-matrix">
-          <div className="overflow-x-auto rounded-lg border border-line bg-panel">
-            <table className="w-full text-[12.5px]">
+          <div className="overflow-x-auto rounded-[10px] border border-line">
+            <table className="w-full text-[15px]">
               <thead>
-                <tr className="text-left text-[11px] text-mut">
-                  <th className="px-3 py-1.5 font-medium">Quarter</th>
-                  <th className="px-3 py-1.5 font-medium">Date</th>
+                <tr className="bg-bg text-left">
+                  <th className="px-3 py-2.5 text-[13px] font-semibold text-mut">Qtr</th>
+                  <th className="px-3 py-2.5 text-[13px] font-semibold text-mut">Date</th>
                   {members.map((m) => (
-                    <th key={m.id} className="px-3 py-1.5 font-medium">
-                      <span className="inline-flex items-center gap-1.5"><Face person={resolvePerson(m.id)} size={24} />{shortName(m.name)}</span>
+                    <th key={m.id} className="px-3 py-2 font-medium">
+                      <span className="inline-flex items-center gap-2">
+                        <Face person={resolvePerson(m.id)} size={24} />
+                        <span className="text-[13px] font-semibold text-mut">{shortName(m.name)}</span>
+                      </span>
                     </th>
                   ))}
                 </tr>
@@ -102,16 +145,24 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
                 {portco.targetQuarters.map((q) => {
                   const qs = portco.quarters[q];
                   const w = qs.shortlist.find((x) => x.id === qs.portcoPick);
+                  const cd = portco.drafts[`conflict:${q}`]?.data as ConflictData | undefined;
+                  const declinedW = cd ? qs.shortlist.find((x) => x.id === cd.declinedWindowId) : undefined;
+                  const changed = !!cd && declinedW && w && declinedW.id !== w.id;
+                  const hot = !!cd && (!portco.drafts[`conflict:${q}`].approved || members.some((m) => qs.boardResponses[m.id] !== "confirmed"));
                   return (
-                    <tr key={q} className="border-t border-line">
-                      <td className="px-3 py-1.5 font-medium">{q}</td>
-                      <td className="px-3 py-1.5">{w ? fmtWindow(w) : ""}</td>
+                    <tr key={q} className={"border-t border-idle-line " + (hot ? "bg-[#f3f7fc]" : "")}>
+                      <td className={"px-3 py-2.5 font-bold " + (hot ? "text-you" : "text-mut")}>{q}</td>
+                      <td className="px-3 py-2.5">
+                        {changed ? <span className="mr-1.5 text-mut line-through">{fmtWindow(declinedW).replace(/,.*$/, "")}</span> : null}
+                        <span className={changed ? "font-semibold" : ""}>{w ? fmtWindow(w) : ""}</span>
+                      </td>
                       {members.map((m) => {
                         const r = qs.status === "boardConfirmed" || qs.status === "locked" ? "confirmed" : (qs.boardResponses[m.id] ?? "pending");
+                        const reasking = r === "pending" && !!cd?.fallbackWindowId && portco.drafts[`conflict:${q}`]?.approved;
                         return (
-                          <td key={m.id} className="px-3 py-1.5" data-testid={`resp-${q}-${m.id}`} data-response={r}>
-                            <span className={"rounded px-1.5 py-0.5 text-[11px] " + (r === "confirmed" ? "bg-brand-soft text-brand" : r === "declined" ? "bg-red-soft text-red" : "bg-panel2 text-mut")}>
-                              {r === "confirmed" ? "Yes" : r === "declined" ? "Declined" : "No reply yet"}
+                          <td key={m.id} className="px-3 py-2" data-testid={`resp-${q}-${m.id}`} data-response={r}>
+                            <span className={"rounded-full px-2.5 py-0.5 text-[13px] font-semibold " + (r === "confirmed" ? "bg-lock-soft text-lock" : r === "declined" ? "bg-red-soft text-red" : "bg-idle-soft text-idle")}>
+                              {r === "confirmed" ? "Yes" : r === "declined" ? "Declined" : reasking ? "Re-asking" : "No reply yet"}
                             </span>
                           </td>
                         );
@@ -124,14 +175,6 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
           </div>
         </Section>
       ) : null}
-
-      <Section title="Email to the board">
-        {working && !draft ? (
-          <Working label={working} />
-        ) : (
-          <DraftViewer draftKey="boardEmail" title={`Confirmation email to ${names}`} collapsed={conflicts.length > 0 || confirmed} sentAt={sentAt(portco.log, "Sent the confirmation email to the board.")} />
-        )}
-      </Section>
     </div>
   );
 }

@@ -2,15 +2,13 @@
 
 // Stage 2. Email to the partners, then wait for each yes.
 
-import { simulatePartnerReplies } from "@/lib/actions";
 import { personName } from "@/lib/data";
 import { joinNames } from "@/lib/format";
 import { allPartnersYes } from "@/lib/pipeline";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
-import { SimulateButton } from "@/components/Presenter/SimulateButton";
 import { useDetail } from "@/components/Detail/DetailContext";
-import { Explain, ReplyTracker, Section, WaitingState } from "./shared";
 import { resolvePerson } from "@/components/ui/Face";
+import { PanelHeader, ReplyTracker, Section, WaitingState } from "./shared";
 
 export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
   const { portco, phase, working } = useDetail();
@@ -19,10 +17,11 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
   const firstQ = portco.targetQuarters[0];
   const rows = portco.partnerIds.map((pid) => ({ person: resolvePerson(pid), state: (portco.quarters[firstQ].internalApprovals[pid] ? "yes" : "pending") as "yes" | "pending" }));
   const allYes = allPartnersYes(portco);
+  const title = readOnly || allYes ? "The partners signed off" : phase === "waiting" ? "Waiting on the partners" : "Partners sign off first";
 
   return (
     <div>
-      <Explain>
+      <PanelHeader title={title}>
         {readOnly || allYes
           ? `${names} signed off on the one-pager before it went to ${portco.execContact.name}.`
           : phase === "waiting"
@@ -31,13 +30,9 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
               ? `Before ${portco.execContact.name} sees a date, ${names} confirm the one-pager is fine to send.`
               : `Before ${portco.execContact.name} sees a date, ${names} confirm the one-pager is fine to send. Read the email and approve it to send.`}
         {!readOnly && allYes ? " All partners said yes. Draft the email to the company." : ""}
-      </Explain>
+      </PanelHeader>
 
-      {!readOnly && phase === "waiting" ? (
-        <WaitingState>
-          <SimulateButton label="simulate partner replies" onClick={() => simulatePartnerReplies(portco.id)} testId="sim-partner-replies" />
-        </WaitingState>
-      ) : null}
+      {!readOnly && phase === "waiting" ? <WaitingState /> : null}
 
       {draft?.approved || readOnly ? (
         <Section title="Partner replies" testId="partner-replies">
@@ -46,7 +41,7 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
       ) : null}
 
       <Section title="Email to the partners">
-        {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="partnerEmail" title={`To ${names}`} />}
+        {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="partnerEmail" title="Sign-off email to the partners" to={names} />}
       </Section>
     </div>
   );

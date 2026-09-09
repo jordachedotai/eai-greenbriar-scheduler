@@ -54,6 +54,16 @@ function agentOpts(id: string, expectJson: boolean, variant = 0, quarter?: Quart
   return { mock: useStore.getState().mockMode, portcoId: id, expectJson, variant, quarter, tokens: { replyBy: replyByDate() } };
 }
 
+// ---------- stage 1 attendees ----------
+
+export function togglePartner(id: string, partnerId: string) {
+  apply(id, (p) => T.togglePartner(p, partnerId));
+}
+
+export function addPartner(id: string, partnerId: string) {
+  apply(id, (p) => T.addPartner(p, partnerId, deps));
+}
+
 // ---------- drafting steps, each callable on its own (Regenerate, or a
 // missing draft after a reload) ----------
 

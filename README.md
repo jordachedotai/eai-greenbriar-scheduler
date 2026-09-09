@@ -36,10 +36,10 @@ Order matters: `import:source`, then `gen:fixtures`, then `gen:states`. `eas.jso
 
 ## Presenter menu
 
-Shift+P or the icon in the header. Reset to council, jump to a saved state, toggle mock or live, show or hide the demo buttons. The simulations themselves live inside each waiting state as "Demo:" buttons.
+Shift+P or the icon in the header. A dark panel bottom right. "Simulate for this company" lists the steps for the company on screen in order, done ones dimmed and the next one highlighted: partner replies, company picks, board conflict, board confirms. Below it: jump to state, agent mode, the header demo tag, and reset. Waiting states carry no buttons.
 
 Saved states: `fresh`, `council` (the room default), `council-at-board` (start at Beat 4). Loading a state fills the reply-by date and shifts timestamps so they read as recent.
 
 ## Status
 
-Phase 5a to 5c built: real Greenbriar companies and deal teams, faces and logos through the workflow, the Portfolio rename, rows and board per `reference/design`, one structured email renderer, the decline view. Next: 5d type scale and design pass, 5e Attendance, 5f People, Settings, Templates. See `BUILD_PLAN.md`.
+Phase 5a to 5d built: real Greenbriar companies and deal teams, faces and logos, the Portfolio rename, rows, board, and the company page per `reference/design` (attendee picker at step 1, decline view at step 4, presenter menu), one structured email renderer, base type 16px. Next: 5e Attendance, 5f People, Settings, Templates, then the rest of 5g. See `BUILD_PLAN.md`.

@@ -5,6 +5,7 @@
 
 import { findWindows, fmtDate, fmtWindow, nextBestWindow, rankWindows, reverifyWindow } from "./scheduling";
 import { emailToText } from "./email";
+import { activePartners } from "./pipeline";
 import type {
   AvailabilityBlock,
   BoardMember,
@@ -78,10 +79,26 @@ function joinNames(names: string[]): string {
   return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
 }
 
+// ---------- stage 1: attendees ----------
+
+export function togglePartner(p: Portco, partnerId: string): Portco {
+  const current = activePartners(p);
+  const next = current.includes(partnerId) ? current.filter((id) => id !== partnerId) : [...p.partnerIds.filter((id) => current.includes(id) || id === partnerId)];
+  if (next.length === 0) return p; // someone has to be in the room
+  return { ...p, checkedPartnerIds: next };
+}
+
+export function addPartner(p: Portco, partnerId: string, deps: Deps): Portco {
+  if (p.partnerIds.includes(partnerId)) return p;
+  const next: Portco = { ...p, partnerIds: [...p.partnerIds, partnerId], checkedPartnerIds: [...activePartners(p), partnerId] };
+  return withLog(next, "ea", `Added ${deps.name(partnerId)} to the Greenbriar team for this company.`, deps.now(), partnerId);
+}
+
 // ---------- stage 1: find dates ----------
 
 export function findDates(p: Portco, deps: Deps, excludeDays: Set<string> = new Set()): Portco {
-  const res = findWindows({ portco: p, partners: deps.partners, boardMembers: deps.boardMembers, availability: deps.availability, excludeDays });
+  const checked = activePartners(p);
+  const res = findWindows({ portco: { ...p, partnerIds: checked }, partners: deps.partners, boardMembers: deps.boardMembers, availability: deps.availability, excludeDays });
   const next = mapQuarters(p, (q, qs) => ({
     ...qs,
     windows: res[q].windows,
@@ -93,7 +110,7 @@ export function findDates(p: Portco, deps: Deps, excludeDays: Set<string> = new 
   return withLog(
     next,
     "agent",
-    `Checked calendars for ${joinNames(p.partnerIds.map(deps.name))} and ranked the top three windows per quarter. Windows found, ${parts.join(", ")}.` +
+    `Checked calendars for ${joinNames(checked.map(deps.name))} and ranked the top three windows per quarter. Windows found, ${parts.join(", ")}.` +
       (thin.length ? ` ${thin.join(", ")} ${thin.length === 1 ? "is" : "are"} thin.` : "") +
       (excludeDays.size ? ` Skipped ${excludeDays.size} days already held for other portfolio company meetings.` : ""),
     deps.now(),
@@ -250,7 +267,7 @@ export function boardConflict(
   }
   next = waiting(next, "none", deps.now());
   const fallback = nextBestWindow(next.quarters[q].shortlist, declined.id);
-  const reverify = fallback ? reverifyWindow(fallback, p.partnerIds, deps.availability) : { ok: false, busy: [] as string[] };
+  const reverify = fallback ? reverifyWindow(fallback, activePartners(p), deps.availability) : { ok: false, busy: [] as string[] };
   return { portco: next, declined, fallback, reverify };
 }
 
@@ -279,7 +296,7 @@ export function applyConflict(
     next,
     "agent",
     fallback
-      ? `Went back to the approved shortlist and proposed the number ${fallback.rank} ${q} window, ${fmtWindow(fallback)}. Re-checked ${joinNames(p.partnerIds.map(deps.name))}: ` +
+      ? `Went back to the approved shortlist and proposed the number ${fallback.rank} ${q} window, ${fmtWindow(fallback)}. Re-checked ${joinNames(activePartners(p).map(deps.name))}: ` +
           (reverify.ok ? "all still free." : `${joinNames(reverify.busy.map(deps.name))} now busy.`)
       : `No other window on the ${q} shortlist. Widen the search before re-sending.`,
     deps.now(),
