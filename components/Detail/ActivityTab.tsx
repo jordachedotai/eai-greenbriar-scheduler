@@ -48,7 +48,7 @@ export function ActivityTab() {
   };
 
   return (
-    <aside className="flex flex-col gap-3 self-start rounded-[14px] border border-line bg-white p-[18px] shadow-[0_1px_2px_rgba(23,34,26,0.05)]" data-testid="activity">
+    <aside className="sticky top-0 flex max-h-[calc(100vh-190px)] flex-col gap-3 self-start overflow-y-auto rounded-[14px] border border-line bg-white p-[18px] shadow-[0_1px_2px_rgba(23,34,26,0.05)]" data-testid="activity">
       <div className="flex items-center justify-between">
         <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Activity</span>
         <span className="text-[13px] text-idle-text">{entries.length}</span>

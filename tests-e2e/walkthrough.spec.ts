@@ -357,6 +357,15 @@ test("People, Templates, and Settings: add a company and change a team", async (
   await expect(page.getByTestId("people-investment").locator("[data-testid^='person-']")).toHaveCount(31);
   await page.getByTestId("person-jill-raker").click();
   await expect(page.getByTestId("person-companies").locator("li")).toHaveCount(5);
+  // The person card is sticky: click someone lower down and the card swaps in place, the page does not scroll.
+  await expect(page.getByTestId("person-panel")).toHaveCSS("position", "sticky");
+  const last = page.getByTestId("people-operations").locator("[data-testid^='person-']").last();
+  await last.scrollIntoViewIfNeeded();
+  const before = await page.evaluate(() => document.querySelector("main")?.scrollTop ?? 0);
+  expect(before).toBeGreaterThan(0);
+  await last.click();
+  await expect(page.getByTestId("person-panel")).toBeInViewport();
+  expect(await page.evaluate(() => document.querySelector("main")?.scrollTop ?? 0)).toBe(before);
 
   // Templates: five read-only templates rendered by the email renderer.
   await page.getByTestId("nav-templates").click();

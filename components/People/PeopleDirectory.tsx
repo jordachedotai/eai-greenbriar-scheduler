@@ -44,7 +44,9 @@ export function PeopleDirectory() {
           );
         })}
       </div>
-      <aside className="self-start rounded-[14px] border border-line bg-white p-[18px] shadow-[0_1px_2px_rgba(23,34,26,0.05)]" data-testid="person-panel">
+      {/* Sticky inside the scrolling main, offset by the page padding, so the
+          card stays in view as the roster scrolls and swaps in place. */}
+      <aside className="sticky top-[22px] max-h-[calc(100vh-108px)] self-start overflow-y-auto rounded-[14px] border border-line bg-white p-[18px] shadow-[0_1px_2px_rgba(23,34,26,0.05)]" data-testid="person-panel">
         {selected ? (
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
