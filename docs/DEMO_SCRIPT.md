@@ -26,6 +26,10 @@ Step 6 opens with four calendar invites, one per meeting, dinner as a second ent
 ## Beat 6: the scale picture (25 seconds, Devrin)
 Toggle to "All assistants." Eighteen rows. Open Calendar. 2027 fills with meetings. "Three assistants, fifteen companies. The portfolio is twenty-five. And when the next fund goes to market, the same engine schedules two hundred and fifty LP meetings."
 
+Q&A, "what if it is not a full year": under All assistants, point at Sunvair Aerospace Group, which plans two quarters, and The Facilities Group, which spans October 2026 into 2027. Each company sets its own window at step 1. The chips carry the year when a window crosses one.
+
+Q&A, "what if Peggy disagrees with the agent": at step 1, See all windows and press Use this on any date; the one-pager rewrites itself. At step 5, Change on a venue card. Nothing the agent proposes is fixed until she approves it.
+
 ## If time is short
 Load `council-at-board` and start at Beat 4. The conflict is the wow moment. Never skip it.
 
