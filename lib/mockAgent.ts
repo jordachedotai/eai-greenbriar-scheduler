@@ -76,6 +76,18 @@ export function windowReason(w: WindowPayload, idx: number, thinCount: number | 
   return `A solid backup. ${weekday} ${posText}; ${timeText}.`;
 }
 
+// A reason for a window that is not in the ranked three, so a swapped-in
+// option carries its own line. Rank independent.
+export function neutralReason(w: WindowPayload): string {
+  const { weekday, month, day } = parseDate(w.date);
+  const h = startHour(w.time);
+  const start = w.time.split(" ")[0];
+  const pos = position(month, day);
+  const posText = pos === "early" ? "early in the quarter" : pos === "late" ? "late in the quarter" : "in the middle of the quarter";
+  const timeText = h === 10 ? "a 10am start keeps travel easy and dinner on time" : h < 10 ? `${article(start)} ${start} start means partners fly in the night before` : `${article(start)} ${start} start lets partners fly in that morning, though dinner runs later`;
+  return `${weekday} ${posText}, and ${timeText}.`;
+}
+
 export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Record<string, string[]>; onepager: EmailFields } {
   const alt = variant % 2 === 1;
   const reasons: Record<string, string[]> = {};

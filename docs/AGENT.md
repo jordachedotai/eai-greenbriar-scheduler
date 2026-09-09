@@ -35,7 +35,7 @@ Rule: anything that must be correct is code. Anything that must read well is Cla
 
 ## Per-step prompts (summaries; full text lives in `lib/prompts.ts`)
 
-**Shortlist reasons and one-pager.** Given portco, quarter, three ranked windows with attendee lists: write one sentence per window explaining why it ranks where it does, then a one-page proposal addressed to the portco exec contact listing the three options per quarter with the dinner time, asking them to pick one per quarter and reply by a date two weeks out.
+**Shortlist reasons and one-pager.** Given portco, quarter, three ranked windows with attendee lists: write one sentence per window explaining why it ranks where it does, then a one-page proposal addressed to the portco exec contact listing the three options per quarter with the dinner time, asking them to pick one per quarter and reply by a date two weeks out. The EA can then edit the selection without the agent: swap a window in from the full list, remove one, or reorder. The one-pager's date lists rebuild from the selection in code; Regenerate asks the agent to rewrite the prose and reasons around the current selection.
 
 **Portco proposal email.** Given the approved one-pager: a cover email of five sentences or fewer from the EA, on behalf of the partners, attaching the one-pager.
 

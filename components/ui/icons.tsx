@@ -75,6 +75,41 @@ export function IconChevronDown({ size = 12, className }: P) {
     </svg>
   );
 }
+export function IconChevronUp({ size = 12, className }: P) {
+  return (
+    <svg {...base(size, 2.5)} stroke="currentColor" className={className} aria-hidden>
+      <path d="M6 15l6-6 6 6" />
+    </svg>
+  );
+}
+export function IconX({ size = 12, className }: P) {
+  return (
+    <svg {...base(size, 2.5)} stroke="currentColor" className={className} aria-hidden>
+      <path d="M6 6l12 12" />
+      <path d="M18 6L6 18" />
+    </svg>
+  );
+}
+export function IconHotel({ size = 18, className }: P) {
+  return (
+    <svg {...base(size, 2)} stroke="currentColor" className={className} aria-hidden>
+      <path d="M3 21V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14" />
+      <path d="M3 21h18" />
+      <path d="M8 9h2M14 9h2M8 13h2M14 13h2" />
+      <path d="M10 21v-4h4v4" />
+    </svg>
+  );
+}
+export function IconDinner({ size = 18, className }: P) {
+  return (
+    <svg {...base(size, 2)} stroke="currentColor" className={className} aria-hidden>
+      <path d="M7 3v8" />
+      <path d="M4 3v5a3 3 0 0 0 6 0V3" />
+      <path d="M7 11v10" />
+      <path d="M17 3c-2 2-3 5-3 8h3v10" />
+    </svg>
+  );
+}
 export function IconLock({ size = 11 }: P) {
   return (
     <svg {...base(size, 2.5)} stroke="currentColor" aria-hidden>

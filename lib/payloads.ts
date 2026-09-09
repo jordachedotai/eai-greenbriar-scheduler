@@ -60,7 +60,7 @@ export function shortlistPayload(p: Portco, replyBy: string): ShortlistPayload {
   };
 }
 
-function quarterOptions(p: Portco) {
+export function quarterOptions(p: Portco) {
   return p.targetQuarters.map((q) => ({
     quarter: q,
     label: quarterLabel(q, p.targetQuarters),

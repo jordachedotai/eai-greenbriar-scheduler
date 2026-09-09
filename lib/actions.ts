@@ -69,6 +69,20 @@ export function addPartner(id: string, partnerId: string) {
   apply(id, (p) => T.addPartner(p, partnerId, deps));
 }
 
+// ---------- stage 1: the EA edits the shortlist ----------
+
+export function swapOption(id: string, q: Quarter, windowId: string, replaceWindowId?: string) {
+  apply(id, (p) => T.swapOption(p, q, windowId, replaceWindowId, deps));
+}
+
+export function removeOption(id: string, q: Quarter, windowId: string) {
+  apply(id, (p) => T.removeOption(p, q, windowId, deps));
+}
+
+export function moveOption(id: string, q: Quarter, windowId: string, dir: -1 | 1) {
+  apply(id, (p) => T.moveOption(p, q, windowId, dir, deps));
+}
+
 // ---------- drafting steps, each callable on its own (Regenerate, or a
 // missing draft after a reload) ----------
 

@@ -53,17 +53,25 @@ export function WaitingState() {
   );
 }
 
-export function WindowCard({ w, showReason = true }: { w: Window; showReason?: boolean }) {
+// One date option. The date sits on one line with the time beneath it.
+// `actions` is the control slot, top right: Use this, Remove, arrows.
+export function WindowCard({ w, showReason = true, actions, selected, testId = "window" }: { w: Window; showReason?: boolean; actions?: ReactNode; selected?: boolean; testId?: string }) {
   return (
-    <div className="rounded-[10px] border border-line bg-white px-3 py-2.5" data-testid="window">
-      <div className="flex items-baseline justify-between gap-2">
-        <span className="text-[15px] font-semibold">
-          {w.rank ? <span className="mr-1.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Option {w.rank}</span> : null}
-          {fmtDate(w.start)}
-        </span>
-        <span className="shrink-0 text-[14px] text-mut">
-          {fmtTime(w.start)} to {fmtTime(w.end)}
-        </span>
+    <div
+      className={"rounded-[10px] border bg-white px-3 py-2.5 " + (selected ? "border-[#cfdfd2] bg-[#f4f8f5]" : "border-line")}
+      data-testid={testId}
+      data-date={fmtDate(w.start)}
+      data-selected={selected === undefined ? undefined : selected ? "true" : "false"}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex min-w-0 flex-col">
+          {w.rank ? <span className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Option {w.rank}</span> : null}
+          <span className="whitespace-nowrap text-[15px] font-semibold leading-tight">{fmtDate(w.start)}</span>
+          <span className="text-[14px] text-mut">
+            {fmtTime(w.start)} to {fmtTime(w.end)}
+          </span>
+        </div>
+        {actions ? <div className="flex shrink-0 items-center gap-1">{actions}</div> : null}
       </div>
       {showReason && w.reason ? <div className="mt-1 text-[14px] leading-snug text-txt/80">{w.reason}</div> : null}
       <div className="mt-2 flex flex-wrap items-center gap-1">

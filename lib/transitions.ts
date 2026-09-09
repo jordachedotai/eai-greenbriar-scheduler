@@ -8,7 +8,8 @@ import { emailToText } from "./email";
 import { activePartners, attendeeIds } from "./pipeline";
 import { ensureAvailability } from "./availabilityGen";
 import { getVenue } from "./data";
-import { mockBoardReply, mockDeclineReply, mockPartnerReply, mockPicksReply } from "./mockAgent";
+import { mockBoardReply, mockDeclineReply, mockPartnerReply, mockPicksReply, neutralReason, optionLists } from "./mockAgent";
+import { quarterOptions, windowPayload } from "./payloads";
 import { quarterLabel, quarterLong, windowQuarters, yearsOf, type PlanningWindow } from "./quarters";
 import type {
   AttendanceStatus,
@@ -150,13 +151,14 @@ export function findDates(p: Portco, deps: Deps, excludeDays: Set<string> = new 
   const checked = activePartners(p);
   const availability = ensureAvailability(deps.availability, checked, yearsOf(p.targetQuarters));
   const res = findWindows({ portco: { ...p, partnerIds: checked }, partners: deps.partners, boardMembers: membersOf(p, deps), availability, excludeDays });
+  // Every window carries its own reason line, so one the EA swaps in from
+  // the full list reads like the ranked three. The agent rewrites the top
+  // three when it drafts the one-pager.
   const next: Portco = {
-    ...mapQuarters(p, (q, qs) => ({
-      ...qs,
-      windows: res[q].windows,
-      thin: res[q].thin,
-      shortlist: rankWindows(res[q].windows),
-    })),
+    ...mapQuarters(p, (q, qs) => {
+      const windows = res[q].windows.map((w) => ({ ...w, reason: neutralReason(windowPayload(w)) }));
+      return { ...qs, windows, thin: res[q].thin, shortlist: rankWindows(windows) };
+    }),
     skippedDays: excludeDays.size,
   };
   const lbl = (q: Quarter) => quarterLabel(q, p.targetQuarters);
@@ -183,6 +185,70 @@ export function applyOnepager(p: Portco, result: ShortlistResult, offline: boole
     variant === 0 ? `Drafted the one-pager for ${p.execContact.name}.` : "Rewrote the one-pager.",
     deps.now(),
   );
+}
+
+// ---------- stage 1: the EA edits the shortlist ----------
+
+// The one-pager's date lists follow the selection at once, no agent call.
+// The greeting and the ask do not change. An edited draft (no fields) is left alone.
+export function rebuildOnepager(p: Portco): Portco {
+  const d = p.drafts.onepager;
+  if (!d?.email || d.approved) return p;
+  const email: EmailFields = { ...d.email, lists: optionLists(quarterOptions(p)) };
+  return withDraft(p, "onepager", { ...d, email, text: emailToText(email) });
+}
+
+function reranked(list: Window[]): Window[] {
+  return list.map((w, i) => ({ ...w, rank: (i + 1) as 1 | 2 | 3 }));
+}
+
+export const MAX_OPTIONS = 3;
+export const MIN_OPTIONS = 2;
+
+// Use a window from the full list. Fills an empty slot, else replaces the
+// option named, else the lowest-ranked one. Never four.
+export function swapOption(p: Portco, q: Quarter, windowId: string, replaceWindowId: string | undefined, deps: Deps): Portco {
+  const qs = p.quarters[q];
+  const w = qs.windows.find((x) => x.id === windowId);
+  if (!w || qs.shortlist.some((x) => x.id === windowId)) return p;
+  const lbl = quarterLabel(q, p.targetQuarters);
+  let list = [...qs.shortlist];
+  let text: string;
+  if (list.length < MAX_OPTIONS && !replaceWindowId) {
+    list.push({ ...w });
+    text = `Added ${fmtDate(w.start)} as ${lbl} option ${list.length}.`;
+  } else {
+    const idx = Math.max(0, replaceWindowId ? list.findIndex((x) => x.id === replaceWindowId) : list.length - 1);
+    list[idx] = { ...w };
+    text = `Swapped ${lbl} option ${idx + 1} for ${fmtDate(w.start)}.`;
+  }
+  list = reranked(list);
+  const next: Portco = { ...p, quarters: { ...p.quarters, [q]: { ...qs, shortlist: list } } };
+  return withLog(rebuildOnepager(next), "ea", text, deps.now());
+}
+
+// Drop an option. A quarter keeps at least two.
+export function removeOption(p: Portco, q: Quarter, windowId: string, deps: Deps): Portco {
+  const qs = p.quarters[q];
+  const idx = qs.shortlist.findIndex((x) => x.id === windowId);
+  if (idx === -1 || qs.shortlist.length <= MIN_OPTIONS) return p;
+  const w = qs.shortlist[idx];
+  const list = reranked(qs.shortlist.filter((x) => x.id !== windowId));
+  const next: Portco = { ...p, quarters: { ...p.quarters, [q]: { ...qs, shortlist: list } } };
+  return withLog(rebuildOnepager(next), "ea", `Removed ${quarterLabel(q, p.targetQuarters)} option ${idx + 1}, ${fmtDate(w.start)}.`, deps.now());
+}
+
+// Move an option up or down one place.
+export function moveOption(p: Portco, q: Quarter, windowId: string, dir: -1 | 1, deps: Deps): Portco {
+  const qs = p.quarters[q];
+  const idx = qs.shortlist.findIndex((x) => x.id === windowId);
+  const to = idx + dir;
+  if (idx === -1 || to < 0 || to >= qs.shortlist.length) return p;
+  const list = [...qs.shortlist];
+  [list[idx], list[to]] = [list[to], list[idx]];
+  const w = list[to];
+  const next: Portco = { ...p, quarters: { ...p.quarters, [q]: { ...qs, shortlist: reranked(list) } } };
+  return withLog(rebuildOnepager(next), "ea", `Moved ${fmtDate(w.start)} to ${quarterLabel(q, p.targetQuarters)} option ${to + 1}.`, deps.now());
 }
 
 // EA approves the one-pager. Stage 2 begins; the partner email is drafted next.

@@ -56,8 +56,32 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await waitForAgent(page);
   await expect(page.getByTestId("draft-onepager").getByTestId("draft-text")).toContainText("Dear Tom");
   await expect(page.getByTestId("draft-onepager").getByTestId("draft-text")).not.toContainText("{{");
+  // The shortlist is editable and the one-pager follows. Swap a Q1 window in,
+  // move it up, remove it, then put the original option 3 back.
+  const q1 = page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']");
+  const third = (await q1.nth(2).getAttribute("data-date")) as string;
   await page.getByTestId("see-all-windows").click();
   await expect(page.getByTestId("all-windows")).toBeVisible();
+  const spare = page.getByTestId("all-windows-2027-Q1").locator("[data-testid='window'][data-selected='false']").first();
+  const spareDate = (await spare.getAttribute("data-date")) as string;
+  await spare.locator("[data-testid^='use-']").first().click();
+  await expect(q1.nth(2)).toHaveAttribute("data-date", spareDate);
+  const q1List = page.getByTestId("draft-onepager").locator("[data-part='list']").first().locator("li");
+  await expect(q1List.nth(2)).toContainText(spareDate);
+  await expect(page.getByTestId("timeline")).toContainText(`Swapped Q1 option 3 for ${spareDate}.`);
+  await page.getByTestId("opt-up-2027-Q1-3").click();
+  await expect(q1.nth(1)).toHaveAttribute("data-date", spareDate);
+  await expect(q1List.nth(1)).toContainText(spareDate);
+  await page.getByTestId("opt-remove-2027-Q1-2").click();
+  await expect(q1).toHaveCount(2);
+  await expect(q1List).toHaveCount(2);
+  await expect(page.getByTestId("opt-remove-2027-Q1-1")).toBeDisabled();
+  await page.getByTestId("all-windows-2027-Q1").locator(`[data-testid='window'][data-date='${third}']`).locator("[data-testid^='use-']").first().click();
+  await expect(q1).toHaveCount(3);
+  await expect(q1.nth(2)).toHaveAttribute("data-date", third);
+  await expect(page.getByTestId("timeline")).toContainText(`Added ${third} as Q1 option 3.`);
+  // The thin quarter keeps its two.
+  await expect(page.getByTestId("opt-remove-2027-Q3-1")).toBeDisabled();
   await expect(page.getByTestId("primary-action")).toHaveText("Approve one-pager");
   await page.getByTestId("primary-action").click();
 

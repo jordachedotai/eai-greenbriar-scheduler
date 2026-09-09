@@ -5,7 +5,9 @@
 // reasons, the full grid behind an expander, the one-pager.
 
 import { useState } from "react";
-import { addPartner, setWindow, togglePartner } from "@/lib/actions";
+import { addPartner, moveOption, removeOption, setWindow, swapOption, togglePartner } from "@/lib/actions";
+import { MAX_OPTIONS, MIN_OPTIONS } from "@/lib/transitions";
+import type { Window } from "@/lib/types";
 import { quarterLabel, quarterLong, quarterRange, MAX_QUARTERS } from "@/lib/quarters";
 import { getBoardMembers, getPartner, getTeam, personName } from "@/lib/data";
 import { joinNames } from "@/lib/format";
@@ -15,7 +17,7 @@ import { useStore } from "@/lib/store";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Face, FaceStack, resolvePerson, type Person } from "@/components/ui/Face";
-import { IconCheck, IconPlus } from "@/components/ui/icons";
+import { IconCheck, IconChevronDown, IconChevronUp, IconPlus, IconX } from "@/components/ui/icons";
 import { Label, PanelHeader, Pill, Section, WindowCard } from "./shared";
 
 // Faces or initials inline with names, comma separated.
@@ -150,6 +152,7 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
   }
 
   const skipped = portco.skippedDays ?? held;
+  const editable = !readOnly && !working && !portco.drafts.onepager?.approved;
   return (
     <div>
       <PanelHeader title={readOnly ? "Dates found" : phase === "review" ? "Read the one-pager, then approve it" : "Dates found"}>
@@ -180,6 +183,7 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
         {working && !portco.drafts.onepager ? <Working label={working} /> : <DraftViewer draftKey="onepager" title={`One-pager to ${portco.execContact.name}`} sentLabel="Approved" />}
       </Section>
       <Section title="Top three per quarter" testId="shortlist">
+        {editable ? <p className="px-1 text-[14px] text-mut">Remove an option or change the order. See all windows to swap one in. The one-pager follows.</p> : null}
         <div className="grid grid-cols-2 gap-3 2xl:grid-cols-4">
           {portco.targetQuarters.map((q) => {
             const qs = portco.quarters[q];
@@ -195,8 +199,27 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
                   </div>
                 ) : null}
                 <div className="flex flex-col gap-2">
-                  {qs.shortlist.map((w) => (
-                    <WindowCard key={w.id} w={w} showReason={!working} />
+                  {qs.shortlist.map((w, i) => (
+                    <WindowCard
+                      key={w.id}
+                      w={w}
+                      showReason={!working}
+                      actions={
+                        editable ? (
+                          <>
+                            <IconButton label="Move up" disabled={i === 0} onClick={() => moveOption(portco.id, q, w.id, -1)} testId={`opt-up-${q}-${i + 1}`}>
+                              <IconChevronUp size={12} />
+                            </IconButton>
+                            <IconButton label="Move down" disabled={i === qs.shortlist.length - 1} onClick={() => moveOption(portco.id, q, w.id, 1)} testId={`opt-down-${q}-${i + 1}`}>
+                              <IconChevronDown size={12} />
+                            </IconButton>
+                            <IconButton label="Remove" disabled={qs.shortlist.length <= MIN_OPTIONS} onClick={() => removeOption(portco.id, q, w.id)} testId={`opt-remove-${q}-${i + 1}`}>
+                              <IconX size={12} />
+                            </IconButton>
+                          </>
+                        ) : undefined
+                      }
+                    />
                   ))}
                 </div>
               </div>
@@ -208,21 +231,89 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
         </button>
         {showAll ? (
           <div className="mt-2 grid grid-cols-2 gap-3 2xl:grid-cols-4" data-testid="all-windows">
-            {portco.targetQuarters.map((q) => (
-              <div key={q} className="max-h-[360px] overflow-y-auto rounded-[12px] border border-idle-line bg-idle-soft p-2.5">
-                <div className="mb-1 px-1 text-[13px] font-semibold text-mut">{quarterLabel(q, portco.targetQuarters)}</div>
-                <div className="flex flex-col gap-1.5">
-                  {portco.quarters[q].windows.map((w) => (
-                    <WindowCard key={w.id} w={w} showReason={false} />
-                  ))}
+            {portco.targetQuarters.map((q) => {
+              const qs = portco.quarters[q];
+              const full = qs.shortlist.length >= MAX_OPTIONS;
+              return (
+                <div key={q} className="max-h-[420px] overflow-y-auto rounded-[12px] border border-idle-line bg-idle-soft p-2.5" data-testid={`all-windows-${q}`}>
+                  <div className="mb-1 px-1 text-[13px] font-semibold text-mut">{quarterLabel(q, portco.targetQuarters)}</div>
+                  <div className="flex flex-col gap-1.5">
+                    {qs.windows.map((w) => {
+                      const sel = qs.shortlist.find((x) => x.id === w.id);
+                      return (
+                        <WindowCard
+                          key={w.id}
+                          w={w}
+                          selected={!!sel}
+                          actions={
+                            sel ? (
+                              <Pill tone="lock">Option {sel.rank}</Pill>
+                            ) : editable ? (
+                              <UseThis full={full} onUse={(replaceId) => swapOption(portco.id, q, w.id, replaceId)} shortlist={qs.shortlist} testId={`use-${w.id}`} />
+                            ) : undefined
+                          }
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : null}
       </Section>
-
     </div>
+  );
+}
+
+function IconButton({ label, disabled, onClick, testId, children }: { label: string; disabled?: boolean; onClick: () => void; testId: string; children: React.ReactNode }) {
+  return (
+    <button
+      type="button"
+      title={label}
+      aria-label={label}
+      disabled={disabled}
+      onClick={onClick}
+      data-testid={testId}
+      className="inline-flex h-6 w-6 items-center justify-center rounded-[6px] border border-line bg-white text-mut hover:border-brand hover:text-brand disabled:cursor-not-allowed disabled:opacity-35"
+    >
+      {children}
+    </button>
+  );
+}
+
+// "Use this" on a window in the full list. When the quarter already holds
+// three, it replaces the lowest-ranked option unless the EA picks which.
+function UseThis({ full, shortlist, onUse, testId }: { full: boolean; shortlist: Window[]; onUse: (replaceId?: string) => void; testId: string }) {
+  const [choosing, setChoosing] = useState(false);
+  if (choosing) {
+    return (
+      <span className="flex flex-col items-end gap-1" data-testid={`${testId}-choose`}>
+        <span className="text-[12px] text-mut">Replace which?</span>
+        <span className="flex gap-1">
+          {shortlist.map((w, i) => (
+            <button key={w.id} type="button" className="rounded-[6px] border border-line bg-white px-2 py-0.5 text-[12px] font-semibold hover:border-brand hover:text-brand" onClick={() => onUse(w.id)} data-testid={`${testId}-replace-${i + 1}`}>
+              Option {i + 1}
+            </button>
+          ))}
+          <button type="button" className="px-1 text-[12px] text-mut hover:text-txt" onClick={() => setChoosing(false)}>
+            Cancel
+          </button>
+        </span>
+      </span>
+    );
+  }
+  return (
+    <span className="flex flex-col items-end gap-0.5">
+      <button type="button" className="rounded-[8px] border border-ring bg-white px-2.5 py-1 text-[13px] font-semibold text-brand hover:border-brand" onClick={() => onUse(undefined)} data-testid={testId}>
+        Use this
+      </button>
+      {full ? (
+        <button type="button" className="text-[12px] text-mut hover:text-brand hover:underline" onClick={() => setChoosing(true)} data-testid={`${testId}-pick`}>
+          replaces option 3, or pick
+        </button>
+      ) : null}
+    </span>
   );
 }
 

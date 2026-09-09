@@ -50,8 +50,8 @@ type Window = {
 
 type QuarterState = {
   status: "notStarted" | "datesFound" | "partnersSignedOff" | "portcoPicked" | "boardConfirmed" | "locked";
-  windows: Window[];               // all found in stage 1
-  shortlist: Window[];             // top 3 from stage 2
+  windows: Window[];               // all found in stage 1, each with a reason line
+  shortlist: Window[];             // the ranked options, two or three; the EA can swap, remove, reorder
   portcoPick?: string;             // window id
   internalApprovals: Record<string, boolean>;   // partnerId -> approved
   boardResponses: Record<string, "pending" | "confirmed" | "declined">;
