@@ -19,6 +19,9 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
   const allYes = allPartnersYes(portco);
   const title = readOnly || allYes ? "The partners signed off" : phase === "waiting" ? "Waiting on the partners" : "Partners sign off first";
 
+  const sentAt = portco.log.find((e) => e.text.startsWith("Sent the one-pager to"))?.at;
+
+  // Order: what needs the EA, the reason, the evidence, history.
   return (
     <div>
       <PanelHeader title={title}>
@@ -32,6 +35,12 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
         {!readOnly && allYes ? " All partners said yes. Draft the email to the company." : ""}
       </PanelHeader>
 
+      {!draft?.approved ? (
+        <Section title="Email to the partners">
+          {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="partnerEmail" title="Sign-off email to the partners" to={names} />}
+        </Section>
+      ) : null}
+
       {!readOnly && phase === "waiting" ? <WaitingState /> : null}
 
       {draft?.approved || readOnly ? (
@@ -40,9 +49,7 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
         </Section>
       ) : null}
 
-      <Section title="Email to the partners">
-        {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="partnerEmail" title="Sign-off email to the partners" to={names} />}
-      </Section>
+      {draft?.approved ? <DraftViewer draftKey="partnerEmail" title="Sign-off email to the partners" to={names} collapsed sentAt={sentAt} /> : null}
     </div>
   );
 }

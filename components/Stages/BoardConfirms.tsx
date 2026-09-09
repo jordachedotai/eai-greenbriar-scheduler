@@ -19,13 +19,16 @@ function sentAt(log: { at: string; text: string }[], text: string): string | und
   return log.find((e) => e.text === text)?.at;
 }
 
+function confirmedStatus(s: string): boolean {
+  return s === "boardConfirmed" || s === "locked" || s === "invited";
+}
+
 export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
   const { portco, members, phase, working } = useDetail();
   const names = joinNames(members.map((m) => m.name));
   const draft = portco.drafts.boardEmail;
   const confirmed = allBoardConfirmed(portco, members);
   const conflicts = openConflicts(portco);
-  const resendOut = portco.targetQuarters.some((q) => portco.drafts[`conflict:${q}`]?.approved);
   const conflictWorking = !!working && phase !== "needsDraft" && !!draft?.approved;
   const boardSent = sentAt(portco.log, "Sent the confirmation email to the board.");
   const decline = conflicts.length > 0;
@@ -47,7 +50,11 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
         {!readOnly && confirmed ? " Press Lock and book." : ""}
       </PanelHeader>
 
-      {!readOnly && phase === "waiting" ? <WaitingState /> : null}
+      {!draft?.approved ? (
+        <Section title="Email to the board">
+          {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="boardEmail" title="Confirmation email to the board" to={members.map((m) => m.name).join(", ")} />}
+        </Section>
+      ) : null}
 
       {conflictWorking && conflicts.length === 0 ? <Working label={working as string} /> : null}
 
@@ -62,6 +69,7 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
         const checkedIds = activePartners(portco);
         return (
           <div key={q} className="mb-4 flex flex-col gap-4">
+            <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${q} date change`} to={members.map((m) => m.name).join(", ")} testId="draft-conflict" />
             <div className="flex flex-col gap-3 rounded-[12px] border border-you-line border-l-4 border-l-you bg-[#f3f7fc] px-[18px] py-4" data-testid={`conflict-${q}`}>
               <div className="flex items-center gap-3">
                 <span className="face-initials inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-you-line bg-white text-[13px] font-bold text-you" data-initials={(member?.name ?? "?").split(" ").map((n) => n[0]).join("").slice(0, 2)} />
@@ -99,29 +107,11 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
                 </span>
               </div>
             </div>
-            <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${q} date change`} to={members.map((m) => m.name).join(", ")} testId="draft-conflict" />
           </div>
         );
       })}
 
-      {draft ? (
-        <div className="mb-4">
-          {working && !draft ? (
-            <Working label={working} />
-          ) : (
-            <DraftViewer
-              draftKey="boardEmail"
-              title="Confirmation email to the board"
-              to={members.map((m) => m.name).join(", ")}
-              collapsed={decline || confirmed || resendOut}
-              sentAt={boardSent}
-              summary={`${portco.targetQuarters.length} dates`}
-            />
-          )}
-        </div>
-      ) : working ? (
-        <Working label={working} />
-      ) : null}
+      {!readOnly && phase === "waiting" ? <WaitingState /> : null}
 
       {draft?.approved || readOnly ? (
         <Section title="Board replies" testId="board-matrix">
@@ -157,7 +147,7 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
                         <span className={changed ? "font-semibold" : ""}>{w ? fmtWindow(w) : ""}</span>
                       </td>
                       {members.map((m) => {
-                        const r = qs.status === "boardConfirmed" || qs.status === "locked" ? "confirmed" : (qs.boardResponses[m.id] ?? "pending");
+                        const r = confirmedStatus(qs.status) ? "confirmed" : (qs.boardResponses[m.id] ?? "pending");
                         const reasking = r === "pending" && !!cd?.fallbackWindowId && portco.drafts[`conflict:${q}`]?.approved;
                         return (
                           <td key={m.id} className="px-3 py-2" data-testid={`resp-${q}-${m.id}`} data-response={r}>
@@ -174,6 +164,10 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
             </table>
           </div>
         </Section>
+      ) : null}
+
+      {draft?.approved ? (
+        <DraftViewer draftKey="boardEmail" title="Confirmation email to the board" to={members.map((m) => m.name).join(", ")} collapsed sentAt={boardSent} summary={`${portco.targetQuarters.length} dates`} />
       ) : null}
     </div>
   );

@@ -15,6 +15,9 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
   const picked = allPicked(portco);
   const title = readOnly || picked ? `${exec} picked the dates` : phase === "waiting" ? "Waiting on the company" : "The company picks";
 
+  const sentAt = portco.log.find((e) => e.text.startsWith("Sent the proposal and one-pager"))?.at;
+
+  // Order: what needs the EA, the reason, the evidence, history.
   return (
     <div>
       <PanelHeader title={title}>
@@ -27,6 +30,12 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
               : `${exec} gets the one-pager and chooses one option per quarter. Read the cover email and approve it to send.`}
         {!readOnly && picked ? " Draft the email to the board." : ""}
       </PanelHeader>
+
+      {!draft?.approved ? (
+        <Section title="Email to the company">
+          {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="portcoEmail" title="Proposal email to the company" to={exec} />}
+        </Section>
+      ) : null}
 
       {!readOnly && phase === "waiting" ? <WaitingState /> : null}
 
@@ -53,9 +62,7 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
         </Section>
       ) : null}
 
-      <Section title="Email to the company">
-        {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="portcoEmail" title="Proposal email to the company" to={exec} />}
-      </Section>
+      {draft?.approved ? <DraftViewer draftKey="portcoEmail" title="Proposal email to the company" to={exec} collapsed sentAt={sentAt} /> : null}
     </div>
   );
 }

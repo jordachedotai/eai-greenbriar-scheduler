@@ -162,6 +162,9 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
         {held > 0 ? ` Skipped ${held} days already held for other portfolio company meetings.` : ""}
       </PanelHeader>
 
+      <Section title="One-pager for the company">
+        {working && !portco.drafts.onepager ? <Working label={working} /> : <DraftViewer draftKey="onepager" title={`One-pager to ${portco.execContact.name}`} sentLabel="Approved" />}
+      </Section>
       <Section title="Top three per quarter" testId="shortlist">
         <div className="grid grid-cols-2 gap-3 2xl:grid-cols-4">
           {portco.targetQuarters.map((q) => {
@@ -205,9 +208,6 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
         ) : null}
       </Section>
 
-      <Section title="One-pager for the company">
-        {working && !portco.drafts.onepager ? <Working label={working} /> : <DraftViewer draftKey="onepager" title={`One-pager to ${portco.execContact.name}`} sentLabel="Approved" />}
-      </Section>
     </div>
   );
 }
