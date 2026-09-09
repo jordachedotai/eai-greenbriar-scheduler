@@ -12,6 +12,7 @@ import type { ConflictData } from "@/lib/types";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Face, FaceStack, resolvePerson } from "@/components/ui/Face";
+import { useStore } from "@/lib/store";
 import { IconCheck } from "@/components/ui/icons";
 import { PanelHeader, Pill, Section, WaitingState } from "./shared";
 
@@ -31,6 +32,11 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
   const conflicts = openConflicts(portco);
   const conflictWorking = !!working && phase !== "needsDraft" && !!draft?.approved;
   const boardSent = sentAt(portco.log, "Sent the confirmation email to the board.");
+  const setViewEmail = useStore((s) => s.setViewEmail);
+  const replyFor = (memberId: string, q: string) => {
+    const all = [...(portco.replies ?? [])].reverse().filter((r) => r.kind === "board" && r.from.personId === memberId);
+    return all.find((r) => r.quarter === q) ?? all[0];
+  };
   const decline = conflicts.length > 0;
 
   const title = readOnly || confirmed ? "The board confirmed" : decline ? "A board member declined a date" : phase === "waiting" ? "Waiting on the board" : "The board confirms the dates";
@@ -149,11 +155,21 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
                       {members.map((m) => {
                         const r = confirmedStatus(qs.status) ? "confirmed" : (qs.boardResponses[m.id] ?? "pending");
                         const reasking = r === "pending" && !!cd?.fallbackWindowId && portco.drafts[`conflict:${q}`]?.approved;
+                        const reply = r !== "pending" ? replyFor(m.id, q) : undefined;
+                        const pill = (
+                          <span className={"rounded-full px-2.5 py-0.5 text-[13px] font-semibold " + (r === "confirmed" ? "bg-lock-soft text-lock" : r === "declined" ? "bg-red-soft text-red" : "bg-idle-soft text-idle")}>
+                            {r === "confirmed" ? "Yes" : r === "declined" ? "Declined" : reasking ? "Re-asking" : "No reply yet"}
+                          </span>
+                        );
                         return (
                           <td key={m.id} className="px-3 py-2" data-testid={`resp-${q}-${m.id}`} data-response={r}>
-                            <span className={"rounded-full px-2.5 py-0.5 text-[13px] font-semibold " + (r === "confirmed" ? "bg-lock-soft text-lock" : r === "declined" ? "bg-red-soft text-red" : "bg-idle-soft text-idle")}>
-                              {r === "confirmed" ? "Yes" : r === "declined" ? "Declined" : reasking ? "Re-asking" : "No reply yet"}
-                            </span>
+                            {reply ? (
+                              <button type="button" title={`From ${m.name}'s reply, ${fmtStamp(reply.at)}. Click to read it.`} onClick={() => setViewEmail({ portcoId: portco.id, replyId: reply.id })} className="hover:opacity-80" data-testid={`resp-view-${q}-${m.id}`}>
+                                {pill}
+                              </button>
+                            ) : (
+                              pill
+                            )}
                           </td>
                         );
                       })}

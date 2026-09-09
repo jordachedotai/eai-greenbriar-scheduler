@@ -29,6 +29,7 @@ export type AppState = {
   sidebarCollapsed: boolean;
   presenterOpen: boolean;
   working: { portcoId: string; label: string } | null;
+  viewEmail: { portcoId: string; replyId?: string; draftKey?: string } | null;
 
   updatePortco: (id: string, fn: (p: Portco) => Portco) => void;
   addPortco: (seed: PortcoSeed, boardMembers: BoardMember[]) => void;
@@ -44,6 +45,7 @@ export type AppState = {
   setSidebarCollapsed: (v: boolean) => void;
   setPresenterOpen: (v: boolean) => void;
   setWorking: (w: { portcoId: string; label: string } | null) => void;
+  setViewEmail: (v: { portcoId: string; replyId?: string; draftKey?: string } | null) => void;
   loadState: (name: string) => void;
   reset: () => void;
 };
@@ -61,6 +63,7 @@ export const useStore = create<AppState>()(
       sidebarCollapsed: false,
       presenterOpen: false,
       working: null,
+      viewEmail: null,
 
       updatePortco: (id, fn) =>
         set((s) => (s.portcos[id] ? { portcos: { ...s.portcos, [id]: fn(s.portcos[id]) } } : {})),
@@ -95,6 +98,7 @@ export const useStore = create<AppState>()(
       setSidebarCollapsed: (v) => set({ sidebarCollapsed: v }),
       setPresenterOpen: (v) => set({ presenterOpen: v }),
       setWorking: (working) => set({ working }),
+      setViewEmail: (viewEmail) => set({ viewEmail }),
       loadState: (name) => set({ portcos: loadDemoState(name), working: null, workFilter: null }),
       reset: () => set({ portcos: loadDemoState(DEFAULT_STATE), working: null, workFilter: null, view: "rows", eaFilter: "mine" }),
     }),

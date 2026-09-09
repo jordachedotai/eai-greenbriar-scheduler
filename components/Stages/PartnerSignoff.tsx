@@ -8,6 +8,7 @@ import { allPartnersYes } from "@/lib/pipeline";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { resolvePerson } from "@/components/ui/Face";
+import { fmtStamp } from "@/lib/format";
 import { PanelHeader, ReplyTracker, Section, WaitingState } from "./shared";
 
 export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
@@ -15,7 +16,15 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
   const names = joinNames(portco.partnerIds.map(personName));
   const draft = portco.drafts.partnerEmail;
   const firstQ = portco.targetQuarters[0];
-  const rows = portco.partnerIds.map((pid) => ({ person: resolvePerson(pid), state: (portco.quarters[firstQ].internalApprovals[pid] ? "yes" : "pending") as "yes" | "pending" }));
+  const rows = portco.partnerIds.map((pid) => {
+    const reply = [...(portco.replies ?? [])].reverse().find((r) => r.kind === "partner" && r.from.personId === pid);
+    return {
+      person: resolvePerson(pid),
+      state: (portco.quarters[firstQ].internalApprovals[pid] ? "yes" : "pending") as "yes" | "pending",
+      note: reply ? `replied ${fmtStamp(reply.at).replace(/^\w+ \d+, /, "")}` : undefined,
+      replyId: reply?.id,
+    };
+  });
   const allYes = allPartnersYes(portco);
   const title = readOnly || allYes ? "The partners signed off" : phase === "waiting" ? "Waiting on the partners" : "Partners sign off first";
 

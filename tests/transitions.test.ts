@@ -78,6 +78,12 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     p = T.partnerReplies(p, ["jill-raker", "niall-mccomiskey", "max-elgart", "ben-cox"], deps);
     expect(p.waitingOn).toBe("none");
     expect(p.log.filter((e) => e.actor === "partner")).toHaveLength(5);
+    // Every yes came from a reply email the agent read.
+    const partnerReplies = (p.replies ?? []).filter((r) => r.kind === "partner");
+    expect(partnerReplies).toHaveLength(5);
+    expect(partnerReplies[0].subject).toContain("Re: AIT Worldwide Logistics");
+    expect(p.log.filter((e) => e.actor === "partner").every((e) => e.replyId)).toBe(true);
+    expect((p.replies ?? []).find((r) => r.kind === "sent")?.subject).toContain("options for your sign-off");
     expect(primaryAction(p, members)).toEqual({ label: "Draft the email to the company", enabled: true });
   });
 
@@ -89,6 +95,10 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(p.waitingOn).toBe("portco");
     p = T.recordPortcoPicks(p, simulatedPicks(p), deps);
     expect(p.quarters.Q3.portcoPick).toBe(p.quarters.Q3.shortlist[0].id);
+    const picksReply = (p.replies ?? []).find((r) => r.kind === "portco");
+    expect(picksReply?.from.name).toBe("Tom Haggerty");
+    expect(picksReply?.body).toContain("Q1");
+    expect(p.log.at(-1)?.replyId).toBe(picksReply?.id);
     expect(primaryAction(p, members)?.label).toBe("Draft the email to the board");
   });
 
@@ -107,6 +117,9 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     p = c.portco;
     expect(p.quarters.Q3.boardResponses[member.id]).toBe("declined");
     expect(p.quarters.Q1.boardResponses[member.id]).toBe("confirmed");
+    const decline = (p.replies ?? []).find((r) => r.kind === "board" && r.from.personId === member.id);
+    expect(decline?.quarter).toBe("Q3");
+    expect(decline?.body).toContain("cannot make Q3");
     expect(c.fallback?.rank).toBe(2);
     expect(c.reverify.ok).toBe(true);
     const wording = mockConflict(conflictPayload(p, CONFLICT_QUARTER, member.id, c.declined!, c.fallback, c.reverify));

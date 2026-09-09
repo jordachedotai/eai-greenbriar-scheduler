@@ -8,6 +8,7 @@ import { useStore } from "@/lib/store";
 import { Sidebar } from "@/components/Shell/Sidebar";
 import { Header } from "@/components/Shell/Header";
 import { PresenterMenu } from "@/components/Presenter/PresenterMenu";
+import { EmailDrawer } from "@/components/Drafts/EmailDrawer";
 
 export default function ShellLayout({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
@@ -29,6 +30,7 @@ export default function ShellLayout({ children }: { children: React.ReactNode })
         <main className="min-h-0 flex-1 overflow-y-auto">{children}</main>
       </div>
       <PresenterMenu />
+      <EmailDrawer />
     </div>
   );
 }

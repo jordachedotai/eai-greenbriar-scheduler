@@ -88,6 +88,13 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the company");
   await page.getByTestId("sim-portco-picks").click();
   await expect(page.getByTestId("portco-picks")).toContainText("option");
+  // Provenance: every pick came from Tom's reply, and View opens it.
+  await expect(page.getByTestId("pick-source-Q1")).toContainText("from Tom's reply");
+  await page.getByTestId("pick-view-Q1").click();
+  await expect(page.getByTestId("email-drawer-subject")).toContainText("Re: Proposed 2027 quarterly meeting dates");
+  await expect(page.getByTestId("email-drawer-body")).toContainText("Q1");
+  await page.getByTestId("email-drawer-close").click();
+  await expect(page.getByTestId("email-drawer")).toHaveCount(0);
   await expect(page.getByTestId("quarter-Q1")).not.toContainText("No date yet");
   await expect(page.getByTestId("quarter-Q1")).toHaveAttribute("data-status", "partnersSignedOff");
   await expect(page.getByTestId("primary-action")).toHaveText("Draft the email to the board");
@@ -115,9 +122,14 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("draft-conflict")).toContainText("Re-send to the board: Q3 date change");
   await expect(page.getByTestId("draft-conflict").locator("[data-part='subject']")).toContainText("Q3");
   await expect(page.getByTestId("draft-conflict").locator("[data-part='list'] li")).toHaveCount(1);
+  // The declined cell opens Raymond's reply; the folded sent row opens the sent email.
+  await page.getByTestId("resp-view-Q3-b2").click();
+  await expect(page.getByTestId("email-drawer-body")).toContainText("I cannot make Q3");
+  await page.getByTestId("email-drawer-close").click();
   await page.getByTestId("draft-expand").click();
-  await expect(page.getByTestId("draft-boardEmail").locator("[data-part='subject']")).toBeVisible();
-  await page.getByTestId("draft-collapse").click();
+  await expect(page.getByTestId("email-drawer").locator("[data-part='subject']")).toContainText("dates to confirm");
+  await page.keyboard.press("Escape");
+  await expect(page.getByTestId("email-drawer")).toHaveCount(0);
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and re-send to board");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "pending");

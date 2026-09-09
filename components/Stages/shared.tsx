@@ -10,6 +10,7 @@ import { fmtDate, fmtTime } from "@/lib/scheduling";
 import type { Window } from "@/lib/types";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Face, resolvePerson, type Person } from "@/components/ui/Face";
+import { ViewEmail } from "@/components/Drafts/EmailDrawer";
 
 // Every stage panel opens with a serif title and one plain sentence.
 export function PanelHeader({ title, children, testId = "explain" }: { title: string; children: ReactNode; testId?: string }) {
@@ -79,7 +80,8 @@ export function WindowCard({ w, showReason = true }: { w: Window; showReason?: b
 }
 
 // Compact list of who has replied and who has not.
-export function ReplyTracker({ rows, testId }: { rows: { person: Person; state: "yes" | "pending" | "declined"; note?: string }[]; testId?: string }) {
+export function ReplyTracker({ rows, testId }: { rows: { person: Person; state: "yes" | "pending" | "declined"; note?: string; replyId?: string }[]; testId?: string }) {
+  const { portco } = useDetail();
   return (
     <ul className="flex flex-col gap-1.5" data-testid={testId}>
       {rows.map((r) => (
@@ -88,6 +90,7 @@ export function ReplyTracker({ rows, testId }: { rows: { person: Person; state: 
             <Face person={r.person} size={28} />
             <span className="font-medium">{r.person.name}</span>
             {r.note ? <span className="text-[14px] text-mut">· {r.note}</span> : null}
+            {r.replyId ? <ViewEmail portcoId={portco.id} replyId={r.replyId} testId={`reply-view-${r.person.id ?? r.person.name}`} /> : null}
           </span>
           <span
             className={

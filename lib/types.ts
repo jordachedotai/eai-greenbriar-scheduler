@@ -134,7 +134,20 @@ export type AttendanceStatus = "accepted" | "tentative" | "noReply";
 export type TravelStatus = "booked" | "pending";
 
 export type LogActor = "ea" | "agent" | "portco" | "board" | "partner";
-export type LogEntry = { at: string; actor: LogActor; text: string; personId?: string };
+export type LogEntry = { at: string; actor: LogActor; text: string; personId?: string; replyId?: string };
+
+// An email the agent read (a reply) or one the EA sent. Every pick and
+// every board reply points at one, so the EA can see where it came from.
+export type ReplyEmail = {
+  id: string;
+  kind: "partner" | "portco" | "board" | "sent";
+  from: { name: string; personId?: string };
+  to: string;
+  at: string; // ISO
+  subject: string;
+  body: string;
+  quarter?: Quarter;
+};
 
 export type DraftKind = "onepager" | "partnerEmail" | "portcoEmail" | "boardEmail" | "conflict" | "logistics" | "invites";
 
@@ -192,6 +205,7 @@ export type ConflictData = {
 export type Portco = PortcoSeed & {
   checkedPartnerIds?: string[]; // whose calendars Find dates checks; defaults to partnerIds
   boardMembers?: BoardMember[]; // set for companies added in Settings; otherwise board-members.json
+  replies?: ReplyEmail[]; // emails read or sent, newest last
   attendance?: Partial<Record<Quarter, Record<string, AttendanceStatus>>>; // after lock: invite replies per attendee ("exec" for the company contact)
   travel?: Record<string, TravelStatus>; // after lock: per partner
   waitingOn: WaitingOn;

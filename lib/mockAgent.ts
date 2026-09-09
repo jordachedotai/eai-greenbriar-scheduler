@@ -231,3 +231,55 @@ export function mockStep(step: string, payload: unknown, variant = 0): unknown {
       throw new Error(`Unknown agent step ${step}`);
   }
 }
+
+
+// ---------- replies the agent reads, in the sender's voice ----------
+
+export function mockPartnerReply(partnerName: string, companyName: string, thinQuarter?: string): { subject: string; body: string } {
+  const first = firstName(partnerName);
+  const bodies = [
+    `Yes, fine to send.${thinQuarter ? ` ${thinQuarter} is tight but the two options work for me.` : ""}\n\n${first}`,
+    `Looks good. Send it on to ${companyName}.\n\nThanks,\n${first}`,
+    `All good on my side. Go ahead.\n\n${first}`,
+    `Yes. I would lean to the earlier options where we can, but any of these work.\n\n${first}`,
+    `Approved. Thanks for pulling this together.\n\n${first}`,
+  ];
+  let n = 0;
+  for (const ch of partnerName) n = (n + ch.charCodeAt(0)) % bodies.length;
+  return { subject: `Re: ${companyName} 2027 quarterly meetings, options for your sign-off`, body: bodies[n] };
+}
+
+export function mockPicksReply(execName: string, companyName: string, picks: { quarter: string; date: string; time: string; rank: number }[]): { subject: string; body: string } {
+  const first = firstName(execName);
+  const lines = picks.map((k, i) => {
+    const d = k.date.replace(/^\w+ /, "");
+    const opts = [`${k.quarter} works best on the ${d.split(" ")[1]}${ordinal(d.split(" ")[1])}, ${d.split(" ")[0]}`, `${k.quarter}, let's do ${k.date}`, `For ${k.quarter} take option ${k.rank}, ${k.date}`, `${k.quarter}: ${k.date} is fine`];
+    return opts[i % opts.length] + (i === picks.length - 1 ? "." : ".");
+  });
+  return {
+    subject: `Re: Proposed 2027 quarterly meeting dates for ${companyName}`,
+    body: `Thanks for this. Here is what works on our end.\n\n${lines.join("\n")}\n\nAll the ${picks[0]?.time.split(" to ")[0] ?? "morning"} starts suit us. Looking forward to it.\n\n${first}`,
+  };
+}
+
+function ordinal(day: string): string {
+  const n = Number(day);
+  if (n % 10 === 1 && n !== 11) return "st";
+  if (n % 10 === 2 && n !== 12) return "nd";
+  if (n % 10 === 3 && n !== 13) return "rd";
+  return "th";
+}
+
+export function mockBoardReply(memberName: string, companyName: string, resend = false): { subject: string; body: string } {
+  const first = firstName(memberName);
+  const body = resend ? `The new date works. Count me in.\n\n${first}` : `Yes to all four. Thank you for lining these up.\n\n${first}`;
+  return { subject: `Re: ${companyName} 2027 quarterly meetings, dates to confirm`, body };
+}
+
+export function mockDeclineReply(memberName: string, companyName: string, quarter: string, date: string): { subject: string; body: string } {
+  const first = firstName(memberName);
+  return {
+    subject: `Re: ${companyName} 2027 quarterly meetings, dates to confirm`,
+    body: `Three of the four are fine. I cannot make ${quarter} on ${date}, I am traveling that week. If there is another option on the list for ${quarter} I will take it.\n\n${first}`,
+  };
+}

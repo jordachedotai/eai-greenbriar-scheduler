@@ -10,6 +10,7 @@ import { editDraft } from "@/lib/actions";
 import type { Draft } from "@/lib/types";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { EmailDraft } from "./EmailDraft";
+import { ViewEmail } from "./EmailDrawer";
 import { fmtStamp } from "@/lib/format";
 
 type Props = { draftKey: string; title: string; to?: string; sentLabel?: string; testId?: string; collapsed?: boolean; sentAt?: string; summary?: string };
@@ -19,11 +20,9 @@ export function DraftViewer({ draftKey, title, to, sentLabel = "Sent", testId, c
   const draft: Draft | undefined = portco.drafts[draftKey];
   const editing = editingKey === draftKey;
   const [text, setText] = useState(draft?.text ?? "");
-  const [open, setOpen] = useState(!collapsed);
   useEffect(() => setText(draft?.text ?? ""), [draft?.text]);
-  useEffect(() => setOpen(!collapsed), [collapsed]);
 
-  if (collapsed && !open && draft?.approved) {
+  if (collapsed && draft?.approved) {
     return (
       <div className="flex items-center justify-between rounded-[10px] border border-idle-line bg-[#fafbf9] px-3.5 py-2.5" data-testid={testId ?? `draft-${draftKey}`} data-collapsed="true">
         <span className="flex items-center gap-2.5 text-[14px] text-mut">
@@ -34,9 +33,7 @@ export function DraftViewer({ draftKey, title, to, sentLabel = "Sent", testId, c
             {summary ? ` · ${summary}` : ""}
           </span>
         </span>
-        <button type="button" className="text-[14px] font-semibold text-brand hover:underline" onClick={() => setOpen(true)} data-testid="draft-expand">
-          Show
-        </button>
+        <ViewEmail portcoId={portco.id} draftKey={draftKey} testId="draft-expand" />
       </div>
     );
   }
@@ -58,8 +55,6 @@ export function DraftViewer({ draftKey, title, to, sentLabel = "Sent", testId, c
             <button type="button" className={small} onClick={() => { setText(draft?.text ?? ""); setEditingKey(null); }}>Cancel</button>
             <button type="button" className={small + " border-brand text-brand"} onClick={() => { editDraft(portco.id, draftKey, text); setEditingKey(null); }} data-testid="draft-save">Save</button>
           </div>
-        ) : collapsed && open ? (
-          <button type="button" className={small} onClick={() => setOpen(false)} data-testid="draft-collapse">Hide</button>
         ) : to ? (
           <span className="truncate text-[13px] text-mut">To {to}</span>
         ) : null}

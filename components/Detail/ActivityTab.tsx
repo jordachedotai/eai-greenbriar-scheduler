@@ -9,6 +9,7 @@ import type { LogActor } from "@/lib/types";
 import { getCurrentEa } from "@/lib/data";
 import { Face, resolvePerson, type Person } from "@/components/ui/Face";
 import { IconClock, IconSparkle } from "@/components/ui/icons";
+import { ViewEmail } from "@/components/Drafts/EmailDrawer";
 import { useDetail } from "./DetailContext";
 
 const SHOW = 7;
@@ -82,7 +83,15 @@ export function ActivityTab() {
                   <span className="text-[13px] text-mut">
                     <span className={"font-semibold " + (e.actor === "agent" ? "text-header" : "text-txt")}>{who(e.actor, e.personId)}</span> · {timeOnly(e.at)}
                   </span>
-                  <span className="text-[14px] leading-[1.4]">{e.text}</span>
+                  <span className="text-[14px] leading-[1.4]">
+                    {e.text}
+                    {e.replyId ? (
+                      <>
+                        {" "}
+                        <ViewEmail portcoId={portco.id} replyId={e.replyId} label="View reply" testId="activity-view" />
+                      </>
+                    ) : null}
+                  </span>
                 </div>
               </li>
             );

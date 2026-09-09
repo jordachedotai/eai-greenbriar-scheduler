@@ -3,11 +3,12 @@
 // the browser. scripts/gen-states.ts composes them with mock outputs to build
 // the saved demo states, so snapshots can never drift from the app.
 
-import { findWindows, fmtDate, fmtWindow, nextBestWindow, rankWindows, reverifyWindow } from "./scheduling";
+import { findWindows, fmtDate, fmtTime, fmtWindow, nextBestWindow, rankWindows, reverifyWindow } from "./scheduling";
 import { emailToText } from "./email";
 import { activePartners, attendeeIds } from "./pipeline";
 import { ensureAvailability } from "./availabilityGen";
 import { getVenue } from "./data";
+import { mockBoardReply, mockDeclineReply, mockPartnerReply, mockPicksReply } from "./mockAgent";
 import type {
   AttendanceStatus,
   AvailabilityBlock,
@@ -24,6 +25,7 @@ import type {
   Quarter,
   Invite,
   QuarterState,
+  ReplyEmail,
   TravelStatus,
   Venue,
   Window,
@@ -44,8 +46,33 @@ export type LogisticsResult = { picks: Record<string, LogisticsPick> };
 
 // ---------- helpers ----------
 
-export function withLog(p: Portco, actor: LogActor, text: string, at: string, personId?: string): Portco {
-  return { ...p, log: [...p.log, personId ? { at, actor, text, personId } : { at, actor, text }] };
+export function withLog(p: Portco, actor: LogActor, text: string, at: string, personId?: string, replyId?: string): Portco {
+  const entry = { at, actor, text, ...(personId ? { personId } : {}), ...(replyId ? { replyId } : {}) };
+  return { ...p, log: [...p.log, entry] };
+}
+
+let replySeq = 0;
+function replyId(p: Portco, kind: string): string {
+  return `${p.id}:${kind}:${(p.replies?.length ?? 0) + 1}:${++replySeq}`;
+}
+
+export function withReply(p: Portco, r: ReplyEmail): Portco {
+  return { ...p, replies: [...(p.replies ?? []), r] };
+}
+
+// Record an email the EA sent, so the folded row can open it later.
+function withSent(p: Portco, key: string, to: string, at: string): Portco {
+  const d = p.drafts[key];
+  if (!d) return p;
+  return withReply(p, {
+    id: replyId(p, "sent"),
+    kind: "sent",
+    from: { name: "You" },
+    to,
+    at,
+    subject: d.email?.subject ?? d.email?.title ?? draftLabel(key),
+    body: d.text,
+  });
 }
 
 export function mapQuarters(p: Portco, fn: (q: Quarter, qs: QuarterState) => QuarterState): Portco {
@@ -161,14 +188,20 @@ export function sendToPartners(p: Portco, deps: Deps): Portco {
   const at = deps.now();
   let next = withDraft(p, "partnerEmail", { ...p.drafts.partnerEmail, approved: true });
   next = waiting(next, "partners", at);
+  next = withSent(next, "partnerEmail", joinNames(p.partnerIds.map(deps.name)), at);
   return withLog(next, "ea", `Sent the one-pager to ${joinNames(p.partnerIds.map(deps.name))} for sign-off.`, at);
 }
 
 export function partnerReplies(p: Portco, partnerIds: string[], deps: Deps): Portco {
   let next = p;
+  const thin = p.targetQuarters.find((q) => p.quarters[q].thin);
   for (const pid of partnerIds) {
     next = mapQuarters(next, (_q, qs) => ({ ...qs, internalApprovals: { ...qs.internalApprovals, [pid]: true } }));
-    next = withLog(next, "partner", `${deps.name(pid)} replied yes.`, deps.now(), pid);
+    const at = deps.now();
+    const mail = mockPartnerReply(deps.name(pid), p.name, thin);
+    const id = replyId(next, "partner");
+    next = withReply(next, { id, kind: "partner", from: { name: deps.name(pid), personId: pid }, to: "You", at, subject: mail.subject, body: mail.body });
+    next = withLog(next, "partner", `${deps.name(pid)} replied yes.`, at, pid, id);
   }
   const allYes = next.targetQuarters.every((q) => next.partnerIds.every((pid) => next.quarters[q].internalApprovals[pid]));
   if (allYes) next = waiting(next, "none", deps.now());
@@ -192,13 +225,22 @@ export function sendToPortco(p: Portco, deps: Deps): Portco {
   const at = deps.now();
   let next = withDraft(p, "portcoEmail", { ...p.drafts.portcoEmail, approved: true });
   next = waiting(next, "portco", at);
+  next = withSent(next, "portcoEmail", p.execContact.name, at);
   return withLog(next, "ea", `Sent the proposal and one-pager to ${p.execContact.name}.`, at);
 }
 
 export function recordPortcoPicks(p: Portco, picks: Partial<Record<Quarter, Window>>, deps: Deps): Portco {
   let next = mapQuarters(p, (q, qs) => ({ ...qs, portcoPick: picks[q]?.id ?? qs.portcoPick }));
   const lines = p.targetQuarters.map((q) => `${q} ${picks[q] ? fmtWindow(picks[q] as Window) : "no pick"}`);
-  next = withLog(next, "portco", `${p.execContact.name} picked: ${lines.join("; ")}.`, deps.now());
+  const at = deps.now();
+  const mail = mockPicksReply(
+    p.execContact.name,
+    p.name,
+    p.targetQuarters.flatMap((q) => (picks[q] ? [{ quarter: q, date: fmtDate((picks[q] as Window).start), time: `${fmtTime((picks[q] as Window).start)} to ${fmtTime((picks[q] as Window).end)}`, rank: (picks[q] as Window).rank ?? 1 }] : [])),
+  );
+  const id = replyId(next, "portco");
+  next = withReply(next, { id, kind: "portco", from: { name: p.execContact.name }, to: "You", at, subject: mail.subject, body: mail.body });
+  next = withLog(next, "portco", `${p.execContact.name} picked: ${lines.join("; ")}.`, at, undefined, id);
   return waiting(next, "none", deps.now());
 }
 
@@ -225,17 +267,25 @@ export function sendToBoard(p: Portco, deps: Deps): Portco {
   const at = deps.now();
   let next = withDraft(p, "boardEmail", { ...p.drafts.boardEmail, approved: true });
   next = waiting(next, "board", at);
+  next = withSent(next, "boardEmail", joinNames(membersOf(p, deps).map((m) => m.name)), at);
   return withLog(next, "ea", "Sent the confirmation email to the board.", at);
 }
 
 export function boardConfirmAll(p: Portco, deps: Deps): Portco {
   const members = membersOf(p, deps);
+  const resend = p.targetQuarters.some((q) => p.drafts[`conflict:${q}`]?.approved);
   let next = mapQuarters(p, (_q, qs) => {
     const responses = { ...qs.boardResponses };
     for (const m of members) if (responses[m.id] !== "declined") responses[m.id] = "confirmed";
     return { ...qs, boardResponses: responses };
   });
-  for (const m of members) next = withLog(next, "board", `${m.name} confirmed every quarter.`, deps.now(), m.id);
+  for (const m of members) {
+    const at = deps.now();
+    const mail = mockBoardReply(m.name, p.name, resend);
+    const id = replyId(next, "board");
+    next = withReply(next, { id, kind: "board", from: { name: m.name, personId: m.id }, to: "You", at, subject: mail.subject, body: mail.body });
+    next = withLog(next, "board", resend ? `${m.name} confirmed the new date.` : `${m.name} confirmed every quarter.`, at, m.id, id);
+  }
   return waiting(next, "none", deps.now());
 }
 
@@ -245,7 +295,13 @@ export function boardConfirmSome(p: Portco, memberIds: string[], deps: Deps): Po
     for (const id of memberIds) if (responses[id] === "pending") responses[id] = "confirmed";
     return { ...qs, boardResponses: responses };
   });
-  for (const id of memberIds) next = withLog(next, "board", `${deps.name(id)} confirmed every quarter.`, deps.now(), id);
+  for (const id of memberIds) {
+    const at = deps.now();
+    const mail = mockBoardReply(deps.name(id), p.name);
+    const rid = replyId(next, "board");
+    next = withReply(next, { id: rid, kind: "board", from: { name: deps.name(id), personId: id }, to: "You", at, subject: mail.subject, body: mail.body });
+    next = withLog(next, "board", `${deps.name(id)} confirmed every quarter.`, at, id, rid);
+  }
   return next;
 }
 
@@ -266,10 +322,14 @@ export function boardConflict(
   const declined = pickedWindow(next, q);
   if (!declined) return { portco: next, declined, fallback: null, reverify: { ok: false, busy: [] } };
   for (const m of members) {
+    const at = deps.now();
+    const mail = m.id === memberId ? mockDeclineReply(m.name, p.name, q, fmtDate(declined.start)) : mockBoardReply(m.name, p.name);
+    const id = replyId(next, "board");
+    next = withReply(next, { id, kind: "board", from: { name: m.name, personId: m.id }, to: "You", at, subject: mail.subject, body: mail.body, quarter: m.id === memberId ? q : undefined });
     next =
       m.id === memberId
-        ? withLog(next, "board", `${m.name} confirmed every quarter except ${q}. Cannot make ${fmtWindow(declined)}.`, deps.now(), m.id)
-        : withLog(next, "board", `${m.name} confirmed every quarter.`, deps.now(), m.id);
+        ? withLog(next, "board", `${m.name} confirmed every quarter except ${q}. Cannot make ${fmtWindow(declined)}.`, at, m.id, id)
+        : withLog(next, "board", `${m.name} confirmed every quarter.`, at, m.id, id);
   }
   next = waiting(next, "none", deps.now());
   const fallback = nextBestWindow(next.quarters[q].shortlist, declined.id);
@@ -326,6 +386,7 @@ export function approveResend(p: Portco, q: Quarter, deps: Deps): Portco {
     drafts: { ...p.drafts, [key]: { ...draft, approved: true } },
   };
   next = waiting(next, "board", at);
+  next = withSent(next, key, joinNames(members.map((m) => m.name)), at);
   const w = qs.shortlist.find((x) => x.id === data.fallbackWindowId);
   return withLog(next, "ea", `Re-sent to the board. ${q} now proposed for ${w ? fmtWindow(w) : "the next window"}.`, at);
 }
@@ -432,6 +493,7 @@ export function sendInvites(p: Portco, deps: Deps): Portco {
   for (const id of activePartners(next)) travel[id] = "pending";
   next = { ...next, attendance, travel };
   next = waiting(next, "attendees", at);
+  next = withSent(next, "invites", `${ids.length} people`, at);
   return withLog(next, "ea", `Sent four calendar invites to ${ids.length} people. Travel requests opened for ${joinNames(activePartners(next).map(deps.name))}.`, at);
 }
 

@@ -6,6 +6,8 @@ import { allPicked } from "@/lib/pipeline";
 import { fmtWindow } from "@/lib/scheduling";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
+import { ViewEmail } from "@/components/Drafts/EmailDrawer";
+import { firstName, fmtStamp } from "@/lib/format";
 import { PanelHeader, Section, WaitingState } from "./shared";
 
 export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
@@ -16,6 +18,7 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
   const title = readOnly || picked ? `${exec} picked the dates` : phase === "waiting" ? "Waiting on the company" : "The company picks";
 
   const sentAt = portco.log.find((e) => e.text.startsWith("Sent the proposal and one-pager"))?.at;
+  const picksReply = [...(portco.replies ?? [])].reverse().find((r) => r.kind === "portco");
 
   // Order: what needs the EA, the reason, the evidence, history.
   return (
@@ -49,8 +52,15 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
                 <li key={q} className="flex gap-3 rounded-[10px] border border-line bg-white px-3 py-2">
                   <span className="w-8 font-bold text-mut">{q}</span>
                   {w ? (
-                    <span>
-                      <span className="font-semibold">{fmtWindow(w)}</span> <span className="text-mut">(option {w.rank})</span>
+                    <span className="flex min-w-0 flex-1 flex-wrap items-baseline justify-between gap-x-3">
+                      <span>
+                        <span className="font-semibold">{fmtWindow(w)}</span> <span className="text-mut">(option {w.rank})</span>
+                      </span>
+                      {picksReply ? (
+                        <span className="text-[13px] text-mut" data-testid={`pick-source-${q}`}>
+                          from {firstName(exec)}&apos;s reply, {fmtStamp(picksReply.at).replace(/^\w+ \d+, /, "")} · <ViewEmail portcoId={portco.id} replyId={picksReply.id} testId={`pick-view-${q}`} />
+                        </span>
+                      ) : null}
                     </span>
                   ) : (
                     <span className="text-mut">No reply yet</span>
