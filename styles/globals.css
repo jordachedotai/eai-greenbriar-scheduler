@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Brand tokens. Green pulled from reference/greenbriar-logo.png. */
+@theme {
+  --color-bg: #f5f7f4;
+  --color-panel: #ffffff;
+  --color-panel2: #eef2ec;
+  --color-line: #dde3da;
+  --color-txt: #17221a;
+  --color-mut: #61705f;
+  --color-brand: #1f5a2d;
+  --color-brand2: #143f1f;
+  --color-brand-soft: #e6efe7;
+  --color-amber: #b9770c;
+  --color-amber-soft: #fbf3dd;
+  --color-red: #c8434f;
+  --color-red-soft: #fbe7e9;
+  --color-blue: #2b5f9e;
+  --color-blue-soft: #e5edf7;
+  --color-green: #1f9d57;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-txt);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.working::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  text-align: left;
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: ""; }
+  25% { content: "."; }
+  50% { content: ".."; }
+  75% { content: "..."; }
+}

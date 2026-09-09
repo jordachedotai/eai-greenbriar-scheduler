@@ -1,0 +1,242 @@
+[
+  {
+    "id": "v1",
+    "city": "Denver, CO",
+    "type": "hotel",
+    "name": "The Brown Palace Hotel",
+    "distanceMi": 0.3,
+    "note": "Historic, walkable to the office, partners have stayed before"
+  },
+  {
+    "id": "v2",
+    "city": "Denver, CO",
+    "type": "hotel",
+    "name": "Hotel Teatro",
+    "distanceMi": 0.6,
+    "note": "Quiet boutique near the theater district"
+  },
+  {
+    "id": "v3",
+    "city": "Denver, CO",
+    "type": "hotel",
+    "name": "Four Seasons Denver",
+    "distanceMi": 0.5,
+    "note": "Larger rooms, good for early calls"
+  },
+  {
+    "id": "v4",
+    "city": "Denver, CO",
+    "type": "restaurant",
+    "name": "Guard and Grace",
+    "distanceMi": 0.2,
+    "note": "Steakhouse with a private dining room for ten"
+  },
+  {
+    "id": "v5",
+    "city": "Denver, CO",
+    "type": "restaurant",
+    "name": "Tavernetta",
+    "distanceMi": 0.9,
+    "note": "Italian, near Union Station, lively but not loud"
+  },
+  {
+    "id": "v6",
+    "city": "Denver, CO",
+    "type": "restaurant",
+    "name": "Rioja",
+    "distanceMi": 0.8,
+    "note": "Larimer Square, seats a full board comfortably"
+  },
+  {
+    "id": "v7",
+    "city": "Nashville, TN",
+    "type": "hotel",
+    "name": "The Hermitage Hotel",
+    "distanceMi": 0.3,
+    "note": "Classic, two blocks from the office"
+  },
+  {
+    "id": "v8",
+    "city": "Nashville, TN",
+    "type": "hotel",
+    "name": "Grand Hyatt Nashville",
+    "distanceMi": 1.2,
+    "note": "Newer, near the convention center"
+  },
+  {
+    "id": "v9",
+    "city": "Nashville, TN",
+    "type": "hotel",
+    "name": "The Joseph",
+    "distanceMi": 0.5,
+    "note": "Boutique, quiet rooms, good breakfast"
+  },
+  {
+    "id": "v10",
+    "city": "Nashville, TN",
+    "type": "restaurant",
+    "name": "Kayne Prime",
+    "distanceMi": 1,
+    "note": "Steakhouse in the Gulch with a private room"
+  },
+  {
+    "id": "v11",
+    "city": "Nashville, TN",
+    "type": "restaurant",
+    "name": "Etch",
+    "distanceMi": 0.4,
+    "note": "Downtown, chef-driven, easy for a group"
+  },
+  {
+    "id": "v12",
+    "city": "Nashville, TN",
+    "type": "restaurant",
+    "name": "Husk Nashville",
+    "distanceMi": 0.9,
+    "note": "Southern, converted house, private upstairs"
+  },
+  {
+    "id": "v13",
+    "city": "Charlotte, NC",
+    "type": "hotel",
+    "name": "The Ritz-Carlton Charlotte",
+    "distanceMi": 0.2,
+    "note": "Attached to the office tower district"
+  },
+  {
+    "id": "v14",
+    "city": "Charlotte, NC",
+    "type": "hotel",
+    "name": "Kimpton Tryon Park",
+    "distanceMi": 0.3,
+    "note": "Uptown, rooftop for a pre-dinner drink"
+  },
+  {
+    "id": "v15",
+    "city": "Charlotte, NC",
+    "type": "hotel",
+    "name": "Grand Bohemian Charlotte",
+    "distanceMi": 0.4,
+    "note": "Newer, quieter, art-filled"
+  },
+  {
+    "id": "v16",
+    "city": "Charlotte, NC",
+    "type": "restaurant",
+    "name": "The Capital Grille",
+    "distanceMi": 0.2,
+    "note": "Reliable, private room seats twelve"
+  },
+  {
+    "id": "v17",
+    "city": "Charlotte, NC",
+    "type": "restaurant",
+    "name": "Fahrenheit",
+    "distanceMi": 0.5,
+    "note": "Rooftop with a skyline view, ask for the enclosed side"
+  },
+  {
+    "id": "v18",
+    "city": "Charlotte, NC",
+    "type": "restaurant",
+    "name": "Angeline's",
+    "distanceMi": 0.3,
+    "note": "Italian inside the Kimpton, easy for late arrivals"
+  },
+  {
+    "id": "v19",
+    "city": "Phoenix, AZ",
+    "type": "hotel",
+    "name": "The Westin Downtown Phoenix",
+    "distanceMi": 0.3,
+    "note": "Closest to the office, simple and reliable"
+  },
+  {
+    "id": "v20",
+    "city": "Phoenix, AZ",
+    "type": "hotel",
+    "name": "Kimpton Hotel Palomar Phoenix",
+    "distanceMi": 0.4,
+    "note": "CityScape, walkable to dinner"
+  },
+  {
+    "id": "v21",
+    "city": "Phoenix, AZ",
+    "type": "hotel",
+    "name": "Arizona Biltmore",
+    "distanceMi": 6.5,
+    "note": "Resort, better for a longer stay, needs a car"
+  },
+  {
+    "id": "v22",
+    "city": "Phoenix, AZ",
+    "type": "restaurant",
+    "name": "Durant's",
+    "distanceMi": 1.5,
+    "note": "Old Phoenix steakhouse, private booths, a partner favorite"
+  },
+  {
+    "id": "v23",
+    "city": "Phoenix, AZ",
+    "type": "restaurant",
+    "name": "The Arrogant Butcher",
+    "distanceMi": 0.4,
+    "note": "Downtown, casual, good for a mixed group"
+  },
+  {
+    "id": "v24",
+    "city": "Phoenix, AZ",
+    "type": "restaurant",
+    "name": "Bitter and Twisted",
+    "distanceMi": 0.5,
+    "note": "Lively cocktail spot, better for drinks than a board dinner"
+  },
+  {
+    "id": "v25",
+    "city": "Boston, MA",
+    "type": "hotel",
+    "name": "Boston Harbor Hotel",
+    "distanceMi": 0.5,
+    "note": "Waterfront, quiet, partners know it"
+  },
+  {
+    "id": "v26",
+    "city": "Boston, MA",
+    "type": "hotel",
+    "name": "The Langham Boston",
+    "distanceMi": 0.4,
+    "note": "Financial district, two blocks from the office"
+  },
+  {
+    "id": "v27",
+    "city": "Boston, MA",
+    "type": "hotel",
+    "name": "InterContinental Boston",
+    "distanceMi": 0.6,
+    "note": "Larger, easy for late check-in"
+  },
+  {
+    "id": "v28",
+    "city": "Boston, MA",
+    "type": "restaurant",
+    "name": "Grill 23 and Bar",
+    "distanceMi": 1,
+    "note": "Back Bay steakhouse with a private dining room"
+  },
+  {
+    "id": "v29",
+    "city": "Boston, MA",
+    "type": "restaurant",
+    "name": "Mooo....",
+    "distanceMi": 0.9,
+    "note": "Beacon Hill, wine cellar room for a private dinner"
+  },
+  {
+    "id": "v30",
+    "city": "Boston, MA",
+    "type": "restaurant",
+    "name": "Row 34",
+    "distanceMi": 0.7,
+    "note": "Seafood in Fort Point, good for a relaxed evening"
+  }
+]

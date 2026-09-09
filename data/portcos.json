@@ -1,0 +1,47 @@
+[
+  {
+    "id": "pc1",
+    "name": "Summit Ridge Logistics",
+    "city": "Denver, CO",
+    "officeAddress": "1700 Lincoln Street, Suite 2400, Denver, CO 80203",
+    "partnerIds": ["p1", "p2", "p3", "p4"],
+    "execContact": { "name": "Karen Delgado", "title": "Chief Executive Officer" },
+    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+  },
+  {
+    "id": "pc2",
+    "name": "Cumberland Packaging Group",
+    "city": "Nashville, TN",
+    "officeAddress": "150 Fourth Avenue North, Suite 1100, Nashville, TN 37219",
+    "partnerIds": ["p1", "p2", "p3"],
+    "execContact": { "name": "Tom Haggerty", "title": "Chief Executive Officer" },
+    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+  },
+  {
+    "id": "pc3",
+    "name": "Piedmont Industrial Services",
+    "city": "Charlotte, NC",
+    "officeAddress": "301 South College Street, Suite 3000, Charlotte, NC 28202",
+    "partnerIds": ["p2", "p3", "p4"],
+    "execContact": { "name": "Renee Ashby", "title": "President" },
+    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+  },
+  {
+    "id": "pc4",
+    "name": "Sonoran Aerospace Components",
+    "city": "Phoenix, AZ",
+    "officeAddress": "2 North Central Avenue, Suite 1800, Phoenix, AZ 85004",
+    "partnerIds": ["p1", "p3", "p4"],
+    "execContact": { "name": "Miguel Santana", "title": "Chief Executive Officer" },
+    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+  },
+  {
+    "id": "pc5",
+    "name": "Harborline Medical Supply",
+    "city": "Boston, MA",
+    "officeAddress": "100 Summer Street, 20th Floor, Boston, MA 02110",
+    "partnerIds": ["p1", "p2", "p4"],
+    "execContact": { "name": "Priya Raman", "title": "Chief Financial Officer" },
+    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+  }
+]

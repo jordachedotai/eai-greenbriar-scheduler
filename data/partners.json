@@ -1,0 +1,6 @@
+[
+  { "id": "p1", "name": "Alan Whitfield", "title": "Managing Partner", "homeCity": "New York, NY" },
+  { "id": "p2", "name": "Maria Castellano", "title": "Partner", "homeCity": "Greenwich, CT" },
+  { "id": "p3", "name": "David Okafor", "title": "Partner", "homeCity": "Chicago, IL" },
+  { "id": "p4", "name": "Susan Lindqvist", "title": "Operating Partner", "homeCity": "New York, NY" }
+]

@@ -15,7 +15,7 @@ type BoardMember = { id: string; name: string; portcoId: string; role: string; c
 
 type Portco = {
   id: string; name: string; city: string; officeAddress: string;
-  partnerIds: string[];            // 4 partners per portco by default
+  partnerIds: string[];            // the demo portco has all 4, the others have 3
   execContact: { name: string; title: string };
   targetQuarters: Quarter[];       // ["Q1","Q2","Q3","Q4"]
   stage: 0 | 1 | 2 | 3 | 4 | 5 | 6;
@@ -25,6 +25,7 @@ type Portco = {
 
 type AvailabilityBlock = { personId: string; start: string; end: string }; // ISO, 2027
 // Fixture holds FREE blocks per person, not busy. Simpler to intersect and to explain.
+// Times are naive local wall-clock ISO ("2027-02-09T08:00:00"), read in the meeting city.
 
 type Window = {
   id: string; quarter: Quarter; start: string; end: string;   // 4-hour block
@@ -55,6 +56,8 @@ type Draft = { kind: "onepager" | "portcoEmail" | "boardEmail" | "logistics"; po
 Four partners. Placeholder names until Peggy or Devrin supplies real ones. Keep the ids stable (`p1` to `p4`) so the swap is names only.
 
 ### portcos.json
+Holds the static fields only (`PortcoSeed` in `lib/types.ts`). `lib/data.ts` adds `stage`, `quarters`, and `log` at load time, so the file stays a plain names-and-cities list that can be swapped.
+
 Five portcos, matching Peggy's load. One slot is reserved for the real portco Peggy gave Devrin; until then it is fictional. Cities spread across time zones so travel logistics look real: for example Denver, Nashville, Charlotte, Phoenix, Boston. Each has an office address, an exec contact, and three board members.
 
 Do not use real company names. Fictional names should sound like mid-market operating companies, not startups.
@@ -65,7 +68,7 @@ Three per portco. `calendarVisible: false` for all in the demo.
 ### availability.json
 Free blocks per partner for all of 2027, generated. Rules for the generator so the demo has texture:
 - Each partner is free roughly 40 percent of weekday working hours.
-- Bake in at least one quarter per portco where the intersection is thin (2 windows, not 3), so the warning shows.
+- Bake in at least one quarter per portco where the intersection is thin (2 windows, not 3), so the warning shows. The demo portco has all four partners, so its windows are a subset of every other portco's in the same quarter. That forces every portco to be thin in the same quarter. It is Q3, which reads as summer travel. The generator lowers July and August openness and carves the rest.
 - Bake in a quarter where a later board decline forces a fallback to the rank-2 window.
 - Blocks are 8am to 6pm local, Monday to Thursday. No Fridays.
 
@@ -76,7 +79,7 @@ Per city: three hotels and three restaurants with distance from the portco offic
 Pre-written outputs for every agent step for every portco and quarter, keyed `${portcoId}.${quarter}.${kind}`. Mock mode reads these. Written in the EA's voice, not a developer's. Regenerate once the real names land.
 
 ### demo-states.json
-Saved snapshots of the full app state: `fresh`, `one-portco-at-shortlist`, `one-portco-at-board`, `one-portco-locked`, `all-in-flight`. The presenter menu loads them. Lets the presenter skip ahead if time runs short.
+Partial overrides applied on top of fresh portcos, so a state only lists the portcos it changes. Named: `fresh`, `one-portco-at-shortlist`, `one-portco-at-board`, `one-portco-locked`, `all-in-flight`. The presenter menu loads them. Lets the presenter skip ahead if time runs short.
 
 ## Swap procedure for real data
 
