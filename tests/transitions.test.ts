@@ -68,6 +68,9 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(portcoStage(p)).toBe(2);
     expect(portcoPhase(p, members)).toBe("needsDraft");
     p = T.applyPartnerEmail(p, mockPartnerEmail(partnerEmailPayload(p, p.drafts.onepager.text, RB)), false, 0, deps);
+    expect(p.drafts.partnerEmail.email?.lists).toHaveLength(4);
+    expect(p.drafts.partnerEmail.text).not.toContain("attached");
+    expect(p.drafts.partnerEmail.email?.signoff.at(-1)).toBe("Peggy Conway, Executive Assistant to the Greenbriar Partners");
     expect(primaryAction(p, members)?.label).toBe("Approve and send to partners");
     p = T.sendToPartners(p, deps);
     expect(p.waitingOn).toBe("partners");
@@ -91,6 +94,8 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     p = T.startPortcoPicks(p, deps);
     expect(portcoStage(p)).toBe(3);
     p = T.applyPortcoEmail(p, mockPortcoEmail(portcoEmailPayload(p, p.drafts.onepager.text, RB)), false, 0, deps);
+    expect(p.drafts.portcoEmail.email?.lists).toHaveLength(4);
+    expect(p.drafts.portcoEmail.attachment).toEqual({ name: "AIT Worldwide Logistics 2027 meeting options.pdf", draftKey: "onepager" });
     p = T.sendToPortco(p, deps);
     expect(p.waitingOn).toBe("portco");
     p = T.recordPortcoPicks(p, simulatedPicks(p), deps);

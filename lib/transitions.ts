@@ -217,7 +217,8 @@ export function startPortcoPicks(p: Portco, deps: Deps): Portco {
 // ---------- stage 3: portco picks ----------
 
 export function applyPortcoEmail(p: Portco, email: EmailFields, offline: boolean, variant: number, deps: Deps): Portco {
-  const next = withDraft(p, "portcoEmail", emailDraft(p, "portcoEmail", email, offline, variant));
+  const attachment = { name: `${p.name} 2027 meeting options.pdf`, draftKey: "onepager" };
+  const next = withDraft(p, "portcoEmail", emailDraft(p, "portcoEmail", email, offline, variant, { attachment }));
   return withLog(next, "agent", variant === 0 ? `Drafted the proposal email to ${p.execContact.name}.` : "Rewrote the proposal email.", deps.now());
 }
 

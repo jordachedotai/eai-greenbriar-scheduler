@@ -9,6 +9,7 @@ import type {
   LogisticsPayload,
   PartnerEmailPayload,
   PortcoEmailPayload,
+  QuarterOptions,
   ShortlistPayload,
   WindowPayload,
 } from "./prompts";
@@ -99,6 +100,16 @@ export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Reco
   return { reasons, onepager };
 }
 
+// The date options as list blocks, one per quarter. Used inline in the
+// partner and company emails, so nothing has to be attached to be read.
+export function optionLists(quarters: QuarterOptions[]): NonNullable<EmailFields["lists"]> {
+  return quarters.map((q) => ({
+    heading: `${q.quarter}, ${q.months}`,
+    note: q.thin ? `only ${q.windows.length} days worked for all partners` : undefined,
+    items: q.windows.map((w, i) => `Option ${i + 1}: ${w.date}, ${w.time}. Dinner at ${w.dinner}.`),
+  }));
+}
+
 export function mockPartnerEmail(p: PartnerEmailPayload, variant = 0): EmailFields {
   const alt = variant % 2 === 1;
   const firsts = joinNames(p.partners.map(firstName));
@@ -106,8 +117,9 @@ export function mockPartnerEmail(p: PartnerEmailPayload, variant = 0): EmailFiel
     return {
       subject: `OK to send? ${p.portco.name} 2027 meeting options`,
       greeting: `${firsts},`,
-      paragraphs: [`Attached are the proposed 2027 quarterly meeting options for ${p.portco.name}, three per quarter, all from your calendars.`],
-      ask: `Please reply yes by ${p.replyBy} if I can send this to ${p.execContact.name}. Tell me if any option should come off the list first.`,
+      paragraphs: [`Below are the proposed 2027 quarterly meeting options for ${p.portco.name}, three per quarter, all from your calendars.`],
+      lists: optionLists(p.quarters),
+      ask: `Please reply yes by ${p.replyBy} if I can send these to ${p.execContact.name}. Tell me if any option should come off the list first.`,
       signoff: [p.eaSignature],
     };
   }
@@ -115,9 +127,10 @@ export function mockPartnerEmail(p: PartnerEmailPayload, variant = 0): EmailFiel
     subject: `${p.portco.name} 2027 quarterly meetings, options for your sign-off`,
     greeting: `${firsts},`,
     paragraphs: [
-      `Before anything goes to ${p.execContact.name}, please look at the attached one-pager with three date options per quarter for the ${p.portco.name} meetings in ${p.portco.city.split(",")[0]}. Every option is a four hour block where all of you are free, with dinner after.`,
+      `Before anything goes to ${p.execContact.name}, please look over the date options below for the ${p.portco.name} meetings in ${p.portco.city.split(",")[0]}. Every option is a four hour block where all of you are free, with dinner after.`,
     ],
-    ask: `Reply yes by ${p.replyBy} and I will send it on, or tell me what to change.`,
+    lists: optionLists(p.quarters),
+    ask: `Reply yes by ${p.replyBy} and I will send them on, or tell me what to change.`,
     signoff: ["Thank you,", p.eaSignature],
   };
 }
@@ -130,7 +143,8 @@ export function mockPortcoEmail(p: PortcoEmailPayload, variant = 0): EmailFields
     return {
       subject: `2027 quarterly meeting dates, ${p.portco.name} and Greenbriar`,
       greeting: `Hi ${first},`,
-      paragraphs: [`Attached are three date options for each of our 2027 quarterly meetings at your office. Every option works for ${partners}.`],
+      paragraphs: [`Below are three date options for each of our 2027 quarterly meetings at your office. Every option works for ${partners}. The same options are attached as ${p.attachmentName}.`],
+      lists: optionLists(p.quarters),
       ask: `Could you choose one per quarter and reply by ${p.replyBy}? Once you have picked, we will confirm with your board and handle the rest.`,
       signoff: ["Thank you.", p.eaSignature],
     };
@@ -139,8 +153,9 @@ export function mockPortcoEmail(p: PortcoEmailPayload, variant = 0): EmailFields
     subject: `Proposed 2027 quarterly meeting dates for ${p.portco.name}`,
     greeting: `Dear ${first},`,
     paragraphs: [
-      `On behalf of ${partners}, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office.`,
+      `On behalf of ${partners}, here are three options for each 2027 quarterly meeting at your office. The same options are attached as ${p.attachmentName}.`,
     ],
+    lists: optionLists(p.quarters),
     ask: `Please pick one option per quarter and reply by ${p.replyBy}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.`,
     signoff: ["Thank you,", p.eaSignature],
   };

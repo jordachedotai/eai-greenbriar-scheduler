@@ -63,7 +63,9 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-1")).toHaveAttribute("data-state", "done");
   await waitForAgent(page);
   await expect(page.getByTestId("draft-partnerEmail").locator("[data-part='subject']")).toContainText("AIT Worldwide Logistics");
-  await expect(page.getByTestId("draft-partnerEmail").locator("[data-part='signoff']")).toContainText("Executive Assistant");
+  await expect(page.getByTestId("draft-partnerEmail").locator("[data-part='list']")).toHaveCount(4);
+  await expect(page.getByTestId("draft-partnerEmail").locator("[data-part='signoff']")).toContainText("Peggy Conway, Executive Assistant to the Greenbriar Partners");
+  await expect(page.getByTestId("draft-partnerEmail")).not.toContainText("attached");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to partners");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the partners");
@@ -83,6 +85,12 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-3")).toHaveAttribute("data-state", "current");
   await waitForAgent(page);
   await expect(page.getByTestId("draft-portcoEmail").getByTestId("draft-text")).toContainText("Dear Tom");
+  await expect(page.getByTestId("draft-portcoEmail").locator("[data-part='list']")).toHaveCount(4);
+  await expect(page.getByTestId("attachment-chip")).toContainText("AIT Worldwide Logistics 2027 meeting options.pdf");
+  await page.getByTestId("attachment-preview").click();
+  await expect(page.getByTestId("preview-modal")).toContainText("Proposed 2027 quarterly meeting dates");
+  await page.keyboard.press("Escape");
+  await expect(page.getByTestId("preview-modal")).toHaveCount(0);
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to the company");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the company");

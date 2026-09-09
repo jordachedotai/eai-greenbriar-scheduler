@@ -42,27 +42,42 @@ export function EmailDrawer() {
   const at = reply?.at;
   const to = reply?.to;
 
+  const modal = !!view.modal;
   return (
-    <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Email">
+    <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label={modal ? "Preview" : "Email"}>
       <div className="absolute inset-0 bg-txt/25" onClick={() => setView(null)} />
-      <aside className="absolute right-0 top-0 flex h-full w-full max-w-[560px] flex-col bg-white shadow-2xl" data-testid="email-drawer">
+      <aside
+        className={
+          modal
+            ? "absolute left-1/2 top-1/2 flex max-h-[85vh] w-[min(720px,92vw)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-[14px] bg-white shadow-2xl"
+            : "absolute right-0 top-0 flex h-full w-full max-w-[560px] flex-col bg-white shadow-2xl"
+        }
+        data-testid={modal ? "preview-modal" : "email-drawer"}
+      >
         <div className="flex items-start justify-between gap-4 border-b border-line px-6 py-4">
-          <div className="flex items-center gap-3">
-            <Face person={from} size={40} />
+          {modal ? (
             <div className="flex flex-col">
-              <span className="text-[15px] font-semibold">{from.name}</span>
-              <span className="text-[13px] text-mut">
-                {to ? `to ${to}` : ""}
-                {at ? ` · ${fmtStamp(at)}` : ""}
-              </span>
+              <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Attachment preview</span>
+              <span className="text-[15px] font-semibold">{view.title ?? subject}</span>
             </div>
-          </div>
+          ) : (
+            <div className="flex items-center gap-3">
+              <Face person={from} size={40} />
+              <div className="flex flex-col">
+                <span className="text-[15px] font-semibold">{from.name}</span>
+                <span className="text-[13px] text-mut">
+                  {to ? `to ${to}` : ""}
+                  {at ? ` · ${fmtStamp(at)}` : ""}
+                </span>
+              </div>
+            </div>
+          )}
           <button type="button" onClick={() => setView(null)} className="rounded-[8px] border border-ring bg-white px-3 py-1.5 text-[14px] font-semibold hover:border-brand" data-testid="email-drawer-close">
             Close
           </button>
         </div>
         <div className="flex-1 overflow-y-auto px-6 py-5">
-          <h3 className="mb-4 text-[18px] font-semibold leading-tight" data-testid="email-drawer-subject">{subject}</h3>
+          {!modal ? <h3 className="mb-4 text-[18px] font-semibold leading-tight" data-testid="email-drawer-subject">{subject}</h3> : null}
           {reply ? (
             <pre className="whitespace-pre-wrap font-[inherit] text-[16px] leading-[1.5]" data-testid="email-drawer-body">{reply.body}</pre>
           ) : draft?.email ? (

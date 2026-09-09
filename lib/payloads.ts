@@ -2,10 +2,10 @@
 // client actions and by scripts/gen-mock.ts so mock and live see the same
 // data. Only windows, names, cities, and venues. Never calendars.
 
-import { getBoardMembers, getPartner, getVenues, personName } from "./data";
+import { getBoardMembers, getCurrentEa, getPartner, getVenues, personName } from "./data";
 import { activePartners } from "./pipeline";
 import { fmtDate, fmtTime } from "./scheduling";
-import { EA_SIGNATURE } from "./simulate";
+import { eaSignature } from "./simulate";
 import type {
   BoardEmailPayload,
   ConflictPayload,
@@ -60,8 +60,17 @@ export function shortlistPayload(p: Portco, replyBy: string): ShortlistPayload {
       thin: !!p.quarters[q].thin,
       windows: p.quarters[q].shortlist.map(windowPayload),
     })),
-    eaSignature: EA_SIGNATURE,
+    eaSignature: eaSignature(getCurrentEa()),
   };
+}
+
+function quarterOptions(p: Portco) {
+  return p.targetQuarters.map((q) => ({
+    quarter: q,
+    months: QUARTER_MONTHS_LABEL[q],
+    thin: !!p.quarters[q].thin,
+    windows: p.quarters[q].shortlist.map(windowPayload),
+  }));
 }
 
 export function partnerEmailPayload(p: Portco, onepager: string, replyBy: string): PartnerEmailPayload {
@@ -71,7 +80,8 @@ export function partnerEmailPayload(p: Portco, onepager: string, replyBy: string
     partners: partnerNames(p),
     replyBy,
     onepager,
-    eaSignature: EA_SIGNATURE,
+    quarters: quarterOptions(p),
+    eaSignature: eaSignature(getCurrentEa()),
   };
 }
 
@@ -82,7 +92,9 @@ export function portcoEmailPayload(p: Portco, onepager: string, replyBy: string)
     partners: partnerNames(p),
     replyBy,
     onepager,
-    eaSignature: EA_SIGNATURE,
+    quarters: quarterOptions(p),
+    attachmentName: `${p.name} 2027 meeting options.pdf`,
+    eaSignature: eaSignature(getCurrentEa()),
   };
 }
 
@@ -101,7 +113,7 @@ export function boardEmailPayload(p: Portco, replyBy: string): BoardEmailPayload
       const w = pickedWindow(p, q);
       return w ? [{ quarter: q, date: fmtDate(w.start), time: timeRange(w), dinner: fmtTime(w.dinnerStart) }] : [];
     }),
-    eaSignature: EA_SIGNATURE,
+    eaSignature: eaSignature(getCurrentEa()),
   };
 }
 
@@ -124,7 +136,7 @@ export function conflictPayload(
     reverify: { ok: reverify.ok, busy: reverify.busy.map(personName) },
     partners: partnerNames(p),
     boardMembers: boardNames(p),
-    eaSignature: EA_SIGNATURE,
+    eaSignature: eaSignature(getCurrentEa()),
   };
 }
 

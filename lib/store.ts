@@ -29,7 +29,7 @@ export type AppState = {
   sidebarCollapsed: boolean;
   presenterOpen: boolean;
   working: { portcoId: string; label: string } | null;
-  viewEmail: { portcoId: string; replyId?: string; draftKey?: string } | null;
+  viewEmail: { portcoId: string; replyId?: string; draftKey?: string; modal?: boolean; title?: string } | null;
 
   updatePortco: (id: string, fn: (p: Portco) => Portco) => void;
   addPortco: (seed: PortcoSeed, boardMembers: BoardMember[]) => void;
@@ -45,7 +45,7 @@ export type AppState = {
   setSidebarCollapsed: (v: boolean) => void;
   setPresenterOpen: (v: boolean) => void;
   setWorking: (w: { portcoId: string; label: string } | null) => void;
-  setViewEmail: (v: { portcoId: string; replyId?: string; draftKey?: string } | null) => void;
+  setViewEmail: (v: { portcoId: string; replyId?: string; draftKey?: string; modal?: boolean; title?: string } | null) => void;
   loadState: (name: string) => void;
   reset: () => void;
 };

@@ -24,12 +24,15 @@ export type ShortlistPayload = {
   eaSignature: string;
 };
 
+export type QuarterOptions = { quarter: string; months: string; thin: boolean; windows: WindowPayload[] };
+
 export type PartnerEmailPayload = {
   portco: { name: string; city: string };
   execContact: { name: string; title: string };
   partners: string[];
   replyBy: string;
   onepager: string;
+  quarters: QuarterOptions[];
   eaSignature: string;
 };
 
@@ -39,6 +42,8 @@ export type PortcoEmailPayload = {
   partners: string[];
   replyBy: string;
   onepager: string;
+  quarters: QuarterOptions[];
+  attachmentName: string;
   eaSignature: string;
 };
 
@@ -103,17 +108,17 @@ Payload:
 ${json(payload)}`;
 
     case "partnerEmail":
-      return `Write the email from the assistant to the Greenbriar partners assigned to this portfolio company, asking them to confirm the attached one-pager is fine to send to the company. Four sentences or fewer. Address them by first names. Ask for a yes by the replyBy date. Sign off with eaSignature.
+      return `Write the email from the assistant to the Greenbriar partners assigned to this portfolio company, asking them to confirm the date options below are fine to send to the company. Four sentences or fewer around the options. Address them by first names. Put the options inline as lists: one list per quarter, heading "Q1, January to March", one item per window like "Option 1: Tue Jan 12, 10am to 2pm. Dinner at 6:30pm.", in the order given, with a note on a thin quarter. Nothing is attached. Ask for a yes by the replyBy date. Sign off with eaSignature.
 
-Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
+Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "lists": [{"heading": "...", "note": "...", "items": ["..."]}], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
 
 Payload:
 ${json(payload)}`;
 
     case "portcoEmail":
-      return `Write the cover email that sends the attached one page proposal to the company's exec contact. From the assistant, on behalf of the partners. Five sentences or fewer. Address them by first name. Mention that the proposal is attached, ask them to pick one option per quarter, and give the replyBy date. Sign off with eaSignature.
+      return `Write the proposal email to the company's exec contact. From the assistant, on behalf of the partners. Five sentences or fewer around the options. Address them by first name. Put the options inline as lists: one list per quarter, heading "Q1, January to March", one item per window like "Option 1: Tue Jan 12, 10am to 2pm. Dinner at 6:30pm.", in the order given, with a note on a thin quarter. Mention that the same options are attached as attachmentName. Ask them to pick one option per quarter and give the replyBy date. Sign off with eaSignature.
 
-Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
+Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "lists": [{"heading": "...", "note": "...", "items": ["..."]}], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
 
 Payload:
 ${json(payload)}`;

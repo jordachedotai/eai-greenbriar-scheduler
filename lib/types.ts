@@ -181,6 +181,7 @@ export type Draft = {
   quarter?: Quarter;
   text: string; // plain rendering of `email`, or the EA's edited text
   email?: EmailFields; // structured fields; dropped once the EA edits the text
+  attachment?: { name: string; draftKey: string }; // the one attachment in the tool: the one-pager on the company proposal
   approved: boolean;
   offline?: boolean; // live call failed, mock output served instead
   variant?: number; // bumps on Regenerate

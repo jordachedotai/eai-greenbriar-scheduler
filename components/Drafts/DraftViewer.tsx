@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from "react";
 import { editDraft } from "@/lib/actions";
+import { useStore } from "@/lib/store";
 import type { Draft } from "@/lib/types";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { EmailDraft } from "./EmailDraft";
@@ -69,6 +70,7 @@ export function DraftViewer({ draftKey, title, to, sentLabel = "Sent", testId, c
         ) : draft.email ? (
           <div data-testid="draft-text">
             <EmailDraft email={draft.email} />
+            {draft.attachment ? <AttachmentChip portcoId={portco.id} name={draft.attachment.name} draftKey={draft.attachment.draftKey} /> : null}
           </div>
         ) : (
           <pre className="whitespace-pre-wrap font-[inherit] text-[16px] leading-[1.5]" data-testid="draft-text">{draft.text}</pre>
@@ -88,3 +90,19 @@ export function Working({ label }: { label: string }) {
 }
 
 const small = "rounded-[6px] border border-line bg-white px-2.5 py-1 text-[13px] font-medium hover:border-brand";
+
+// The one attachment in the whole tool: the one-pager on the company proposal.
+function AttachmentChip({ portcoId, name, draftKey }: { portcoId: string; name: string; draftKey: string }) {
+  const setView = useStore((s) => s.setViewEmail);
+  return (
+    <div className="mt-4 inline-flex items-center gap-2.5 rounded-[10px] border border-line bg-bg px-3 py-2 text-[14px]" data-testid="attachment-chip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mut" aria-hidden>
+        <path d="M21 12.5l-8.5 8.5a5.5 5.5 0 0 1-7.8-7.8l9-9a3.5 3.5 0 0 1 5 5l-9 9a1.5 1.5 0 0 1-2.1-2.1l8-8" />
+      </svg>
+      <span className="font-medium">{name}</span>
+      <button type="button" className="font-semibold text-brand hover:underline" onClick={() => setView({ portcoId, draftKey, modal: true, title: name })} data-testid="attachment-preview">
+        Preview
+      </button>
+    </div>
+  );
+}

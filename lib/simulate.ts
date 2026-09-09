@@ -46,7 +46,10 @@ export function replyByDate(from = new Date()): string {
   return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
 }
 
-export const EA_SIGNATURE = "Executive Assistant to the Greenbriar Partners";
+// Every draft signs off with the logged-in assistant, never a fixed string.
+export function eaSignature(ea: { name: string }): string {
+  return `${ea.name}, Executive Assistant to the Greenbriar Partners`;
+}
 
 // Partners reply in order, all yes.
 export function simulatedPartnerReplies(portco: Portco): string[] {
