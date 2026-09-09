@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+  <style>
+    body { margin: 0; font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif; color: #17221a; background: #ffffff; -webkit-font-smoothing: antialiased; }
+    a { color: #1f5a2d; } a:hover { color: #143f1f; }
+    .serif { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; }
+    .label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #61705f; }
+  </style>
+</helmet>
+
+<div style="width: 720px; height: 900px; display: flex; flex-direction: column; gap: 28px; padding: 32px 36px; background: #ffffff; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 4px;">
+    <span class="serif" style="font-size: 26px; font-weight: 600;">Reference for the build</span>
+    <span style="font-size: 15px; color: #61705f;">Type, color, status, and controls used on the Portfolio artboard. Values are exact, copy them.</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <span class="label">Type</span>
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 8px 16px; align-items: baseline;">
+      <span style="font-size: 13px; color: #61705f;">Page title, serif 24/600</span><span class="serif" style="font-size: 24px; font-weight: 600;">Portfolio</span>
+      <span style="font-size: 13px; color: #61705f;">Big number, serif 34/600</span><span class="serif" style="font-size: 34px; font-weight: 600; line-height: 1;">7 <span style="font-size: 20px; font-weight: 500; color: #1f5a2d;">of 20</span></span>
+      <span style="font-size: 13px; color: #61705f;">Company name, 17/600</span><span style="font-size: 17px; font-weight: 600;">AIT Worldwide Logistics</span>
+      <span style="font-size: 13px; color: #61705f;">Body, 16/400</span><span style="font-size: 16px;">Checked calendars for three partners. Board members are asked by email.</span>
+      <span style="font-size: 13px; color: #61705f;">Secondary, 14/400 muted</span><span style="font-size: 14px; color: #61705f;">Proposal sent to the CEO on Tue. Reply due Sep 23.</span>
+      <span style="font-size: 13px; color: #61705f;">Label, 13/600 caps, 0.04em</span><span class="label">Waiting on you</span>
+    </div>
+    <span style="font-size: 13px; color: #61705f;">Fonts: Source Serif 4 for titles and big numbers, Source Sans 3 for everything else. Both on Google Fonts. Nothing below 12px. 12px is for chip captions and small labels only.</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <span class="label">Surface and brand</span>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px;">
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="height: 40px; border-radius: 8px; background: #f5f7f4; border: 1px solid #dde3da;"></span><span style="font-size: 12px;">bg #f5f7f4</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="height: 40px; border-radius: 8px; background: #ffffff; border: 1px solid #dde3da;"></span><span style="font-size: 12px;">panel #ffffff</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="height: 40px; border-radius: 8px; background: #dde3da;"></span><span style="font-size: 12px;">line #dde3da</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="height: 40px; border-radius: 8px; background: #61705f;"></span><span style="font-size: 12px;">muted #61705f</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="height: 40px; border-radius: 8px; background: #1f5a2d;"></span><span style="font-size: 12px;">brand #1f5a2d</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px;"><span style="height: 40px; border-radius: 8px; background: #143f1f;"></span><span style="font-size: 12px;">header #143f1f</span></div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <span class="label">Status system, one meaning per color</span>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;">
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; border: 1px solid #dde3da;">
+        <span style="align-self: flex-start; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #e5edf7; color: #2b5f9e;">Needs you</span>
+        <span style="font-size: 12px; color: #61705f;">#2b5f9e on #e5edf7. A draft or decision is waiting on the EA. The only color that asks for a click.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; border: 1px solid #dde3da;">
+        <span style="align-self: flex-start; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #fbf3dd; color: #8a5a08;">Waiting on others</span>
+        <span style="font-size: 12px; color: #61705f;">#8a5a08 on #fbf3dd. Out with partners, the company, or the board.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; border: 1px solid #dde3da;">
+        <span style="align-self: flex-start; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #e3f4ea; color: #15733f;">Locked</span>
+        <span style="font-size: 12px; color: #61705f;">#15733f on #e3f4ea. Confirmed or booked. Lock icon on the chip.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; border: 1px solid #dde3da;">
+        <span style="align-self: flex-start; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: #eef2ec; color: #61705f;">Not started</span>
+        <span style="font-size: 12px; color: #61705f;">#61705f on #eef2ec. Nothing has happened yet.</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <span class="label">Controls</span>
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #1f5a2d; color: #ffffff; font-size: 15px; font-weight: 600; box-shadow: 0 1px 2px rgba(20,63,31,0.3);">Primary, brand</span>
+      <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #2b5f9e; color: #ffffff; font-size: 15px; font-weight: 600; box-shadow: 0 1px 2px rgba(43,95,158,0.35);">Primary, needs you</span>
+      <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #ffffff; border: 1px solid #c9d3c8; color: #17221a; font-size: 15px; font-weight: 600;">Secondary</span>
+      <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 10px; background: #ffffff; border: 1px dashed #c9d3c8; color: #61705f; font-size: 15px; font-weight: 600;">Demo: simulate reply</span>
+    </div>
+    <span style="font-size: 13px; color: #61705f;">40px tall, 10px radius, 15/600. One primary per screen. Demo controls are dashed so the room can tell them apart.</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <span class="label">Cards, chips, faces</span>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 1px; padding: 8px 10px; border-radius: 8px; background: #e3f4ea; border: 1px solid #c4e6d1; width: 92px;"><span style="font-size: 12px; font-weight: 700; color: #15733f;">Q2</span><span style="font-size: 14px; font-weight: 600;">Jun 1</span><span style="font-size: 12px; color: #15733f;">confirmed</span></div>
+      <div style="display: flex; align-items: center;">
+        <img src="jill-raker.jpg" alt="Jill Raker" style="width: 26px; height: 26px; border-radius: 999px; object-fit: cover; border: 2px solid #ffffff;">
+        <img src="michael-wang.jpg" alt="Michael Wang" style="width: 26px; height: 26px; border-radius: 999px; object-fit: cover; border: 2px solid #ffffff; margin-left: -8px;">
+        <img src="jack-morris.jpg" alt="Jack Morris" style="width: 26px; height: 26px; border-radius: 999px; object-fit: cover; border: 2px solid #ffffff; margin-left: -8px;">
+      </div>
+      <div style="width: 84px; height: 52px; display: flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid #e6ebe4; border-radius: 10px; padding: 6px;"><img src="logo-ontrac.jpg" alt="OnTrac" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+      <span style="font-size: 13px; color: #61705f; max-width: 240px;">Row card: 14px radius, 1px #dde3da, shadow 0 1px 2px rgba(23,34,26,.06) plus 0 8px 24px -18px rgba(23,34,26,.20). Faces 26px, white 2px ring, overlap 8px. Logo tile 84 by 52 on white.</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

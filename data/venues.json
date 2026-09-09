@@ -718,5 +718,773 @@
     "name": "Poole's Diner",
     "distanceMi": 0.3,
     "note": "Southern, lively, better for a relaxed night"
+  },
+  {
+    "id": "v91",
+    "city": "Itasca, IL",
+    "type": "hotel",
+    "name": "Westin Chicago Northwest",
+    "distanceMi": 0.4,
+    "note": "Across the road from the office park, quiet, reliable"
+  },
+  {
+    "id": "v92",
+    "city": "Itasca, IL",
+    "type": "hotel",
+    "name": "Eaglewood Resort and Spa",
+    "distanceMi": 1.2,
+    "note": "Larger rooms, good for a longer stay"
+  },
+  {
+    "id": "v93",
+    "city": "Itasca, IL",
+    "type": "hotel",
+    "name": "Hyatt Place Itasca",
+    "distanceMi": 0.6,
+    "note": "Simple, near the Metra, easy for early flights out of O'Hare"
+  },
+  {
+    "id": "v94",
+    "city": "Itasca, IL",
+    "type": "restaurant",
+    "name": "Gibsons Bar and Steakhouse Oak Brook",
+    "distanceMi": 6.5,
+    "note": "Classic Chicago steakhouse, private rooms, needs a car"
+  },
+  {
+    "id": "v95",
+    "city": "Itasca, IL",
+    "type": "restaurant",
+    "name": "Reserve 22",
+    "distanceMi": 4.1,
+    "note": "Glen Ellyn, chef-driven, quiet enough for a board"
+  },
+  {
+    "id": "v96",
+    "city": "Itasca, IL",
+    "type": "restaurant",
+    "name": "Aliano's Ristorante",
+    "distanceMi": 4.8,
+    "note": "Italian, family run, easy for a group"
+  },
+  {
+    "id": "v97",
+    "city": "Parkville, MO",
+    "type": "hotel",
+    "name": "Hotel Kansas City",
+    "distanceMi": 9.5,
+    "note": "Downtown, converted club, good bar, needs a car"
+  },
+  {
+    "id": "v98",
+    "city": "Parkville, MO",
+    "type": "hotel",
+    "name": "Loews Kansas City",
+    "distanceMi": 9.7,
+    "note": "Downtown, newer, quiet"
+  },
+  {
+    "id": "v99",
+    "city": "Parkville, MO",
+    "type": "hotel",
+    "name": "Argosy Casino Hotel",
+    "distanceMi": 4.2,
+    "note": "Riverside, closest to the office, simple"
+  },
+  {
+    "id": "v100",
+    "city": "Parkville, MO",
+    "type": "restaurant",
+    "name": "Piropos",
+    "distanceMi": 1.8,
+    "note": "Argentine, Briarcliff Village, river view, private room"
+  },
+  {
+    "id": "v101",
+    "city": "Parkville, MO",
+    "type": "restaurant",
+    "name": "Pierpont's at Union Station",
+    "distanceMi": 9.8,
+    "note": "Classic, private rooms, partners have been before"
+  },
+  {
+    "id": "v102",
+    "city": "Parkville, MO",
+    "type": "restaurant",
+    "name": "Stone Canyon Pizza",
+    "distanceMi": 0.3,
+    "note": "Downtown Parkville, casual, better for lunch"
+  },
+  {
+    "id": "v103",
+    "city": "Henderson, NV",
+    "type": "hotel",
+    "name": "Green Valley Ranch Resort",
+    "distanceMi": 2.1,
+    "note": "Quiet, off the Strip, partners know it"
+  },
+  {
+    "id": "v104",
+    "city": "Henderson, NV",
+    "type": "hotel",
+    "name": "The Westin Lake Las Vegas",
+    "distanceMi": 8.4,
+    "note": "Resort, needs a car, better for a longer stay"
+  },
+  {
+    "id": "v105",
+    "city": "Henderson, NV",
+    "type": "hotel",
+    "name": "Hilton Garden Inn Henderson",
+    "distanceMi": 1.3,
+    "note": "Closest to the office, simple"
+  },
+  {
+    "id": "v106",
+    "city": "Henderson, NV",
+    "type": "restaurant",
+    "name": "Hank's Fine Steaks",
+    "distanceMi": 2.1,
+    "note": "Inside Green Valley Ranch, private dining, a partner favorite"
+  },
+  {
+    "id": "v107",
+    "city": "Henderson, NV",
+    "type": "restaurant",
+    "name": "Todd's Unique Dining",
+    "distanceMi": 3,
+    "note": "Local, chef-owned, quiet"
+  },
+  {
+    "id": "v108",
+    "city": "Henderson, NV",
+    "type": "restaurant",
+    "name": "Bottiglia Cucina",
+    "distanceMi": 2.1,
+    "note": "Italian, lively, good for a mixed group"
+  },
+  {
+    "id": "v109",
+    "city": "Delaware, OH",
+    "type": "hotel",
+    "name": "Hilton Columbus at Easton",
+    "distanceMi": 16,
+    "note": "Easton, reliable, needs a car"
+  },
+  {
+    "id": "v110",
+    "city": "Delaware, OH",
+    "type": "hotel",
+    "name": "Le Meridien Columbus, The Joseph",
+    "distanceMi": 22,
+    "note": "Short North, boutique, good restaurant"
+  },
+  {
+    "id": "v111",
+    "city": "Delaware, OH",
+    "type": "hotel",
+    "name": "Hampton Inn Delaware",
+    "distanceMi": 1,
+    "note": "Closest to the office, simple"
+  },
+  {
+    "id": "v112",
+    "city": "Delaware, OH",
+    "type": "restaurant",
+    "name": "Veritas",
+    "distanceMi": 22,
+    "note": "Downtown Columbus, tasting menu, private room, needs a car"
+  },
+  {
+    "id": "v113",
+    "city": "Delaware, OH",
+    "type": "restaurant",
+    "name": "Lindey's",
+    "distanceMi": 23,
+    "note": "German Village, classic, quiet enough for a board"
+  },
+  {
+    "id": "v114",
+    "city": "Delaware, OH",
+    "type": "restaurant",
+    "name": "Amato's Woodfired Pizza",
+    "distanceMi": 0.8,
+    "note": "Downtown Delaware, casual, better for lunch"
+  },
+  {
+    "id": "v115",
+    "city": "Chandler, AZ",
+    "type": "hotel",
+    "name": "Sheraton Grand at Wild Horse Pass",
+    "distanceMi": 6.5,
+    "note": "Resort, quiet, partners have stayed before"
+  },
+  {
+    "id": "v116",
+    "city": "Chandler, AZ",
+    "type": "hotel",
+    "name": "Crowne Plaza Phoenix Chandler Golf Resort",
+    "distanceMi": 2.3,
+    "note": "Closer, simple, reliable"
+  },
+  {
+    "id": "v117",
+    "city": "Chandler, AZ",
+    "type": "hotel",
+    "name": "Hilton Phoenix Chandler",
+    "distanceMi": 1.6,
+    "note": "Closest to the office"
+  },
+  {
+    "id": "v118",
+    "city": "Chandler, AZ",
+    "type": "restaurant",
+    "name": "Kai",
+    "distanceMi": 6.5,
+    "note": "Wild Horse Pass, tasting menu, memorable, book early"
+  },
+  {
+    "id": "v119",
+    "city": "Chandler, AZ",
+    "type": "restaurant",
+    "name": "The Keg Steakhouse and Bar Chandler",
+    "distanceMi": 2,
+    "note": "Steakhouse, private room, easy"
+  },
+  {
+    "id": "v120",
+    "city": "Chandler, AZ",
+    "type": "restaurant",
+    "name": "Sibley's West",
+    "distanceMi": 1.8,
+    "note": "Downtown Chandler, casual, better for a relaxed night"
+  },
+  {
+    "id": "v121",
+    "city": "Willingboro, NJ",
+    "type": "hotel",
+    "name": "Four Seasons Hotel Philadelphia",
+    "distanceMi": 21,
+    "note": "Center City, quiet, needs a car"
+  },
+  {
+    "id": "v122",
+    "city": "Willingboro, NJ",
+    "type": "hotel",
+    "name": "The Rittenhouse",
+    "distanceMi": 21.5,
+    "note": "Rittenhouse Square, classic, partners know it"
+  },
+  {
+    "id": "v123",
+    "city": "Willingboro, NJ",
+    "type": "hotel",
+    "name": "Courtyard Mount Laurel",
+    "distanceMi": 9,
+    "note": "Closest, simple, reliable"
+  },
+  {
+    "id": "v124",
+    "city": "Willingboro, NJ",
+    "type": "restaurant",
+    "name": "Vetri Cucina",
+    "distanceMi": 21,
+    "note": "Philadelphia, tasting menu, private room, needs a car"
+  },
+  {
+    "id": "v125",
+    "city": "Willingboro, NJ",
+    "type": "restaurant",
+    "name": "The Capital Grille Cherry Hill",
+    "distanceMi": 11,
+    "note": "Reliable, private room seats twelve"
+  },
+  {
+    "id": "v126",
+    "city": "Willingboro, NJ",
+    "type": "restaurant",
+    "name": "Chick's Deli",
+    "distanceMi": 12,
+    "note": "Cherry Hill, casual, better for lunch"
+  },
+  {
+    "id": "v127",
+    "city": "Everett, WA",
+    "type": "hotel",
+    "name": "Hotel Indigo Seattle Everett Waterfront",
+    "distanceMi": 2.2,
+    "note": "On the water, quiet, good restaurant"
+  },
+  {
+    "id": "v128",
+    "city": "Everett, WA",
+    "type": "hotel",
+    "name": "Delta Hotels Seattle Everett",
+    "distanceMi": 3,
+    "note": "Larger, reliable, near the highway"
+  },
+  {
+    "id": "v129",
+    "city": "Everett, WA",
+    "type": "hotel",
+    "name": "Hampton Inn Seattle Everett",
+    "distanceMi": 1,
+    "note": "Closest to the office, simple"
+  },
+  {
+    "id": "v130",
+    "city": "Everett, WA",
+    "type": "restaurant",
+    "name": "Bluewater Distilling",
+    "distanceMi": 2.2,
+    "note": "Waterfront, private room, lively"
+  },
+  {
+    "id": "v131",
+    "city": "Everett, WA",
+    "type": "restaurant",
+    "name": "Anthony's HomePort Everett",
+    "distanceMi": 2.5,
+    "note": "Seafood on the marina, seats a group"
+  },
+  {
+    "id": "v132",
+    "city": "Everett, WA",
+    "type": "restaurant",
+    "name": "Emory's on Silver Lake",
+    "distanceMi": 5.5,
+    "note": "Lakeside, quiet, better for conversation"
+  },
+  {
+    "id": "v133",
+    "city": "Addison, IL",
+    "type": "hotel",
+    "name": "Westin Chicago Lombard",
+    "distanceMi": 3.5,
+    "note": "Yorktown Center, reliable, quiet"
+  },
+  {
+    "id": "v134",
+    "city": "Addison, IL",
+    "type": "hotel",
+    "name": "Hyatt Regency Schaumburg",
+    "distanceMi": 9,
+    "note": "Larger, near the highway"
+  },
+  {
+    "id": "v135",
+    "city": "Addison, IL",
+    "type": "hotel",
+    "name": "Hampton Inn Addison",
+    "distanceMi": 1.2,
+    "note": "Closest to the office, simple"
+  },
+  {
+    "id": "v136",
+    "city": "Addison, IL",
+    "type": "restaurant",
+    "name": "Gibsons Bar and Steakhouse Oak Brook",
+    "distanceMi": 5,
+    "note": "Classic Chicago steakhouse, private rooms"
+  },
+  {
+    "id": "v137",
+    "city": "Addison, IL",
+    "type": "restaurant",
+    "name": "Capri Ristorante Italiano",
+    "distanceMi": 2.4,
+    "note": "Italian, family run, easy for a group"
+  },
+  {
+    "id": "v138",
+    "city": "Addison, IL",
+    "type": "restaurant",
+    "name": "Harry Caray's Lombard",
+    "distanceMi": 3.6,
+    "note": "Steakhouse, private room, partners have been before"
+  },
+  {
+    "id": "v139",
+    "city": "Tucson, AZ",
+    "type": "hotel",
+    "name": "The Ritz-Carlton Dove Mountain",
+    "distanceMi": 20,
+    "note": "Resort, memorable, needs a car and time"
+  },
+  {
+    "id": "v140",
+    "city": "Tucson, AZ",
+    "type": "hotel",
+    "name": "Hotel Congress",
+    "distanceMi": 5.2,
+    "note": "Downtown, historic, lively"
+  },
+  {
+    "id": "v141",
+    "city": "Tucson, AZ",
+    "type": "hotel",
+    "name": "Marriott Tucson University Park",
+    "distanceMi": 4,
+    "note": "Reliable, near the university, simple"
+  },
+  {
+    "id": "v142",
+    "city": "Tucson, AZ",
+    "type": "restaurant",
+    "name": "Charro Steak and Del Rey",
+    "distanceMi": 5,
+    "note": "Downtown, steakhouse, private room"
+  },
+  {
+    "id": "v143",
+    "city": "Tucson, AZ",
+    "type": "restaurant",
+    "name": "The Parish",
+    "distanceMi": 6.5,
+    "note": "Southern, quiet, good for conversation"
+  },
+  {
+    "id": "v144",
+    "city": "Tucson, AZ",
+    "type": "restaurant",
+    "name": "El Charro Cafe",
+    "distanceMi": 5.3,
+    "note": "Tucson institution, lively, better for a relaxed night"
+  },
+  {
+    "id": "v145",
+    "city": "Valencia, CA",
+    "type": "hotel",
+    "name": "Hyatt Regency Valencia",
+    "distanceMi": 1.5,
+    "note": "Closest full-service hotel, quiet, reliable"
+  },
+  {
+    "id": "v146",
+    "city": "Valencia, CA",
+    "type": "hotel",
+    "name": "Courtyard Santa Clarita Valencia",
+    "distanceMi": 1.2,
+    "note": "Simple, near the office"
+  },
+  {
+    "id": "v147",
+    "city": "Valencia, CA",
+    "type": "hotel",
+    "name": "The Langham Huntington Pasadena",
+    "distanceMi": 32,
+    "note": "Pasadena, upscale, needs a car and time"
+  },
+  {
+    "id": "v148",
+    "city": "Valencia, CA",
+    "type": "restaurant",
+    "name": "Salt Creek Grille Valencia",
+    "distanceMi": 1.4,
+    "note": "Steak and seafood, private room, easy"
+  },
+  {
+    "id": "v149",
+    "city": "Valencia, CA",
+    "type": "restaurant",
+    "name": "Wolf Creek Restaurant",
+    "distanceMi": 2,
+    "note": "Brewery kitchen, casual, good for a mixed group"
+  },
+  {
+    "id": "v150",
+    "city": "Valencia, CA",
+    "type": "restaurant",
+    "name": "The Old Town Junction",
+    "distanceMi": 3.5,
+    "note": "Newhall, chef-driven, quiet"
+  },
+  {
+    "id": "v151",
+    "city": "Plymouth Meeting, PA",
+    "type": "hotel",
+    "name": "Philadelphia Marriott West",
+    "distanceMi": 1.5,
+    "note": "Closest to the office, reliable"
+  },
+  {
+    "id": "v152",
+    "city": "Plymouth Meeting, PA",
+    "type": "hotel",
+    "name": "Four Seasons Hotel Philadelphia",
+    "distanceMi": 15,
+    "note": "Center City, quiet, needs a car"
+  },
+  {
+    "id": "v153",
+    "city": "Plymouth Meeting, PA",
+    "type": "hotel",
+    "name": "Sheraton Valley Forge",
+    "distanceMi": 7.5,
+    "note": "King of Prussia, larger, near the highway"
+  },
+  {
+    "id": "v154",
+    "city": "Plymouth Meeting, PA",
+    "type": "restaurant",
+    "name": "Redstone American Grill",
+    "distanceMi": 0.9,
+    "note": "Plymouth Meeting, private room, easy"
+  },
+  {
+    "id": "v155",
+    "city": "Plymouth Meeting, PA",
+    "type": "restaurant",
+    "name": "Bluefin Sushi",
+    "distanceMi": 2.5,
+    "note": "East Norriton, quiet, better for a small group"
+  },
+  {
+    "id": "v156",
+    "city": "Plymouth Meeting, PA",
+    "type": "restaurant",
+    "name": "Vetri Cucina",
+    "distanceMi": 15,
+    "note": "Philadelphia, tasting menu, memorable, needs a car"
+  },
+  {
+    "id": "v157",
+    "city": "New York, NY",
+    "type": "hotel",
+    "name": "The Langham New York, Fifth Avenue",
+    "distanceMi": 0.8,
+    "note": "Midtown, quiet, partners know it"
+  },
+  {
+    "id": "v158",
+    "city": "New York, NY",
+    "type": "hotel",
+    "name": "Park Hyatt New York",
+    "distanceMi": 1.4,
+    "note": "Near Central Park, large rooms"
+  },
+  {
+    "id": "v159",
+    "city": "New York, NY",
+    "type": "hotel",
+    "name": "Moxy NYC Chelsea",
+    "distanceMi": 0.6,
+    "note": "Closest, lively, better for a younger group"
+  },
+  {
+    "id": "v160",
+    "city": "New York, NY",
+    "type": "restaurant",
+    "name": "Keens Steakhouse",
+    "distanceMi": 0.5,
+    "note": "Herald Square, private rooms, a New York classic"
+  },
+  {
+    "id": "v161",
+    "city": "New York, NY",
+    "type": "restaurant",
+    "name": "The Modern",
+    "distanceMi": 1.2,
+    "note": "MoMA, private dining, memorable"
+  },
+  {
+    "id": "v162",
+    "city": "New York, NY",
+    "type": "restaurant",
+    "name": "Cote",
+    "distanceMi": 1,
+    "note": "Korean steakhouse, lively, book early"
+  },
+  {
+    "id": "v163",
+    "city": "East Alton, IL",
+    "type": "hotel",
+    "name": "Four Seasons Hotel St. Louis",
+    "distanceMi": 21,
+    "note": "Downtown St. Louis, quiet, needs a car"
+  },
+  {
+    "id": "v164",
+    "city": "East Alton, IL",
+    "type": "hotel",
+    "name": "The Chase Park Plaza",
+    "distanceMi": 26,
+    "note": "Central West End, partners know it"
+  },
+  {
+    "id": "v165",
+    "city": "East Alton, IL",
+    "type": "hotel",
+    "name": "Holiday Inn Alton",
+    "distanceMi": 3.5,
+    "note": "Closest to the airport, simple"
+  },
+  {
+    "id": "v166",
+    "city": "East Alton, IL",
+    "type": "restaurant",
+    "name": "Tony's",
+    "distanceMi": 21,
+    "note": "Downtown St. Louis, classic, private room"
+  },
+  {
+    "id": "v167",
+    "city": "East Alton, IL",
+    "type": "restaurant",
+    "name": "Cinder House",
+    "distanceMi": 21,
+    "note": "Four Seasons rooftop, river view"
+  },
+  {
+    "id": "v168",
+    "city": "East Alton, IL",
+    "type": "restaurant",
+    "name": "Gentelin's on Broadway",
+    "distanceMi": 4,
+    "note": "Alton, chef-owned, quiet"
+  },
+  {
+    "id": "v169",
+    "city": "Napa, CA",
+    "type": "hotel",
+    "name": "Andaz Napa",
+    "distanceMi": 0.5,
+    "note": "Downtown, walkable, good bar"
+  },
+  {
+    "id": "v170",
+    "city": "Napa, CA",
+    "type": "hotel",
+    "name": "Archer Hotel Napa",
+    "distanceMi": 0.4,
+    "note": "Rooftop, quiet rooms, near dinner"
+  },
+  {
+    "id": "v171",
+    "city": "Napa, CA",
+    "type": "hotel",
+    "name": "Meritage Resort and Spa",
+    "distanceMi": 4,
+    "note": "Resort, larger, better for a longer stay"
+  },
+  {
+    "id": "v172",
+    "city": "Napa, CA",
+    "type": "restaurant",
+    "name": "Angele",
+    "distanceMi": 0.6,
+    "note": "Riverfront, French, private room"
+  },
+  {
+    "id": "v173",
+    "city": "Napa, CA",
+    "type": "restaurant",
+    "name": "Charlie Palmer Steak Napa",
+    "distanceMi": 0.4,
+    "note": "Inside the Archer, steakhouse, easy"
+  },
+  {
+    "id": "v174",
+    "city": "Napa, CA",
+    "type": "restaurant",
+    "name": "Oenotri",
+    "distanceMi": 0.5,
+    "note": "Italian, downtown, lively but not loud"
+  },
+  {
+    "id": "v175",
+    "city": "Stockton, CA",
+    "type": "hotel",
+    "name": "University Plaza Waterfront Hotel",
+    "distanceMi": 2.5,
+    "note": "Downtown waterfront, closest full-service"
+  },
+  {
+    "id": "v176",
+    "city": "Stockton, CA",
+    "type": "hotel",
+    "name": "Hilton Stockton",
+    "distanceMi": 4.5,
+    "note": "Reliable, near the highway"
+  },
+  {
+    "id": "v177",
+    "city": "Stockton, CA",
+    "type": "hotel",
+    "name": "Wine and Roses Hotel Lodi",
+    "distanceMi": 14,
+    "note": "Lodi, boutique, memorable, needs a car"
+  },
+  {
+    "id": "v178",
+    "city": "Stockton, CA",
+    "type": "restaurant",
+    "name": "Papapavlo's Bistro and Bar",
+    "distanceMi": 5,
+    "note": "Mediterranean, private room, easy"
+  },
+  {
+    "id": "v179",
+    "city": "Stockton, CA",
+    "type": "restaurant",
+    "name": "Towne House Restaurant",
+    "distanceMi": 14,
+    "note": "Lodi, inside Wine and Roses, quiet"
+  },
+  {
+    "id": "v180",
+    "city": "Stockton, CA",
+    "type": "restaurant",
+    "name": "Bud's Seafood Grille",
+    "distanceMi": 4.8,
+    "note": "Seafood, casual, seats a group"
+  },
+  {
+    "id": "v181",
+    "city": "Manchester, CT",
+    "type": "hotel",
+    "name": "Delamar West Hartford",
+    "distanceMi": 12,
+    "note": "Boutique, quiet, partners know it"
+  },
+  {
+    "id": "v182",
+    "city": "Manchester, CT",
+    "type": "hotel",
+    "name": "Marriott Hartford Downtown",
+    "distanceMi": 10,
+    "note": "Downtown, reliable, near dinner"
+  },
+  {
+    "id": "v183",
+    "city": "Manchester, CT",
+    "type": "hotel",
+    "name": "Hilton Garden Inn Glastonbury",
+    "distanceMi": 5,
+    "note": "Closest, simple"
+  },
+  {
+    "id": "v184",
+    "city": "Manchester, CT",
+    "type": "restaurant",
+    "name": "Max Downtown",
+    "distanceMi": 10,
+    "note": "Hartford steakhouse, private room, a partner favorite"
+  },
+  {
+    "id": "v185",
+    "city": "Manchester, CT",
+    "type": "restaurant",
+    "name": "Artisanal Burger Company",
+    "distanceMi": 0.8,
+    "note": "Manchester, casual, better for lunch"
+  },
+  {
+    "id": "v186",
+    "city": "Manchester, CT",
+    "type": "restaurant",
+    "name": "Cavey's",
+    "distanceMi": 1.2,
+    "note": "Manchester, French downstairs and Italian upstairs, quiet"
   }
 ]

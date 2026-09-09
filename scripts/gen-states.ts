@@ -25,6 +25,7 @@ import * as T from "../lib/transitions";
 import type { DemoState, Portco } from "../lib/types";
 
 const ROOT = resolve(__dirname, "..");
+const WALKTHROUGH = "ait-worldwide-logistics";
 
 // A fake clock. Each portco's story starts on a different day of the past
 // week so "waiting since" varies across rows.
@@ -121,53 +122,56 @@ function toLocked(p: Portco, withConflict: boolean): Portco {
 
 // ---------- states ----------
 
-function council(cumberlandAtBoard: boolean): DemoState {
+function council(walkthroughAtBoard: boolean): DemoState {
   const portcos: Record<string, Portco> = {};
   generated = portcos;
   const step = (id: string, daysAgo: number, hour: number, fn: (p: Portco) => Portco) => {
     startClock(daysAgo, hour);
     portcos[id] = fn(fresh(id));
   };
-  // Peggy (ea1): Cumberland is the walkthrough. One waiting on you (venue
-  // picks ready), one waiting on the portco, one on the board, one on partners.
-  if (cumberlandAtBoard) step("pc2", 0, 8, toBoardReview);
-  step("pc1", 6, 9, (p) => toLockReview(p, true));
-  step("pc3", 3, 10, toWaitingPortco);
-  step("pc4", 2, 14, (p) => toWaitingBoard(p, 1));
-  step("pc5", 1, 15, toWaitingPartners);
-  // EA 2: two locked, one on the board, one on the portco, one not started.
-  step("pc6", 9, 9, (p) => toLocked(p, false));
-  step("pc7", 8, 10, (p) => toLocked(p, true));
-  step("pc8", 4, 11, (p) => toWaitingBoard(p, 2));
-  step("pc9", 2, 9, toWaitingPortco);
-  // EA 3: one on the board, one on the portco, one on partners, two not started.
-  step("pc11", 5, 13, (p) => toWaitingBoard(p, 0));
-  step("pc12", 3, 16, toWaitingPortco);
-  step("pc13", 1, 9, toWaitingPartners);
+  // Peggy (ea1): AIT is the walkthrough. One waiting on you (venue picks
+  // ready), one waiting on the portco, one on the board, one on partners.
+  if (walkthroughAtBoard) step(WALKTHROUGH, 0, 8, toBoardReview);
+  step("eshipping", 6, 9, (p) => toLockReview(p, true));
+  step("fragilepak", 3, 10, toWaitingPortco);
+  step("radwell-international", 2, 14, (p) => toWaitingBoard(p, 1));
+  step("sparkstone-electrical-group", 1, 15, toWaitingPartners);
+  // Barbara (ea2): two locked, one on the board, one on the portco, one not started.
+  step("jegs-automotive", 9, 9, (p) => toLocked(p, false));
+  step("ontrac", 8, 10, (p) => toLocked(p, true));
+  step("randys", 4, 11, (p) => toWaitingBoard(p, 2));
+  step("renuity", 2, 9, toWaitingPortco);
+  // Sofia (ea3): one on the board, one on the portco, one on partners, one not started.
+  step("sunvair-aerospace-group", 5, 13, (p) => toWaitingBoard(p, 0));
+  step("the-facilities-group", 3, 16, toWaitingPortco);
+  step("towne", 1, 9, toWaitingPartners);
+  // Jaquelyn (ea4): one locked, one on the portco, two not started.
+  step("west-star-aviation", 7, 9, (p) => toLocked(p, false));
+  step("wineshipping", 2, 11, toWaitingPortco);
   return {
-    description: cumberlandAtBoard
-      ? "Council, with Cumberland at step 4 and the board email drafted. Start at Beat 4."
-      : "Fifteen portcos staggered across three EAs. Cumberland not started. The room default.",
+    description: walkthroughAtBoard
+      ? "Council, with AIT at step 4 and the board email drafted. Start at Beat 4."
+      : "Eighteen portfolio companies staggered across four EAs. AIT not started. The room default.",
     portcos,
   };
 }
 
 const states: Record<string, DemoState> = {
-  fresh: { description: "All fifteen portcos not started.", portcos: {} },
+  fresh: { description: "All eighteen portfolio companies not started.", portcos: {} },
   council: council(false),
   "council-at-board": council(true),
 };
 
-// Supply check: after the council state, Cumberland must still find three
-// options in Q1, Q2, Q4 and exactly two in Q3, or the demo script breaks.
+// Supply check: after the council state, the walkthrough portco must still
+// find three options in Q1, Q2, Q4 and exactly two in Q3, or the demo breaks.
 {
   generated = states.council.portcos as Record<string, Portco>;
-  const p = T.findDates(fresh("pc2"), deps, heldDays(Object.values(generated), fresh("pc2").partnerIds));
+  const p = T.findDates(fresh(WALKTHROUGH), deps, heldDays(Object.values(generated), fresh(WALKTHROUGH).partnerIds));
   const counts = p.targetQuarters.map((q) => `${q}=${p.quarters[q].windows.length}`);
-  console.log(`Cumberland after council: ${counts.join(" ")}`);
+  console.log(`${p.name} after council: ${counts.join(" ")}`);
   for (const q of p.targetQuarters) {
     const n = p.quarters[q].windows.length;
-    if ((q === "Q3" && n !== 2) || (q !== "Q3" && n < 3)) throw new Error(`Cumberland ${q} has ${n} windows after council. Adjust the staggering.`);
+    if ((q === "Q3" && n !== 2) || (q !== "Q3" && n < 3)) throw new Error(`${p.name} ${q} has ${n} windows after council. Adjust the staggering.`);
   }
 }
 

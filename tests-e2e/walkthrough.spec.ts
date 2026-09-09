@@ -1,5 +1,5 @@
 // The v2 demo walkthrough in mock mode, per docs/DEMO_SCRIPT.md.
-// Cumberland Packaging Group through all five stages using only on-screen
+// AIT Worldwide Logistics through all five stages using only on-screen
 // buttons and the demo controls. Fails on any console error.
 
 import { expect, test, type Page } from "@playwright/test";
@@ -17,7 +17,7 @@ async function signIn(page: Page) {
   await expect(page.getByTestId("rows-view")).toBeVisible();
 }
 
-test("Beat 0 to 5: Cumberland from not started to locked", async ({ page }) => {
+test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   const errors: string[] = [];
   page.on("console", (m) => {
     if (m.type() === "error") errors.push(m.text());
@@ -30,16 +30,16 @@ test("Beat 0 to 5: Cumberland from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("count-others")).toHaveText("3");
   await expect(page.getByTestId("count-notStarted")).toHaveText("1");
   await expect(page.getByTestId("count-confirmed")).toHaveText("4 of 20");
-  await expect(page.getByTestId("row-pc2").getByTestId("row-waiting")).toHaveText("Not started");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Not started");
 
   // Beat 1: find dates.
-  await page.getByTestId("row-action-pc2").click();
-  await expect(page).toHaveURL(/\/portcos\/pc2$/);
-  await expect(page.getByTestId("header-title")).toHaveText("Cumberland Packaging Group");
+  await page.getByTestId("row-action-ait-worldwide-logistics").click();
+  await expect(page).toHaveURL(/\/portcos\/ait-worldwide-logistics$/);
+  await expect(page.getByTestId("header-title")).toHaveText("AIT Worldwide Logistics");
   await expect(page.getByTestId("step-1")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("primary-action")).toHaveText("Find dates");
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("explain")).toContainText("Checked calendars for Alan Whitfield, Maria Castellano and David Okafor");
+  await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox");
   await expect(page.getByTestId("explain")).toContainText("Helen Marsh, Raymond Cho and Denise Walker have not shared calendars");
   await expect(page.getByTestId("explain")).toContainText("Tom Haggerty picks from the options in step 3");
   await expect(page.getByTestId("thin-Q3")).toContainText("Only 2 windows in Q3");
@@ -62,8 +62,8 @@ test("Beat 0 to 5: Cumberland from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the partners");
   await expect(page.getByTestId("primary-action")).toBeDisabled();
   await page.getByTestId("sim-partner-replies").click();
-  await expect(page.getByTestId("partner-replies").locator("[data-state='yes']")).toHaveCount(3);
-  await expect(page.getByTestId("timeline")).toContainText("David Okafor replied yes.");
+  await expect(page.getByTestId("partner-replies").locator("[data-state='yes']")).toHaveCount(5);
+  await expect(page.getByTestId("timeline")).toContainText("Ben Cox replied yes.");
   await expect(page.getByTestId("primary-action")).toHaveText("Draft the email to the portco");
   await page.getByTestId("primary-action").click();
 
@@ -91,15 +91,15 @@ test("Beat 0 to 5: Cumberland from not started to locked", async ({ page }) => {
   await page.getByTestId("sim-board-conflict").click();
   await expect(page.getByTestId("conflict-Q3")).toBeVisible({ timeout: 15_000 });
   await expect(page.getByTestId("conflict-Q3")).toContainText("Raymond Cho declined Q3");
-  await expect(page.getByTestId("resp-Q3-b5")).toHaveAttribute("data-response", "declined");
+  await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "declined");
   await expect(page.getByTestId("reverify")).toContainText("still free");
   await expect(page.getByTestId("conflict-Q3")).toContainText("option 2 on the shortlist the partners approved");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and re-send to board");
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("resp-Q3-b5")).toHaveAttribute("data-response", "pending");
+  await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "pending");
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the board");
   await page.getByTestId("sim-board-confirms").click();
-  await expect(page.getByTestId("resp-Q3-b5")).toHaveAttribute("data-response", "confirmed");
+  await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "confirmed");
   await expect(page.getByTestId("primary-action")).toHaveText("Lock and book");
 
   // Beat 5: lock and book.
@@ -126,15 +126,15 @@ test("Beat 0 to 5: Cumberland from not started to locked", async ({ page }) => {
 
   // Beat 6: scale picture.
   await page.getByTestId("ea-all").click();
-  await expect(page.getByTestId("rows-view").locator("[data-testid^='row-pc']")).toHaveCount(15);
-  await expect(page.getByTestId("count-confirmed")).toHaveText("16 of 60");
-  await expect(page.getByTestId("row-pc7").getByTestId("row-ea")).toHaveText("EA 2");
+  await expect(page.getByTestId("rows-view").locator("[data-row]")).toHaveCount(18);
+  await expect(page.getByTestId("count-confirmed")).toHaveText("20 of 72");
+  await expect(page.getByTestId("row-ontrac").getByTestId("row-ea")).toHaveText("Barbara Palmer");
   await page.getByTestId("view-board").click();
   await expect(page.getByTestId("board-view")).toBeVisible();
-  await expect(page.getByTestId("column-count-5")).toHaveText("4");
+  await expect(page.getByTestId("column-count-5")).toHaveText("5");
   await page.getByTestId("nav-calendar").click();
   await expect(page.getByTestId("year-view")).toBeVisible();
-  await expect(page.getByTestId("cal-locked")).toHaveText("16 confirmed");
+  await expect(page.getByTestId("cal-locked")).toHaveText("20 confirmed");
 
   // Reload: state persists.
   await page.reload();
@@ -150,8 +150,8 @@ test("If time is short: council-at-board starts at Beat 4", async ({ page }) => 
   await page.getByTestId("presenter-toggle").click();
   await page.getByTestId("jump-state").selectOption("council-at-board");
   await page.getByTestId("presenter-toggle").click();
-  await expect(page.getByTestId("row-pc2").getByTestId("row-waiting")).toHaveText("Draft ready for you");
-  await page.getByTestId("row-action-pc2").click();
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Draft ready for you");
+  await page.getByTestId("row-action-ait-worldwide-logistics").click();
   await expect(page.getByTestId("step-4")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to board");
   await expect(page.getByTestId("draft-boardEmail").getByTestId("draft-text")).not.toContainText("{{");
@@ -170,12 +170,12 @@ test("If time is short: council-at-board starts at Beat 4", async ({ page }) => 
 test("Work strip filters, demo buttons hide, reset restores council", async ({ page }) => {
   await signIn(page);
   await page.getByTestId("strip-others").click();
-  await expect(page.getByTestId("rows-view").locator("[data-testid^='row-pc']")).toHaveCount(3);
+  await expect(page.getByTestId("rows-view").locator("[data-row]")).toHaveCount(3);
   await page.getByTestId("strip-others").click();
-  await expect(page.getByTestId("rows-view").locator("[data-testid^='row-pc']")).toHaveCount(5);
+  await expect(page.getByTestId("rows-view").locator("[data-row]")).toHaveCount(5);
 
   // Hide demo buttons: the waiting state keeps its text, loses the button.
-  await page.getByTestId("row-action-pc5").click();
+  await page.getByTestId("row-action-sparkstone-electrical-group").click();
   await expect(page.getByTestId("sim-partner-replies")).toBeVisible();
   await page.keyboard.press("Shift+P");
   await page.getByTestId("toggle-demo-buttons").click();

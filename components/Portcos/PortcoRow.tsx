@@ -33,6 +33,7 @@ export function PortcoRow({ portco }: { portco: Portco }) {
       className="grid items-center gap-4 rounded-lg border border-line bg-panel px-4 py-3"
       style={{ gridTemplateColumns: eaFilter === "all" ? "220px 110px 150px 1fr 190px 190px" : "220px 150px 1fr 190px 190px" }}
       data-testid={`row-${portco.id}`}
+      data-row={portco.id}
     >
       <div className="min-w-0">
         <Link href={`/portcos/${portco.id}`} className="block truncate text-[13.5px] font-semibold hover:text-brand">

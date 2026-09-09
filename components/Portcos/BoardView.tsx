@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getBoardMembers } from "@/lib/data";
+import { getBoardMembers, getEa } from "@/lib/data";
 import { portcoPhase, portcoStage, primaryAction } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import type { Portco, Stage } from "@/lib/types";
@@ -49,7 +49,7 @@ function BoardCard({ portco }: { portco: Portco }) {
       <div className="text-[13px] font-semibold leading-snug">{portco.name}</div>
       <div className="text-[11.5px] text-mut">
         {portco.city}
-        {eaFilter === "all" ? <span> · {portco.eaId === "ea1" ? "Peggy" : portco.eaId.toUpperCase()}</span> : null}
+        {eaFilter === "all" ? <span> · {getEa(portco.eaId)?.name.split(" ")[0] ?? portco.eaId}</span> : null}
       </div>
       <div className="mt-2 flex flex-wrap gap-1">
         {QUARTERS.filter((q) => portco.targetQuarters.includes(q)).map((q) => (

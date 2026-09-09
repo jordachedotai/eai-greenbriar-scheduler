@@ -1,6 +1,121 @@
 [
-  { "id": "p1", "name": "Alan Whitfield", "title": "Managing Partner", "homeCity": "New York, NY" },
-  { "id": "p2", "name": "Maria Castellano", "title": "Partner", "homeCity": "Greenwich, CT" },
-  { "id": "p3", "name": "David Okafor", "title": "Partner", "homeCity": "Chicago, IL" },
-  { "id": "p4", "name": "Susan Lindqvist", "title": "Operating Partner", "homeCity": "New York, NY" }
+  {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/michael-wang.jpg"
+  },
+  {
+    "id": "jill-raker",
+    "name": "Jill Raker",
+    "title": "Managing Partner",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/jill-raker.jpg"
+  },
+  {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+  },
+  {
+    "id": "max-elgart",
+    "name": "Max Elgart",
+    "title": "Principal",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/max-elgart.jpg"
+  },
+  {
+    "id": "ben-cox",
+    "name": "Ben Cox",
+    "title": "Principal",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/ben-cox.jpg"
+  },
+  {
+    "id": "james-peng",
+    "name": "James Peng",
+    "title": "Director",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/james-peng.jpg"
+  },
+  {
+    "id": "will-stewart",
+    "name": "Will Stewart",
+    "title": "Vice President",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/will-stewart.jpg"
+  },
+  {
+    "id": "jack-morris",
+    "name": "Jack Morris",
+    "title": "Director",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/jack-morris.jpg"
+  },
+  {
+    "id": "matt-burke",
+    "name": "Matt Burke",
+    "title": "Managing Director",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/matt-burke.jpg"
+  },
+  {
+    "id": "andrew-witherell",
+    "name": "Andrew Witherell",
+    "title": "Vice President",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/andrew-witherell.jpg"
+  },
+  {
+    "id": "john-landry",
+    "name": "John Landry",
+    "title": "Vice President",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/john-landry.jpg"
+  },
+  {
+    "id": "noah-roy",
+    "name": "Noah Roy",
+    "title": "Managing Partner",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/noah-roy.jpg"
+  },
+  {
+    "id": "james-karle",
+    "name": "James Karle",
+    "title": "Director",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/james-karle.jpg"
+  },
+  {
+    "id": "frances-sperry",
+    "name": "Frances Sperry",
+    "title": "Vice President",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/frances-sperry.jpg"
+  },
+  {
+    "id": "john-cofer",
+    "name": "John Cofer",
+    "title": "Principal",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/john-cofer.jpg"
+  },
+  {
+    "id": "noah-blitzer",
+    "name": "Noah Blitzer",
+    "title": "Managing Director",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/noah-blitzer.jpg"
+  },
+  {
+    "id": "michael-weiss",
+    "name": "Michael Weiss",
+    "title": "Managing Partner",
+    "homeCity": "Rye, NY",
+    "avatar": "/avatars/michael-weiss.jpg"
+  }
 ]

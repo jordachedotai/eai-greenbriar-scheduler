@@ -10,7 +10,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Opens on http://localhost:3000 at the mock sign-in. Lands on Portcos with the `council` state: fifteen portcos across three EAs, Cumberland not started.
+Opens on http://localhost:3000 at the mock sign-in. Lands on Portcos with the `council` state: eighteen real portfolio companies across four EAs, AIT Worldwide Logistics not started.
 
 ## Commands
 
@@ -19,6 +19,7 @@ Opens on http://localhost:3000 at the mock sign-in. Lands on Portcos with the `c
 | `npm run dev` | Dev server |
 | `npm run build` | Production build, also type-checks |
 | `npm test` | Unit tests for `lib/scheduling.ts` |
+| `npm run import:source` | Build `partners.json`, `portcos.json`, `board-members.json` from `data/source` plus the fiction table in the script |
 | `npm run gen:fixtures` | Rebuild `data/availability.json` and `data/venues.json` |
 | `npm run gen:states` | Rebuild `data/demo-states.json` by running the app's own transitions with the mock templates. Run after `gen:fixtures` |
 | `npm run gen:mock` | Write `data/mock-agent-outputs.json` as a preview of every agent step. Add `-- --live` to preview Claude's wording. The app does not read this file |
@@ -27,7 +28,7 @@ Opens on http://localhost:3000 at the mock sign-in. Lands on Portcos with the `c
 
 ## Regenerating data
 
-Order matters: `gen:fixtures`, then `gen:states`. Names files (`partners.json`, `eas.json`, `portcos.json`, `board-members.json`) are hand-edited and never overwritten.
+Order matters: `import:source`, then `gen:fixtures`, then `gen:states`. `eas.json` is hand-edited. The other names files come from the import.
 
 ## Modes
 

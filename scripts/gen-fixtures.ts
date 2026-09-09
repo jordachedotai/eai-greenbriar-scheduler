@@ -16,12 +16,16 @@ const ROOT = resolve(__dirname, "..");
 // The walkthrough portco is thin in Q3: exactly two days when its partners
 // are all free. Partners outside its set are made busy on those two days so
 // no other portco lists them, which keeps the calendar free of pile-ups.
-// No portco may use all four partners, or its windows would be a subset of
-// the walkthrough portco's and it would have no Q3 at all.
-const WALKTHROUGH = "pc2";
+// No portco may have a partner set around or inside the walkthrough's, or
+// its Q3 would be empty or collide with the walkthrough's two days.
+const WALKTHROUGH = "ait-worldwide-logistics";
 const THIN: Record<string, Quarter> = { [WALKTHROUGH]: "Q3" };
 const THIN_COUNT = 2;
 const MIN_NORMAL = 4;
+// The walkthrough portco needs headroom: in the council state other portcos
+// that share its partners already hold days, and it must still offer three
+// options per quarter.
+const WALK_MIN = 8;
 
 // US holidays and slow weeks in 2027, skipped for everyone.
 const CLOSED = new Set([
@@ -147,14 +151,17 @@ function verify(blocks: AvailabilityBlock[]): { ok: boolean; report: string[] } 
   let ok = true;
   const walk = (portcos as PortcoSeed[]).find((p) => p.id === WALKTHROUGH)!;
   for (const portco of portcos as PortcoSeed[]) {
-    if (portco.partnerIds.length === 4 || (portco.id !== WALKTHROUGH && portco.partnerIds.every((id) => walk.partnerIds.includes(id)))) {
-      report.push(`${portco.id} uses a partner set inside the walkthrough portco's set. Change it in data/portcos.json.`);
+    const inside = portco.id !== WALKTHROUGH && portco.partnerIds.every((id) => walk.partnerIds.includes(id));
+    const around = portco.id !== WALKTHROUGH && walk.partnerIds.every((id) => portco.partnerIds.includes(id));
+    if (inside || around) {
+      report.push(`${portco.id} has a partner set ${inside ? "inside" : "around"} the walkthrough portco's set. Its Q3 would collide or be empty.`);
       ok = false;
     }
     const res = findWindows({ portco, partners: partners as Partner[], boardMembers: boardMembers as BoardMember[], availability: blocks, year: YEAR });
     const counts = portco.targetQuarters.map((q) => {
       const n = res[q].windows.length;
-      const want = THIN[portco.id] === q ? n === THIN_COUNT : n >= MIN_NORMAL;
+      const floor = portco.id === WALKTHROUGH ? WALK_MIN : MIN_NORMAL;
+      const want = THIN[portco.id] === q ? n === THIN_COUNT : n >= floor;
       if (!want) ok = false;
       return `${q}=${n}${THIN[portco.id] === q ? "*" : ""}`;
     });
@@ -361,6 +368,198 @@ const VENUES: Record<string, { hotels: [string, number, string][]; restaurants: 
       ["Poole's Diner", 0.3, "Southern, lively, better for a relaxed night"],
     ],
   },
+  "Itasca, IL": {
+    hotels: [
+      ["Westin Chicago Northwest", 0.4, "Across the road from the office park, quiet, reliable"],
+      ["Eaglewood Resort and Spa", 1.2, "Larger rooms, good for a longer stay"],
+      ["Hyatt Place Itasca", 0.6, "Simple, near the Metra, easy for early flights out of O'Hare"],
+    ],
+    restaurants: [
+      ["Gibsons Bar and Steakhouse Oak Brook", 6.5, "Classic Chicago steakhouse, private rooms, needs a car"],
+      ["Reserve 22", 4.1, "Glen Ellyn, chef-driven, quiet enough for a board"],
+      ["Aliano's Ristorante", 4.8, "Italian, family run, easy for a group"],
+    ],
+  },
+  "Parkville, MO": {
+    hotels: [
+      ["Hotel Kansas City", 9.5, "Downtown, converted club, good bar, needs a car"],
+      ["Loews Kansas City", 9.7, "Downtown, newer, quiet"],
+      ["Argosy Casino Hotel", 4.2, "Riverside, closest to the office, simple"],
+    ],
+    restaurants: [
+      ["Piropos", 1.8, "Argentine, Briarcliff Village, river view, private room"],
+      ["Pierpont's at Union Station", 9.8, "Classic, private rooms, partners have been before"],
+      ["Stone Canyon Pizza", 0.3, "Downtown Parkville, casual, better for lunch"],
+    ],
+  },
+  "Henderson, NV": {
+    hotels: [
+      ["Green Valley Ranch Resort", 2.1, "Quiet, off the Strip, partners know it"],
+      ["The Westin Lake Las Vegas", 8.4, "Resort, needs a car, better for a longer stay"],
+      ["Hilton Garden Inn Henderson", 1.3, "Closest to the office, simple"],
+    ],
+    restaurants: [
+      ["Hank's Fine Steaks", 2.1, "Inside Green Valley Ranch, private dining, a partner favorite"],
+      ["Todd's Unique Dining", 3.0, "Local, chef-owned, quiet"],
+      ["Bottiglia Cucina", 2.1, "Italian, lively, good for a mixed group"],
+    ],
+  },
+  "Delaware, OH": {
+    hotels: [
+      ["Hilton Columbus at Easton", 16.0, "Easton, reliable, needs a car"],
+      ["Le Meridien Columbus, The Joseph", 22.0, "Short North, boutique, good restaurant"],
+      ["Hampton Inn Delaware", 1.0, "Closest to the office, simple"],
+    ],
+    restaurants: [
+      ["Veritas", 22.0, "Downtown Columbus, tasting menu, private room, needs a car"],
+      ["Lindey's", 23.0, "German Village, classic, quiet enough for a board"],
+      ["Amato's Woodfired Pizza", 0.8, "Downtown Delaware, casual, better for lunch"],
+    ],
+  },
+  "Chandler, AZ": {
+    hotels: [
+      ["Sheraton Grand at Wild Horse Pass", 6.5, "Resort, quiet, partners have stayed before"],
+      ["Crowne Plaza Phoenix Chandler Golf Resort", 2.3, "Closer, simple, reliable"],
+      ["Hilton Phoenix Chandler", 1.6, "Closest to the office"],
+    ],
+    restaurants: [
+      ["Kai", 6.5, "Wild Horse Pass, tasting menu, memorable, book early"],
+      ["The Keg Steakhouse and Bar Chandler", 2.0, "Steakhouse, private room, easy"],
+      ["Sibley's West", 1.8, "Downtown Chandler, casual, better for a relaxed night"],
+    ],
+  },
+  "Willingboro, NJ": {
+    hotels: [
+      ["Four Seasons Hotel Philadelphia", 21.0, "Center City, quiet, needs a car"],
+      ["The Rittenhouse", 21.5, "Rittenhouse Square, classic, partners know it"],
+      ["Courtyard Mount Laurel", 9.0, "Closest, simple, reliable"],
+    ],
+    restaurants: [
+      ["Vetri Cucina", 21.0, "Philadelphia, tasting menu, private room, needs a car"],
+      ["The Capital Grille Cherry Hill", 11.0, "Reliable, private room seats twelve"],
+      ["Chick's Deli", 12.0, "Cherry Hill, casual, better for lunch"],
+    ],
+  },
+  "Everett, WA": {
+    hotels: [
+      ["Hotel Indigo Seattle Everett Waterfront", 2.2, "On the water, quiet, good restaurant"],
+      ["Delta Hotels Seattle Everett", 3.0, "Larger, reliable, near the highway"],
+      ["Hampton Inn Seattle Everett", 1.0, "Closest to the office, simple"],
+    ],
+    restaurants: [
+      ["Bluewater Distilling", 2.2, "Waterfront, private room, lively"],
+      ["Anthony's HomePort Everett", 2.5, "Seafood on the marina, seats a group"],
+      ["Emory's on Silver Lake", 5.5, "Lakeside, quiet, better for conversation"],
+    ],
+  },
+  "Addison, IL": {
+    hotels: [
+      ["Westin Chicago Lombard", 3.5, "Yorktown Center, reliable, quiet"],
+      ["Hyatt Regency Schaumburg", 9.0, "Larger, near the highway"],
+      ["Hampton Inn Addison", 1.2, "Closest to the office, simple"],
+    ],
+    restaurants: [
+      ["Gibsons Bar and Steakhouse Oak Brook", 5.0, "Classic Chicago steakhouse, private rooms"],
+      ["Capri Ristorante Italiano", 2.4, "Italian, family run, easy for a group"],
+      ["Harry Caray's Lombard", 3.6, "Steakhouse, private room, partners have been before"],
+    ],
+  },
+  "Tucson, AZ": {
+    hotels: [
+      ["The Ritz-Carlton Dove Mountain", 20.0, "Resort, memorable, needs a car and time"],
+      ["Hotel Congress", 5.2, "Downtown, historic, lively"],
+      ["Marriott Tucson University Park", 4.0, "Reliable, near the university, simple"],
+    ],
+    restaurants: [
+      ["Charro Steak and Del Rey", 5.0, "Downtown, steakhouse, private room"],
+      ["The Parish", 6.5, "Southern, quiet, good for conversation"],
+      ["El Charro Cafe", 5.3, "Tucson institution, lively, better for a relaxed night"],
+    ],
+  },
+  "Valencia, CA": {
+    hotels: [
+      ["Hyatt Regency Valencia", 1.5, "Closest full-service hotel, quiet, reliable"],
+      ["Courtyard Santa Clarita Valencia", 1.2, "Simple, near the office"],
+      ["The Langham Huntington Pasadena", 32.0, "Pasadena, upscale, needs a car and time"],
+    ],
+    restaurants: [
+      ["Salt Creek Grille Valencia", 1.4, "Steak and seafood, private room, easy"],
+      ["Wolf Creek Restaurant", 2.0, "Brewery kitchen, casual, good for a mixed group"],
+      ["The Old Town Junction", 3.5, "Newhall, chef-driven, quiet"],
+    ],
+  },
+  "Plymouth Meeting, PA": {
+    hotels: [
+      ["Philadelphia Marriott West", 1.5, "Closest to the office, reliable"],
+      ["Four Seasons Hotel Philadelphia", 15.0, "Center City, quiet, needs a car"],
+      ["Sheraton Valley Forge", 7.5, "King of Prussia, larger, near the highway"],
+    ],
+    restaurants: [
+      ["Redstone American Grill", 0.9, "Plymouth Meeting, private room, easy"],
+      ["Bluefin Sushi", 2.5, "East Norriton, quiet, better for a small group"],
+      ["Vetri Cucina", 15.0, "Philadelphia, tasting menu, memorable, needs a car"],
+    ],
+  },
+  "New York, NY": {
+    hotels: [
+      ["The Langham New York, Fifth Avenue", 0.8, "Midtown, quiet, partners know it"],
+      ["Park Hyatt New York", 1.4, "Near Central Park, large rooms"],
+      ["Moxy NYC Chelsea", 0.6, "Closest, lively, better for a younger group"],
+    ],
+    restaurants: [
+      ["Keens Steakhouse", 0.5, "Herald Square, private rooms, a New York classic"],
+      ["The Modern", 1.2, "MoMA, private dining, memorable"],
+      ["Cote", 1.0, "Korean steakhouse, lively, book early"],
+    ],
+  },
+  "East Alton, IL": {
+    hotels: [
+      ["Four Seasons Hotel St. Louis", 21.0, "Downtown St. Louis, quiet, needs a car"],
+      ["The Chase Park Plaza", 26.0, "Central West End, partners know it"],
+      ["Holiday Inn Alton", 3.5, "Closest to the airport, simple"],
+    ],
+    restaurants: [
+      ["Tony's", 21.0, "Downtown St. Louis, classic, private room"],
+      ["Cinder House", 21.0, "Four Seasons rooftop, river view"],
+      ["Gentelin's on Broadway", 4.0, "Alton, chef-owned, quiet"],
+    ],
+  },
+  "Napa, CA": {
+    hotels: [
+      ["Andaz Napa", 0.5, "Downtown, walkable, good bar"],
+      ["Archer Hotel Napa", 0.4, "Rooftop, quiet rooms, near dinner"],
+      ["Meritage Resort and Spa", 4.0, "Resort, larger, better for a longer stay"],
+    ],
+    restaurants: [
+      ["Angele", 0.6, "Riverfront, French, private room"],
+      ["Charlie Palmer Steak Napa", 0.4, "Inside the Archer, steakhouse, easy"],
+      ["Oenotri", 0.5, "Italian, downtown, lively but not loud"],
+    ],
+  },
+  "Stockton, CA": {
+    hotels: [
+      ["University Plaza Waterfront Hotel", 2.5, "Downtown waterfront, closest full-service"],
+      ["Hilton Stockton", 4.5, "Reliable, near the highway"],
+      ["Wine and Roses Hotel Lodi", 14.0, "Lodi, boutique, memorable, needs a car"],
+    ],
+    restaurants: [
+      ["Papapavlo's Bistro and Bar", 5.0, "Mediterranean, private room, easy"],
+      ["Towne House Restaurant", 14.0, "Lodi, inside Wine and Roses, quiet"],
+      ["Bud's Seafood Grille", 4.8, "Seafood, casual, seats a group"],
+    ],
+  },
+  "Manchester, CT": {
+    hotels: [
+      ["Delamar West Hartford", 12.0, "Boutique, quiet, partners know it"],
+      ["Marriott Hartford Downtown", 10.0, "Downtown, reliable, near dinner"],
+      ["Hilton Garden Inn Glastonbury", 5.0, "Closest, simple"],
+    ],
+    restaurants: [
+      ["Max Downtown", 10.0, "Hartford steakhouse, private room, a partner favorite"],
+      ["Artisanal Burger Company", 0.8, "Manchester, casual, better for lunch"],
+      ["Cavey's", 1.2, "Manchester, French downstairs and Italian upstairs, quiet"],
+    ],
+  },
 };
 
 function generateVenues(): Venue[] {
@@ -377,7 +576,7 @@ function generateVenues(): Venue[] {
 
 function main() {
   let result: { blocks: AvailabilityBlock[]; report: string[]; seed: number } | null = null;
-  for (let seed = 1; seed <= 200; seed++) {
+  for (let seed = 1; seed <= 600; seed++) {
     const rng = mulberry32(seed);
     try {
       const base = generateAvailability(rng, partners as Partner[]);

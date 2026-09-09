@@ -28,12 +28,12 @@ const deps: T.Deps = {
   now: () => new Date((t += 60_000)).toISOString(),
 };
 
-const members = getBoardMembers("pc2");
-const seed = getPortcoSeeds().find((s) => s.id === "pc2")!;
+const members = getBoardMembers("ait-worldwide-logistics");
+const seed = getPortcoSeeds().find((s) => s.id === "ait-worldwide-logistics")!;
 
 const RB = "Monday, September 21";
 
-describe("five-stage flow for Cumberland", () => {
+describe("five-stage flow for AIT Worldwide Logistics", () => {
   let p = hydratePortco(seed);
 
   it("starts idle at stage 1", () => {
@@ -47,7 +47,7 @@ describe("five-stage flow for Cumberland", () => {
     expect(p.quarters.Q3.thin).toBe(true);
     expect(p.quarters.Q3.shortlist).toHaveLength(2);
     expect(p.quarters.Q1.shortlist).toHaveLength(3);
-    expect(p.quarters.Q1.shortlist[0].attendeesFree).toEqual(["p1", "p2", "p3"]);
+    expect(p.quarters.Q1.shortlist[0].attendeesFree).toEqual(["michael-wang", "jill-raker", "niall-mccomiskey", "max-elgart", "ben-cox"]);
     expect(p.quarters.Q1.shortlist[0].attendeesUnknown).toEqual(members.map((m) => m.id));
     expect(portcoPhase(p, members)).toBe("needsDraft");
     const result = mockShortlist(shortlistPayload(p, RB));
@@ -71,11 +71,11 @@ describe("five-stage flow for Cumberland", () => {
     expect(p.waitingOn).toBe("partners");
     expect(p.waitingSince).toBeTruthy();
     expect(primaryAction(p, members)?.enabled).toBe(false);
-    p = T.partnerReplies(p, ["p1"], deps);
+    p = T.partnerReplies(p, ["michael-wang"], deps);
     expect(p.waitingOn).toBe("partners");
-    p = T.partnerReplies(p, ["p2", "p3"], deps);
+    p = T.partnerReplies(p, ["jill-raker", "niall-mccomiskey", "max-elgart", "ben-cox"], deps);
     expect(p.waitingOn).toBe("none");
-    expect(p.log.filter((e) => e.actor === "partner")).toHaveLength(3);
+    expect(p.log.filter((e) => e.actor === "partner")).toHaveLength(5);
     expect(primaryAction(p, members)).toEqual({ label: "Draft the email to the portco", enabled: true });
   });
 
@@ -125,7 +125,9 @@ describe("five-stage flow for Cumberland", () => {
     p = T.lockAndBook(p, deps);
     expect(portcoStage(p)).toBe(5);
     const result = mockLogistics(logisticsPayload(p));
-    const tampered = { picks: { ...result.picks, Q2: { hotelId: "v1", restaurantId: "v4", reason: "wrong city" } } };
+    const wrongCity = deps.venues.find((v) => v.city !== p.city && v.type === "hotel")!;
+    const wrongRest = deps.venues.find((v) => v.city !== p.city && v.type === "restaurant")!;
+    const tampered = { picks: { ...result.picks, Q2: { hotelId: wrongCity.id, restaurantId: wrongRest.id, reason: "wrong city" } } };
     p = T.applyLogistics(p, tampered, false, 0, deps);
     const picks = p.drafts.logistics.data as Record<string, unknown>;
     expect(picks.Q2).toBeUndefined();
@@ -136,6 +138,6 @@ describe("five-stage flow for Cumberland", () => {
     expect(allLocked(p)).toBe(true);
     expect(portcoPhase(p, members)).toBe("done");
     expect(primaryAction(p, members)).toBeNull();
-    expect(p.quarters.Q3.logistics?.hotel.city).toBe("Nashville, TN");
+    expect(p.quarters.Q3.logistics?.hotel.city).toBe("Itasca, IL");
   });
 });

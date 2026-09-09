@@ -21,7 +21,7 @@ await t("sign-in").click();
 await t("rows-view").waitFor();
 await shot("1-portcos-rows");
 
-await t("row-action-pc2").click();
+await t("row-action-ait-worldwide-logistics").click();
 await t("primary-action").waitFor();
 await shot("2-detail-idle");
 await primary();

@@ -4,7 +4,7 @@
 export type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
 export const QUARTERS: Quarter[] = ["Q1", "Q2", "Q3", "Q4"];
 
-export type Partner = { id: string; name: string; title: string; homeCity: string };
+export type Partner = { id: string; name: string; title: string; homeCity: string; avatar?: string };
 
 export type EA = { id: string; name: string; title: string; isCurrentUser: boolean; avatar?: string };
 
@@ -24,12 +24,16 @@ export type ExecContact = { name: string; title: string };
 export type PortcoSeed = {
   id: string;
   name: string;
+  sector?: string;
+  website?: string;
+  logo?: string; // local path under /public
   city: string;
-  officeAddress: string;
-  partnerIds: string[];
-  execContact: ExecContact;
+  cityVerify?: boolean; // HQ city needs Peggy to confirm
+  officeAddress: string; // fictional
+  partnerIds: string[]; // the real Greenbriar deal team
+  execContact: ExecContact; // fictional
   targetQuarters: Quarter[];
-  eaId: string;
+  eaId: string; // placeholder until Peggy confirms
 };
 
 export type Stage = 1 | 2 | 3 | 4 | 5;

@@ -11,7 +11,8 @@ export const CONFLICT_QUARTER: Quarter = "Q3";
 // days. The conflict quarter always picks rank 1 so the fallback is rank 2.
 export function simulatedPickRank(portcoId: string, q: Quarter): 1 | 2 | 3 {
   if (q === CONFLICT_QUARTER) return 1;
-  const n = Number(portcoId.replace(/\D/g, "")) || 0;
+  let n = 0;
+  for (const ch of portcoId) n = (n * 31 + ch.charCodeAt(0)) % 1000;
   const others: Quarter[] = ["Q1", "Q2", "Q4"];
   const rank2 = others[n % 3];
   const rank3 = others[(n + 1) % 3];

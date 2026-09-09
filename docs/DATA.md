@@ -62,8 +62,11 @@ type Draft = { kind: "onepager" | "portcoEmail" | "boardEmail" | "logistics"; po
 
 ## Fixtures
 
+### Source files and the import
+`data/source/greenbriar-portfolio.json` and `data/source/greenbriar-team.json` hold the real companies, deal teams, and roster from greenbriar.com. `npm run import:source` builds `partners.json`, `portcos.json`, and `board-members.json` from them, merged with the fictional parts kept in a table inside `scripts/import-source.ts`: office street addresses, executive contacts, board members, and the placeholder EA assignment. Ids are derived from company names, so `SunAuto Tire & Service` is `sunauto-tire-service`.
+
 ### partners.json
-Four partners. Placeholder names until Peggy or Devrin supplies real ones. Keep the ids stable (`p1` to `p4`) so the swap is names only.
+The 17 real deal-team members across the 18 companies, with `avatar`. Ids are the site slugs (`michael-wang`).
 
 ### portcos.json
 Fifteen portcos across three EAs (five each). Peggy's five keep the Phase 3 names and cities (Denver, Nashville, Charlotte, Phoenix, Boston); one slot is reserved for the real portco Peggy gave Devrin. Ten more for EA 2 and EA 3 in new cities (for example Austin, Minneapolis, Atlanta, Salt Lake City, Pittsburgh, Tampa, Kansas City, Columbus, Portland, Raleigh). Each has an office address, an exec contact, three board members, and an `eaId`.
@@ -73,12 +76,12 @@ Staggering for the `council` state: about 3 locked, 3 waiting on the board, 3 wa
 Do not use real company names. Fictional names should sound like mid-market operating companies, not startups.
 
 ### board-members.json
-Three per portco. `calendarVisible: false` for all in the demo.
+Three per portco, fictional. `calendarVisible: false` for all in the demo. AIT's second member, Raymond Cho, is the one who declines Q3 in the demo.
 
 ### availability.json
 Free blocks per partner for all of 2027, generated. Rules for the generator so the demo has texture:
 - Each partner is free roughly 40 percent of weekday working hours.
-- The walkthrough portco (Cumberland) is thin in Q3: exactly two days when its three partners are all free. The fourth partner is made busy on those days so no other portco lists them. No portco uses all four partners, and no other portco's set sits inside Cumberland's, or its Q3 would be empty.
+- The walkthrough portco (AIT) is thin in Q3: exactly two days when its five partners are all free. Every other partner is made busy on those days so no other portco lists them. No other portco's partner set may sit inside or around AIT's, or its Q3 would collide or be empty. The generator checks this.
 - Find dates skips days already held for other portcos that share a partner: while options are out, the first option is penciled in; a pick or lock holds that day. The calendar shows the same days. Demo states are generated in order so the calendar never stacks meetings on one day.
 - Bake in a quarter where a later board decline forces a fallback to the rank-2 window.
 - Blocks are 8am to 6pm local, Monday to Thursday. No Fridays.
@@ -94,8 +97,8 @@ Saved snapshots of the full app state: `fresh` (all 15 not started), `council` (
 
 ## Swap procedure for real data
 
-1. Replace names in `partners.json`, `eas.json`, and `portcos.json`. Keep ids.
-2. Run `npm run gen:fixtures` to rebuild availability and venues for any new city.
+1. Edit `data/source/*.json` or the fiction and EA tables in `scripts/import-source.ts`, then `npm run import:source`. Edit `eas.json` by hand.
+2. Run `npm run gen:fixtures` to rebuild availability and venues for any new city (add the city's venues to the generator first).
 3. Run `npm run gen:states` to rebuild the demo states with the new names.
 4. Run `npm run gen:mock` to preview the wording, or `npm run gen:mock -- --live` to preview Claude's.
 5. Run the Playwright smoke test.
