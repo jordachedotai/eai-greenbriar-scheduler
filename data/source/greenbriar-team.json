@@ -1,0 +1,303 @@
+[
+ {
+  "id": "regg-jones",
+  "name": "Regg Jones",
+  "title": "Chairman & Founding Partner",
+  "group": "investment",
+  "avatar": "/avatars/regg-jones.png"
+ },
+ {
+  "id": "noah-roy",
+  "name": "Noah Roy",
+  "title": "Managing Partner",
+  "group": "investment",
+  "avatar": "/avatars/noah-roy.jpg"
+ },
+ {
+  "id": "niall-mccomiskey",
+  "name": "Niall McComiskey",
+  "title": "Managing Partner",
+  "group": "investment",
+  "avatar": "/avatars/niall-mccomiskey.jpg"
+ },
+ {
+  "id": "jill-raker",
+  "name": "Jill Raker",
+  "title": "Managing Partner",
+  "group": "investment",
+  "avatar": "/avatars/jill-raker.jpg"
+ },
+ {
+  "id": "michael-weiss",
+  "name": "Michael Weiss",
+  "title": "Managing Partner",
+  "group": "investment",
+  "avatar": "/avatars/michael-weiss.jpg"
+ },
+ {
+  "id": "noah-blitzer",
+  "name": "Noah Blitzer",
+  "title": "Managing Director",
+  "group": "investment",
+  "avatar": "/avatars/noah-blitzer.jpg"
+ },
+ {
+  "id": "matt-burke",
+  "name": "Matt Burke",
+  "title": "Managing Director",
+  "group": "investment",
+  "avatar": "/avatars/matt-burke.jpg"
+ },
+ {
+  "id": "michael-wang",
+  "name": "Michael Wang",
+  "title": "Managing Director",
+  "group": "investment",
+  "avatar": "/avatars/michael-wang.jpg"
+ },
+ {
+  "id": "johanna-doherty",
+  "name": "Johanna Doherty",
+  "title": "Managing Director, Investor Relations",
+  "group": "investment",
+  "avatar": "/avatars/johanna-doherty.jpg"
+ },
+ {
+  "id": "john-anderson",
+  "name": "John Anderson",
+  "title": "Operating Partner",
+  "group": "investment",
+  "avatar": "/avatars/john-anderson.jpg"
+ },
+ {
+  "id": "gerald-greenwald",
+  "name": "Gerald Greenwald",
+  "title": "Operating Partner",
+  "group": "investment",
+  "avatar": "/avatars/gerald-greenwald.jpg"
+ },
+ {
+  "id": "james-karle",
+  "name": "James Karle",
+  "title": "Director",
+  "group": "investment",
+  "avatar": "/avatars/james-karle.jpg"
+ },
+ {
+  "id": "jack-morris",
+  "name": "Jack Morris",
+  "title": "Director",
+  "group": "investment",
+  "avatar": "/avatars/jack-morris.jpg"
+ },
+ {
+  "id": "james-peng",
+  "name": "James Peng",
+  "title": "Director",
+  "group": "investment",
+  "avatar": "/avatars/james-peng.jpg"
+ },
+ {
+  "id": "john-cofer",
+  "name": "John Cofer",
+  "title": "Principal",
+  "group": "investment",
+  "avatar": "/avatars/john-cofer.jpg"
+ },
+ {
+  "id": "ben-cox",
+  "name": "Ben Cox",
+  "title": "Principal",
+  "group": "investment",
+  "avatar": "/avatars/ben-cox.jpg"
+ },
+ {
+  "id": "max-elgart",
+  "name": "Max Elgart",
+  "title": "Principal",
+  "group": "investment",
+  "avatar": "/avatars/max-elgart.jpg"
+ },
+ {
+  "id": "john-landry",
+  "name": "John Landry",
+  "title": "Vice President",
+  "group": "investment",
+  "avatar": "/avatars/john-landry.jpg"
+ },
+ {
+  "id": "frances-sperry",
+  "name": "Frances Sperry",
+  "title": "Vice President",
+  "group": "investment",
+  "avatar": "/avatars/frances-sperry.jpg"
+ },
+ {
+  "id": "will-stewart",
+  "name": "Will Stewart",
+  "title": "Vice President",
+  "group": "investment",
+  "avatar": "/avatars/will-stewart.jpg"
+ },
+ {
+  "id": "andrew-witherell",
+  "name": "Andrew Witherell",
+  "title": "Vice President",
+  "group": "investment",
+  "avatar": "/avatars/andrew-witherell.jpg"
+ },
+ {
+  "id": "tucker-catlin",
+  "name": "Tucker Catlin",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": null
+ },
+ {
+  "id": "patrick-conklin",
+  "name": "Patrick Conklin",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": "/avatars/patrick-conklin.jpg"
+ },
+ {
+  "id": "thomas-feinstein",
+  "name": "Thomas Feinstein",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": "/avatars/thomas-feinstein.jpg"
+ },
+ {
+  "id": "allison-hart",
+  "name": "Allison Hart",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": "/avatars/allison-hart.jpg"
+ },
+ {
+  "id": "claire-ponnaiya",
+  "name": "Claire Ponnaiya",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": null
+ },
+ {
+  "id": "henry-riegner",
+  "name": "Henry Riegner",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": "/avatars/henry-riegner.jpg"
+ },
+ {
+  "id": "anay-saraf",
+  "name": "Anay Saraf",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": null
+ },
+ {
+  "id": "jonah-schenk",
+  "name": "Jonah Schenk",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": null
+ },
+ {
+  "id": "ryan-shaw",
+  "name": "Ryan Shaw",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": "/avatars/ryan-shaw.jpg"
+ },
+ {
+  "id": "jonathan-zaremba",
+  "name": "Jonathan Zaremba",
+  "title": "Associate",
+  "group": "investment",
+  "avatar": "/avatars/jonathan-zaremba.jpg"
+ },
+ {
+  "id": "john-clarke",
+  "name": "John Clarke",
+  "title": "Chief Financial Officer",
+  "group": "operations",
+  "avatar": "/avatars/john-clarke.jpg"
+ },
+ {
+  "id": "nicholas-stieber",
+  "name": "Nicholas Stieber",
+  "title": "General Counsel & Chief Compliance Officer",
+  "group": "operations",
+  "avatar": "/avatars/nicholas-stieber.jpg"
+ },
+ {
+  "id": "craig-della-penna",
+  "name": "Craig della Penna",
+  "title": "Senior Advisor, Talent",
+  "group": "operations",
+  "avatar": "/avatars/craig-della-penna.jpg"
+ },
+ {
+  "id": "scott-parkis",
+  "name": "Scott Parkis",
+  "title": "Vice President, Technology",
+  "group": "operations",
+  "avatar": null
+ },
+ {
+  "id": "francine-vitale",
+  "name": "Francine Vitale",
+  "title": "Manager, Compliance & Administration",
+  "group": "operations",
+  "avatar": "/avatars/francine-vitale.jpg"
+ },
+ {
+  "id": "ryan-southard",
+  "name": "Ryan Southard",
+  "title": "Controller",
+  "group": "operations",
+  "avatar": "/avatars/ryan-southard.jpg"
+ },
+ {
+  "id": "christina-wong",
+  "name": "Christina Wong",
+  "title": "Controller, Management Company",
+  "group": "operations",
+  "avatar": "/avatars/christina-wong.jpg"
+ },
+ {
+  "id": "katherine-cassidy",
+  "name": "Katherine Cassidy",
+  "title": "Investor Services Senior Associate",
+  "group": "operations",
+  "avatar": null
+ },
+ {
+  "id": "barbara-palmer",
+  "name": "Barbara Palmer",
+  "title": "Executive Assistant",
+  "group": "operations",
+  "avatar": "/avatars/barbara-palmer.jpg"
+ },
+ {
+  "id": "sofia-hodza",
+  "name": "Sofia Hodza",
+  "title": "Executive Assistant",
+  "group": "operations",
+  "avatar": "/avatars/sofia-hodza.jpg"
+ },
+ {
+  "id": "peggy-conway",
+  "name": "Peggy Conway",
+  "title": "Executive Assistant",
+  "group": "operations",
+  "avatar": "/avatars/peggy-conway.jpg"
+ },
+ {
+  "id": "jaquelyn-hoffman",
+  "name": "Jaquelyn Hoffman",
+  "title": "Executive Assistant",
+  "group": "operations",
+  "avatar": "/avatars/jaquelyn-hoffman.jpg"
+ }
+]

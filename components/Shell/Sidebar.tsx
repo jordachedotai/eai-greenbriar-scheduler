@@ -63,9 +63,19 @@ export function Sidebar() {
         {collapsed ? "»" : "« Collapse"}
       </button>
       <div className={"flex items-center gap-2.5 border-t border-line p-3 " + (collapsed ? "justify-center" : "")} data-testid="avatar">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-[12px] font-semibold text-white">
-          {ea.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-        </div>
+        {ea.avatar ? (
+          <Image
+            src={ea.avatar}
+            alt={ea.name}
+            width={32}
+            height={32}
+            className="h-8 w-8 shrink-0 rounded-full object-cover object-top"
+          />
+        ) : (
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-[12px] font-semibold text-white">
+            {ea.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+          </div>
+        )}
         {!collapsed ? (
           <div className="min-w-0 leading-tight">
             <div className="truncate text-[12.5px] font-medium">{ea.name}</div>

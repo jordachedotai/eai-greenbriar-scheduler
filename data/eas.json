@@ -1,5 +1,30 @@
 [
-  { "id": "ea1", "name": "Peggy Conway", "title": "Executive Assistant", "isCurrentUser": true },
-  { "id": "ea2", "name": "EA 2", "title": "Executive Assistant", "isCurrentUser": false },
-  { "id": "ea3", "name": "EA 3", "title": "Executive Assistant", "isCurrentUser": false }
+  {
+    "id": "ea1",
+    "name": "Peggy Conway",
+    "title": "Executive Assistant",
+    "isCurrentUser": true,
+    "avatar": "/avatars/peggy-conway.jpg"
+  },
+  {
+    "id": "ea2",
+    "name": "Barbara Palmer",
+    "title": "Executive Assistant",
+    "isCurrentUser": false,
+    "avatar": "/avatars/barbara-palmer.jpg"
+  },
+  {
+    "id": "ea3",
+    "name": "Sofia Hodza",
+    "title": "Executive Assistant",
+    "isCurrentUser": false,
+    "avatar": "/avatars/sofia-hodza.jpg"
+  },
+  {
+    "id": "ea4",
+    "name": "Jaquelyn Hoffman",
+    "title": "Executive Assistant",
+    "isCurrentUser": false,
+    "avatar": "/avatars/jaquelyn-hoffman.jpg"
+  }
 ]

@@ -1,0 +1,584 @@
+[
+ {
+  "slug": "ait-worldwide-logistics",
+  "name": "AIT Worldwide Logistics",
+  "sector": "LOGISTICS",
+  "site": "AITWORLDWIDE.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/AIT-Resized-300x141.jpg",
+  "team": [
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "jill-raker",
+    "name": "Jill Raker",
+    "title": "Managing Partner",
+    "avatar": "/avatars/jill-raker.jpg"
+   },
+   {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+   },
+   {
+    "id": "max-elgart",
+    "name": "Max Elgart",
+    "title": "Principal",
+    "avatar": "/avatars/max-elgart.jpg"
+   },
+   {
+    "id": "ben-cox",
+    "name": "Ben Cox",
+    "title": "Principal",
+    "avatar": "/avatars/ben-cox.jpg"
+   }
+  ],
+  "city": "Itasca, IL",
+  "cityVerify": false,
+  "logoLocal": "/logos/ait-worldwide-logistics.jpg"
+ },
+ {
+  "slug": "eshipping",
+  "name": "eShipping",
+  "sector": "BUSINESS SERVICES",
+  "site": "ESHIPPING.BIZ",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/eShipping-300x70.png",
+  "team": [
+   {
+    "id": "jill-raker",
+    "name": "Jill Raker",
+    "title": "Managing Partner",
+    "avatar": "/avatars/jill-raker.jpg"
+   },
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "james-peng",
+    "name": "James Peng",
+    "title": "Director",
+    "avatar": "/avatars/james-peng.jpg"
+   },
+   {
+    "id": "will-stewart",
+    "name": "Will Stewart",
+    "title": "Vice President",
+    "avatar": "/avatars/will-stewart.jpg"
+   }
+  ],
+  "city": "Parkville, MO",
+  "cityVerify": false,
+  "logoLocal": "/logos/eshipping.png"
+ },
+ {
+  "slug": "fragilepak",
+  "name": "FragilePAK",
+  "sector": "LOGISTICS",
+  "site": "FRAGILEPAK.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/FragilePak-Logo-1-300x62.jpg",
+  "team": [
+   {
+    "id": "jill-raker",
+    "name": "Jill Raker",
+    "title": "Managing Partner",
+    "avatar": "/avatars/jill-raker.jpg"
+   },
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "jack-morris",
+    "name": "Jack Morris",
+    "title": "Director",
+    "avatar": "/avatars/jack-morris.jpg"
+   }
+  ],
+  "city": "Henderson, NV",
+  "cityVerify": false,
+  "logoLocal": "/logos/fragilepak.jpg"
+ },
+ {
+  "slug": "jegs",
+  "name": "JEGS Automotive",
+  "sector": "VEHICLE AFTERMARKET SUPPORT",
+  "site": "JEGS.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/JEGS-Logo-300x91.jpeg",
+  "team": [
+   {
+    "id": "matt-burke",
+    "name": "Matt Burke",
+    "title": "Managing Director",
+    "avatar": "/avatars/matt-burke.jpg"
+   },
+   {
+    "id": "andrew-witherell",
+    "name": "Andrew Witherell",
+    "title": "Vice President",
+    "avatar": "/avatars/andrew-witherell.jpg"
+   }
+  ],
+  "city": "Delaware, OH",
+  "cityVerify": false,
+  "logoLocal": "/logos/jegs.jpeg"
+ },
+ {
+  "slug": "ontrac",
+  "name": "OnTrac",
+  "sector": "LOGISTICS",
+  "site": "ONTRAC.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Ontrac-300x55.jpg",
+  "team": [
+   {
+    "id": "jill-raker",
+    "name": "Jill Raker",
+    "title": "Managing Partner",
+    "avatar": "/avatars/jill-raker.jpg"
+   },
+   {
+    "id": "max-elgart",
+    "name": "Max Elgart",
+    "title": "Principal",
+    "avatar": "/avatars/max-elgart.jpg"
+   },
+   {
+    "id": "will-stewart",
+    "name": "Will Stewart",
+    "title": "Vice President",
+    "avatar": "/avatars/will-stewart.jpg"
+   }
+  ],
+  "city": "Chandler, AZ",
+  "cityVerify": true,
+  "logoLocal": "/logos/ontrac.jpg"
+ },
+ {
+  "slug": "radwell-international",
+  "name": "Radwell International",
+  "sector": "DISTRIBUTION",
+  "site": "RADWELL.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Radwell-Logo-300x97.jpg",
+  "team": [
+   {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+   },
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "max-elgart",
+    "name": "Max Elgart",
+    "title": "Principal",
+    "avatar": "/avatars/max-elgart.jpg"
+   },
+   {
+    "id": "john-landry",
+    "name": "John Landry",
+    "title": "Vice President",
+    "avatar": "/avatars/john-landry.jpg"
+   }
+  ],
+  "city": "Willingboro, NJ",
+  "cityVerify": false,
+  "logoLocal": "/logos/radwell-international.jpg"
+ },
+ {
+  "slug": "randys",
+  "name": "RANDYS",
+  "sector": "VEHICLE AFTERMARKET SUPPORT",
+  "site": "RANDYSWORLDWIDE.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Randys.png",
+  "team": [
+   {
+    "id": "noah-roy",
+    "name": "Noah Roy",
+    "title": "Managing Partner",
+    "avatar": "/avatars/noah-roy.jpg"
+   },
+   {
+    "id": "matt-burke",
+    "name": "Matt Burke",
+    "title": "Managing Director",
+    "avatar": "/avatars/matt-burke.jpg"
+   },
+   {
+    "id": "james-karle",
+    "name": "James Karle",
+    "title": "Director",
+    "avatar": "/avatars/james-karle.jpg"
+   }
+  ],
+  "city": "Everett, WA",
+  "cityVerify": false,
+  "logoLocal": "/logos/randys.png"
+ },
+ {
+  "slug": "renuity",
+  "name": "Renuity",
+  "sector": "DISTRIBUTION",
+  "site": "RENUITYHOME.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/renuity_LOGO_Pantone_540C_631C_01-300x167.jpg",
+  "team": [
+   {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+   },
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "frances-sperry",
+    "name": "Frances Sperry",
+    "title": "Vice President",
+    "avatar": "/avatars/frances-sperry.jpg"
+   }
+  ],
+  "city": "Charlotte, NC",
+  "cityVerify": false,
+  "logoLocal": "/logos/renuity.jpg"
+ },
+ {
+  "slug": "sparkstone-electrical-group",
+  "name": "Sparkstone Electrical Group",
+  "sector": "DISTRIBUTION",
+  "site": "SPARKSTONE.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Sparkstone-300x101.png",
+  "team": [
+   {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+   },
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "james-peng",
+    "name": "James Peng",
+    "title": "Director",
+    "avatar": "/avatars/james-peng.jpg"
+   },
+   {
+    "id": "will-stewart",
+    "name": "Will Stewart",
+    "title": "Vice President",
+    "avatar": "/avatars/will-stewart.jpg"
+   }
+  ],
+  "city": "Addison, IL",
+  "cityVerify": false,
+  "logoLocal": "/logos/sparkstone-electrical-group.png"
+ },
+ {
+  "slug": "sunauto-tire-service",
+  "name": "SunAuto Tire & Service",
+  "sector": "VEHICLE AFTERMARKET SUPPORT",
+  "site": "SUN.AUTO",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/SunAuto-Logo-300x137.jpg",
+  "team": [
+   {
+    "id": "matt-burke",
+    "name": "Matt Burke",
+    "title": "Managing Director",
+    "avatar": "/avatars/matt-burke.jpg"
+   },
+   {
+    "id": "john-cofer",
+    "name": "John Cofer",
+    "title": "Principal",
+    "avatar": "/avatars/john-cofer.jpg"
+   },
+   {
+    "id": "andrew-witherell",
+    "name": "Andrew Witherell",
+    "title": "Vice President",
+    "avatar": "/avatars/andrew-witherell.jpg"
+   }
+  ],
+  "city": "Tucson, AZ",
+  "cityVerify": false,
+  "logoLocal": "/logos/sunauto-tire-service.jpg"
+ },
+ {
+  "slug": "sunvair-aerospace-group",
+  "name": "Sunvair Aerospace Group",
+  "sector": "AEROSPACE & DEFENSE",
+  "site": "SUNVAIRGROUP.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Sunvair-logo-lg-300x89.png",
+  "team": [
+   {
+    "id": "noah-blitzer",
+    "name": "Noah Blitzer",
+    "title": "Managing Director",
+    "avatar": "/avatars/noah-blitzer.jpg"
+   },
+   {
+    "id": "noah-roy",
+    "name": "Noah Roy",
+    "title": "Managing Partner",
+    "avatar": "/avatars/noah-roy.jpg"
+   },
+   {
+    "id": "john-cofer",
+    "name": "John Cofer",
+    "title": "Principal",
+    "avatar": "/avatars/john-cofer.jpg"
+   }
+  ],
+  "city": "Valencia, CA",
+  "cityVerify": false,
+  "logoLocal": "/logos/sunvair-aerospace-group.png"
+ },
+ {
+  "slug": "the-facilities-group",
+  "name": "The Facilities Group",
+  "sector": "BUSINESS SERVICES",
+  "site": "THEFACILITIESGROUP.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/TFG-Logo-300x141.jpg",
+  "team": [
+   {
+    "id": "michael-weiss",
+    "name": "Michael Weiss",
+    "title": "Managing Partner",
+    "avatar": "/avatars/michael-weiss.jpg"
+   },
+   {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+   },
+   {
+    "id": "john-cofer",
+    "name": "John Cofer",
+    "title": "Principal",
+    "avatar": "/avatars/john-cofer.jpg"
+   }
+  ],
+  "city": "Tampa, FL",
+  "cityVerify": false,
+  "logoLocal": "/logos/the-facilities-group.jpg"
+ },
+ {
+  "slug": "towne-park",
+  "name": "Towne",
+  "sector": "BUSINESS SERVICES",
+  "site": "WWW.TOWNE.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Towne_Logo_RGB_Primary-300x165.jpg",
+  "team": [
+   {
+    "id": "michael-weiss",
+    "name": "Michael Weiss",
+    "title": "Managing Partner",
+    "avatar": "/avatars/michael-weiss.jpg"
+   },
+   {
+    "id": "michael-wang",
+    "name": "Michael Wang",
+    "title": "Managing Director",
+    "avatar": "/avatars/michael-wang.jpg"
+   },
+   {
+    "id": "john-cofer",
+    "name": "John Cofer",
+    "title": "Principal",
+    "avatar": "/avatars/john-cofer.jpg"
+   },
+   {
+    "id": "andrew-witherell",
+    "name": "Andrew Witherell",
+    "title": "Vice President",
+    "avatar": "/avatars/andrew-witherell.jpg"
+   }
+  ],
+  "city": "Plymouth Meeting, PA",
+  "cityVerify": true,
+  "logoLocal": "/logos/towne-park.jpg"
+ },
+ {
+  "slug": "vive-collision",
+  "name": "VIVE Collision",
+  "sector": "VEHICLE AFTERMARKET SUPPORT",
+  "site": "VIVECOLLISION.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/VIVE-300x66.png",
+  "team": [
+   {
+    "id": "matt-burke",
+    "name": "Matt Burke",
+    "title": "Managing Director",
+    "avatar": "/avatars/matt-burke.jpg"
+   },
+   {
+    "id": "niall-mccomiskey",
+    "name": "Niall McComiskey",
+    "title": "Managing Partner",
+    "avatar": "/avatars/niall-mccomiskey.jpg"
+   },
+   {
+    "id": "james-karle",
+    "name": "James Karle",
+    "title": "Director",
+    "avatar": "/avatars/james-karle.jpg"
+   },
+   {
+    "id": "john-landry",
+    "name": "John Landry",
+    "title": "Vice President",
+    "avatar": "/avatars/john-landry.jpg"
+   }
+  ],
+  "city": "New York, NY",
+  "cityVerify": false,
+  "logoLocal": "/logos/vive-collision.png"
+ },
+ {
+  "slug": "west-star-aviation",
+  "name": "West Star Aviation",
+  "sector": "AEROSPACE & DEFENSE",
+  "site": "WESTSTARAVIATION.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/WestStar-Aviation-300x93.png",
+  "team": [
+   {
+    "id": "noah-blitzer",
+    "name": "Noah Blitzer",
+    "title": "Managing Director",
+    "avatar": "/avatars/noah-blitzer.jpg"
+   },
+   {
+    "id": "noah-roy",
+    "name": "Noah Roy",
+    "title": "Managing Partner",
+    "avatar": "/avatars/noah-roy.jpg"
+   },
+   {
+    "id": "max-elgart",
+    "name": "Max Elgart",
+    "title": "Principal",
+    "avatar": "/avatars/max-elgart.jpg"
+   }
+  ],
+  "city": "East Alton, IL",
+  "cityVerify": false,
+  "logoLocal": "/logos/west-star-aviation.png"
+ },
+ {
+  "slug": "wineshipping",
+  "name": "Wineshipping",
+  "sector": "LOGISTICS",
+  "site": "WINESHIPPING.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Small-Wineshipping-logo-300x74.jpg",
+  "team": [
+   {
+    "id": "michael-weiss",
+    "name": "Michael Weiss",
+    "title": "Managing Partner",
+    "avatar": "/avatars/michael-weiss.jpg"
+   },
+   {
+    "id": "jill-raker",
+    "name": "Jill Raker",
+    "title": "Managing Partner",
+    "avatar": "/avatars/jill-raker.jpg"
+   },
+   {
+    "id": "ben-cox",
+    "name": "Ben Cox",
+    "title": "Principal",
+    "avatar": "/avatars/ben-cox.jpg"
+   }
+  ],
+  "city": "Napa, CA",
+  "cityVerify": false,
+  "logoLocal": "/logos/wineshipping.jpg"
+ },
+ {
+  "slug": "applied-aerospace-structures-corporation",
+  "name": "Applied Aerospace & Defense",
+  "sector": "AEROSPACE & DEFENSE",
+  "site": "APPLIEDAERO.SPACE",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/AAD-300x101.png",
+  "team": [
+   {
+    "id": "noah-roy",
+    "name": "Noah Roy",
+    "title": "Managing Partner",
+    "avatar": "/avatars/noah-roy.jpg"
+   },
+   {
+    "id": "noah-blitzer",
+    "name": "Noah Blitzer",
+    "title": "Managing Director",
+    "avatar": "/avatars/noah-blitzer.jpg"
+   },
+   {
+    "id": "jack-morris",
+    "name": "Jack Morris",
+    "title": "Director",
+    "avatar": "/avatars/jack-morris.jpg"
+   },
+   {
+    "id": "frances-sperry",
+    "name": "Frances Sperry",
+    "title": "Vice President",
+    "avatar": "/avatars/frances-sperry.jpg"
+   }
+  ],
+  "city": "Stockton, CA",
+  "cityVerify": false,
+  "logoLocal": "/logos/applied-aerospace-structures-corporation.png"
+ },
+ {
+  "slug": "pursuit-aerospace",
+  "name": "Pursuit Aerospace",
+  "sector": "AEROSPACE & DEFENSE",
+  "site": "WWW.PURSUITAERO.COM",
+  "logo": "https://www.greenbriar.com/wp-content/uploads/Pursuit-300x99.png",
+  "team": [
+   {
+    "id": "noah-roy",
+    "name": "Noah Roy",
+    "title": "Managing Partner",
+    "avatar": "/avatars/noah-roy.jpg"
+   },
+   {
+    "id": "noah-blitzer",
+    "name": "Noah Blitzer",
+    "title": "Managing Director",
+    "avatar": "/avatars/noah-blitzer.jpg"
+   },
+   {
+    "id": "james-karle",
+    "name": "James Karle",
+    "title": "Director",
+    "avatar": "/avatars/james-karle.jpg"
+   }
+  ],
+  "city": "Manchester, CT",
+  "cityVerify": false,
+  "logoLocal": "/logos/pursuit-aerospace.png"
+ }
+]

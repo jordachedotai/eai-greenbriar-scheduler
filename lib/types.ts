@@ -6,7 +6,7 @@ export const QUARTERS: Quarter[] = ["Q1", "Q2", "Q3", "Q4"];
 
 export type Partner = { id: string; name: string; title: string; homeCity: string };
 
-export type EA = { id: string; name: string; title: string; isCurrentUser: boolean };
+export type EA = { id: string; name: string; title: string; isCurrentUser: boolean; avatar?: string };
 
 export type BoardMember = {
   id: string;

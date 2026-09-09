@@ -39,3 +39,39 @@ Source: Devrin's flow doc, step 3 "Portco Confirmation" then step 4 "Board Buy-i
 ## Demo data scale
 
 Peggy's real load is 5. The story is 15 across three EAs and 25 across the portfolio. Decision: ship 15 portcos, staggered across stages so the board looks alive (some locked, some waiting on the portco, some not started). Default filter: "My portcos" (Peggy's 5). Toggle: "All EAs" shows 15 with an EA column. Other EAs are placeholders (EA 2, EA 3) until Greenbriar names are confirmed. The 250 LP meetings stay narrated, not in data.
+
+---
+
+# Round 2 feedback (2026-09-09, after the Phase 4 rebuild)
+
+Jordache walked the five-stage build. Login, sidebar, avatar, stepper, pinned action bar, conflict path, and lock all work. Findings:
+
+1. **Board decline screen has two emails on it and no hierarchy.** The sent board email and the re-send draft are both full size. Hard to tell which one is being approved.
+2. **Re-send draft is one run-on paragraph.** The initial emails have subject, greeting, list, ask, sign-off. The re-send collapses to one line. Every draft must render with the same structure and line breaks.
+3. **Type is too small everywhere.** Test a 16px minimum for all body text.
+4. **Feels like a wireframe, not a product.** Same gray everywhere, boxes inside boxes, no elevation, no color except the green button, no icons, thin type.
+5. **After lock, nothing.** "Invites go out from Outlook" is a sentence. There is no invite status, no who-accepted. Needs an after-lock panel.
+6. **People, Templates, Settings are placeholders.** Wants real mock pages. People can be seeded from https://www.greenbriar.com/team/.
+
+## Decisions (pending Jordache's confirmation)
+- Conflict view: collapse the sent email to a one-line "Sent Sep 9, 9:38 AM" summary with an expand link. The re-send draft is the only full-size thing on screen, titled "Re-send to the board: Q3 date change."
+- One email renderer for every draft: subject line, greeting, body paragraphs, a list block where there are dates, the ask, sign-off. Mock outputs stored as structured fields, not a blob. Re-send mock outputs regenerated.
+- Type scale: base 16px, labels and metadata 14px minimum only where truly secondary (timestamps), headings 20 to 28px. Test on the 13-inch laptop that goes in the room.
+- Design pass: a proper typeface, a spacing scale, card elevation, status color system (needs you = blue, waiting on others = amber, locked = green, not started = gray), icons in the sidebar and stepper, initials avatars for every person, brand color in the header bar.
+- After lock: an "Attendance" panel on locked portcos. Per meeting, per attendee: invite accepted, tentative, no reply. Simulated. In production it reads Outlook responses. Travel booked status per partner, simulated.
+- People: seeded from the Greenbriar team page (names, titles, headshots stored locally). Board members and portco contacts stay fictional. Templates: read-only one-pager and four email templates with an Edit button that does nothing yet. Settings: calendar connections per partner, EA roster with portco assignments, meeting defaults.
+
+## Round 2 decisions confirmed by Jordache (2026-09-09, midday)
+- Real Managing Partners and the real deal team per portco replace the fictional partners. Source: each company's page on greenbriar.com.
+- Headshots next to every person's name inside the workflow, not only in the sidebar.
+- Real portfolio companies (18 current) with real logos on rows, board cards, and the detail header.
+- HQ cities looked up from public sources 2026-09-09. Two need Peggy to confirm: OnTrac (Chandler, AZ, or Chantilly, VA after the LaserShip merger) and Towne (Plymouth Meeting, PA, or Annapolis, MD).
+- Four real EAs on the site: Peggy Conway, Barbara Palmer, Sofia Hodza, Jaquelyn Hoffman. Devrin said three. Which portcos each EA owns is unknown; placeholder assignment until Peggy confirms.
+- Board members, portco executive contacts, and office street addresses stay fictional. Nothing on the site names them and nothing gets invented about real people.
+- Six team members have no headshot on the site (Catlin, Ponnaiya, Saraf, Schenk, Parkis, Cassidy). Initials fallback.
+
+## Round 3 (2026-09-09, afternoon)
+1. **Rename "Portcos" to "Portfolio."** Nav item, page title, breadcrumb, work strip labels. In copy say "portfolio company." Code ids stay `portco`.
+2. **Settings gets "Add portfolio company."** A form: name, logo, HQ city, office address, executive contact, board members, assigned EA, Greenbriar team. Saves to the store (localStorage in the demo). New companies appear in Portfolio immediately at "not started."
+3. **Settings gets team assignment per portfolio company.** Pick the Greenbriar people on each company from the People roster with headshots, edit for existing companies, and the change flows into Find dates.
+4. **Find dates opens with an attendee picker, not a sentence.** Headshot, name, title, a Calendar or Email tag, and a checkbox per person. Partners checked by default. Board members and the portco executive listed with the Email tag, since they are asked later, not calendar-checked. Unchecking a partner removes them from the availability intersection. "Add someone" pulls from People.
