@@ -22,7 +22,7 @@ export function QuarterChip({ portco, quarter, variant = "row" }: { portco: Port
   return (
     <div
       title={`${quarter}: ${STATUS_LABEL[qs.status]}${c.label ? `, ${c.label}` : ""}`}
-      className={`flex flex-col gap-px border ${BOX[c.tone]} ${card ? "rounded-[6px] px-1.5 py-[5px]" : "rounded-[8px] px-2.5 py-2"}`}
+      className={`flex min-w-0 flex-col gap-px border ${BOX[c.tone]} ${card ? "rounded-[6px] px-1.5 py-[5px]" : "rounded-[8px] px-2 py-2"}`}
       data-testid={`chip-${quarter}`}
       data-status={qs.status}
       data-final={c.locked ? "true" : "false"}
@@ -34,7 +34,7 @@ export function QuarterChip({ portco, quarter, variant = "row" }: { portco: Port
       {c.label ? (
         <span className={card ? "text-[12px] font-semibold" : "text-[14px] font-semibold"}>{c.label}</span>
       ) : (
-        <span className={card ? "text-[12px] text-idle-text" : "text-[14px] text-idle-text"}>{card ? "none" : "No date"}</span>
+        <span className={card ? "text-[12px] text-idle-text" : "whitespace-nowrap text-[13px] text-idle-text"}>{card ? "none" : "No date"}</span>
       )}
       {!card && c.label ? <span className={`text-[12px] ${TEXT[c.tone]}`}>{c.caption}</span> : null}
     </div>

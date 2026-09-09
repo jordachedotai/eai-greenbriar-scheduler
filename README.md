@@ -23,7 +23,7 @@ Opens on http://localhost:3000 at the mock sign-in. Lands on Portfolio with the 
 | `npm run gen:fixtures` | Rebuild `data/availability.json` and `data/venues.json` |
 | `npm run gen:states` | Rebuild `data/demo-states.json` by running the app's own transitions with the mock templates. Run after `gen:fixtures` |
 | `npm run gen:mock` | Write `data/mock-agent-outputs.json` as a preview of every agent step. Add `-- --live` to preview Claude's wording. The app does not read this file |
-| `npm run test:e2e` | Playwright walkthrough of Cumberland through all five stages in mock mode, plus the jump-ahead path. Starts its own dev server on port 3111 |
+| `npm run test:e2e` | Playwright walkthrough of AIT through all six stages in mock mode, the jump-ahead path, the attendee picker, and the People, Settings, Templates pages. Starts its own dev server on port 3111 |
 | `node scripts/demo-shots.mjs <outDir> [baseUrl]` | Walks the demo and saves a screenshot per beat |
 
 ## Regenerating data
@@ -42,4 +42,4 @@ Saved states: `fresh`, `council` (the room default), `council-at-board` (start a
 
 ## Status
 
-Phase 5 built through 5g: real Greenbriar companies and deal teams, faces and logos, the Portfolio rename, rows, board, and the company page per `reference/design`, one structured email renderer, base type 16px, Attendance after lock, People, Settings (calendar connections, assistants, defaults, team assignment, add a company), Templates, the seeded availability generator in `lib/`. Next: rehearse per `docs/DEMO_SCRIPT.md`. See `BUILD_PLAN.md`.
+Phase 5 complete through batch 2: six stages ending in Send invites, real Greenbriar companies and deal teams, faces and logos, rows, board, and company page per `reference/design`, one structured email renderer with the EA's sign-off, reply emails behind every pick and confirmation with a drawer, options inline and one attachment, venues the tool learns, People, Settings, Templates. Rehearsed per `docs/DEMO_SCRIPT.md`. Pending Peggy: EA ownership and the OnTrac and Towne cities. See `BUILD_PLAN.md`.

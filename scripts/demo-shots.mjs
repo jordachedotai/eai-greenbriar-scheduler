@@ -51,9 +51,19 @@ await primary(); // re-send
 await t("sim-board-confirms").click();
 await primary(); // lock and book
 await agent();
+await t("venue-restaurant-Q1-select").selectOption("__add__");
+await t("venue-restaurant-Q1-name").fill("Gene and Georgetti Rosemont");
+await t("venue-restaurant-Q1-address").fill("9421 West Higgins Road, Rosemont, IL");
+await t("venue-restaurant-Q1-save").click();
+await t("venue-restaurant-Q1-all").click();
 await shot("8-lock-review");
 await primary(); // approve and lock
-await shot("9-locked");
+await shot("9-invites-draft");
+await primary(); // approve and send invites
+await t("sim-invites").click();
+await shot("9b-invites-out");
+await t("sim-invites-all").click();
+await shot("9c-all-accepted");
 await page.keyboard.press("Shift+P");
 
 await t("nav-portfolio").click();
