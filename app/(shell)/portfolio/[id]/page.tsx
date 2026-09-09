@@ -11,7 +11,7 @@ export default function PortcoDetailPage() {
   if (!portco) {
     return (
       <div className="p-8 text-mut">
-        No portco with id {id}. <Link href="/portcos" className="text-brand underline">Back to Portcos</Link>
+        No portfolio company with id {id}. <Link href="/portfolio" className="text-brand underline">Back to Portfolio</Link>
       </div>
     );
   }

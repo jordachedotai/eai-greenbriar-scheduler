@@ -17,6 +17,7 @@ import {
 } from "./payloads";
 import { CONFLICT_QUARTER, conflictMember, replyByDate, simulatedPartnerReplies, simulatedPicks } from "./simulate";
 import * as T from "./transitions";
+import { asEmail } from "./email";
 import type { LogisticsPick, Portco, Quarter } from "./types";
 
 export { draftLabel } from "./transitions";
@@ -59,8 +60,8 @@ function agentOpts(id: string, expectJson: boolean, variant = 0, quarter?: Quart
 export async function draftOnepager(id: string, variant = 0) {
   const p = get(id);
   await withWorking(id, variant === 0 ? "Writing reasons and drafting the one-pager" : "Rewriting the one-pager", async () => {
-    const { data, offline } = await runAgent<T.ShortlistResult>("shortlist", shortlistPayload(p, replyByDate()), agentOpts(id, true, variant));
-    apply(id, (cur) => T.applyOnepager(cur, data, offline, variant, deps));
+    const { data, offline } = await runAgent<{ reasons: Record<string, string[]>; onepager: unknown }>("shortlist", shortlistPayload(p, replyByDate()), agentOpts(id, true, variant));
+    apply(id, (cur) => T.applyOnepager(cur, { reasons: data.reasons, onepager: asEmail(data.onepager) }, offline, variant, deps));
   });
 }
 
@@ -68,8 +69,8 @@ export async function draftPartnerEmail(id: string, variant = 0) {
   const p = get(id);
   await withWorking(id, variant === 0 ? "Drafting the sign-off email to the partners" : "Rewriting the partner email", async () => {
     const payload = partnerEmailPayload(p, p.drafts.onepager?.text ?? "", replyByDate());
-    const { data, offline } = await runAgent<string>("partnerEmail", payload, agentOpts(id, false, variant));
-    apply(id, (cur) => T.applyPartnerEmail(cur, data, offline, variant, deps));
+    const { data, offline } = await runAgent<unknown>("partnerEmail", payload, agentOpts(id, true, variant));
+    apply(id, (cur) => T.applyPartnerEmail(cur, asEmail(data), offline, variant, deps));
   });
 }
 
@@ -77,16 +78,16 @@ export async function draftPortcoEmail(id: string, variant = 0) {
   const p = get(id);
   await withWorking(id, variant === 0 ? "Drafting the proposal email to the portco" : "Rewriting the proposal email", async () => {
     const payload = portcoEmailPayload(p, p.drafts.onepager?.text ?? "", replyByDate());
-    const { data, offline } = await runAgent<string>("portcoEmail", payload, agentOpts(id, false, variant));
-    apply(id, (cur) => T.applyPortcoEmail(cur, data, offline, variant, deps));
+    const { data, offline } = await runAgent<unknown>("portcoEmail", payload, agentOpts(id, true, variant));
+    apply(id, (cur) => T.applyPortcoEmail(cur, asEmail(data), offline, variant, deps));
   });
 }
 
 export async function draftBoardEmail(id: string, variant = 0) {
   const p = get(id);
   await withWorking(id, variant === 0 ? "Drafting the confirmation email to the board" : "Rewriting the board email", async () => {
-    const { data, offline } = await runAgent<string>("boardEmail", boardEmailPayload(p, replyByDate()), agentOpts(id, false, variant));
-    apply(id, (cur) => T.applyBoardEmail(cur, data, offline, variant, deps));
+    const { data, offline } = await runAgent<unknown>("boardEmail", boardEmailPayload(p, replyByDate()), agentOpts(id, true, variant));
+    apply(id, (cur) => T.applyBoardEmail(cur, asEmail(data), offline, variant, deps));
   });
 }
 
@@ -198,7 +199,7 @@ export async function simulateBoardConflict(id: string) {
   if (!declined) return;
   await withWorking(id, "Checking the approved shortlist and re-verifying partner calendars", async () => {
     const payload = conflictPayload(portco, q, member.id, declined, fallback, reverify);
-    const { data, offline } = await runAgent<T.ConflictResult>("conflict", payload, agentOpts(id, true, 0, q));
-    apply(id, (cur) => T.applyConflict(cur, q, member.id, declined, fallback, reverify, data, offline, deps));
+    const { data, offline } = await runAgent<{ note: string; resend: unknown }>("conflict", payload, agentOpts(id, true, 0, q));
+    apply(id, (cur) => T.applyConflict(cur, q, member.id, declined, fallback, reverify, { note: data.note, resend: asEmail(data.resend) }, offline, deps));
   });
 }

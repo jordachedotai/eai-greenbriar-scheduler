@@ -9,6 +9,7 @@ import { waitingLabel } from "@/lib/pipeline";
 import { fmtDate, fmtTime } from "@/lib/scheduling";
 import type { Window } from "@/lib/types";
 import { useDetail } from "@/components/Detail/DetailContext";
+import { Face, resolvePerson, type Person } from "@/components/ui/Face";
 
 // The one-line explanation every stage panel opens with.
 export function Explain({ children, testId = "explain" }: { children: ReactNode; testId?: string }) {
@@ -56,10 +57,11 @@ export function WindowCard({ w, showReason = true }: { w: Window; showReason?: b
         </span>
       </div>
       {showReason && w.reason ? <div className="mt-1 text-[12px] text-txt/80">{w.reason}</div> : null}
-      <div className="mt-1 flex flex-wrap items-center gap-1">
+      <div className="mt-1.5 flex flex-wrap items-center gap-1">
         {w.attendeesFree.map((id) => (
-          <span key={id} className="rounded bg-brand-soft px-1.5 py-0.5 text-[10.5px] text-brand" title={`Free on ${personName(id)}'s calendar`}>
-            {shortName(personName(id))} free
+          <span key={id} className="inline-flex items-center gap-1 rounded-full bg-brand-soft py-0.5 pl-0.5 pr-2 text-[11px] text-brand" title={`Free on ${personName(id)}'s calendar`}>
+            <Face person={resolvePerson(id)} size={18} />
+            {shortName(personName(id))}
           </span>
         ))}
         <span className="text-[11px] text-mut">· dinner {fmtTime(w.dinnerStart)}</span>
@@ -69,13 +71,14 @@ export function WindowCard({ w, showReason = true }: { w: Window; showReason?: b
 }
 
 // Compact list of who has replied and who has not.
-export function ReplyTracker({ rows, testId }: { rows: { name: string; state: "yes" | "pending" | "declined"; note?: string }[]; testId?: string }) {
+export function ReplyTracker({ rows, testId }: { rows: { person: Person; state: "yes" | "pending" | "declined"; note?: string }[]; testId?: string }) {
   return (
     <ul className="flex flex-col gap-1" data-testid={testId}>
       {rows.map((r) => (
-        <li key={r.name} className="flex items-center justify-between rounded border border-line bg-panel px-3 py-1.5 text-[12.5px]">
-          <span>
-            {r.name}
+        <li key={r.person.name} className="flex items-center justify-between rounded border border-line bg-panel px-3 py-1.5 text-[12.5px]">
+          <span className="inline-flex items-center gap-2">
+            <Face person={r.person} size={24} />
+            {r.person.name}
             {r.note ? <span className="text-mut"> · {r.note}</span> : null}
           </span>
           <span

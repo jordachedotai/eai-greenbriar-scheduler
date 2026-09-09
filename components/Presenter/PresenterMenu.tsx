@@ -54,7 +54,7 @@ export function PresenterMenu() {
             onChange={(e) => {
               if (e.target.value) {
                 loadState(e.target.value);
-                router.push("/portcos");
+                router.push("/portfolio");
               }
               e.target.value = "";
             }}
@@ -89,7 +89,7 @@ export function PresenterMenu() {
           disabled={!!working}
           onClick={() => {
             reset();
-            router.push("/portcos");
+            router.push("/portfolio");
           }}
           data-testid="presenter-reset"
         >

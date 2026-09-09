@@ -20,7 +20,7 @@ Rule: anything that must be correct is code. Anything that must read well is Cla
 - SDK: `@anthropic-ai/sdk`. Model `claude-sonnet-5`. Temperature default. Max tokens 1200.
 - Called from a Next.js route handler (`app/api/agent/route.ts`) so the key stays server-side. Key in `.env.local` as `ANTHROPIC_API_KEY`. Never commit it.
 - Every call gets a system prompt from `lib/prompts.ts` and a JSON payload of only the data that step needs. No calendars go to Claude. Claude only ever sees the already-computed windows, names, cities, and the venue list.
-- Ask for JSON back where the output is structured (reasons, venue picks). Ask for plain text for emails and the one-pager.
+- Every step returns JSON. Emails and the one-pager come back as structured fields (subject or title, greeting, paragraphs, date lists, ask, sign-off) so one renderer draws them all with the same line breaks. Reasons and venue picks are JSON too.
 - If the call fails, fall back to mock output for that step and show a small "offline draft" tag. The demo never stalls.
 
 ## Mock mode

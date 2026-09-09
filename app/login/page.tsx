@@ -19,7 +19,7 @@ export default function LoginPage() {
         onSubmit={(e) => {
           e.preventDefault();
           setLoggedIn(true);
-          router.push("/portcos");
+          router.push("/portfolio");
         }}
       >
         <div className="mb-6 flex justify-center">

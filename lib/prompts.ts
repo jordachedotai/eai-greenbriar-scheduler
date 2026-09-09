@@ -92,29 +92,36 @@ Do two things.
 
 1. For every window, write one sentence explaining why it ranks where it does. Mention the weekday, the start time, or its place in the quarter. Where "thin" is true, say plainly that only that many days worked for all partners.
 
-2. Write a one page proposal addressed to the exec contact by first name, from the assistant on behalf of the partners. List the options per quarter with the dinner time. Ask them to pick one option per quarter and reply by the replyBy date. If a quarter is thin, say so in one line. Sign off with eaSignature. Plain text, no markdown, no bullet symbols other than numbers.
+2. Write a one page proposal addressed to the exec contact by first name, from the assistant on behalf of the partners. Ask them to pick one option per quarter and reply by the replyBy date. If a quarter is thin, say so in that quarter's note. Sign off with eaSignature.
 
 Return JSON only, shaped exactly like this:
-{"reasons": {"Q1": ["...", "...", "..."], "Q2": [...], "Q3": [...], "Q4": [...]}, "onepager": "..."}
-The reasons arrays must match the number and order of windows given per quarter.
+{"reasons": {"Q1": ["...", "...", "..."], "Q2": [...], "Q3": [...], "Q4": [...]},
+ "onepager": {"title": "...", "greeting": "Dear ...,", "paragraphs": ["...", "..."], "lists": [{"heading": "Q1, January to March", "note": "only 2 days worked", "items": ["Option 1: Tue Jan 12, 10am to 2pm. Dinner at 6:30pm.", "..."]}], "ask": "...", "signoff": ["...", "..."]}}
+The reasons arrays must match the number and order of windows given per quarter. One list per quarter, one item per window, in the order given. "note" is optional.
 
 Payload:
 ${json(payload)}`;
 
     case "partnerEmail":
-      return `Write the email from the assistant to the Greenbriar partners assigned to this portfolio company, asking them to confirm the attached one-pager is fine to send to the portco. Four sentences or fewer. Address them by first names. Ask for a yes by the replyBy date. Sign off with eaSignature. Plain text only. Start with the subject line on its own first line as "Subject: ...".
+      return `Write the email from the assistant to the Greenbriar partners assigned to this portfolio company, asking them to confirm the attached one-pager is fine to send to the company. Four sentences or fewer. Address them by first names. Ask for a yes by the replyBy date. Sign off with eaSignature.
+
+Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
 
 Payload:
 ${json(payload)}`;
 
     case "portcoEmail":
-      return `Write the cover email that sends the attached one page proposal to the portco exec contact. From the assistant, on behalf of the partners. Five sentences or fewer. Address them by first name. Mention that the proposal is attached, ask them to pick one option per quarter, and give the replyBy date. Sign off with eaSignature. Plain text only. Start with the subject line on its own first line as "Subject: ...".
+      return `Write the cover email that sends the attached one page proposal to the company's exec contact. From the assistant, on behalf of the partners. Five sentences or fewer. Address them by first name. Mention that the proposal is attached, ask them to pick one option per quarter, and give the replyBy date. Sign off with eaSignature.
+
+Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
 
 Payload:
 ${json(payload)}`;
 
     case "boardEmail":
-      return `Write an email to the board members of the portfolio company confirming the meeting dates the company picked. List each quarter with date, time, and dinner. Ask each member to reply yes by the replyBy date, or to tell us right away if a date does not work. Note which Greenbriar partners will attend. Sign off with eaSignature. Plain text only. Start with the subject line on its own first line as "Subject: ...".
+      return `Write an email to the board members of the portfolio company confirming the meeting dates the company picked. Put the four dates in a list, one item per quarter with date, time, and dinner. Ask each member to reply yes by the replyBy date, or to tell us right away if a date does not work. Note which Greenbriar partners will attend. Sign off with eaSignature.
+
+Return JSON only: {"subject": "...", "greeting": "...", "paragraphs": ["..."], "lists": [{"items": ["Q1: Tue Jan 12, 10am to 2pm, dinner at 6:30pm", "..."]}], "ask": "...", "signoff": ["Thank you,", "<eaSignature>"]}
 
 Payload:
 ${json(payload)}`;
@@ -124,11 +131,11 @@ ${json(payload)}`;
 
 Write two things.
 1. "note": two sentences to the assistant explaining what changed and what is proposed. Mention the re-check result plainly.
-2. "resend": one paragraph to the board members proposing the new date and time with dinner, asking for a yes, and noting the original was dropped because of the decline. Sign with eaSignature.
+2. "resend": a short email to the board members proposing the new date and time with dinner, asking for a yes, and noting the original was dropped because of the decline. Same structure as the first board email: subject, greeting, a paragraph, the new date as a one-item list, the ask, sign-off with eaSignature.
 
 If fallback is null, say in the note that the shortlist is exhausted and the assistant should widen the search, and make resend an honest holding message.
 
-Return JSON only: {"note": "...", "resend": "..."}
+Return JSON only: {"note": "...", "resend": {"subject": "...", "greeting": "...", "paragraphs": ["..."], "lists": [{"items": ["..."]}], "ask": "...", "signoff": ["...", "..."]}}
 
 Payload:
 ${json(payload)}`;

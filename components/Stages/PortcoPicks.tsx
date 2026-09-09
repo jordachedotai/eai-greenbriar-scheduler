@@ -31,7 +31,7 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
 
       {!readOnly && phase === "waiting" ? (
         <WaitingState>
-          <SimulateButton label="simulate portco picks" onClick={() => simulatePortcoPicks(portco.id)} testId="sim-portco-picks" />
+          <SimulateButton label="simulate company picks" onClick={() => simulatePortcoPicks(portco.id)} testId="sim-portco-picks" />
         </WaitingState>
       ) : null}
 
@@ -58,7 +58,7 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
         </Section>
       ) : null}
 
-      <Section title="Email to the portco">
+      <Section title="Email to the company">
         {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="portcoEmail" title={`To ${exec}`} />}
       </Section>
     </div>

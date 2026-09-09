@@ -12,6 +12,11 @@ import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { SimulateButton } from "@/components/Presenter/SimulateButton";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Explain, Section, WaitingState } from "./shared";
+import { Face, resolvePerson } from "@/components/ui/Face";
+
+function sentAt(log: { at: string; text: string }[], text: string): string | undefined {
+  return log.find((e) => e.text === text)?.at;
+}
 
 export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
   const { portco, members, phase, working } = useDetail();
@@ -54,7 +59,10 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
         const fallback = portco.quarters[q].shortlist.find((w) => w.id === data.fallbackWindowId);
         return (
           <div key={q} className="mb-4 rounded-lg border border-amber/40 bg-amber-soft/40 p-3" data-testid={`conflict-${q}`}>
-            <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-amber">{personName(data.memberId)} declined {q}</div>
+            <div className="mb-1 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-amber">
+              <Face person={resolvePerson(data.memberId)} size={24} />
+              <span>{personName(data.memberId)} declined {q}</span>
+            </div>
             <p className="text-[13px]" data-testid="conflict-note">{data.note}</p>
             <div className="mt-2 grid grid-cols-[110px_1fr] gap-x-3 gap-y-1 text-[12px]">
               <span className="text-mut">Declined</span>
@@ -69,7 +77,7 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
               </span>
             </div>
             <div className="mt-3">
-              <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board for ${q}`} testId="draft-conflict" />
+              <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${q} date change`} testId="draft-conflict" />
             </div>
           </div>
         );
@@ -84,7 +92,9 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
                   <th className="px-3 py-1.5 font-medium">Quarter</th>
                   <th className="px-3 py-1.5 font-medium">Date</th>
                   {members.map((m) => (
-                    <th key={m.id} className="px-3 py-1.5 font-medium">{shortName(m.name)}</th>
+                    <th key={m.id} className="px-3 py-1.5 font-medium">
+                      <span className="inline-flex items-center gap-1.5"><Face person={resolvePerson(m.id)} size={24} />{shortName(m.name)}</span>
+                    </th>
                   ))}
                 </tr>
               </thead>
@@ -116,7 +126,11 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
       ) : null}
 
       <Section title="Email to the board">
-        {working && !draft ? <Working label={working} /> : <DraftViewer draftKey="boardEmail" title={`To ${names}`} />}
+        {working && !draft ? (
+          <Working label={working} />
+        ) : (
+          <DraftViewer draftKey="boardEmail" title={`Confirmation email to ${names}`} collapsed={conflicts.length > 0 || confirmed} sentAt={sentAt(portco.log, "Sent the confirmation email to the board.")} />
+        )}
       </Section>
     </div>
   );

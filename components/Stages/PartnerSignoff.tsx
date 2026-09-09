@@ -10,13 +10,14 @@ import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { SimulateButton } from "@/components/Presenter/SimulateButton";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Explain, ReplyTracker, Section, WaitingState } from "./shared";
+import { resolvePerson } from "@/components/ui/Face";
 
 export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
   const { portco, phase, working } = useDetail();
   const names = joinNames(portco.partnerIds.map(personName));
   const draft = portco.drafts.partnerEmail;
   const firstQ = portco.targetQuarters[0];
-  const rows = portco.partnerIds.map((pid) => ({ name: personName(pid), state: (portco.quarters[firstQ].internalApprovals[pid] ? "yes" : "pending") as "yes" | "pending" }));
+  const rows = portco.partnerIds.map((pid) => ({ person: resolvePerson(pid), state: (portco.quarters[firstQ].internalApprovals[pid] ? "yes" : "pending") as "yes" | "pending" }));
   const allYes = allPartnersYes(portco);
 
   return (
@@ -25,11 +26,11 @@ export function PartnerSignoff({ readOnly }: { readOnly: boolean }) {
         {readOnly || allYes
           ? `${names} signed off on the one-pager before it went to ${portco.execContact.name}.`
           : phase === "waiting"
-            ? `Sent to ${names}. Each partner replies yes before the portco sees a date. That is the rule.`
+            ? `Sent to ${names}. Each partner replies yes before the company sees a date. That is the rule.`
             : working
               ? `Before ${portco.execContact.name} sees a date, ${names} confirm the one-pager is fine to send.`
               : `Before ${portco.execContact.name} sees a date, ${names} confirm the one-pager is fine to send. Read the email and approve it to send.`}
-        {!readOnly && allYes ? " All partners said yes. Draft the email to the portco." : ""}
+        {!readOnly && allYes ? " All partners said yes. Draft the email to the company." : ""}
       </Explain>
 
       {!readOnly && phase === "waiting" ? (

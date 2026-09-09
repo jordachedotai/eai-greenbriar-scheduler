@@ -1,76 +1,88 @@
 "use client";
 
+// One row per portfolio company, per reference/design/Main.dc.html.
+
 import Link from "next/link";
-import { getBoardMembers, getEa } from "@/lib/data";
-import { portcoPhase, portcoStage, primaryAction, waitingLabel } from "@/lib/pipeline";
-import { sinceLabel } from "@/lib/format";
+import { getBoardMembers } from "@/lib/data";
+import { portcoPhase, portcoStage } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import type { Portco } from "@/lib/types";
-import { QUARTERS, STAGE_NAMES } from "@/lib/types";
+import { QUARTERS } from "@/lib/types";
+import { FaceStack } from "@/components/ui/Face";
+import { LogoTile } from "@/components/ui/LogoTile";
 import { ProgressBar } from "./ProgressBar";
 import { QuarterChip } from "./QuarterChip";
+import { eaName, rowStatus, TONE_PILL } from "./status";
 
-export function waitingText(p: Portco): string {
-  const members = getBoardMembers(p.id);
-  const phase = portcoPhase(p, members);
-  if (phase === "done") return "Done. Invites go out from Outlook.";
-  if (phase === "waiting") return `Waiting on ${waitingLabel(p.waitingOn)}${p.waitingSince ? `, ${sinceLabel(p.waitingSince)}` : ""}`;
-  if (phase === "idle") return "Not started";
-  if (phase === "ready") return "Replies are in. Your move.";
-  if (phase === "conflict") return "A board member declined. Re-send ready for you.";
-  return "Draft ready for you";
-}
+export const ROW_GRID = "248px 176px 290px 1fr 150px";
+
+export const BUTTON: Record<"brand" | "you" | "secondary", string> = {
+  brand: "bg-brand text-white shadow-[0_1px_2px_rgba(20,63,31,0.3)] hover:bg-brand2",
+  you: "bg-you text-white shadow-[0_1px_2px_rgba(43,95,158,0.35)] hover:brightness-95",
+  secondary: "border border-ring bg-white text-txt hover:border-brand",
+};
 
 export function PortcoRow({ portco }: { portco: Portco }) {
   const eaFilter = useStore((s) => s.eaFilter);
   const members = getBoardMembers(portco.id);
   const stage = portcoStage(portco);
   const phase = portcoPhase(portco, members);
-  const action = primaryAction(portco, members);
-  const ea = getEa(portco.eaId);
+  const st = rowStatus(portco);
+  const needsYou = st.bucket === "you";
   return (
     <div
-      className="grid items-center gap-4 rounded-lg border border-line bg-panel px-4 py-3"
-      style={{ gridTemplateColumns: eaFilter === "all" ? "220px 110px 150px 1fr 190px 190px" : "220px 150px 1fr 190px 190px" }}
+      className={
+        "card-lift grid items-center gap-4 rounded-[14px] bg-white px-5 py-4 " +
+        (needsYou ? "border border-[#b9cbe3] border-l-4 border-l-you shadow-[var(--shadow-you)]" : "border border-line shadow-[var(--shadow-card)]")
+      }
+      style={{ gridTemplateColumns: ROW_GRID }}
       data-testid={`row-${portco.id}`}
       data-row={portco.id}
+      data-bucket={st.bucket}
     >
-      <div className="min-w-0">
-        <Link href={`/portcos/${portco.id}`} className="block truncate text-[13.5px] font-semibold hover:text-brand">
-          {portco.name}
-        </Link>
-        <div className="truncate text-[11.5px] text-mut">{portco.city}</div>
-      </div>
-      {eaFilter === "all" ? <div className="truncate text-[12px] text-mut" data-testid="row-ea">{ea?.name}</div> : null}
-      <div>
-        <ProgressBar stage={stage} done={phase === "done"} />
-        <div className="mt-1 truncate text-[11px] text-mut">
-          {phase === "done" ? "All five steps done" : `Step ${stage} of 5, ${STAGE_NAMES[stage]}`}
+      <div className="flex min-w-0 items-center gap-3.5">
+        <LogoTile src={portco.logo} name={portco.name} width={84} height={52} radius={10} />
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <Link href={`/portfolio/${portco.id}`} className="text-[17px] font-semibold leading-[1.2] text-txt hover:text-brand">
+            {portco.name}
+          </Link>
+          <span className="truncate text-[14px] text-mut">
+            {portco.city}
+            {eaFilter === "all" ? (
+              <>
+                {" · "}
+                <span data-testid="row-ea">{eaName(portco)}</span>
+              </>
+            ) : null}
+          </span>
+          <div className="mt-1.5">
+            <FaceStack ids={portco.partnerIds} size={26} />
+          </div>
         </div>
       </div>
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-col gap-2">
+        <ProgressBar stage={stage} done={phase === "done"} tone={st.tone} />
+        <span className={"text-[14px] " + (phase === "done" ? "font-semibold text-lock" : "text-mut")}>{st.progress}</span>
+      </div>
+      <div className="grid grid-cols-4 gap-2">
         {QUARTERS.filter((q) => portco.targetQuarters.includes(q)).map((q) => (
-          <QuarterChip key={q} portco={portco} quarter={q} />
+          <QuarterChip key={q} portco={portco} quarter={q} variant="row" />
         ))}
       </div>
-      <div className="text-[12px] text-mut" data-testid="row-waiting">{waitingText(portco)}</div>
-      <div className="text-right">
-        {action ? (
-          <Link
-            href={`/portcos/${portco.id}`}
-            data-testid={`row-action-${portco.id}`}
-            className={
-              "inline-block rounded-md px-3 py-1.5 text-[12.5px] font-medium " +
-              (action.enabled ? "bg-brand text-white hover:bg-brand2" : "border border-line bg-panel text-mut")
-            }
-          >
-            {action.enabled ? action.label : "Open"}
-          </Link>
-        ) : (
-          <Link href={`/portcos/${portco.id}`} className="inline-block rounded-md border border-line px-3 py-1.5 text-[12.5px] text-mut" data-testid={`row-action-${portco.id}`}>
-            View
-          </Link>
-        )}
+      <div className="flex flex-col items-start gap-1.5">
+        <span className={"rounded-full px-2.5 py-[3px] text-[13px] font-semibold " + TONE_PILL[st.tone]} data-testid="row-waiting">
+          {st.pill}
+        </span>
+        <span className={"text-[14px] " + (needsYou ? "text-txt" : "text-mut")} data-testid="row-sentence">{st.sentence}</span>
+      </div>
+      <div className="flex justify-end">
+        <Link
+          href={`/portfolio/${portco.id}`}
+          data-testid={`row-action-${portco.id}`}
+          className={"inline-flex h-10 items-center whitespace-nowrap rounded-[10px] px-[18px] text-[15px] font-semibold " + BUTTON[st.button.kind]}
+        >
+          {st.button.label}
+        </Link>
       </div>
     </div>
   );

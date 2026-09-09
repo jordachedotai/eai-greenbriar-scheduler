@@ -10,7 +10,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Opens on http://localhost:3000 at the mock sign-in. Lands on Portcos with the `council` state: eighteen real portfolio companies across four EAs, AIT Worldwide Logistics not started.
+Opens on http://localhost:3000 at the mock sign-in. Lands on Portfolio with the `council` state: eighteen real portfolio companies across four EAs, AIT Worldwide Logistics not started.
 
 ## Commands
 
@@ -42,4 +42,4 @@ Saved states: `fresh`, `council` (the room default), `council-at-board` (start a
 
 ## Status
 
-Phase 4 built: five stages, login and shell, rows and board views, work strip, detail page with stepper and pinned action bar, calendar, presenter controls, three Playwright tests. Next: rehearse per `docs/DEMO_SCRIPT.md`, swap in real names if they land. See `BUILD_PLAN.md`.
+Phase 5a to 5c built: real Greenbriar companies and deal teams, faces and logos through the workflow, the Portfolio rename, rows and board per `reference/design`, one structured email renderer, the decline view. Next: 5d type scale and design pass, 5e Attendance, 5f People, Settings, Templates. See `BUILD_PLAN.md`.

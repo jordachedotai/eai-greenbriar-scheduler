@@ -4,12 +4,14 @@
 // the saved demo states, so snapshots can never drift from the app.
 
 import { findWindows, fmtDate, fmtWindow, nextBestWindow, rankWindows, reverifyWindow } from "./scheduling";
+import { emailToText } from "./email";
 import type {
   AvailabilityBlock,
   BoardMember,
   ConflictData,
   Draft,
   DraftKind,
+  EmailFields,
   LogActor,
   LogisticsData,
   LogisticsPick,
@@ -30,14 +32,14 @@ export type Deps = {
   now: () => string; // ISO timestamp
 };
 
-export type ShortlistResult = { reasons: Record<string, string[]>; onepager: string };
-export type ConflictResult = { note: string; resend: string };
+export type ShortlistResult = { reasons: Record<string, string[]>; onepager: EmailFields };
+export type ConflictResult = { note: string; resend: EmailFields };
 export type LogisticsResult = { picks: Record<string, LogisticsPick> };
 
 // ---------- helpers ----------
 
-export function withLog(p: Portco, actor: LogActor, text: string, at: string): Portco {
-  return { ...p, log: [...p.log, { at, actor, text }] };
+export function withLog(p: Portco, actor: LogActor, text: string, at: string, personId?: string): Portco {
+  return { ...p, log: [...p.log, personId ? { at, actor, text, personId } : { at, actor, text }] };
 }
 
 export function mapQuarters(p: Portco, fn: (q: Quarter, qs: QuarterState) => QuarterState): Portco {
@@ -52,6 +54,10 @@ export function withDraft(p: Portco, key: string, draft: Draft): Portco {
 
 function draftOf(p: Portco, kind: DraftKind, text: string, offline: boolean, variant: number, extra: Partial<Draft> = {}): Draft {
   return { kind, portcoId: p.id, text, approved: false, offline, variant, ...extra };
+}
+
+function emailDraft(p: Portco, kind: DraftKind, email: EmailFields, offline: boolean, variant: number, extra: Partial<Draft> = {}): Draft {
+  return draftOf(p, kind, emailToText(email), offline, variant, { email, ...extra });
 }
 
 export function membersOf(p: Portco, deps: Deps): BoardMember[] {
@@ -89,7 +95,7 @@ export function findDates(p: Portco, deps: Deps, excludeDays: Set<string> = new 
     "agent",
     `Checked calendars for ${joinNames(p.partnerIds.map(deps.name))} and ranked the top three windows per quarter. Windows found, ${parts.join(", ")}.` +
       (thin.length ? ` ${thin.join(", ")} ${thin.length === 1 ? "is" : "are"} thin.` : "") +
-      (excludeDays.size ? ` Skipped ${excludeDays.size} days already held for other portco meetings.` : ""),
+      (excludeDays.size ? ` Skipped ${excludeDays.size} days already held for other portfolio company meetings.` : ""),
     deps.now(),
   );
 }
@@ -100,7 +106,7 @@ export function applyOnepager(p: Portco, result: ShortlistResult, offline: boole
     shortlist: qs.shortlist.map((w, i) => ({ ...w, reason: result.reasons?.[q]?.[i] ?? w.reason })),
   }));
   return withLog(
-    withDraft(next, "onepager", draftOf(next, "onepager", result.onepager, offline, variant)),
+    withDraft(next, "onepager", emailDraft(next, "onepager", result.onepager, offline, variant)),
     "agent",
     variant === 0 ? `Drafted the one-pager for ${p.execContact.name}.` : "Rewrote the one-pager.",
     deps.now(),
@@ -118,8 +124,8 @@ export function approveOnepager(p: Portco, deps: Deps): Portco {
 
 // ---------- stage 2: partner sign-off ----------
 
-export function applyPartnerEmail(p: Portco, text: string, offline: boolean, variant: number, deps: Deps): Portco {
-  const next = withDraft(p, "partnerEmail", draftOf(p, "partnerEmail", text, offline, variant));
+export function applyPartnerEmail(p: Portco, email: EmailFields, offline: boolean, variant: number, deps: Deps): Portco {
+  const next = withDraft(p, "partnerEmail", emailDraft(p, "partnerEmail", email, offline, variant));
   return withLog(
     next,
     "agent",
@@ -139,7 +145,7 @@ export function partnerReplies(p: Portco, partnerIds: string[], deps: Deps): Por
   let next = p;
   for (const pid of partnerIds) {
     next = mapQuarters(next, (_q, qs) => ({ ...qs, internalApprovals: { ...qs.internalApprovals, [pid]: true } }));
-    next = withLog(next, "partner", `${deps.name(pid)} replied yes.`, deps.now());
+    next = withLog(next, "partner", `${deps.name(pid)} replied yes.`, deps.now(), pid);
   }
   const allYes = next.targetQuarters.every((q) => next.partnerIds.every((pid) => next.quarters[q].internalApprovals[pid]));
   if (allYes) next = waiting(next, "none", deps.now());
@@ -149,13 +155,13 @@ export function partnerReplies(p: Portco, partnerIds: string[], deps: Deps): Por
 // EA moves to stage 3. The portco email is drafted next.
 export function startPortcoPicks(p: Portco, deps: Deps): Portco {
   const next = mapQuarters(p, (_q, qs) => ({ ...qs, status: "partnersSignedOff" }));
-  return withLog(next, "ea", "All partners signed off. Moving to the portco.", deps.now());
+  return withLog(next, "ea", "All partners signed off. Moving to the company.", deps.now());
 }
 
 // ---------- stage 3: portco picks ----------
 
-export function applyPortcoEmail(p: Portco, text: string, offline: boolean, variant: number, deps: Deps): Portco {
-  const next = withDraft(p, "portcoEmail", draftOf(p, "portcoEmail", text, offline, variant));
+export function applyPortcoEmail(p: Portco, email: EmailFields, offline: boolean, variant: number, deps: Deps): Portco {
+  const next = withDraft(p, "portcoEmail", emailDraft(p, "portcoEmail", email, offline, variant));
   return withLog(next, "agent", variant === 0 ? `Drafted the proposal email to ${p.execContact.name}.` : "Rewrote the proposal email.", deps.now());
 }
 
@@ -186,8 +192,8 @@ export function startBoardConfirms(p: Portco, deps: Deps): Portco {
 
 // ---------- stage 4: board confirms ----------
 
-export function applyBoardEmail(p: Portco, text: string, offline: boolean, variant: number, deps: Deps): Portco {
-  const next = withDraft(p, "boardEmail", draftOf(p, "boardEmail", text, offline, variant));
+export function applyBoardEmail(p: Portco, email: EmailFields, offline: boolean, variant: number, deps: Deps): Portco {
+  const next = withDraft(p, "boardEmail", emailDraft(p, "boardEmail", email, offline, variant));
   const members = membersOf(p, deps).map((m) => m.name);
   return withLog(next, "agent", variant === 0 ? `Drafted the confirmation email to ${joinNames(members)}.` : "Rewrote the board email.", deps.now());
 }
@@ -206,7 +212,7 @@ export function boardConfirmAll(p: Portco, deps: Deps): Portco {
     for (const m of members) if (responses[m.id] !== "declined") responses[m.id] = "confirmed";
     return { ...qs, boardResponses: responses };
   });
-  for (const m of members) next = withLog(next, "board", `${m.name} confirmed every quarter.`, deps.now());
+  for (const m of members) next = withLog(next, "board", `${m.name} confirmed every quarter.`, deps.now(), m.id);
   return waiting(next, "none", deps.now());
 }
 
@@ -216,7 +222,7 @@ export function boardConfirmSome(p: Portco, memberIds: string[], deps: Deps): Po
     for (const id of memberIds) if (responses[id] === "pending") responses[id] = "confirmed";
     return { ...qs, boardResponses: responses };
   });
-  for (const id of memberIds) next = withLog(next, "board", `${deps.name(id)} confirmed every quarter.`, deps.now());
+  for (const id of memberIds) next = withLog(next, "board", `${deps.name(id)} confirmed every quarter.`, deps.now(), id);
   return next;
 }
 
@@ -239,8 +245,8 @@ export function boardConflict(
   for (const m of members) {
     next =
       m.id === memberId
-        ? withLog(next, "board", `${m.name} confirmed every quarter except ${q}. Cannot make ${fmtWindow(declined)}.`, deps.now())
-        : withLog(next, "board", `${m.name} confirmed every quarter.`, deps.now());
+        ? withLog(next, "board", `${m.name} confirmed every quarter except ${q}. Cannot make ${fmtWindow(declined)}.`, deps.now(), m.id)
+        : withLog(next, "board", `${m.name} confirmed every quarter.`, deps.now(), m.id);
   }
   next = waiting(next, "none", deps.now());
   const fallback = nextBestWindow(next.quarters[q].shortlist, declined.id);
@@ -266,9 +272,9 @@ export function applyConflict(
     fallbackWindowId: fallback?.id ?? null,
     reverify,
     note: result.note,
-    resend: result.resend,
+    resend: emailToText(result.resend),
   };
-  let next = withDraft(p, `conflict:${q}`, draftOf(p, "conflict", result.resend, offline, 0, { quarter: q, data }));
+  let next = withDraft(p, `conflict:${q}`, emailDraft(p, "conflict", result.resend, offline, 0, { quarter: q, data }));
   next = withLog(
     next,
     "agent",
@@ -359,7 +365,7 @@ export function approveAndLock(p: Portco, deps: Deps): Portco {
 export function editDraft(p: Portco, key: string, text: string, deps: Deps): Portco {
   const d = p.drafts[key];
   if (!d) return p;
-  return withLog(withDraft(p, key, { ...d, text }), "ea", `Edited the ${draftLabel(key)}.`, deps.now());
+  return withLog(withDraft(p, key, { ...d, text, email: undefined }), "ea", `Edited the ${draftLabel(key)}.`, deps.now());
 }
 
 export function draftLabel(key: string): string {

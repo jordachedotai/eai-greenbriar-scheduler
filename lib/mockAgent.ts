@@ -12,7 +12,7 @@ import type {
   ShortlistPayload,
   WindowPayload,
 } from "./prompts";
-import type { LogisticsPick } from "./types";
+import type { EmailFields, LogisticsPick } from "./types";
 
 const WEEKDAY: Record<string, string> = { Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday" };
 const MONTH_INDEX: Record<string, number> = { Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6, Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12 };
@@ -75,128 +75,121 @@ export function windowReason(w: WindowPayload, idx: number, thinCount: number | 
   return `A solid backup. ${weekday} ${posText}; ${timeText}.`;
 }
 
-export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Record<string, string[]>; onepager: string } {
+export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Record<string, string[]>; onepager: EmailFields } {
   const alt = variant % 2 === 1;
   const reasons: Record<string, string[]> = {};
   for (const q of p.quarters) reasons[q.quarter] = q.windows.map((w, i) => windowReason(w, i, q.thin ? q.windows.length : null));
   const partners = joinNames(p.partners);
-  const lines: string[] = [];
-  lines.push(`Proposed 2027 quarterly meeting dates`);
-  lines.push(`${p.portco.name} and Greenbriar`);
-  lines.push(``);
-  lines.push(`Dear ${firstName(p.execContact.name)},`);
-  lines.push(``);
-  if (alt) {
-    lines.push(`Here are the proposed dates for our four quarterly meetings in ${p.portco.city.split(",")[0]} next year. Each meeting is four hours at your office at ${p.portco.officeAddress}, with dinner afterward. ${partners} can make every option below.`);
-  } else {
-    lines.push(`Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, ${p.portco.officeAddress}. Each meeting runs four hours, followed by dinner nearby. The options below work for ${partners}.`);
-  }
-  lines.push(``);
-  lines.push(`Please pick one option per quarter and reply by ${p.replyBy}. If none of them work, tell us and we will look again.`);
-  for (const q of p.quarters) {
-    lines.push(``);
-    lines.push(`${q.quarter}, ${q.months}${q.thin ? ` (only ${q.windows.length} days worked for all partners)` : ""}`);
-    q.windows.forEach((w, i) => {
-      lines.push(`  Option ${i + 1}: ${w.date}, ${w.time}. Dinner at ${w.dinner}.`);
-    });
-  }
-  lines.push(``);
-  lines.push(`Your board members will be asked to confirm once you have chosen.`);
-  lines.push(``);
-  lines.push(alt ? `Thank you,` : `We look forward to seeing you.`);
-  lines.push(p.eaSignature);
-  return { reasons, onepager: lines.join("\n") };
+  const onepager: EmailFields = {
+    title: `Proposed 2027 quarterly meeting dates, ${p.portco.name} and Greenbriar`,
+    greeting: `Dear ${firstName(p.execContact.name)},`,
+    paragraphs: [
+      alt
+        ? `Here are the proposed dates for our four quarterly meetings in ${p.portco.city.split(",")[0]} next year. Each meeting is four hours at your office at ${p.portco.officeAddress}, with dinner afterward. ${partners} can make every option below.`
+        : `Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, ${p.portco.officeAddress}. Each meeting runs four hours, followed by dinner nearby. The options below work for ${partners}.`,
+    ],
+    lists: p.quarters.map((q) => ({
+      heading: `${q.quarter}, ${q.months}`,
+      note: q.thin ? `only ${q.windows.length} days worked for all partners` : undefined,
+      items: q.windows.map((w, i) => `Option ${i + 1}: ${w.date}, ${w.time}. Dinner at ${w.dinner}.`),
+    })),
+    ask: `Please pick one option per quarter and reply by ${p.replyBy}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.`,
+    signoff: [alt ? "Thank you," : "We look forward to seeing you.", p.eaSignature],
+  };
+  return { reasons, onepager };
 }
 
-export function mockPartnerEmail(p: PartnerEmailPayload, variant = 0): string {
+export function mockPartnerEmail(p: PartnerEmailPayload, variant = 0): EmailFields {
   const alt = variant % 2 === 1;
   const firsts = joinNames(p.partners.map(firstName));
   if (alt) {
-    return [
-      `Subject: OK to send? ${p.portco.name} 2027 meeting options`,
-      ``,
-      `${firsts},`,
-      ``,
-      `Attached are the proposed 2027 quarterly meeting options for ${p.portco.name}, three per quarter, all from your calendars. Please reply yes by ${p.replyBy} if I can send this to ${p.execContact.name}. Tell me if any option should come off the list first.`,
-      ``,
-      p.eaSignature,
-    ].join("\n");
+    return {
+      subject: `OK to send? ${p.portco.name} 2027 meeting options`,
+      greeting: `${firsts},`,
+      paragraphs: [`Attached are the proposed 2027 quarterly meeting options for ${p.portco.name}, three per quarter, all from your calendars.`],
+      ask: `Please reply yes by ${p.replyBy} if I can send this to ${p.execContact.name}. Tell me if any option should come off the list first.`,
+      signoff: [p.eaSignature],
+    };
   }
-  return [
-    `Subject: ${p.portco.name} 2027 quarterly meetings, options for your sign-off`,
-    ``,
-    `${firsts},`,
-    ``,
-    `Before anything goes to ${p.execContact.name}, please look at the attached one-pager with three date options per quarter for the ${p.portco.name} meetings in ${p.portco.city.split(",")[0]}. Every option is a four hour block where all of you are free, with dinner after. Reply yes by ${p.replyBy} and I will send it on, or tell me what to change.`,
-    ``,
-    `Thank you,`,
-    p.eaSignature,
-  ].join("\n");
+  return {
+    subject: `${p.portco.name} 2027 quarterly meetings, options for your sign-off`,
+    greeting: `${firsts},`,
+    paragraphs: [
+      `Before anything goes to ${p.execContact.name}, please look at the attached one-pager with three date options per quarter for the ${p.portco.name} meetings in ${p.portco.city.split(",")[0]}. Every option is a four hour block where all of you are free, with dinner after.`,
+    ],
+    ask: `Reply yes by ${p.replyBy} and I will send it on, or tell me what to change.`,
+    signoff: ["Thank you,", p.eaSignature],
+  };
 }
 
-export function mockPortcoEmail(p: PortcoEmailPayload, variant = 0): string {
+export function mockPortcoEmail(p: PortcoEmailPayload, variant = 0): EmailFields {
   const alt = variant % 2 === 1;
   const partners = joinNames(p.partners);
   const first = firstName(p.execContact.name);
   if (alt) {
-    return [
-      `Subject: 2027 quarterly meeting dates, ${p.portco.name} and Greenbriar`,
-      ``,
-      `Hi ${first},`,
-      ``,
-      `Attached are three date options for each of our 2027 quarterly meetings at your office. Every option works for ${partners}. Could you choose one per quarter and reply by ${p.replyBy}? Once you have picked, we will confirm with your board and handle the rest. Thank you.`,
-      ``,
-      p.eaSignature,
-    ].join("\n");
+    return {
+      subject: `2027 quarterly meeting dates, ${p.portco.name} and Greenbriar`,
+      greeting: `Hi ${first},`,
+      paragraphs: [`Attached are three date options for each of our 2027 quarterly meetings at your office. Every option works for ${partners}.`],
+      ask: `Could you choose one per quarter and reply by ${p.replyBy}? Once you have picked, we will confirm with your board and handle the rest.`,
+      signoff: ["Thank you.", p.eaSignature],
+    };
   }
-  return [
-    `Subject: Proposed 2027 quarterly meeting dates for ${p.portco.name}`,
-    ``,
-    `Dear ${first},`,
-    ``,
-    `On behalf of ${partners}, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by ${p.replyBy}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.`,
-    ``,
-    `Thank you,`,
-    p.eaSignature,
-  ].join("\n");
+  return {
+    subject: `Proposed 2027 quarterly meeting dates for ${p.portco.name}`,
+    greeting: `Dear ${first},`,
+    paragraphs: [
+      `On behalf of ${partners}, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office.`,
+    ],
+    ask: `Please pick one option per quarter and reply by ${p.replyBy}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.`,
+    signoff: ["Thank you,", p.eaSignature],
+  };
 }
 
-export function mockBoardEmail(p: BoardEmailPayload, variant = 0): string {
+export function mockBoardEmail(p: BoardEmailPayload, variant = 0): EmailFields {
   const alt = variant % 2 === 1;
   const partners = joinNames(p.partners);
-  const picks = p.picks.map((k) => `  ${k.quarter}: ${k.date}, ${k.time}, dinner at ${k.dinner}`);
-  const head = alt ? `Subject: Please confirm: ${p.portco.name} 2027 board meeting dates` : `Subject: ${p.portco.name} 2027 quarterly meetings, dates to confirm`;
-  const opener = alt
-    ? `${p.portco.name} has chosen the dates below for the 2027 quarterly meetings with Greenbriar, held at their office in ${p.portco.city}.`
-    : `The ${p.portco.name} team has picked the following dates for the 2027 quarterly meetings, to be held at their ${p.portco.city.split(",")[0]} office with dinner to follow.`;
-  return [
-    head,
-    ``,
-    `Dear ${joinNames(p.boardMembers)},`,
-    ``,
-    opener,
-    ``,
-    ...picks,
-    ``,
-    `From Greenbriar, ${partners} will attend each meeting. Could you reply with a yes for all four by ${p.replyBy}? If any date does not work for you, please tell me right away and we will look at the alternates.`,
-    ``,
-    `Thank you,`,
-    p.eaSignature,
-  ].join("\n");
+  return {
+    subject: alt ? `Please confirm: ${p.portco.name} 2027 board meeting dates` : `${p.portco.name} 2027 quarterly meetings, dates to confirm`,
+    greeting: `Dear ${joinNames(p.boardMembers)},`,
+    paragraphs: [
+      alt
+        ? `${p.portco.name} has chosen the dates below for the 2027 quarterly meetings with Greenbriar, held at their office in ${p.portco.city}.`
+        : `The ${p.portco.name} team has picked the following dates for the 2027 quarterly meetings, to be held at their ${p.portco.city.split(",")[0]} office with dinner to follow.`,
+    ],
+    lists: [{ items: p.picks.map((k) => `${k.quarter}: ${k.date}, ${k.time}, dinner at ${k.dinner}`) }],
+    ask: `From Greenbriar, ${partners} will attend each meeting. Could you reply with a yes for all four by ${p.replyBy}? If any date does not work for you, please tell me right away and we will look at the alternates.`,
+    signoff: ["Thank you,", p.eaSignature],
+  };
 }
 
-export function mockConflict(p: ConflictPayload): { note: string; resend: string } {
+export function mockConflict(p: ConflictPayload): { note: string; resend: EmailFields } {
   const partners = joinNames(p.partners);
+  const greeting = `Dear ${joinNames(p.boardMembers)},`;
   if (!p.fallback) {
     return {
       note: `${p.member} declined ${p.quarter} on ${p.declined.date} and the approved shortlist has no other window for ${p.quarter}. Widen the search to 3-hour blocks or new weeks before re-sending.`,
-      resend: `Dear board members, ${p.member} cannot make the ${p.quarter} date on ${p.declined.date}. We are looking at additional dates and will send a new proposal shortly. ${p.eaSignature}`,
+      resend: {
+        subject: `${p.portco.name} ${p.quarter} meeting: new date to follow`,
+        greeting,
+        paragraphs: [`${p.member} cannot make the ${p.quarter} date on ${p.declined.date}. We are looking at additional dates and will send a new proposal shortly.`],
+        signoff: ["Thank you,", p.eaSignature],
+      },
     };
   }
-  const check = p.reverify.ok ? `${p.partners.length === 3 ? "all three" : "all"} are still free` : `${joinNames(p.reverify.busy)} now has a conflict`;
+  const check = p.reverify.ok ? `all ${p.partners.length === 3 ? "three" : p.partners.length === 4 ? "four" : p.partners.length === 5 ? "five" : ""} are still free`.replace("  ", " ") : `${joinNames(p.reverify.busy)} now has a conflict`;
   return {
     note: `${p.member} declined ${p.quarter} on ${p.declined.date}, so I went back to the shortlist the partners approved and picked option ${p.fallback.rank}, ${p.fallback.date}, ${p.fallback.time}. I re-checked partner calendars and ${check}, so this is ready to send if you approve.`,
-    resend: `Dear board members, ${p.member} is unable to make the ${p.quarter} meeting on ${p.declined.date}, so we are dropping that date. We propose ${p.fallback.date}, ${p.fallback.time}, with dinner at ${p.fallback.dinner}, which was on the original shortlist and works for ${partners} and the ${p.portco.name} team. Could each of you reply with a yes for the new date by ${"{{replyBy}}"}? ${p.eaSignature}`,
+    resend: {
+      subject: `${p.portco.name} ${p.quarter} meeting: date change to ${p.fallback.date}`,
+      greeting,
+      paragraphs: [
+        `${p.member} is unable to make the ${p.quarter} meeting on ${p.declined.date}, so we are dropping that date. The date below was on the original shortlist and works for ${partners} and the ${p.portco.name} team.`,
+      ],
+      lists: [{ items: [`${p.quarter}: ${p.fallback.date}, ${p.fallback.time}, dinner at ${p.fallback.dinner}`] }],
+      ask: `Could each of you reply with a yes for the new date by {{replyBy}}?`,
+      signoff: ["Thank you,", p.eaSignature],
+    },
   };
 }
 

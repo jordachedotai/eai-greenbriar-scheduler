@@ -97,11 +97,11 @@ export function primaryAction(p: Portco, members: BoardMember[]): PrimaryAction 
       if (phase === "needsDraft") return { label: "Draft the email to partners", enabled: true };
       if (phase === "review") return { label: "Approve and send to partners", enabled: true };
       if (phase === "waiting") return { label: "Waiting on the partners", enabled: false };
-      return { label: "Draft the email to the portco", enabled: allPartnersYes(p) };
+      return { label: "Draft the email to the company", enabled: allPartnersYes(p) };
     case 3:
-      if (phase === "needsDraft") return { label: "Draft the email to the portco", enabled: true };
-      if (phase === "review") return { label: "Approve and send to portco", enabled: true };
-      if (phase === "waiting") return { label: "Waiting on the portco", enabled: false };
+      if (phase === "needsDraft") return { label: "Draft the email to the company", enabled: true };
+      if (phase === "review") return { label: "Approve and send to the company", enabled: true };
+      if (phase === "waiting") return { label: "Waiting on the company", enabled: false };
       return { label: "Draft the email to the board", enabled: allPicked(p) };
     case 4:
       if (phase === "needsDraft") return { label: "Draft the email to the board", enabled: true };
@@ -116,7 +116,7 @@ export function primaryAction(p: Portco, members: BoardMember[]): PrimaryAction 
 }
 
 export function waitingLabel(w: WaitingOn): string {
-  return w === "partners" ? "the partners" : w === "portco" ? "the portco" : w === "board" ? "the board" : "nobody";
+  return w === "partners" ? "the partners" : w === "portco" ? "the company" : w === "board" ? "the board" : "nobody";
 }
 
 // ---------- work strip ----------

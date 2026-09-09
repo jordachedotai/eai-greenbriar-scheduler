@@ -13,7 +13,7 @@ async function signIn(page: Page) {
   await page.evaluate(() => localStorage.clear());
   await page.reload();
   await page.getByTestId("sign-in").click();
-  await expect(page).toHaveURL(/\/portcos$/);
+  await expect(page).toHaveURL(/\/portfolio$/);
   await expect(page.getByTestId("rows-view")).toBeVisible();
 }
 
@@ -31,10 +31,12 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("count-notStarted")).toHaveText("1");
   await expect(page.getByTestId("count-confirmed")).toHaveText("4 of 20");
   await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Not started");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").locator("[data-testid='face']")).toHaveCount(5);
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("logo-tile").locator("img")).toHaveAttribute("src", /ait-worldwide-logistics/);
 
   // Beat 1: find dates.
   await page.getByTestId("row-action-ait-worldwide-logistics").click();
-  await expect(page).toHaveURL(/\/portcos\/ait-worldwide-logistics$/);
+  await expect(page).toHaveURL(/\/portfolio\/ait-worldwide-logistics$/);
   await expect(page.getByTestId("header-title")).toHaveText("AIT Worldwide Logistics");
   await expect(page.getByTestId("step-1")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("primary-action")).toHaveText("Find dates");
@@ -43,6 +45,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("explain")).toContainText("Helen Marsh, Raymond Cho and Denise Walker have not shared calendars");
   await expect(page.getByTestId("explain")).toContainText("Tom Haggerty picks from the options in step 3");
   await expect(page.getByTestId("thin-Q3")).toContainText("Only 2 windows in Q3");
+  await expect(page.getByTestId("explain").locator("[data-testid='face']")).toHaveCount(9);
   await expect(page.getByTestId("shortlist-Q1").locator('[data-testid="window"]')).toHaveCount(3);
   await waitForAgent(page);
   await expect(page.getByTestId("draft-onepager").getByTestId("draft-text")).toContainText("Dear Tom");
@@ -56,7 +59,8 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-2")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("step-1")).toHaveAttribute("data-state", "done");
   await waitForAgent(page);
-  await expect(page.getByTestId("draft-partnerEmail").getByTestId("draft-text")).toContainText("Subject:");
+  await expect(page.getByTestId("draft-partnerEmail").locator("[data-part='subject']")).toContainText("AIT Worldwide Logistics");
+  await expect(page.getByTestId("draft-partnerEmail").locator("[data-part='signoff']")).toContainText("Executive Assistant");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to partners");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the partners");
@@ -64,16 +68,16 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await page.getByTestId("sim-partner-replies").click();
   await expect(page.getByTestId("partner-replies").locator("[data-state='yes']")).toHaveCount(5);
   await expect(page.getByTestId("timeline")).toContainText("Ben Cox replied yes.");
-  await expect(page.getByTestId("primary-action")).toHaveText("Draft the email to the portco");
+  await expect(page.getByTestId("primary-action")).toHaveText("Draft the email to the company");
   await page.getByTestId("primary-action").click();
 
   // Beat 3: portco picks.
   await expect(page.getByTestId("step-3")).toHaveAttribute("data-state", "current");
   await waitForAgent(page);
   await expect(page.getByTestId("draft-portcoEmail").getByTestId("draft-text")).toContainText("Dear Tom");
-  await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to portco");
+  await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to the company");
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the portco");
+  await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the company");
   await page.getByTestId("sim-portco-picks").click();
   await expect(page.getByTestId("portco-picks")).toContainText("option");
   await expect(page.getByTestId("quarter-Q1")).not.toContainText("No dates yet");
@@ -85,6 +89,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-4")).toHaveAttribute("data-state", "current");
   await waitForAgent(page);
   await expect(page.getByTestId("draft-boardEmail").getByTestId("draft-text")).toContainText("Helen Marsh, Raymond Cho and Denise Walker");
+  await expect(page.getByTestId("draft-boardEmail").locator("[data-part='list'] li")).toHaveCount(4);
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to board");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the board");
@@ -94,6 +99,14 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "declined");
   await expect(page.getByTestId("reverify")).toContainText("still free");
   await expect(page.getByTestId("conflict-Q3")).toContainText("option 2 on the shortlist the partners approved");
+  // Decline view: the sent board email folds to one line, the re-send is the only full-size draft.
+  await expect(page.getByTestId("draft-boardEmail")).toHaveAttribute("data-collapsed", "true");
+  await expect(page.getByTestId("draft-conflict")).toContainText("Re-send to the board: Q3 date change");
+  await expect(page.getByTestId("draft-conflict").locator("[data-part='subject']")).toContainText("Q3");
+  await expect(page.getByTestId("draft-conflict").locator("[data-part='list'] li")).toHaveCount(1);
+  await page.getByTestId("draft-expand").click();
+  await expect(page.getByTestId("draft-boardEmail").locator("[data-part='subject']")).toBeVisible();
+  await page.getByTestId("draft-collapse").click();
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and re-send to board");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "pending");
@@ -120,7 +133,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await page.getByTestId("back-to-current").click();
 
   // Work strip: confirmed 8 of 20.
-  await page.getByTestId("nav-portcos").click();
+  await page.getByTestId("nav-portfolio").click();
   await expect(page.getByTestId("count-confirmed")).toHaveText("8 of 20");
   await expect(page.getByTestId("count-notStarted")).toHaveText("0");
 
@@ -150,7 +163,7 @@ test("If time is short: council-at-board starts at Beat 4", async ({ page }) => 
   await page.getByTestId("presenter-toggle").click();
   await page.getByTestId("jump-state").selectOption("council-at-board");
   await page.getByTestId("presenter-toggle").click();
-  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Draft ready for you");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-waiting")).toHaveText("Needs you");
   await page.getByTestId("row-action-ait-worldwide-logistics").click();
   await expect(page.getByTestId("step-4")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to board");
@@ -183,7 +196,7 @@ test("Work strip filters, demo buttons hide, reset restores council", async ({ p
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the partners");
   await page.getByTestId("toggle-demo-buttons").click();
   await page.getByTestId("presenter-reset").click();
-  await expect(page).toHaveURL(/\/portcos$/);
+  await expect(page).toHaveURL(/\/portfolio$/);
   await expect(page.getByTestId("count-confirmed")).toHaveText("4 of 20");
 
   // Sidebar collapses and the login guard holds.

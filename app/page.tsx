@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter();
   const loggedIn = useStore((s) => s.loggedIn);
   useEffect(() => {
-    router.replace(loggedIn ? "/portcos" : "/login");
+    router.replace(loggedIn ? "/portfolio" : "/login");
   }, [loggedIn, router]);
   return <div className="py-20 text-center text-mut">Loading</div>;
 }

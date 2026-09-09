@@ -14,6 +14,7 @@ import { CONFLICT_QUARTER, conflictMember, simulatedPicks } from "../lib/simulat
 import { buildPrompt, extractJson } from "../lib/prompts";
 import { mockStep } from "../lib/mockAgent";
 import * as T from "../lib/transitions";
+import { emailToText } from "../lib/email";
 import type { Portco, Window } from "../lib/types";
 
 const LIVE = process.argv.includes("--live");
@@ -46,10 +47,11 @@ async function main() {
     const shortlist = (await write("shortlist", shortlistPayload(p, REPLY_BY), true)) as T.ShortlistResult;
     out[key("all", "shortlist")] = shortlist;
     p = T.applyOnepager(p, shortlist, false, 0, deps);
-    out[key("all", "partnerEmail")] = await write("partnerEmail", partnerEmailPayload(p, shortlist.onepager, REPLY_BY), false);
-    out[key("all", "portcoEmail")] = await write("portcoEmail", portcoEmailPayload(p, shortlist.onepager, REPLY_BY), false);
+    const onepagerText = emailToText(shortlist.onepager);
+    out[key("all", "partnerEmail")] = await write("partnerEmail", partnerEmailPayload(p, onepagerText, REPLY_BY), true);
+    out[key("all", "portcoEmail")] = await write("portcoEmail", portcoEmailPayload(p, onepagerText, REPLY_BY), true);
     p = T.recordPortcoPicks(p, simulatedPicks(p), deps);
-    out[key("all", "boardEmail")] = await write("boardEmail", boardEmailPayload(p, REPLY_BY), false);
+    out[key("all", "boardEmail")] = await write("boardEmail", boardEmailPayload(p, REPLY_BY), true);
     const member = conflictMember(getBoardMembers(p.id))!;
     const declined = T.pickedWindow(p, CONFLICT_QUARTER) as Window;
     const c = T.boardConflict(p, member.id, CONFLICT_QUARTER, deps);

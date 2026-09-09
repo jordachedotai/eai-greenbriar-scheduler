@@ -51,7 +51,7 @@ export const STAGE_KEY: Record<Stage, StageKey> = {
 export const STAGE_NAMES: Record<Stage, string> = {
   1: "Find dates",
   2: "Partner sign-off",
-  3: "Portco picks",
+  3: "Company picks",
   4: "Board confirms",
   5: "Lock and book",
 };
@@ -80,7 +80,7 @@ export const STATUS_LABEL: Record<QuarterStatus, string> = {
   notStarted: "Not started",
   datesFound: "Dates found",
   partnersSignedOff: "Partners signed off",
-  portcoPicked: "Portco picked",
+  portcoPicked: "Company picked",
   boardConfirmed: "Board confirmed",
   locked: "Locked",
 };
@@ -126,15 +126,28 @@ export type QuarterState = {
 };
 
 export type LogActor = "ea" | "agent" | "portco" | "board" | "partner";
-export type LogEntry = { at: string; actor: LogActor; text: string };
+export type LogEntry = { at: string; actor: LogActor; text: string; personId?: string };
 
 export type DraftKind = "onepager" | "partnerEmail" | "portcoEmail" | "boardEmail" | "conflict" | "logistics";
+
+// Every email and the one-pager share one structure, so one renderer
+// draws them all with the same line breaks. `lists` holds date blocks.
+export type EmailFields = {
+  subject?: string; // emails
+  title?: string; // the one-pager
+  greeting?: string;
+  paragraphs: string[];
+  lists?: { heading?: string; note?: string; items: string[] }[];
+  ask?: string;
+  signoff: string[];
+};
 
 export type Draft = {
   kind: DraftKind;
   portcoId: string;
   quarter?: Quarter;
-  text: string;
+  text: string; // plain rendering of `email`, or the EA's edited text
+  email?: EmailFields; // structured fields; dropped once the EA edits the text
   approved: boolean;
   offline?: boolean; // live call failed, mock output served instead
   variant?: number; // bumps on Regenerate

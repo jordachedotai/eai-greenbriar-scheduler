@@ -1,45 +1,42 @@
+"use client";
+
 import type { Portco, Quarter } from "@/lib/types";
 import { STATUS_LABEL } from "@/lib/types";
-import { isLocked } from "@/lib/pipeline";
-import { fmtDate } from "@/lib/scheduling";
+import { IconLock } from "@/components/ui/icons";
+import { quarterChip, type Tone } from "./status";
 
-// Chip color follows the quarter's status. Proposed dates are hollow, a
-// picked date is amber, a confirmed date is green, locked adds the icon.
-export function QuarterChip({ portco, quarter, size = "sm" }: { portco: Portco; quarter: Quarter; size?: "sm" | "md" }) {
+const BOX: Record<Tone, string> = {
+  you: "bg-you-soft border-you-line",
+  wait: "bg-wait-soft border-wait-line",
+  lock: "bg-lock-soft border-lock-line",
+  idle: "bg-idle-bg border-idle-line",
+};
+const TEXT: Record<Tone, string> = { you: "text-you", wait: "text-wait", lock: "text-lock", idle: "text-idle" };
+
+// Row chip: 8px by 10px padding, radius 8, label 12/700, date 14/600, caption 12.
+// Card chip: 5px by 6px padding, radius 6, label 12/700, date 12/600.
+export function QuarterChip({ portco, quarter, variant = "row" }: { portco: Portco; quarter: Quarter; variant?: "row" | "card" }) {
+  const c = quarterChip(portco, quarter);
   const qs = portco.quarters[quarter];
-  const locked = isLocked(portco, quarter);
-  const pick = qs.shortlist.find((w) => w.id === qs.portcoPick);
-  const proposed = qs.shortlist.find((w) => w.rank === 1);
-  const date = pick ?? (qs.status !== "notStarted" ? proposed : undefined);
-  const tone =
-    locked || qs.status === "boardConfirmed"
-      ? "border-brand bg-brand-soft text-brand"
-      : qs.status === "portcoPicked"
-        ? "border-amber/40 bg-amber-soft text-amber"
-        : qs.status === "notStarted"
-          ? "border-line bg-panel2 text-mut"
-          : "border-blue/40 bg-panel text-blue"; // proposed, hollow
-  const label = date ? fmtDate(date.start).replace(/^\w+ /, "") : "";
+  const card = variant === "card";
   return (
-    <span
-      title={`${quarter}: ${STATUS_LABEL[qs.status]}${date ? `, ${fmtDate(date.start)}` : ""}`}
-      className={`inline-flex items-center gap-1 rounded border font-medium ${tone} ${size === "md" ? "px-2 py-1 text-[12px]" : "px-1.5 py-0.5 text-[11px]"}`}
+    <div
+      title={`${quarter}: ${STATUS_LABEL[qs.status]}${c.label ? `, ${c.label}` : ""}`}
+      className={`flex flex-col gap-px border ${BOX[c.tone]} ${card ? "rounded-[6px] px-1.5 py-[5px]" : "rounded-[8px] px-2.5 py-2"}`}
       data-testid={`chip-${quarter}`}
       data-status={qs.status}
-      data-final={locked ? "true" : "false"}
+      data-final={c.locked ? "true" : "false"}
     >
-      {locked ? <LockIcon /> : null}
-      <span>{quarter}</span>
-      {label ? <span className="font-normal opacity-90">{label}</span> : null}
-    </span>
-  );
-}
-
-export function LockIcon() {
-  return (
-    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-      <rect x="4" y="11" width="16" height="10" rx="2" />
-      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-    </svg>
+      <span className={`flex items-center gap-1 text-[12px] font-bold ${TEXT[c.tone]}`}>
+        {c.locked ? <IconLock size={card ? 10 : 11} /> : null}
+        {quarter}
+      </span>
+      {c.label ? (
+        <span className={card ? "text-[12px] font-semibold" : "text-[14px] font-semibold"}>{c.label}</span>
+      ) : (
+        <span className={card ? "text-[12px] text-idle-text" : "text-[14px] text-idle-text"}>{card ? "none" : "No date"}</span>
+      )}
+      {!card && c.label ? <span className={`text-[12px] ${TEXT[c.tone]}`}>{c.caption}</span> : null}
+    </div>
   );
 }

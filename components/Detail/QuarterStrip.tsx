@@ -16,7 +16,7 @@ export function QuarterStrip() {
         return (
           <div key={q} className="rounded-lg border border-line bg-panel px-3 py-2" data-testid={`quarter-${q}`}>
             <div className="flex items-center justify-between">
-              <QuarterChip portco={portco} quarter={q} size="md" />
+              <QuarterChip portco={portco} quarter={q} variant="row" />
               <span className="text-[11px] text-mut">{STATUS_LABEL[qs.status]}</span>
             </div>
             <div className="mt-1 truncate text-[12px]">

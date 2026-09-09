@@ -8,17 +8,39 @@ import { getBoardMembers, personName } from "@/lib/data";
 import { heldDays } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import { joinNames } from "@/lib/format";
+import { Face, resolvePerson, type Person } from "@/components/ui/Face";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Explain, Section, WindowCard } from "./shared";
+
+// Names with a 24px face before each, joined with commas and "and", so the
+// sentence still reads as a sentence.
+function Names({ people }: { people: Person[] }) {
+  return (
+    <>
+      {people.map((p, i) => (
+        <span key={p.id ?? p.name}>
+          {i > 0 ? (i === people.length - 1 ? " and " : ", ") : ""}
+          <span className="inline-flex items-center gap-1 align-middle">
+            <Face person={p} size={24} />
+            <span>{p.name}</span>
+          </span>
+        </span>
+      ))}
+    </>
+  );
+}
 
 export function FindDates({ readOnly }: { readOnly: boolean }) {
   const { portco, phase, working } = useDetail();
   const [showAll, setShowAll] = useState(false);
   const held = useStore((s) => heldDays(Object.values(s.portcos).filter((o) => o.id !== portco.id), portco.partnerIds).size);
   const partners = joinNames(portco.partnerIds.map(personName));
+  const partnerPeople = portco.partnerIds.map(resolvePerson);
   const members = getBoardMembers(portco.id);
   const byEmail = joinNames(members.filter((m) => !m.calendarVisible).map((m) => m.name));
+  const emailPeople: Person[] = members.filter((m) => !m.calendarVisible).map((m) => ({ id: m.id, name: m.name }));
+  const exec: Person = { name: portco.execContact.name };
   const found = portco.targetQuarters.some((q) => portco.quarters[q].windows.length > 0);
   const total = portco.targetQuarters.reduce((n, q) => n + portco.quarters[q].windows.length, 0);
 
@@ -29,7 +51,7 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
           Find four hour blocks in 2027 when {partners} are all free, ranked, three per quarter, with a one-pager for {portco.execContact.name}. Press Find dates.
         </Explain>
         <div className="rounded-lg border border-dashed border-line px-4 py-6 text-[12.5px] text-mut">
-          Only the assigned partners' calendars are checked, because those are the calendars Greenbriar has. {byEmail} have not shared calendars and will be asked by email in step 4. {portco.execContact.name} picks from the options in step 3.
+          Only the assigned partners' calendars are checked, because those are the calendars Greenbriar has: <Names people={partnerPeople} />. {byEmail} have not shared calendars and will be asked by email in step 4. {portco.execContact.name} picks from the options in step 3.
         </div>
       </div>
     );
@@ -45,8 +67,9 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
         ) : phase === "needsDraft" && !working ? (
           <>Dates are found. Draft the one-pager to continue. </>
         ) : null}
-        Checked calendars for {partners}. {byEmail} have not shared calendars and will be asked by email in step 4. {portco.execContact.name} picks from the options in step 3.
-        {held > 0 ? ` Skipped ${held} days already held for other portco meetings.` : ""}
+        Checked calendars for <Names people={partnerPeople} />. <Names people={emailPeople} /> have not shared calendars and will be asked by email in step 4.{" "}
+        <span className="inline-flex items-center gap-1 align-middle"><Face person={exec} size={24} /><span>{portco.execContact.name}</span></span> picks from the options in step 3.
+        {held > 0 ? ` Skipped ${held} days already held for other portfolio company meetings.` : ""}
       </Explain>
 
       <Section title="Top three per quarter" testId="shortlist">

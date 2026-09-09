@@ -57,6 +57,8 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(p.drafts.onepager.text).toContain("Dear Tom");
     expect(p.drafts.onepager.text).toContain(RB);
     expect(p.drafts.onepager.text).not.toContain("—");
+    expect(p.drafts.onepager.email?.lists).toHaveLength(4);
+    expect(p.drafts.onepager.email?.lists?.[2].note).toContain("only 2 days");
     expect(portcoPhase(p, members)).toBe("review");
     expect(primaryAction(p, members)?.label).toBe("Approve one-pager");
   });
@@ -76,7 +78,7 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     p = T.partnerReplies(p, ["jill-raker", "niall-mccomiskey", "max-elgart", "ben-cox"], deps);
     expect(p.waitingOn).toBe("none");
     expect(p.log.filter((e) => e.actor === "partner")).toHaveLength(5);
-    expect(primaryAction(p, members)).toEqual({ label: "Draft the email to the portco", enabled: true });
+    expect(primaryAction(p, members)).toEqual({ label: "Draft the email to the company", enabled: true });
   });
 
   it("moves to portco picks", () => {
@@ -95,6 +97,8 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(portcoStage(p)).toBe(4);
     p = T.applyBoardEmail(p, mockBoardEmail(boardEmailPayload(p, RB)), false, 0, deps);
     expect(p.drafts.boardEmail.text).toContain("Helen Marsh, Raymond Cho and Denise Walker");
+    expect(p.drafts.boardEmail.email?.subject).toContain("AIT Worldwide Logistics");
+    expect(p.drafts.boardEmail.email?.lists?.[0].items).toHaveLength(4);
     p = T.sendToBoard(p, deps);
     expect(p.waitingOn).toBe("board");
     const member = conflictMember(members)!;
@@ -107,11 +111,14 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(c.reverify.ok).toBe(true);
     const wording = mockConflict(conflictPayload(p, CONFLICT_QUARTER, member.id, c.declined!, c.fallback, c.reverify));
     expect(wording.note).toContain("option 2");
+    expect(wording.resend.subject).toContain("Q3");
+    expect(wording.resend.lists?.[0].items).toHaveLength(1);
     p = T.applyConflict(p, CONFLICT_QUARTER, member.id, c.declined!, c.fallback, c.reverify, wording, false, deps);
     expect(portcoPhase(p, members)).toBe("conflict");
     expect(primaryAction(p, members)?.label).toBe("Approve and re-send to board");
     const data = p.drafts["conflict:Q3"].data as ConflictData;
     expect(data.fallbackWindowId).toBe(c.fallback!.id);
+    expect(p.drafts["conflict:Q3"].email?.greeting).toContain("Dear");
     p = T.approveResend(p, CONFLICT_QUARTER, deps);
     expect(p.quarters.Q3.portcoPick).toBe(c.fallback!.id);
     expect(p.quarters.Q3.boardResponses[member.id]).toBe("pending");

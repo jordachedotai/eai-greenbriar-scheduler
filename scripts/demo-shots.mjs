@@ -52,7 +52,7 @@ await shot("8-lock-review");
 await primary(); // approve and lock
 await shot("9-locked");
 
-await t("nav-portcos").click();
+await t("nav-portfolio").click();
 await t("rows-view").waitFor();
 await t("ea-all").click();
 await shot("10-all-eas-rows");

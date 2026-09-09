@@ -21,14 +21,120 @@
         "A solid backup. Tuesday early in the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nAIT Worldwide Logistics and Greenbriar\n\nDear Tom,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2 Pierce Place, Suite 800, Itasca, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Jan 27, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed May 26, 1pm to 5pm. Dinner at 6:30pm.\n  Option 3: Wed May 5, 1pm to 5pm. Dinner at 6:30pm.\n\nQ3, July to September (only 2 days worked for all partners)\n  Option 1: Tue Jul 20, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Thu Aug 26, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, AIT Worldwide Logistics and Greenbriar",
+      "greeting": "Dear Tom,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2 Pierce Place, Suite 800, Itasca, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Jan 27, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed May 26, 1pm to 5pm. Dinner at 6:30pm.",
+            "Option 3: Wed May 5, 1pm to 5pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "note": "only 2 days worked for all partners",
+          "items": [
+            "Option 1: Tue Jul 20, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Thu Aug 26, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "ait-worldwide-logistics.all.partnerEmail": "Subject: AIT Worldwide Logistics 2027 quarterly meetings, options for your sign-off\n\nMichael, Jill, Niall, Max and Ben,\n\nBefore anything goes to Tom Haggerty, please look at the attached one-pager with three date options per quarter for the AIT Worldwide Logistics meetings in Itasca. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "ait-worldwide-logistics.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for AIT Worldwide Logistics\n\nDear Tom,\n\nOn behalf of Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "ait-worldwide-logistics.all.boardEmail": "Subject: AIT Worldwide Logistics 2027 quarterly meetings, dates to confirm\n\nDear Helen Marsh, Raymond Cho and Denise Walker,\n\nThe AIT Worldwide Logistics team has picked the following dates for the 2027 quarterly meetings, to be held at their Itasca office with dinner to follow.\n\n  Q1: Wed Feb 3, 9am to 1pm, dinner at 6:30pm\n  Q2: Wed May 5, 1pm to 5pm, dinner at 6:30pm\n  Q3: Tue Jul 20, 9am to 1pm, dinner at 6:30pm\n  Q4: Mon Nov 22, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "ait-worldwide-logistics.all.partnerEmail": {
+    "subject": "AIT Worldwide Logistics 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Michael, Jill, Niall, Max and Ben,",
+    "paragraphs": [
+      "Before anything goes to Tom Haggerty, please look at the attached one-pager with three date options per quarter for the AIT Worldwide Logistics meetings in Itasca. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "ait-worldwide-logistics.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for AIT Worldwide Logistics",
+    "greeting": "Dear Tom,",
+    "paragraphs": [
+      "On behalf of Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "ait-worldwide-logistics.all.boardEmail": {
+    "subject": "AIT Worldwide Logistics 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Helen Marsh, Raymond Cho and Denise Walker,",
+    "paragraphs": [
+      "The AIT Worldwide Logistics team has picked the following dates for the 2027 quarterly meetings, to be held at their Itasca office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Feb 3, 9am to 1pm, dinner at 6:30pm",
+          "Q2: Wed May 5, 1pm to 5pm, dinner at 6:30pm",
+          "Q3: Tue Jul 20, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Mon Nov 22, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "ait-worldwide-logistics.Q3.conflict": {
-    "note": "Raymond Cho declined Q3 on Tue Jul 20, so I went back to the shortlist the partners approved and picked option 2, Thu Aug 26, 9am to 1pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Raymond Cho is unable to make the Q3 meeting on Tue Jul 20, so we are dropping that date. We propose Thu Aug 26, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox and the AIT Worldwide Logistics team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Raymond Cho declined Q3 on Tue Jul 20, so I went back to the shortlist the partners approved and picked option 2, Thu Aug 26, 9am to 1pm. I re-checked partner calendars and all five are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "AIT Worldwide Logistics Q3 meeting: date change to Thu Aug 26",
+      "greeting": "Dear Helen Marsh, Raymond Cho and Denise Walker,",
+      "paragraphs": [
+        "Raymond Cho is unable to make the Q3 meeting on Tue Jul 20, so we are dropping that date. The date below was on the original shortlist and works for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox and the AIT Worldwide Logistics team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Thu Aug 26, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "ait-worldwide-logistics.all.logistics": {
     "picks": {
@@ -77,14 +183,120 @@
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\neShipping and Greenbriar\n\nDear Karen,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 6300 NW Prairie View Road, Suite 200, Parkville, MO. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Michael Wang, James Peng and Will Stewart.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 24, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Tue Jun 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Jun 23, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Mon Jun 7, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.\n  Option 3: Wed Aug 11, 1pm to 5pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu Nov 4, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, eShipping and Greenbriar",
+      "greeting": "Dear Karen,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 6300 NW Prairie View Road, Suite 200, Parkville, MO. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Michael Wang, James Peng and Will Stewart."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 24, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Tue Jun 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Jun 23, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Mon Jun 7, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.",
+            "Option 3: Wed Aug 11, 1pm to 5pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu Nov 4, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "eshipping.all.partnerEmail": "Subject: eShipping 2027 quarterly meetings, options for your sign-off\n\nJill, Michael, James and Will,\n\nBefore anything goes to Karen Delgado, please look at the attached one-pager with three date options per quarter for the eShipping meetings in Parkville. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "eshipping.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for eShipping\n\nDear Karen,\n\nOn behalf of Jill Raker, Michael Wang, James Peng and Will Stewart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "eshipping.all.boardEmail": "Subject: eShipping 2027 quarterly meetings, dates to confirm\n\nDear Gordon Reyes, Linda Farrow and Marcus Bell,\n\nThe eShipping team has picked the following dates for the 2027 quarterly meetings, to be held at their Parkville office with dinner to follow.\n\n  Q1: Wed Jan 27, 10am to 2pm, dinner at 6:30pm\n  Q2: Tue Jun 22, 10am to 2pm, dinner at 6:30pm\n  Q3: Wed Sep 22, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Dec 14, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Jill Raker, Michael Wang, James Peng and Will Stewart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "eshipping.all.partnerEmail": {
+    "subject": "eShipping 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Jill, Michael, James and Will,",
+    "paragraphs": [
+      "Before anything goes to Karen Delgado, please look at the attached one-pager with three date options per quarter for the eShipping meetings in Parkville. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "eshipping.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for eShipping",
+    "greeting": "Dear Karen,",
+    "paragraphs": [
+      "On behalf of Jill Raker, Michael Wang, James Peng and Will Stewart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "eshipping.all.boardEmail": {
+    "subject": "eShipping 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Gordon Reyes, Linda Farrow and Marcus Bell,",
+    "paragraphs": [
+      "The eShipping team has picked the following dates for the 2027 quarterly meetings, to be held at their Parkville office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Jan 27, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Tue Jun 22, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Wed Sep 22, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Dec 14, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Jill Raker, Michael Wang, James Peng and Will Stewart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "eshipping.Q3.conflict": {
-    "note": "Linda Farrow declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 18, 1pm to 5pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Linda Farrow is unable to make the Q3 meeting on Wed Sep 22, so we are dropping that date. We propose Wed Aug 18, 1pm to 5pm, with dinner at 6:30pm, which was on the original shortlist and works for Jill Raker, Michael Wang, James Peng and Will Stewart and the eShipping team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Linda Farrow declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 18, 1pm to 5pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "eShipping Q3 meeting: date change to Wed Aug 18",
+      "greeting": "Dear Gordon Reyes, Linda Farrow and Marcus Bell,",
+      "paragraphs": [
+        "Linda Farrow is unable to make the Q3 meeting on Wed Sep 22, so we are dropping that date. The date below was on the original shortlist and works for Jill Raker, Michael Wang, James Peng and Will Stewart and the eShipping team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Aug 18, 1pm to 5pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "eshipping.all.logistics": {
     "picks": {
@@ -133,14 +345,120 @@
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nFragilePAK and Greenbriar\n\nDear Renee,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2470 St. Rose Parkway, Suite 300, Henderson, NV. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Michael Wang and Jack Morris.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 12, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu Nov 4, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, FragilePAK and Greenbriar",
+      "greeting": "Dear Renee,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2470 St. Rose Parkway, Suite 300, Henderson, NV. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Michael Wang and Jack Morris."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 12, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu Nov 4, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "fragilepak.all.partnerEmail": "Subject: FragilePAK 2027 quarterly meetings, options for your sign-off\n\nJill, Michael and Jack,\n\nBefore anything goes to Renee Ashby, please look at the attached one-pager with three date options per quarter for the FragilePAK meetings in Henderson. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "fragilepak.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for FragilePAK\n\nDear Renee,\n\nOn behalf of Jill Raker, Michael Wang and Jack Morris, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "fragilepak.all.boardEmail": "Subject: FragilePAK 2027 quarterly meetings, dates to confirm\n\nDear Frank Osei, Carol Nguyen and Walter Simms,\n\nThe FragilePAK team has picked the following dates for the 2027 quarterly meetings, to be held at their Henderson office with dinner to follow.\n\n  Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed May 12, 9am to 1pm, dinner at 6:30pm\n  Q3: Mon Sep 20, 10am to 2pm, dinner at 6:30pm\n  Q4: Tue Oct 26, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Jill Raker, Michael Wang and Jack Morris will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "fragilepak.all.partnerEmail": {
+    "subject": "FragilePAK 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Jill, Michael and Jack,",
+    "paragraphs": [
+      "Before anything goes to Renee Ashby, please look at the attached one-pager with three date options per quarter for the FragilePAK meetings in Henderson. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "fragilepak.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for FragilePAK",
+    "greeting": "Dear Renee,",
+    "paragraphs": [
+      "On behalf of Jill Raker, Michael Wang and Jack Morris, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "fragilepak.all.boardEmail": {
+    "subject": "FragilePAK 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Frank Osei, Carol Nguyen and Walter Simms,",
+    "paragraphs": [
+      "The FragilePAK team has picked the following dates for the 2027 quarterly meetings, to be held at their Henderson office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed May 12, 9am to 1pm, dinner at 6:30pm",
+          "Q3: Mon Sep 20, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Tue Oct 26, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Jill Raker, Michael Wang and Jack Morris will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "fragilepak.Q3.conflict": {
     "note": "Carol Nguyen declined Q3 on Mon Sep 20, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 29, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Carol Nguyen is unable to make the Q3 meeting on Mon Sep 20, so we are dropping that date. We propose Wed Sep 29, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Jill Raker, Michael Wang and Jack Morris and the FragilePAK team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "FragilePAK Q3 meeting: date change to Wed Sep 29",
+      "greeting": "Dear Frank Osei, Carol Nguyen and Walter Simms,",
+      "paragraphs": [
+        "Carol Nguyen is unable to make the Q3 meeting on Mon Sep 20, so we are dropping that date. The date below was on the original shortlist and works for Jill Raker, Michael Wang and Jack Morris and the FragilePAK team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Sep 29, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "fragilepak.all.logistics": {
     "picks": {
@@ -189,14 +507,120 @@
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nJEGS Automotive and Greenbriar\n\nDear Miguel,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 101 Innovation Drive, Suite 400, Delaware, OH. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke and Andrew Witherell.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Tue Feb 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Wed Aug 18, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Aug 31, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Nov 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, JEGS Automotive and Greenbriar",
+      "greeting": "Dear Miguel,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 101 Innovation Drive, Suite 400, Delaware, OH. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke and Andrew Witherell."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Tue Feb 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Wed Aug 18, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Aug 31, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Nov 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "jegs-automotive.all.partnerEmail": "Subject: JEGS Automotive 2027 quarterly meetings, options for your sign-off\n\nMatt and Andrew,\n\nBefore anything goes to Miguel Santana, please look at the attached one-pager with three date options per quarter for the JEGS Automotive meetings in Delaware. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "jegs-automotive.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for JEGS Automotive\n\nDear Miguel,\n\nOn behalf of Matt Burke and Andrew Witherell, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "jegs-automotive.all.boardEmail": "Subject: JEGS Automotive 2027 quarterly meetings, dates to confirm\n\nDear Janet Kowalski, Robert Tran and Elaine Porter,\n\nThe JEGS Automotive team has picked the following dates for the 2027 quarterly meetings, to be held at their Delaware office with dinner to follow.\n\n  Q1: Tue Feb 9, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm\n  Q3: Wed Aug 18, 10am to 2pm, dinner at 6:30pm\n  Q4: Tue Nov 2, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Matt Burke and Andrew Witherell will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "jegs-automotive.all.partnerEmail": {
+    "subject": "JEGS Automotive 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Matt and Andrew,",
+    "paragraphs": [
+      "Before anything goes to Miguel Santana, please look at the attached one-pager with three date options per quarter for the JEGS Automotive meetings in Delaware. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "jegs-automotive.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for JEGS Automotive",
+    "greeting": "Dear Miguel,",
+    "paragraphs": [
+      "On behalf of Matt Burke and Andrew Witherell, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "jegs-automotive.all.boardEmail": {
+    "subject": "JEGS Automotive 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Janet Kowalski, Robert Tran and Elaine Porter,",
+    "paragraphs": [
+      "The JEGS Automotive team has picked the following dates for the 2027 quarterly meetings, to be held at their Delaware office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Feb 9, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Wed Aug 18, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Tue Nov 2, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Matt Burke and Andrew Witherell will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "jegs-automotive.Q3.conflict": {
     "note": "Robert Tran declined Q3 on Wed Aug 18, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 10am to 2pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Robert Tran is unable to make the Q3 meeting on Wed Aug 18, so we are dropping that date. We propose Tue Aug 3, 10am to 2pm, with dinner at 6:30pm, which was on the original shortlist and works for Matt Burke and Andrew Witherell and the JEGS Automotive team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "JEGS Automotive Q3 meeting: date change to Tue Aug 3",
+      "greeting": "Dear Janet Kowalski, Robert Tran and Elaine Porter,",
+      "paragraphs": [
+        "Robert Tran is unable to make the Q3 meeting on Wed Aug 18, so we are dropping that date. The date below was on the original shortlist and works for Matt Burke and Andrew Witherell and the JEGS Automotive team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "jegs-automotive.all.logistics": {
     "picks": {
@@ -245,14 +669,120 @@
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nOnTrac and Greenbriar\n\nDear Priya,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2501 West Chandler Boulevard, Suite 500, Chandler, AZ. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Max Elgart and Will Stewart.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed May 12, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Aug 4, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, OnTrac and Greenbriar",
+      "greeting": "Dear Priya,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2501 West Chandler Boulevard, Suite 500, Chandler, AZ. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Max Elgart and Will Stewart."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed May 12, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Aug 4, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "ontrac.all.partnerEmail": "Subject: OnTrac 2027 quarterly meetings, options for your sign-off\n\nJill, Max and Will,\n\nBefore anything goes to Priya Raman, please look at the attached one-pager with three date options per quarter for the OnTrac meetings in Chandler. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "ontrac.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for OnTrac\n\nDear Priya,\n\nOn behalf of Jill Raker, Max Elgart and Will Stewart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "ontrac.all.boardEmail": "Subject: OnTrac 2027 quarterly meetings, dates to confirm\n\nDear Samuel Adeyemi, Nancy Whitaker and Paul Brennan,\n\nThe OnTrac team has picked the following dates for the 2027 quarterly meetings, to be held at their Chandler office with dinner to follow.\n\n  Q1: Wed Feb 3, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm\n  Q4: Tue Dec 14, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Jill Raker, Max Elgart and Will Stewart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "ontrac.all.partnerEmail": {
+    "subject": "OnTrac 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Jill, Max and Will,",
+    "paragraphs": [
+      "Before anything goes to Priya Raman, please look at the attached one-pager with three date options per quarter for the OnTrac meetings in Chandler. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "ontrac.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for OnTrac",
+    "greeting": "Dear Priya,",
+    "paragraphs": [
+      "On behalf of Jill Raker, Max Elgart and Will Stewart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "ontrac.all.boardEmail": {
+    "subject": "OnTrac 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Samuel Adeyemi, Nancy Whitaker and Paul Brennan,",
+    "paragraphs": [
+      "The OnTrac team has picked the following dates for the 2027 quarterly meetings, to be held at their Chandler office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Feb 3, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Tue Dec 14, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Jill Raker, Max Elgart and Will Stewart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "ontrac.Q3.conflict": {
     "note": "Nancy Whitaker declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 4, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Nancy Whitaker is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. We propose Wed Aug 4, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Jill Raker, Max Elgart and Will Stewart and the OnTrac team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "OnTrac Q3 meeting: date change to Wed Aug 4",
+      "greeting": "Dear Samuel Adeyemi, Nancy Whitaker and Paul Brennan,",
+      "paragraphs": [
+        "Nancy Whitaker is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. The date below was on the original shortlist and works for Jill Raker, Max Elgart and Will Stewart and the OnTrac team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Aug 4, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "ontrac.all.logistics": {
     "picks": {
@@ -301,14 +831,120 @@
         "A solid backup. Tuesday late in the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nRadwell International and Greenbriar\n\nDear Dale,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1 Millennium Drive, Suite 100, Willingboro, NJ. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang, Max Elgart and John Landry.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 24, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Mon Mar 29, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Thu May 27, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Radwell International and Greenbriar",
+      "greeting": "Dear Dale,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1 Millennium Drive, Suite 100, Willingboro, NJ. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang, Max Elgart and John Landry."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 24, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Mon Mar 29, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Thu May 27, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "radwell-international.all.partnerEmail": "Subject: Radwell International 2027 quarterly meetings, options for your sign-off\n\nNiall, Michael, Max and John,\n\nBefore anything goes to Dale Whitcomb, please look at the attached one-pager with three date options per quarter for the Radwell International meetings in Willingboro. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "radwell-international.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Radwell International\n\nDear Dale,\n\nOn behalf of Niall McComiskey, Michael Wang, Max Elgart and John Landry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "radwell-international.all.boardEmail": "Subject: Radwell International 2027 quarterly meetings, dates to confirm\n\nDear Ruth Calloway, Hector Ramos and Beth Lindgren,\n\nThe Radwell International team has picked the following dates for the 2027 quarterly meetings, to be held at their Willingboro office with dinner to follow.\n\n  Q1: Wed Feb 3, 9am to 1pm, dinner at 6:30pm\n  Q2: Mon May 10, 10am to 2pm, dinner at 6:30pm\n  Q3: Wed Sep 22, 10am to 2pm, dinner at 6:30pm\n  Q4: Tue Dec 14, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Niall McComiskey, Michael Wang, Max Elgart and John Landry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "radwell-international.all.partnerEmail": {
+    "subject": "Radwell International 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Niall, Michael, Max and John,",
+    "paragraphs": [
+      "Before anything goes to Dale Whitcomb, please look at the attached one-pager with three date options per quarter for the Radwell International meetings in Willingboro. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "radwell-international.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Radwell International",
+    "greeting": "Dear Dale,",
+    "paragraphs": [
+      "On behalf of Niall McComiskey, Michael Wang, Max Elgart and John Landry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "radwell-international.all.boardEmail": {
+    "subject": "Radwell International 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Ruth Calloway, Hector Ramos and Beth Lindgren,",
+    "paragraphs": [
+      "The Radwell International team has picked the following dates for the 2027 quarterly meetings, to be held at their Willingboro office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Feb 3, 9am to 1pm, dinner at 6:30pm",
+          "Q2: Mon May 10, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Wed Sep 22, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Tue Dec 14, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Niall McComiskey, Michael Wang, Max Elgart and John Landry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "radwell-international.Q3.conflict": {
-    "note": "Hector Ramos declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 10am to 2pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Hector Ramos is unable to make the Q3 meeting on Wed Sep 22, so we are dropping that date. We propose Thu Sep 9, 10am to 2pm, with dinner at 6:30pm, which was on the original shortlist and works for Niall McComiskey, Michael Wang, Max Elgart and John Landry and the Radwell International team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Hector Ramos declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 10am to 2pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "Radwell International Q3 meeting: date change to Thu Sep 9",
+      "greeting": "Dear Ruth Calloway, Hector Ramos and Beth Lindgren,",
+      "paragraphs": [
+        "Hector Ramos is unable to make the Q3 meeting on Wed Sep 22, so we are dropping that date. The date below was on the original shortlist and works for Niall McComiskey, Michael Wang, Max Elgart and John Landry and the Radwell International team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Thu Sep 9, 10am to 2pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "radwell-international.all.logistics": {
     "picks": {
@@ -357,14 +993,120 @@
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nRANDYS and Greenbriar\n\nDear Ingrid,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 10411 Airport Road, Suite 200, Everett, WA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Matt Burke and James Karle.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 5, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Jun 9, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu May 20, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Wed Nov 10, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, RANDYS and Greenbriar",
+      "greeting": "Dear Ingrid,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 10411 Airport Road, Suite 200, Everett, WA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Matt Burke and James Karle."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 5, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Jun 9, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu May 20, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Wed Nov 10, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "randys.all.partnerEmail": "Subject: RANDYS 2027 quarterly meetings, options for your sign-off\n\nNoah, Matt and James,\n\nBefore anything goes to Ingrid Solberg, please look at the attached one-pager with three date options per quarter for the RANDYS meetings in Everett. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "randys.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for RANDYS\n\nDear Ingrid,\n\nOn behalf of Noah Roy, Matt Burke and James Karle, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "randys.all.boardEmail": "Subject: RANDYS 2027 quarterly meetings, dates to confirm\n\nDear Arne Johansen, Grace Ito and Leonard Price,\n\nThe RANDYS team has picked the following dates for the 2027 quarterly meetings, to be held at their Everett office with dinner to follow.\n\n  Q1: Wed Jan 27, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed Jun 9, 9am to 1pm, dinner at 6:30pm\n  Q3: Tue Aug 17, 9am to 1pm, dinner at 6:30pm\n  Q4: Wed Nov 10, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Noah Roy, Matt Burke and James Karle will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "randys.all.partnerEmail": {
+    "subject": "RANDYS 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Noah, Matt and James,",
+    "paragraphs": [
+      "Before anything goes to Ingrid Solberg, please look at the attached one-pager with three date options per quarter for the RANDYS meetings in Everett. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "randys.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for RANDYS",
+    "greeting": "Dear Ingrid,",
+    "paragraphs": [
+      "On behalf of Noah Roy, Matt Burke and James Karle, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "randys.all.boardEmail": {
+    "subject": "RANDYS 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Arne Johansen, Grace Ito and Leonard Price,",
+    "paragraphs": [
+      "The RANDYS team has picked the following dates for the 2027 quarterly meetings, to be held at their Everett office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Jan 27, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed Jun 9, 9am to 1pm, dinner at 6:30pm",
+          "Q3: Tue Aug 17, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Wed Nov 10, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Noah Roy, Matt Burke and James Karle will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "randys.Q3.conflict": {
     "note": "Grace Ito declined Q3 on Tue Aug 17, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Grace Ito is unable to make the Q3 meeting on Tue Aug 17, so we are dropping that date. We propose Tue Aug 3, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Noah Roy, Matt Burke and James Karle and the RANDYS team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "RANDYS Q3 meeting: date change to Tue Aug 3",
+      "greeting": "Dear Arne Johansen, Grace Ito and Leonard Price,",
+      "paragraphs": [
+        "Grace Ito is unable to make the Q3 meeting on Tue Aug 17, so we are dropping that date. The date below was on the original shortlist and works for Noah Roy, Matt Burke and James Karle and the RANDYS team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "randys.all.logistics": {
     "picks": {
@@ -413,14 +1155,120 @@
         "A solid backup. Tuesday early in the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nRenuity and Greenbriar\n\nDear Marcus,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 6000 Fairview Road, Suite 1200, Charlotte, NC. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang and Frances Sperry.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Mar 9, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Renuity and Greenbriar",
+      "greeting": "Dear Marcus,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 6000 Fairview Road, Suite 1200, Charlotte, NC. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang and Frances Sperry."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Mar 9, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "renuity.all.partnerEmail": "Subject: Renuity 2027 quarterly meetings, options for your sign-off\n\nNiall, Michael and Frances,\n\nBefore anything goes to Marcus Greene, please look at the attached one-pager with three date options per quarter for the Renuity meetings in Charlotte. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "renuity.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Renuity\n\nDear Marcus,\n\nOn behalf of Niall McComiskey, Michael Wang and Frances Sperry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "renuity.all.boardEmail": "Subject: Renuity 2027 quarterly meetings, dates to confirm\n\nDear Diane Fuller, Kwame Mensah and Terry Lockhart,\n\nThe Renuity team has picked the following dates for the 2027 quarterly meetings, to be held at their Charlotte office with dinner to follow.\n\n  Q1: Wed Mar 3, 10am to 2pm, dinner at 6:30pm\n  Q2: Thu May 27, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 24, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Oct 26, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Niall McComiskey, Michael Wang and Frances Sperry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "renuity.all.partnerEmail": {
+    "subject": "Renuity 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Niall, Michael and Frances,",
+    "paragraphs": [
+      "Before anything goes to Marcus Greene, please look at the attached one-pager with three date options per quarter for the Renuity meetings in Charlotte. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "renuity.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Renuity",
+    "greeting": "Dear Marcus,",
+    "paragraphs": [
+      "On behalf of Niall McComiskey, Michael Wang and Frances Sperry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "renuity.all.boardEmail": {
+    "subject": "Renuity 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Diane Fuller, Kwame Mensah and Terry Lockhart,",
+    "paragraphs": [
+      "The Renuity team has picked the following dates for the 2027 quarterly meetings, to be held at their Charlotte office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Mar 3, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Thu May 27, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 24, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Oct 26, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Niall McComiskey, Michael Wang and Frances Sperry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "renuity.Q3.conflict": {
     "note": "Kwame Mensah declined Q3 on Tue Aug 24, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 10am to 2pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Kwame Mensah is unable to make the Q3 meeting on Tue Aug 24, so we are dropping that date. We propose Thu Sep 9, 10am to 2pm, with dinner at 6:30pm, which was on the original shortlist and works for Niall McComiskey, Michael Wang and Frances Sperry and the Renuity team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "Renuity Q3 meeting: date change to Thu Sep 9",
+      "greeting": "Dear Diane Fuller, Kwame Mensah and Terry Lockhart,",
+      "paragraphs": [
+        "Kwame Mensah is unable to make the Q3 meeting on Tue Aug 24, so we are dropping that date. The date below was on the original shortlist and works for Niall McComiskey, Michael Wang and Frances Sperry and the Renuity team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Thu Sep 9, 10am to 2pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "renuity.all.logistics": {
     "picks": {
@@ -469,14 +1317,120 @@
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nSparkstone Electrical Group and Greenbriar\n\nDear Jenna,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1240 North Wood Dale Road, Suite 300, Addison, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang, James Peng and Will Stewart.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Jan 26, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Thu May 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Mon May 17, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu Nov 4, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Sparkstone Electrical Group and Greenbriar",
+      "greeting": "Dear Jenna,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1240 North Wood Dale Road, Suite 300, Addison, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang, James Peng and Will Stewart."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Jan 26, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Mon May 17, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu Nov 4, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "sparkstone-electrical-group.all.partnerEmail": "Subject: Sparkstone Electrical Group 2027 quarterly meetings, options for your sign-off\n\nNiall, Michael, James and Will,\n\nBefore anything goes to Jenna Holt, please look at the attached one-pager with three date options per quarter for the Sparkstone Electrical Group meetings in Addison. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "sparkstone-electrical-group.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Sparkstone Electrical Group\n\nDear Jenna,\n\nOn behalf of Niall McComiskey, Michael Wang, James Peng and Will Stewart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "sparkstone-electrical-group.all.boardEmail": "Subject: Sparkstone Electrical Group 2027 quarterly meetings, dates to confirm\n\nDear Brett Hansen, Maya Patel and Clifford Young,\n\nThe Sparkstone Electrical Group team has picked the following dates for the 2027 quarterly meetings, to be held at their Addison office with dinner to follow.\n\n  Q1: Tue Jan 26, 10am to 2pm, dinner at 6:30pm\n  Q2: Thu May 27, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 24, 9am to 1pm, dinner at 6:30pm\n  Q4: Mon Nov 22, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Niall McComiskey, Michael Wang, James Peng and Will Stewart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "sparkstone-electrical-group.all.partnerEmail": {
+    "subject": "Sparkstone Electrical Group 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Niall, Michael, James and Will,",
+    "paragraphs": [
+      "Before anything goes to Jenna Holt, please look at the attached one-pager with three date options per quarter for the Sparkstone Electrical Group meetings in Addison. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "sparkstone-electrical-group.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Sparkstone Electrical Group",
+    "greeting": "Dear Jenna,",
+    "paragraphs": [
+      "On behalf of Niall McComiskey, Michael Wang, James Peng and Will Stewart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "sparkstone-electrical-group.all.boardEmail": {
+    "subject": "Sparkstone Electrical Group 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Brett Hansen, Maya Patel and Clifford Young,",
+    "paragraphs": [
+      "The Sparkstone Electrical Group team has picked the following dates for the 2027 quarterly meetings, to be held at their Addison office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Jan 26, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Thu May 27, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 24, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Mon Nov 22, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Niall McComiskey, Michael Wang, James Peng and Will Stewart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "sparkstone-electrical-group.Q3.conflict": {
-    "note": "Maya Patel declined Q3 on Tue Aug 24, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 22, 10am to 2pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Maya Patel is unable to make the Q3 meeting on Tue Aug 24, so we are dropping that date. We propose Wed Sep 22, 10am to 2pm, with dinner at 6:30pm, which was on the original shortlist and works for Niall McComiskey, Michael Wang, James Peng and Will Stewart and the Sparkstone Electrical Group team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Maya Patel declined Q3 on Tue Aug 24, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 22, 10am to 2pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "Sparkstone Electrical Group Q3 meeting: date change to Wed Sep 22",
+      "greeting": "Dear Brett Hansen, Maya Patel and Clifford Young,",
+      "paragraphs": [
+        "Maya Patel is unable to make the Q3 meeting on Tue Aug 24, so we are dropping that date. The date below was on the original shortlist and works for Niall McComiskey, Michael Wang, James Peng and Will Stewart and the Sparkstone Electrical Group team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Sep 22, 10am to 2pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "sparkstone-electrical-group.all.logistics": {
     "picks": {
@@ -525,14 +1479,120 @@
         "A solid backup. Monday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nSunAuto Tire & Service and Greenbriar\n\nDear Victor,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 4800 East Broadway Boulevard, Suite 600, Tucson, AZ. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke, John Cofer and Andrew Witherell.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Aug 31, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Mon Oct 18, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, SunAuto Tire & Service and Greenbriar",
+      "greeting": "Dear Victor,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 4800 East Broadway Boulevard, Suite 600, Tucson, AZ. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke, John Cofer and Andrew Witherell."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Aug 31, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Mon Oct 18, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "sunauto-tire-service.all.partnerEmail": "Subject: SunAuto Tire & Service 2027 quarterly meetings, options for your sign-off\n\nMatt, John and Andrew,\n\nBefore anything goes to Victor Malone, please look at the attached one-pager with three date options per quarter for the SunAuto Tire & Service meetings in Tucson. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "sunauto-tire-service.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for SunAuto Tire & Service\n\nDear Victor,\n\nOn behalf of Matt Burke, John Cofer and Andrew Witherell, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "sunauto-tire-service.all.boardEmail": "Subject: SunAuto Tire & Service 2027 quarterly meetings, dates to confirm\n\nDear Joan Kessler, Dmitri Volkov and Alice Moreau,\n\nThe SunAuto Tire & Service team has picked the following dates for the 2027 quarterly meetings, to be held at their Tucson office with dinner to follow.\n\n  Q1: Wed Feb 3, 9am to 1pm, dinner at 6:30pm\n  Q2: Wed May 26, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm\n  Q4: Mon Nov 22, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Matt Burke, John Cofer and Andrew Witherell will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "sunauto-tire-service.all.partnerEmail": {
+    "subject": "SunAuto Tire & Service 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Matt, John and Andrew,",
+    "paragraphs": [
+      "Before anything goes to Victor Malone, please look at the attached one-pager with three date options per quarter for the SunAuto Tire & Service meetings in Tucson. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "sunauto-tire-service.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for SunAuto Tire & Service",
+    "greeting": "Dear Victor,",
+    "paragraphs": [
+      "On behalf of Matt Burke, John Cofer and Andrew Witherell, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "sunauto-tire-service.all.boardEmail": {
+    "subject": "SunAuto Tire & Service 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Joan Kessler, Dmitri Volkov and Alice Moreau,",
+    "paragraphs": [
+      "The SunAuto Tire & Service team has picked the following dates for the 2027 quarterly meetings, to be held at their Tucson office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Feb 3, 9am to 1pm, dinner at 6:30pm",
+          "Q2: Wed May 26, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Mon Nov 22, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Matt Burke, John Cofer and Andrew Witherell will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "sunauto-tire-service.Q3.conflict": {
     "note": "Dmitri Volkov declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 18, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Dmitri Volkov is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. We propose Wed Aug 18, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Matt Burke, John Cofer and Andrew Witherell and the SunAuto Tire & Service team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "SunAuto Tire & Service Q3 meeting: date change to Wed Aug 18",
+      "greeting": "Dear Joan Kessler, Dmitri Volkov and Alice Moreau,",
+      "paragraphs": [
+        "Dmitri Volkov is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. The date below was on the original shortlist and works for Matt Burke, John Cofer and Andrew Witherell and the SunAuto Tire & Service team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Aug 18, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "sunauto-tire-service.all.logistics": {
     "picks": {
@@ -581,14 +1641,120 @@
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nSunvair Aerospace Group and Greenbriar\n\nDear Lorraine,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 28100 Avenue Stanford, Suite 100, Valencia, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Blitzer, Noah Roy and John Cofer.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed May 5, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Jul 13, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Sunvair Aerospace Group and Greenbriar",
+      "greeting": "Dear Lorraine,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 28100 Avenue Stanford, Suite 100, Valencia, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Blitzer, Noah Roy and John Cofer."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed May 5, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Jul 13, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "sunvair-aerospace-group.all.partnerEmail": "Subject: Sunvair Aerospace Group 2027 quarterly meetings, options for your sign-off\n\nNoah, Noah and John,\n\nBefore anything goes to Lorraine Pike, please look at the attached one-pager with three date options per quarter for the Sunvair Aerospace Group meetings in Valencia. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "sunvair-aerospace-group.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Sunvair Aerospace Group\n\nDear Lorraine,\n\nOn behalf of Noah Blitzer, Noah Roy and John Cofer, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "sunvair-aerospace-group.all.boardEmail": "Subject: Sunvair Aerospace Group 2027 quarterly meetings, dates to confirm\n\nDear Carlos Vega, Sheila Grant and Nate Ferguson,\n\nThe Sunvair Aerospace Group team has picked the following dates for the 2027 quarterly meetings, to be held at their Valencia office with dinner to follow.\n\n  Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed Apr 14, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Oct 12, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Noah Blitzer, Noah Roy and John Cofer will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "sunvair-aerospace-group.all.partnerEmail": {
+    "subject": "Sunvair Aerospace Group 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Noah, Noah and John,",
+    "paragraphs": [
+      "Before anything goes to Lorraine Pike, please look at the attached one-pager with three date options per quarter for the Sunvair Aerospace Group meetings in Valencia. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "sunvair-aerospace-group.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Sunvair Aerospace Group",
+    "greeting": "Dear Lorraine,",
+    "paragraphs": [
+      "On behalf of Noah Blitzer, Noah Roy and John Cofer, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "sunvair-aerospace-group.all.boardEmail": {
+    "subject": "Sunvair Aerospace Group 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Carlos Vega, Sheila Grant and Nate Ferguson,",
+    "paragraphs": [
+      "The Sunvair Aerospace Group team has picked the following dates for the 2027 quarterly meetings, to be held at their Valencia office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed Apr 14, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Oct 12, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Noah Blitzer, Noah Roy and John Cofer will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "sunvair-aerospace-group.Q3.conflict": {
     "note": "Sheila Grant declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Sheila Grant is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. We propose Wed Sep 1, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Noah Blitzer, Noah Roy and John Cofer and the Sunvair Aerospace Group team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "Sunvair Aerospace Group Q3 meeting: date change to Wed Sep 1",
+      "greeting": "Dear Carlos Vega, Sheila Grant and Nate Ferguson,",
+      "paragraphs": [
+        "Sheila Grant is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. The date below was on the original shortlist and works for Noah Blitzer, Noah Roy and John Cofer and the Sunvair Aerospace Group team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Sep 1, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "sunvair-aerospace-group.all.logistics": {
     "picks": {
@@ -637,14 +1803,120 @@
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nThe Facilities Group and Greenbriar\n\nDear Curtis,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 400 North Ashley Drive, Suite 2100, Tampa, FL. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Niall McComiskey and John Cofer.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu May 27, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, The Facilities Group and Greenbriar",
+      "greeting": "Dear Curtis,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 400 North Ashley Drive, Suite 2100, Tampa, FL. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Niall McComiskey and John Cofer."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu May 27, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "the-facilities-group.all.partnerEmail": "Subject: The Facilities Group 2027 quarterly meetings, options for your sign-off\n\nMichael, Niall and John,\n\nBefore anything goes to Curtis Hale, please look at the attached one-pager with three date options per quarter for the The Facilities Group meetings in Tampa. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "the-facilities-group.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for The Facilities Group\n\nDear Curtis,\n\nOn behalf of Michael Weiss, Niall McComiskey and John Cofer, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "the-facilities-group.all.boardEmail": "Subject: The Facilities Group 2027 quarterly meetings, dates to confirm\n\nDear Wendell Brooks, Laura Chen and Gary Thompson,\n\nThe The Facilities Group team has picked the following dates for the 2027 quarterly meetings, to be held at their Tampa office with dinner to follow.\n\n  Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm\n  Q4: Tue Nov 2, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Michael Weiss, Niall McComiskey and John Cofer will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "the-facilities-group.all.partnerEmail": {
+    "subject": "The Facilities Group 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Michael, Niall and John,",
+    "paragraphs": [
+      "Before anything goes to Curtis Hale, please look at the attached one-pager with three date options per quarter for the The Facilities Group meetings in Tampa. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "the-facilities-group.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for The Facilities Group",
+    "greeting": "Dear Curtis,",
+    "paragraphs": [
+      "On behalf of Michael Weiss, Niall McComiskey and John Cofer, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "the-facilities-group.all.boardEmail": {
+    "subject": "The Facilities Group 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Wendell Brooks, Laura Chen and Gary Thompson,",
+    "paragraphs": [
+      "The The Facilities Group team has picked the following dates for the 2027 quarterly meetings, to be held at their Tampa office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 3, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Tue Nov 2, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Michael Weiss, Niall McComiskey and John Cofer will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "the-facilities-group.Q3.conflict": {
     "note": "Laura Chen declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Mon Sep 20, 10am to 2pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Laura Chen is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. We propose Mon Sep 20, 10am to 2pm, with dinner at 6:30pm, which was on the original shortlist and works for Michael Weiss, Niall McComiskey and John Cofer and the The Facilities Group team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "The Facilities Group Q3 meeting: date change to Mon Sep 20",
+      "greeting": "Dear Wendell Brooks, Laura Chen and Gary Thompson,",
+      "paragraphs": [
+        "Laura Chen is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. The date below was on the original shortlist and works for Michael Weiss, Niall McComiskey and John Cofer and the The Facilities Group team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Mon Sep 20, 10am to 2pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "the-facilities-group.all.logistics": {
     "picks": {
@@ -693,14 +1965,120 @@
         "A solid backup. Tuesday late in the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nTowne and Greenbriar\n\nDear Angela,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 600 West Germantown Pike, Suite 400, Plymouth Meeting, PA. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Mon Jan 11, 10am to 2pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Jun 23, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Mon Jul 26, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Aug 3, 1pm to 5pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Towne and Greenbriar",
+      "greeting": "Dear Angela,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 600 West Germantown Pike, Suite 400, Plymouth Meeting, PA. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Mon Jan 11, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Jun 23, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Mon Jul 26, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Aug 3, 1pm to 5pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "towne.all.partnerEmail": "Subject: Towne 2027 quarterly meetings, options for your sign-off\n\nMichael, Michael, John and Andrew,\n\nBefore anything goes to Angela Ruiz, please look at the attached one-pager with three date options per quarter for the Towne meetings in Plymouth Meeting. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "towne.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Towne\n\nDear Angela,\n\nOn behalf of Michael Weiss, Michael Wang, John Cofer and Andrew Witherell, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "towne.all.boardEmail": "Subject: Towne 2027 quarterly meetings, dates to confirm\n\nDear Patricia Dunn, Omar Haddad and Steven Kroll,\n\nThe Towne team has picked the following dates for the 2027 quarterly meetings, to be held at their Plymouth Meeting office with dinner to follow.\n\n  Q1: Wed Feb 3, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed Apr 28, 10am to 2pm, dinner at 6:30pm\n  Q3: Mon Jul 26, 9am to 1pm, dinner at 6:30pm\n  Q4: Mon Nov 22, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Michael Weiss, Michael Wang, John Cofer and Andrew Witherell will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "towne.all.partnerEmail": {
+    "subject": "Towne 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Michael, Michael, John and Andrew,",
+    "paragraphs": [
+      "Before anything goes to Angela Ruiz, please look at the attached one-pager with three date options per quarter for the Towne meetings in Plymouth Meeting. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "towne.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Towne",
+    "greeting": "Dear Angela,",
+    "paragraphs": [
+      "On behalf of Michael Weiss, Michael Wang, John Cofer and Andrew Witherell, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "towne.all.boardEmail": {
+    "subject": "Towne 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Patricia Dunn, Omar Haddad and Steven Kroll,",
+    "paragraphs": [
+      "The Towne team has picked the following dates for the 2027 quarterly meetings, to be held at their Plymouth Meeting office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Feb 3, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed Apr 28, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Mon Jul 26, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Mon Nov 22, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Michael Weiss, Michael Wang, John Cofer and Andrew Witherell will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "towne.Q3.conflict": {
-    "note": "Omar Haddad declined Q3 on Mon Jul 26, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 9am to 1pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Omar Haddad is unable to make the Q3 meeting on Mon Jul 26, so we are dropping that date. We propose Thu Sep 9, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell and the Towne team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Omar Haddad declined Q3 on Mon Jul 26, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 9am to 1pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "Towne Q3 meeting: date change to Thu Sep 9",
+      "greeting": "Dear Patricia Dunn, Omar Haddad and Steven Kroll,",
+      "paragraphs": [
+        "Omar Haddad is unable to make the Q3 meeting on Mon Jul 26, so we are dropping that date. The date below was on the original shortlist and works for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell and the Towne team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Thu Sep 9, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "towne.all.logistics": {
     "picks": {
@@ -749,14 +2127,120 @@
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nVIVE Collision and Greenbriar\n\nDear Owen,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1 Penn Plaza, Suite 3600, New York, NY. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke, Niall McComiskey, James Karle and John Landry.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Feb 9, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu Apr 29, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Jul 14, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, VIVE Collision and Greenbriar",
+      "greeting": "Dear Owen,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1 Penn Plaza, Suite 3600, New York, NY. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke, Niall McComiskey, James Karle and John Landry."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Feb 9, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu Apr 29, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Jul 14, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "vive-collision.all.partnerEmail": "Subject: VIVE Collision 2027 quarterly meetings, options for your sign-off\n\nMatt, Niall, James and John,\n\nBefore anything goes to Owen Fairbanks, please look at the attached one-pager with three date options per quarter for the VIVE Collision meetings in New York. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "vive-collision.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for VIVE Collision\n\nDear Owen,\n\nOn behalf of Matt Burke, Niall McComiskey, James Karle and John Landry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "vive-collision.all.boardEmail": "Subject: VIVE Collision 2027 quarterly meetings, dates to confirm\n\nDear Margaret Lowe, Ken Nakamura and Rosa Delgado,\n\nThe VIVE Collision team has picked the following dates for the 2027 quarterly meetings, to be held at their New York office with dinner to follow.\n\n  Q1: Tue Feb 9, 9am to 1pm, dinner at 6:30pm\n  Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm\n  Q3: Wed Sep 22, 10am to 2pm, dinner at 6:30pm\n  Q4: Tue Nov 2, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Matt Burke, Niall McComiskey, James Karle and John Landry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "vive-collision.all.partnerEmail": {
+    "subject": "VIVE Collision 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Matt, Niall, James and John,",
+    "paragraphs": [
+      "Before anything goes to Owen Fairbanks, please look at the attached one-pager with three date options per quarter for the VIVE Collision meetings in New York. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "vive-collision.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for VIVE Collision",
+    "greeting": "Dear Owen,",
+    "paragraphs": [
+      "On behalf of Matt Burke, Niall McComiskey, James Karle and John Landry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "vive-collision.all.boardEmail": {
+    "subject": "VIVE Collision 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Margaret Lowe, Ken Nakamura and Rosa Delgado,",
+    "paragraphs": [
+      "The VIVE Collision team has picked the following dates for the 2027 quarterly meetings, to be held at their New York office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Feb 9, 9am to 1pm, dinner at 6:30pm",
+          "Q2: Wed May 5, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Wed Sep 22, 10am to 2pm, dinner at 6:30pm",
+          "Q4: Tue Nov 2, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Matt Burke, Niall McComiskey, James Karle and John Landry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "vive-collision.Q3.conflict": {
-    "note": "Ken Nakamura declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Wed Jul 14, 9am to 1pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Ken Nakamura is unable to make the Q3 meeting on Wed Sep 22, so we are dropping that date. We propose Wed Jul 14, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Matt Burke, Niall McComiskey, James Karle and John Landry and the VIVE Collision team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Ken Nakamura declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Wed Jul 14, 9am to 1pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "VIVE Collision Q3 meeting: date change to Wed Jul 14",
+      "greeting": "Dear Margaret Lowe, Ken Nakamura and Rosa Delgado,",
+      "paragraphs": [
+        "Ken Nakamura is unable to make the Q3 meeting on Wed Sep 22, so we are dropping that date. The date below was on the original shortlist and works for Matt Burke, Niall McComiskey, James Karle and John Landry and the VIVE Collision team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Jul 14, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "vive-collision.all.logistics": {
     "picks": {
@@ -805,14 +2289,120 @@
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nWest Star Aviation and Greenbriar\n\nDear Sandra,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2 Terminal Drive, Suite 200, East Alton, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Blitzer, Noah Roy and Max Elgart.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu Jul 15, 10am to 2pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, West Star Aviation and Greenbriar",
+      "greeting": "Dear Sandra,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2 Terminal Drive, Suite 200, East Alton, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Blitzer, Noah Roy and Max Elgart."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu Jul 15, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "west-star-aviation.all.partnerEmail": "Subject: West Star Aviation 2027 quarterly meetings, options for your sign-off\n\nNoah, Noah and Max,\n\nBefore anything goes to Sandra Okoye, please look at the attached one-pager with three date options per quarter for the West Star Aviation meetings in East Alton. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "west-star-aviation.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for West Star Aviation\n\nDear Sandra,\n\nOn behalf of Noah Blitzer, Noah Roy and Max Elgart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "west-star-aviation.all.boardEmail": "Subject: West Star Aviation 2027 quarterly meetings, dates to confirm\n\nDear Howard Fitch, Amara Nwosu and Philip Sandoval,\n\nThe West Star Aviation team has picked the following dates for the 2027 quarterly meetings, to be held at their East Alton office with dinner to follow.\n\n  Q1: Wed Jan 27, 10am to 2pm, dinner at 6:30pm\n  Q2: Mon May 10, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 17, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Oct 12, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Noah Blitzer, Noah Roy and Max Elgart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "west-star-aviation.all.partnerEmail": {
+    "subject": "West Star Aviation 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Noah, Noah and Max,",
+    "paragraphs": [
+      "Before anything goes to Sandra Okoye, please look at the attached one-pager with three date options per quarter for the West Star Aviation meetings in East Alton. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "west-star-aviation.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for West Star Aviation",
+    "greeting": "Dear Sandra,",
+    "paragraphs": [
+      "On behalf of Noah Blitzer, Noah Roy and Max Elgart, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "west-star-aviation.all.boardEmail": {
+    "subject": "West Star Aviation 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Howard Fitch, Amara Nwosu and Philip Sandoval,",
+    "paragraphs": [
+      "The West Star Aviation team has picked the following dates for the 2027 quarterly meetings, to be held at their East Alton office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Jan 27, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Mon May 10, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 17, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Oct 12, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Noah Blitzer, Noah Roy and Max Elgart will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "west-star-aviation.Q3.conflict": {
     "note": "Amara Nwosu declined Q3 on Tue Aug 17, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Amara Nwosu is unable to make the Q3 meeting on Tue Aug 17, so we are dropping that date. We propose Tue Aug 3, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Noah Blitzer, Noah Roy and Max Elgart and the West Star Aviation team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "West Star Aviation Q3 meeting: date change to Tue Aug 3",
+      "greeting": "Dear Howard Fitch, Amara Nwosu and Philip Sandoval,",
+      "paragraphs": [
+        "Amara Nwosu is unable to make the Q3 meeting on Tue Aug 17, so we are dropping that date. The date below was on the original shortlist and works for Noah Blitzer, Noah Roy and Max Elgart and the West Star Aviation team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "west-star-aviation.all.logistics": {
     "picks": {
@@ -861,14 +2451,120 @@
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nWineshipping and Greenbriar\n\nDear Daniel,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1100 Vintage Way, Suite 300, Napa, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Jill Raker and Ben Cox.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Jan 27, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed May 26, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Oct 26, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Wineshipping and Greenbriar",
+      "greeting": "Dear Daniel,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1100 Vintage Way, Suite 300, Napa, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Jill Raker and Ben Cox."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Jan 27, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed May 26, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Oct 26, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "wineshipping.all.partnerEmail": "Subject: Wineshipping 2027 quarterly meetings, options for your sign-off\n\nMichael, Jill and Ben,\n\nBefore anything goes to Daniel Brightwater, please look at the attached one-pager with three date options per quarter for the Wineshipping meetings in Napa. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "wineshipping.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Wineshipping\n\nDear Daniel,\n\nOn behalf of Michael Weiss, Jill Raker and Ben Cox, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "wineshipping.all.boardEmail": "Subject: Wineshipping 2027 quarterly meetings, dates to confirm\n\nDear Celia Marchetti, Bruce Halloran and Yvonne Castillo,\n\nThe Wineshipping team has picked the following dates for the 2027 quarterly meetings, to be held at their Napa office with dinner to follow.\n\n  Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm\n  Q2: Mon May 10, 10am to 2pm, dinner at 6:30pm\n  Q3: Wed Aug 18, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Oct 26, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Michael Weiss, Jill Raker and Ben Cox will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "wineshipping.all.partnerEmail": {
+    "subject": "Wineshipping 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Michael, Jill and Ben,",
+    "paragraphs": [
+      "Before anything goes to Daniel Brightwater, please look at the attached one-pager with three date options per quarter for the Wineshipping meetings in Napa. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "wineshipping.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Wineshipping",
+    "greeting": "Dear Daniel,",
+    "paragraphs": [
+      "On behalf of Michael Weiss, Jill Raker and Ben Cox, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "wineshipping.all.boardEmail": {
+    "subject": "Wineshipping 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Celia Marchetti, Bruce Halloran and Yvonne Castillo,",
+    "paragraphs": [
+      "The Wineshipping team has picked the following dates for the 2027 quarterly meetings, to be held at their Napa office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Tue Mar 9, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Mon May 10, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Wed Aug 18, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Oct 26, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Michael Weiss, Jill Raker and Ben Cox will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "wineshipping.Q3.conflict": {
     "note": "Bruce Halloran declined Q3 on Wed Aug 18, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Bruce Halloran is unable to make the Q3 meeting on Wed Aug 18, so we are dropping that date. We propose Wed Sep 1, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Michael Weiss, Jill Raker and Ben Cox and the Wineshipping team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "Wineshipping Q3 meeting: date change to Wed Sep 1",
+      "greeting": "Dear Celia Marchetti, Bruce Halloran and Yvonne Castillo,",
+      "paragraphs": [
+        "Bruce Halloran is unable to make the Q3 meeting on Wed Aug 18, so we are dropping that date. The date below was on the original shortlist and works for Michael Weiss, Jill Raker and Ben Cox and the Wineshipping team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Sep 1, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "wineshipping.all.logistics": {
     "picks": {
@@ -917,14 +2613,120 @@
         "A solid backup. Wednesday late in the quarter; a 9am start means partners fly in the night before."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nApplied Aerospace & Defense and Greenbriar\n\nDear Louis,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 3437 South Airport Way, Suite 100, Stockton, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 24, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Tue Mar 9, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Thu May 27, 10am to 2pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Thu Jul 15, 10am to 2pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Dec 8, 9am to 1pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Applied Aerospace & Defense and Greenbriar",
+      "greeting": "Dear Louis,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 3437 South Airport Way, Suite 100, Stockton, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 24, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Tue Mar 9, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Thu May 27, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Thu Jul 15, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Dec 8, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "applied-aerospace-defense.all.partnerEmail": "Subject: Applied Aerospace & Defense 2027 quarterly meetings, options for your sign-off\n\nNoah, Noah, Jack and Frances,\n\nBefore anything goes to Louis Ferrante, please look at the attached one-pager with three date options per quarter for the Applied Aerospace & Defense meetings in Stockton. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "applied-aerospace-defense.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Applied Aerospace & Defense\n\nDear Louis,\n\nOn behalf of Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "applied-aerospace-defense.all.boardEmail": "Subject: Applied Aerospace & Defense 2027 quarterly meetings, dates to confirm\n\nDear Martha Ellison, Desmond Okafor and Karl Weber,\n\nThe Applied Aerospace & Defense team has picked the following dates for the 2027 quarterly meetings, to be held at their Stockton office with dinner to follow.\n\n  Q1: Wed Mar 24, 10am to 2pm, dinner at 6:30pm\n  Q2: Thu May 27, 10am to 2pm, dinner at 6:30pm\n  Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Nov 2, 9am to 1pm, dinner at 6:30pm\n\nFrom Greenbriar, Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "applied-aerospace-defense.all.partnerEmail": {
+    "subject": "Applied Aerospace & Defense 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Noah, Noah, Jack and Frances,",
+    "paragraphs": [
+      "Before anything goes to Louis Ferrante, please look at the attached one-pager with three date options per quarter for the Applied Aerospace & Defense meetings in Stockton. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "applied-aerospace-defense.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Applied Aerospace & Defense",
+    "greeting": "Dear Louis,",
+    "paragraphs": [
+      "On behalf of Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "applied-aerospace-defense.all.boardEmail": {
+    "subject": "Applied Aerospace & Defense 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Martha Ellison, Desmond Okafor and Karl Weber,",
+    "paragraphs": [
+      "The Applied Aerospace & Defense team has picked the following dates for the 2027 quarterly meetings, to be held at their Stockton office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Mar 24, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Thu May 27, 10am to 2pm, dinner at 6:30pm",
+          "Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Nov 2, 9am to 1pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "applied-aerospace-defense.Q3.conflict": {
-    "note": "Desmond Okafor declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Desmond Okafor is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. We propose Wed Sep 1, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry and the Applied Aerospace & Defense team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "note": "Desmond Okafor declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
+    "resend": {
+      "subject": "Applied Aerospace & Defense Q3 meeting: date change to Wed Sep 1",
+      "greeting": "Dear Martha Ellison, Desmond Okafor and Karl Weber,",
+      "paragraphs": [
+        "Desmond Okafor is unable to make the Q3 meeting on Tue Aug 3, so we are dropping that date. The date below was on the original shortlist and works for Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry and the Applied Aerospace & Defense team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Wed Sep 1, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "applied-aerospace-defense.all.logistics": {
     "picks": {
@@ -973,14 +2775,120 @@
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
-    "onepager": "Proposed 2027 quarterly meeting dates\nPursuit Aerospace and Greenbriar\n\nDear Ellen,\n\nThank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 500 Main Street, Suite 700, Manchester, CT. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Noah Blitzer and James Karle.\n\nPlease pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again.\n\nQ1, January to March\n  Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.\n\nQ2, April to June\n  Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.\n  Option 3: Wed May 5, 9am to 1pm. Dinner at 6:30pm.\n\nQ3, July to September\n  Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.\n  Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.\n\nQ4, October to December\n  Option 1: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.\n  Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.\n  Option 3: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.\n\nYour board members will be asked to confirm once you have chosen.\n\nWe look forward to seeing you.\nExecutive Assistant to the Greenbriar Partners"
+    "onepager": {
+      "title": "Proposed 2027 quarterly meeting dates, Pursuit Aerospace and Greenbriar",
+      "greeting": "Dear Ellen,",
+      "paragraphs": [
+        "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 500 Main Street, Suite 700, Manchester, CT. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Noah Blitzer and James Karle."
+      ],
+      "lists": [
+        {
+          "heading": "Q1, January to March",
+          "items": [
+            "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q2, April to June",
+          "items": [
+            "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 3: Wed May 5, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q3, July to September",
+          "items": [
+            "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm."
+          ]
+        },
+        {
+          "heading": "Q4, October to December",
+          "items": [
+            "Option 1: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.",
+            "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
+            "Option 3: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm."
+          ]
+        }
+      ],
+      "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of them work, tell us and we will look again. Your board members will be asked to confirm once you have chosen.",
+      "signoff": [
+        "We look forward to seeing you.",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
-  "pursuit-aerospace.all.partnerEmail": "Subject: Pursuit Aerospace 2027 quarterly meetings, options for your sign-off\n\nNoah, Noah and James,\n\nBefore anything goes to Ellen Sorensen, please look at the attached one-pager with three date options per quarter for the Pursuit Aerospace meetings in Manchester. Every option is a four hour block where all of you are free, with dinner after. Reply yes by {{replyBy}} and I will send it on, or tell me what to change.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "pursuit-aerospace.all.portcoEmail": "Subject: Proposed 2027 quarterly meeting dates for Pursuit Aerospace\n\nDear Ellen,\n\nOn behalf of Noah Roy, Noah Blitzer and James Karle, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office. Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
-  "pursuit-aerospace.all.boardEmail": "Subject: Pursuit Aerospace 2027 quarterly meetings, dates to confirm\n\nDear Roger Danvers, Mei Lin Chao and Stuart Beckett,\n\nThe Pursuit Aerospace team has picked the following dates for the 2027 quarterly meetings, to be held at their Manchester office with dinner to follow.\n\n  Q1: Wed Mar 10, 10am to 2pm, dinner at 6:30pm\n  Q2: Wed May 5, 9am to 1pm, dinner at 6:30pm\n  Q3: Tue Aug 17, 9am to 1pm, dinner at 6:30pm\n  Q4: Tue Oct 12, 10am to 2pm, dinner at 6:30pm\n\nFrom Greenbriar, Noah Roy, Noah Blitzer and James Karle will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.\n\nThank you,\nExecutive Assistant to the Greenbriar Partners",
+  "pursuit-aerospace.all.partnerEmail": {
+    "subject": "Pursuit Aerospace 2027 quarterly meetings, options for your sign-off",
+    "greeting": "Noah, Noah and James,",
+    "paragraphs": [
+      "Before anything goes to Ellen Sorensen, please look at the attached one-pager with three date options per quarter for the Pursuit Aerospace meetings in Manchester. Every option is a four hour block where all of you are free, with dinner after."
+    ],
+    "ask": "Reply yes by {{replyBy}} and I will send it on, or tell me what to change.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "pursuit-aerospace.all.portcoEmail": {
+    "subject": "Proposed 2027 quarterly meeting dates for Pursuit Aerospace",
+    "greeting": "Dear Ellen,",
+    "paragraphs": [
+      "On behalf of Noah Roy, Noah Blitzer and James Karle, I have attached a one-page proposal with three options for each 2027 quarterly meeting at your office."
+    ],
+    "ask": "Please pick one option per quarter and reply by {{replyBy}}. If none of the options work for a quarter, let me know and we will find more. After you choose, I will confirm the dates with your board members and arrange the dinners.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
+  "pursuit-aerospace.all.boardEmail": {
+    "subject": "Pursuit Aerospace 2027 quarterly meetings, dates to confirm",
+    "greeting": "Dear Roger Danvers, Mei Lin Chao and Stuart Beckett,",
+    "paragraphs": [
+      "The Pursuit Aerospace team has picked the following dates for the 2027 quarterly meetings, to be held at their Manchester office with dinner to follow."
+    ],
+    "lists": [
+      {
+        "items": [
+          "Q1: Wed Mar 10, 10am to 2pm, dinner at 6:30pm",
+          "Q2: Wed May 5, 9am to 1pm, dinner at 6:30pm",
+          "Q3: Tue Aug 17, 9am to 1pm, dinner at 6:30pm",
+          "Q4: Tue Oct 12, 10am to 2pm, dinner at 6:30pm"
+        ]
+      }
+    ],
+    "ask": "From Greenbriar, Noah Roy, Noah Blitzer and James Karle will attend each meeting. Could you reply with a yes for all four by {{replyBy}}? If any date does not work for you, please tell me right away and we will look at the alternates.",
+    "signoff": [
+      "Thank you,",
+      "Executive Assistant to the Greenbriar Partners"
+    ]
+  },
   "pursuit-aerospace.Q3.conflict": {
     "note": "Mei Lin Chao declined Q3 on Tue Aug 17, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
-    "resend": "Dear board members, Mei Lin Chao is unable to make the Q3 meeting on Tue Aug 17, so we are dropping that date. We propose Tue Aug 3, 9am to 1pm, with dinner at 6:30pm, which was on the original shortlist and works for Noah Roy, Noah Blitzer and James Karle and the Pursuit Aerospace team. Could each of you reply with a yes for the new date by {{replyBy}}? Executive Assistant to the Greenbriar Partners"
+    "resend": {
+      "subject": "Pursuit Aerospace Q3 meeting: date change to Tue Aug 3",
+      "greeting": "Dear Roger Danvers, Mei Lin Chao and Stuart Beckett,",
+      "paragraphs": [
+        "Mei Lin Chao is unable to make the Q3 meeting on Tue Aug 17, so we are dropping that date. The date below was on the original shortlist and works for Noah Roy, Noah Blitzer and James Karle and the Pursuit Aerospace team."
+      ],
+      "lists": [
+        {
+          "items": [
+            "Q3: Tue Aug 3, 9am to 1pm, dinner at 6:30pm"
+          ]
+        }
+      ],
+      "ask": "Could each of you reply with a yes for the new date by {{replyBy}}?",
+      "signoff": [
+        "Thank you,",
+        "Executive Assistant to the Greenbriar Partners"
+      ]
+    }
   },
   "pursuit-aerospace.all.logistics": {
     "picks": {

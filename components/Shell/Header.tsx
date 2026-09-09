@@ -1,11 +1,13 @@
 "use client";
 
+// The header band. Dark green, serif title, view and assistant toggles.
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
 
 const TITLES: Record<string, string> = {
-  "/portcos": "Portcos",
+  "/portfolio": "Portfolio",
   "/calendar": "Calendar",
   "/people": "People",
   "/templates": "Templates",
@@ -15,29 +17,32 @@ const TITLES: Record<string, string> = {
 export function Header() {
   const pathname = usePathname();
   const base = "/" + (pathname.split("/")[1] ?? "");
-  const isDetail = base === "/portcos" && pathname !== "/portcos";
+  const isDetail = base === "/portfolio" && pathname !== "/portfolio";
   const detailName = useStore((s) => (isDetail ? s.portcos[pathname.split("/")[2]]?.name : undefined));
   const mockMode = useStore((s) => s.mockMode);
   const setPresenterOpen = useStore((s) => s.setPresenterOpen);
   const presenterOpen = useStore((s) => s.presenterOpen);
 
   return (
-    <header className="flex h-[56px] shrink-0 items-center justify-between border-b border-line bg-panel px-5">
-      <div className="flex items-center gap-2 text-[15px] font-semibold">
+    <header className="flex h-[64px] shrink-0 items-center justify-between bg-header px-7 text-white">
+      <div className="flex items-baseline gap-3.5">
         {isDetail ? (
           <>
-            <Link href="/portcos" className="text-mut hover:text-txt">Portcos</Link>
-            <span className="text-mut">/</span>
-            <span data-testid="header-title">{detailName ?? ""}</span>
+            <Link href="/portfolio" className="serif text-[24px] font-semibold tracking-[-0.01em] text-white/72 hover:text-white">Portfolio</Link>
+            <span className="text-white/50">/</span>
+            <span className="serif text-[24px] font-semibold tracking-[-0.01em]" data-testid="header-title">{detailName ?? ""}</span>
           </>
         ) : (
-          <span data-testid="header-title">{TITLES[base] ?? "Greenbriar"}</span>
+          <>
+            <span className="serif text-[24px] font-semibold tracking-[-0.01em]" data-testid="header-title">{TITLES[base] ?? "Greenbriar"}</span>
+            <span className="text-[15px] text-white/72">Quarterly meetings, 2027</span>
+          </>
         )}
       </div>
       <div className="flex items-center gap-3">
-        {base === "/portcos" && !isDetail ? <ViewToggle /> : null}
-        {(base === "/portcos" && !isDetail) || base === "/calendar" ? <EaFilter /> : null}
-        <span className="rounded border border-line px-2 py-0.5 text-[11px] text-mut" data-testid="mode-tag">
+        {base === "/portfolio" && !isDetail ? <ViewToggle /> : null}
+        {(base === "/portfolio" && !isDetail) || base === "/calendar" ? <EaFilter /> : null}
+        <span className="rounded-full bg-white/12 px-2.5 py-1 text-[13px] font-medium text-white/90" data-testid="mode-tag">
           {mockMode ? "Demo data" : "Live agent"}
         </span>
         <button
@@ -45,7 +50,7 @@ export function Header() {
           onClick={() => setPresenterOpen(!presenterOpen)}
           title="Presenter menu (Shift+P)"
           data-testid="presenter-toggle"
-          className="rounded border border-line px-2 py-0.5 text-[11px] text-mut hover:text-txt"
+          className="rounded-full bg-white/12 px-2.5 py-1 text-[13px] text-white/90 hover:bg-white/20"
         >
           ◐
         </button>
@@ -54,46 +59,34 @@ export function Header() {
   );
 }
 
-export function ViewToggle() {
-  const view = useStore((s) => s.view);
-  const setView = useStore((s) => s.setView);
+function Toggle<T extends string>({ value, options, onChange, testPrefix, label }: { value: T; options: [T, string][]; onChange: (v: T) => void; testPrefix: string; label: string }) {
   return (
-    <div className="flex rounded-md border border-line p-0.5 text-[12px]" role="tablist" aria-label="View">
-      {(["rows", "board"] as const).map((v) => (
+    <div className="flex items-center rounded-[8px] border border-white/18 bg-white/10 p-[3px]" role="tablist" aria-label={label}>
+      {options.map(([v, text]) => (
         <button
           key={v}
           type="button"
           role="tab"
-          aria-selected={view === v}
-          onClick={() => setView(v)}
-          data-testid={`view-${v}`}
-          className={"rounded px-2.5 py-1 " + (view === v ? "bg-brand text-white" : "text-mut hover:text-txt")}
+          aria-selected={value === v}
+          onClick={() => onChange(v)}
+          data-testid={`${testPrefix}-${v}`}
+          className={"rounded-[6px] px-3 py-[5px] text-[14px] " + (value === v ? "bg-white font-semibold text-header" : "font-medium text-white/85 hover:text-white")}
         >
-          {v === "rows" ? "Rows" : "Board"}
+          {text}
         </button>
       ))}
     </div>
   );
 }
 
+export function ViewToggle() {
+  const view = useStore((s) => s.view);
+  const setView = useStore((s) => s.setView);
+  return <Toggle value={view} options={[["rows", "Rows"], ["board", "Board"]]} onChange={setView} testPrefix="view" label="View" />;
+}
+
 export function EaFilter() {
   const eaFilter = useStore((s) => s.eaFilter);
   const setEaFilter = useStore((s) => s.setEaFilter);
-  return (
-    <div className="flex rounded-md border border-line p-0.5 text-[12px]" role="tablist" aria-label="EA filter">
-      {(["mine", "all"] as const).map((v) => (
-        <button
-          key={v}
-          type="button"
-          role="tab"
-          aria-selected={eaFilter === v}
-          onClick={() => setEaFilter(v)}
-          data-testid={`ea-${v}`}
-          className={"rounded px-2.5 py-1 " + (eaFilter === v ? "bg-brand text-white" : "text-mut hover:text-txt")}
-        >
-          {v === "mine" ? "My portcos" : "All EAs"}
-        </button>
-      ))}
-    </div>
-  );
+  return <Toggle value={eaFilter} options={[["mine", "My companies"], ["all", "All assistants"]]} onChange={setEaFilter} testPrefix="ea" label="Assistant filter" />;
 }

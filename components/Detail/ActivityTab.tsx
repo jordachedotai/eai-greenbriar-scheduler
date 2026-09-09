@@ -6,12 +6,26 @@ import { useState } from "react";
 import { fmtStamp } from "@/lib/format";
 import type { LogActor } from "@/lib/types";
 import { useDetail } from "./DetailContext";
+import { getCurrentEa } from "@/lib/data";
+import { Face, resolvePerson, type Person } from "@/components/ui/Face";
 
-const LABEL: Record<LogActor, string> = { ea: "You", agent: "Agent", portco: "Portco", board: "Board", partner: "Partner" };
+const LABEL: Record<LogActor, string> = { ea: "You", agent: "Agent", portco: "Company", board: "Board", partner: "Partner" };
 const TONE: Record<LogActor, string> = { ea: "text-txt", agent: "text-brand", portco: "text-blue", board: "text-blue", partner: "text-blue" };
+
+function AgentMark() {
+  return <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand text-[11px] font-bold text-white" title="Agent">G</span>;
+}
 
 export function ActivityTab() {
   const { portco } = useDetail();
+  const ea = getCurrentEa();
+  const faceFor = (actor: LogActor, personId?: string): Person | null => {
+    if (actor === "agent") return null;
+    if (actor === "ea") return { id: ea.id, name: ea.name, avatar: ea.avatar };
+    if (personId) return resolvePerson(personId);
+    if (actor === "portco") return { name: portco.execContact.name };
+    return null;
+  };
   const [open, setOpen] = useState(true);
   const entries = [...portco.log].reverse();
   return (
@@ -36,12 +50,18 @@ export function ActivityTab() {
         <ol className="flex-1 overflow-y-auto p-3" data-testid="timeline">
           {entries.length === 0 ? <li className="text-[12.5px] text-mut">Nothing yet. Press the button below to start.</li> : null}
           {entries.map((e, i) => (
-            <li key={i} className="border-b border-line py-2 text-[12px] last:border-b-0">
-              <div className="flex justify-between text-[11px]">
-                <span className={"font-semibold " + TONE[e.actor]}>{LABEL[e.actor]}</span>
-                <span className="text-mut">{fmtStamp(e.at)}</span>
+            <li key={i} className="flex gap-2 border-b border-line py-2 text-[12px] last:border-b-0">
+              {(() => {
+                const f = faceFor(e.actor, e.personId);
+                return f ? <Face person={f} size={24} /> : <AgentMark />;
+              })()}
+              <div className="min-w-0 flex-1">
+                <div className="flex justify-between text-[11px]">
+                  <span className={"font-semibold " + TONE[e.actor]}>{LABEL[e.actor]}</span>
+                  <span className="text-mut">{fmtStamp(e.at)}</span>
+                </div>
+                <div className="mt-0.5 leading-snug">{e.text}</div>
               </div>
-              <div className="mt-0.5 leading-snug">{e.text}</div>
             </li>
           ))}
         </ol>

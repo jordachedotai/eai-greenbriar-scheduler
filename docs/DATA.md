@@ -57,7 +57,10 @@ type Venue = { id: string; city: string; type: "hotel" | "restaurant"; name: str
 
 type LogEntry = { at: string; actor: "ea" | "agent" | "portco" | "board"; text: string };
 
-type Draft = { kind: "onepager" | "portcoEmail" | "boardEmail" | "logistics"; portcoId: string; quarter?: Quarter; text: string; approved: boolean };
+type EmailFields = { subject?: string; title?: string; greeting?: string; paragraphs: string[]; lists?: { heading?: string; note?: string; items: string[] }[]; ask?: string; signoff: string[] };
+// Every email and the one-pager share this shape. `text` is the plain rendering the EA can edit.
+
+type Draft = { kind: "onepager" | "partnerEmail" | "portcoEmail" | "boardEmail" | "conflict" | "logistics"; portcoId: string; quarter?: Quarter; text: string; email?: EmailFields; approved: boolean };
 ```
 
 ## Fixtures

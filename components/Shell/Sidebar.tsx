@@ -5,13 +5,15 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { getCurrentEa } from "@/lib/data";
+import { Face } from "@/components/ui/Face";
+import { IconCalendar, IconChevronLeft, IconPeople, IconPortfolio, IconSettings, IconTemplates } from "@/components/ui/icons";
 
 const ITEMS = [
-  { href: "/portcos", label: "Portcos", icon: "▤" },
-  { href: "/calendar", label: "Calendar", icon: "▦" },
-  { href: "/people", label: "People", icon: "◉" },
-  { href: "/templates", label: "Templates", icon: "▭" },
-  { href: "/settings", label: "Settings", icon: "⚙" },
+  { href: "/portfolio", label: "Portfolio", Icon: IconPortfolio },
+  { href: "/calendar", label: "Calendar", Icon: IconCalendar },
+  { href: "/people", label: "People", Icon: IconPeople },
+  { href: "/templates", label: "Templates", Icon: IconTemplates },
+  { href: "/settings", label: "Settings", Icon: IconSettings },
 ];
 
 export function Sidebar() {
@@ -21,67 +23,60 @@ export function Sidebar() {
   const ea = getCurrentEa();
   return (
     <aside
-      className={"flex shrink-0 flex-col border-r border-line bg-panel transition-[width] " + (collapsed ? "w-[56px]" : "w-[220px]")}
+      className={"flex shrink-0 flex-col justify-between border-r border-line bg-panel transition-[width] " + (collapsed ? "w-[64px]" : "w-[232px]")}
       data-testid="sidebar"
       data-collapsed={collapsed ? "true" : "false"}
     >
-      <div className={"flex h-[56px] items-center border-b border-line " + (collapsed ? "justify-center" : "px-4")}>
-        {collapsed ? (
-          <span className="font-serif text-[18px] font-bold text-brand">G</span>
-        ) : (
-          <Image src="/greenbriar-logo.png" alt="Greenbriar" width={140} height={23} priority />
-        )}
+      <div className="flex flex-col">
+        <div className={"flex h-[64px] items-center border-b border-line " + (collapsed ? "justify-center" : "px-5")}>
+          {collapsed ? (
+            <span className="serif text-[20px] font-semibold text-brand">G</span>
+          ) : (
+            <Image src="/greenbriar-logo.png" alt="Greenbriar" width={134} height={22} priority />
+          )}
+        </div>
+        <nav className="flex flex-col gap-0.5 p-3">
+          {ITEMS.map(({ href, label, Icon }) => {
+            const active = pathname === href || pathname.startsWith(href + "/");
+            return (
+              <Link
+                key={href}
+                href={href}
+                title={label}
+                data-testid={`nav-${label.toLowerCase()}`}
+                className={
+                  "flex h-11 items-center gap-3 rounded-[10px] px-3 text-[16px] " +
+                  (active ? "bg-brand-soft font-semibold text-brand2" : "font-medium text-txt hover:bg-panel2") +
+                  (collapsed ? " justify-center px-0" : "")
+                }
+              >
+                <Icon size={20} stroke={active ? "currentColor" : "#61705f"} />
+                {!collapsed ? <span>{label}</span> : null}
+              </Link>
+            );
+          })}
+        </nav>
       </div>
-      <nav className="flex flex-1 flex-col gap-0.5 p-2">
-        {ITEMS.map((it) => {
-          const active = pathname === it.href || pathname.startsWith(it.href + "/");
-          return (
-            <Link
-              key={it.href}
-              href={it.href}
-              title={it.label}
-              data-testid={`nav-${it.label.toLowerCase()}`}
-              className={
-                "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-[13px] " +
-                (active ? "bg-brand-soft font-medium text-brand" : "text-txt hover:bg-panel2") +
-                (collapsed ? " justify-center" : "")
-              }
-            >
-              <span className="w-4 text-center text-[13px] opacity-70">{it.icon}</span>
-              {!collapsed ? <span>{it.label}</span> : null}
-            </Link>
-          );
-        })}
-      </nav>
-      <button
-        type="button"
-        onClick={() => setCollapsed(!collapsed)}
-        className="mx-2 mb-1 rounded px-2 py-1 text-left text-[11px] text-mut hover:text-txt"
-        data-testid="sidebar-toggle"
-        title={collapsed ? "Expand" : "Collapse"}
-      >
-        {collapsed ? "»" : "« Collapse"}
-      </button>
-      <div className={"flex items-center gap-2.5 border-t border-line p-3 " + (collapsed ? "justify-center" : "")} data-testid="avatar">
-        {ea.avatar ? (
-          <Image
-            src={ea.avatar}
-            alt={ea.name}
-            width={32}
-            height={32}
-            className="h-8 w-8 shrink-0 rounded-full object-cover object-top"
-          />
-        ) : (
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-[12px] font-semibold text-white">
-            {ea.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-          </div>
-        )}
-        {!collapsed ? (
-          <div className="min-w-0 leading-tight">
-            <div className="truncate text-[12.5px] font-medium">{ea.name}</div>
-            <div className="truncate text-[11px] text-mut">{ea.title}, Greenbriar</div>
-          </div>
-        ) : null}
+      <div className={"flex flex-col gap-2.5 border-t border-line " + (collapsed ? "items-center px-2 py-3" : "px-4 pb-4 pt-3.5")} data-testid="avatar">
+        <div className="flex items-center gap-3">
+          <Face person={{ id: ea.id, name: ea.name, avatar: ea.avatar }} size={40} className="shadow-[0_0_0_2px_#ffffff,0_0_0_3px_#dde3da]" />
+          {!collapsed ? (
+            <div className="min-w-0 leading-tight">
+              <div className="truncate text-[15px] font-semibold">{ea.name}</div>
+              <div className="truncate text-[13px] text-mut">{ea.title}</div>
+            </div>
+          ) : null}
+        </div>
+        <button
+          type="button"
+          onClick={() => setCollapsed(!collapsed)}
+          className="flex items-center gap-1.5 text-[13px] text-mut hover:text-txt"
+          data-testid="sidebar-toggle"
+          title={collapsed ? "Expand" : "Collapse"}
+        >
+          <IconChevronLeft size={14} className={collapsed ? "rotate-180" : ""} />
+          {!collapsed ? <span>Collapse</span> : null}
+        </button>
       </div>
     </aside>
   );

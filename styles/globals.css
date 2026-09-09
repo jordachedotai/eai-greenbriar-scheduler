@@ -18,7 +18,28 @@
   --color-blue: #2b5f9e;
   --color-blue-soft: #e5edf7;
   --color-green: #1f9d57;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-header: #143f1f;
+  /* status system, one meaning per color (reference/design/Tokens.dc.html) */
+  --color-you: #2b5f9e;
+  --color-you-soft: #e5edf7;
+  --color-you-line: #c3d4ea;
+  --color-wait: #8a5a08;
+  --color-wait-soft: #fbf3dd;
+  --color-wait-line: #f0e2b8;
+  --color-lock: #15733f;
+  --color-lock-soft: #e3f4ea;
+  --color-lock-line: #c4e6d1;
+  --color-idle: #61705f;
+  --color-idle-soft: #eef2ec;
+  --color-idle-line: #e3e9e1;
+  --color-idle-bg: #f2f5f1;
+  --color-idle-text: #8a978a;
+  --color-ring: #c9d3c8;
+  --font-sans: var(--font-sans-src), "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-serif-src), "Source Serif 4", Georgia, "Times New Roman", serif;
+  --shadow-card: 0 1px 2px rgba(23, 34, 26, 0.06), 0 8px 24px -18px rgba(23, 34, 26, 0.2);
+  --shadow-card-hover: 0 1px 2px rgba(23, 34, 26, 0.06), 0 14px 32px -16px rgba(23, 34, 26, 0.28);
+  --shadow-you: 0 1px 2px rgba(23, 34, 26, 0.06), 0 8px 24px -18px rgba(43, 95, 158, 0.35);
 }
 
 html,
@@ -28,6 +49,19 @@ body {
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.card-lift {
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.card-lift:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
 }
 
 * {
@@ -47,4 +81,8 @@ body {
   25% { content: "."; }
   50% { content: ".."; }
   75% { content: "..."; }
+}
+
+.face-initials::before {
+  content: attr(data-initials);
 }

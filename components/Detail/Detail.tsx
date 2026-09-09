@@ -11,6 +11,8 @@ import { QuarterStrip } from "./QuarterStrip";
 import { StagePanel } from "./StagePanel";
 import { ActionBar } from "./ActionBar";
 import { ActivityTab } from "./ActivityTab";
+import { LogoTile } from "@/components/ui/LogoTile";
+import { FaceStack } from "@/components/ui/Face";
 
 export function Detail({ portco }: { portco: Portco }) {
   const working = useStore((s) => (s.working?.portcoId === portco.id ? s.working.label : null));
@@ -32,12 +34,17 @@ export function Detail({ portco }: { portco: Portco }) {
       <div className="flex h-full" data-testid="detail" data-stage={stage} data-phase={phase}>
         <div className="flex min-w-0 flex-1 flex-col">
           <div className="border-b border-line bg-panel px-6 pt-4">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h2 className="text-[18px] font-semibold leading-tight">{portco.name}</h2>
-                <div className="text-[12.5px] text-mut">
+            <div className="flex items-center gap-4">
+              <LogoTile src={portco.logo} name={portco.name} width={84} height={52} radius={10} />
+              <div className="min-w-0 flex-1">
+                <h2 className="text-[20px] font-semibold leading-tight">{portco.name}</h2>
+                <div className="text-[13px] text-mut">
                   {portco.city} · {portco.officeAddress} · {ea?.name}
                 </div>
+              </div>
+              <div className="flex items-center gap-2 text-[13px] text-mut">
+                <FaceStack ids={portco.partnerIds} size={26} />
+                <span>Greenbriar team</span>
               </div>
             </div>
             <Stepper />

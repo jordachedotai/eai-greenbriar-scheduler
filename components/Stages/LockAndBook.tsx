@@ -8,7 +8,7 @@ import { isLocked } from "@/lib/pipeline";
 import { fmtTime, fmtWindow } from "@/lib/scheduling";
 import type { LogisticsData } from "@/lib/types";
 import { Working } from "@/components/Drafts/DraftViewer";
-import { LockIcon } from "@/components/Portcos/QuarterChip";
+import { IconLock } from "@/components/ui/icons";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Explain } from "./shared";
 
@@ -48,7 +48,7 @@ export function LockAndBook({ readOnly }: { readOnly: boolean }) {
               <div key={q} className="rounded-lg border border-line bg-panel p-3" data-testid={`logistics-${q}`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[13px] font-semibold">
-                    {locked ? <span className="text-brand"><LockIcon /></span> : null}
+                    {locked ? <span className="text-brand"><IconLock size={12} /></span> : null}
                     {q} · {w ? fmtWindow(w) : ""}
                   </div>
                   {w ? <span className="text-[11.5px] text-mut">Dinner {fmtTime(w.dinnerStart)}</span> : null}
