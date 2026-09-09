@@ -33,4 +33,5 @@ Load `council-at-board` and start at Beat 4. The conflict is the wow moment. Nev
 - No dollar figure. Devrin owes it. Say "two months to days" and stop.
 - No vendor names. Say "the agent."
 - Do not claim it reads Greenbriar calendars today. Say "connected to calendars." The connector list carries the production conversation.
+- Nobody edits a draft live. An edited draft drops to plain text and loses its structure. Regenerate if a draft needs to change.
 - Reset and Jump to state reload the fixtures. Any company added in Settings, and any team change, is gone after either. Add companies only after the reset you plan to use.
