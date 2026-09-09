@@ -19,7 +19,7 @@ export function BoardView() {
   const { visible } = usePortcoList();
   return (
     <section aria-label="Board" className="overflow-x-auto" data-testid="board-view">
-      <div className="grid min-w-[1300px] grid-cols-6 gap-3.5">
+      <div className="grid gap-3.5" style={{ gridTemplateColumns: "repeat(6, minmax(250px, 1fr))" }}>
         {STAGES.map((stage) => {
           const cards = visible.filter((p) => portcoStage(p) === stage);
           const last = stage === 6;
