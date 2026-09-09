@@ -42,14 +42,15 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("picker-partners").locator("[data-checked='true']")).toHaveCount(5);
   await expect(page.getByTestId("picker-email").locator("[data-testid^='picker-']")).toHaveCount(4);
   await expect(page.getByTestId("action-hint")).toContainText("Step 1 of 6. Checks 5 calendars");
+  await expect(page.getByTestId("looking-for")).toContainText("Four 4-hour blocks, Q1 2027 to Q4 2027, one per quarter, dinner at 6:30pm");
   await expect(page.getByTestId("primary-action")).toHaveText("Find dates");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox");
   await expect(page.getByTestId("explain")).toContainText("Helen Marsh, Raymond Cho and Denise Walker have not shared calendars");
   await expect(page.getByTestId("explain")).toContainText("Tom Haggerty picks from the options in step 3");
-  await expect(page.getByTestId("thin-Q3")).toContainText("Only 2 windows in Q3");
+  await expect(page.getByTestId("thin-2027-Q3")).toContainText("Only 2 windows in Q3");
   await expect(page.getByTestId("explain").locator("[data-testid='face']")).toHaveCount(9);
-  await expect(page.getByTestId("shortlist-Q1").locator('[data-testid="window"]')).toHaveCount(3);
+  await expect(page.getByTestId("shortlist-2027-Q1").locator('[data-testid="window"]')).toHaveCount(3);
   await waitForAgent(page);
   await expect(page.getByTestId("draft-onepager").getByTestId("draft-text")).toContainText("Dear Tom");
   await expect(page.getByTestId("draft-onepager").getByTestId("draft-text")).not.toContainText("{{");
@@ -88,7 +89,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("draft-portcoEmail").locator("[data-part='list']")).toHaveCount(4);
   await expect(page.getByTestId("attachment-chip")).toContainText("AIT Worldwide Logistics 2027 meeting options.pdf");
   await page.getByTestId("attachment-preview").click();
-  await expect(page.getByTestId("preview-modal")).toContainText("Proposed 2027 quarterly meeting dates");
+  await expect(page.getByTestId("preview-modal")).toContainText("Proposed quarterly meeting dates");
   await page.keyboard.press("Escape");
   await expect(page.getByTestId("preview-modal")).toHaveCount(0);
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send to the company");
@@ -97,14 +98,14 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await page.getByTestId("sim-portco-picks").click();
   await expect(page.getByTestId("portco-picks")).toContainText("option");
   // Provenance: every pick came from Tom's reply, and View opens it.
-  await expect(page.getByTestId("pick-source-Q1")).toContainText("from Tom's reply");
-  await page.getByTestId("pick-view-Q1").click();
+  await expect(page.getByTestId("pick-source-2027-Q1")).toContainText("from Tom's reply");
+  await page.getByTestId("pick-view-2027-Q1").click();
   await expect(page.getByTestId("email-drawer-subject")).toContainText("Re: Proposed 2027 quarterly meeting dates");
   await expect(page.getByTestId("email-drawer-body")).toContainText("Q1");
   await page.getByTestId("email-drawer-close").click();
   await expect(page.getByTestId("email-drawer")).toHaveCount(0);
-  await expect(page.getByTestId("quarter-Q1")).not.toContainText("No date yet");
-  await expect(page.getByTestId("quarter-Q1")).toHaveAttribute("data-status", "partnersSignedOff");
+  await expect(page.getByTestId("quarter-2027-Q1")).not.toContainText("No date yet");
+  await expect(page.getByTestId("quarter-2027-Q1")).toHaveAttribute("data-status", "partnersSignedOff");
   await expect(page.getByTestId("primary-action")).toHaveText("Draft the email to the board");
   await page.getByTestId("primary-action").click();
 
@@ -118,20 +119,20 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the board");
   await expect(page.getByTestId("sim-board-conflict")).toHaveAttribute("data-state", "next");
   await page.getByTestId("sim-board-conflict").click();
-  await expect(page.getByTestId("conflict-Q3")).toBeVisible({ timeout: 15_000 });
-  await expect(page.getByTestId("conflict-Q3")).toContainText("Raymond Cho declined Q3");
-  await expect(page.getByTestId("conflict-Q3")).toContainText("verified");
+  await expect(page.getByTestId("conflict-2027-Q3")).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByTestId("conflict-2027-Q3")).toContainText("Raymond Cho declined Q3");
+  await expect(page.getByTestId("conflict-2027-Q3")).toContainText("verified");
   await expect(page.getByTestId("detail-pill")).toHaveText("Needs you");
-  await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "declined");
+  await expect(page.getByTestId("resp-2027-Q3-b2")).toHaveAttribute("data-response", "declined");
   await expect(page.getByTestId("reverify")).toContainText("still free");
-  await expect(page.getByTestId("conflict-Q3")).toContainText("option 2 on the approved shortlist");
+  await expect(page.getByTestId("conflict-2027-Q3")).toContainText("option 2 on the approved shortlist");
   // Decline view: the sent board email folds to one line, the re-send is the only full-size draft.
   await expect(page.getByTestId("draft-boardEmail")).toHaveAttribute("data-collapsed", "true");
   await expect(page.getByTestId("draft-conflict")).toContainText("Re-send to the board: Q3 date change");
   await expect(page.getByTestId("draft-conflict").locator("[data-part='subject']")).toContainText("Q3");
   await expect(page.getByTestId("draft-conflict").locator("[data-part='list'] li")).toHaveCount(1);
   // The declined cell opens Raymond's reply; the folded sent row opens the sent email.
-  await page.getByTestId("resp-view-Q3-b2").click();
+  await page.getByTestId("resp-view-2027-Q3-b2").click();
   await expect(page.getByTestId("email-drawer-body")).toContainText("I cannot make Q3");
   await page.getByTestId("email-drawer-close").click();
   await page.getByTestId("draft-expand").click();
@@ -140,28 +141,28 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("email-drawer")).toHaveCount(0);
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and re-send to board");
   await page.getByTestId("primary-action").click();
-  await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "pending");
-  await expect(page.getByTestId("resp-Q3-b1")).toContainText("Re-asking");
+  await expect(page.getByTestId("resp-2027-Q3-b2")).toHaveAttribute("data-response", "pending");
+  await expect(page.getByTestId("resp-2027-Q3-b1")).toContainText("Re-asking");
   await expect(page.getByTestId("waiting-state")).toContainText("Waiting on the board");
   await expect(page.getByTestId("sim-board-confirms")).toHaveAttribute("data-state", "next");
   await page.getByTestId("sim-board-confirms").click();
-  await expect(page.getByTestId("resp-Q3-b2")).toHaveAttribute("data-response", "confirmed");
+  await expect(page.getByTestId("resp-2027-Q3-b2")).toHaveAttribute("data-response", "confirmed");
   await expect(page.getByTestId("primary-action")).toHaveText("Lock and book");
 
   // Beat 5: lock and book.
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("step-5")).toHaveAttribute("data-state", "current");
   await waitForAgent(page);
-  await expect(page.getByTestId("logistics-Q1")).toContainText("miles from the office");
+  await expect(page.getByTestId("logistics-2027-Q1")).toContainText("miles from the office");
   // The tool learns Peggy's venues: add one, it is selected, then use it for all four.
-  await page.getByTestId("venue-restaurant-Q1-select").selectOption("__add__");
-  await page.getByTestId("venue-restaurant-Q1-name").fill("Gene and Georgetti Rosemont");
-  await page.getByTestId("venue-restaurant-Q1-address").fill("9421 West Higgins Road, Rosemont, IL");
-  await page.getByTestId("venue-restaurant-Q1-save").click();
-  await expect(page.getByTestId("logistics-Q1")).toContainText("Added by Peggy Conway");
-  await page.getByTestId("venue-restaurant-Q1-all").click();
-  await expect(page.getByTestId("venue-restaurant-Q4-select")).toHaveValue(/custom:/);
-  await expect(page.getByTestId("logistics-Q4")).toContainText("Added by Peggy Conway");
+  await page.getByTestId("venue-restaurant-2027-Q1-select").selectOption("__add__");
+  await page.getByTestId("venue-restaurant-2027-Q1-name").fill("Gene and Georgetti Rosemont");
+  await page.getByTestId("venue-restaurant-2027-Q1-address").fill("9421 West Higgins Road, Rosemont, IL");
+  await page.getByTestId("venue-restaurant-2027-Q1-save").click();
+  await expect(page.getByTestId("logistics-2027-Q1")).toContainText("Added by Peggy Conway");
+  await page.getByTestId("venue-restaurant-2027-Q1-all").click();
+  await expect(page.getByTestId("venue-restaurant-2027-Q4-select")).toHaveValue(/custom:/);
+  await expect(page.getByTestId("logistics-2027-Q4")).toContainText("Added by Peggy Conway");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and lock");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("quarter-strip").locator("[data-final='true']")).toHaveCount(4);
@@ -170,9 +171,9 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-6")).toHaveAttribute("data-state", "current");
   await expect(page.getByTestId("detail-pill")).toHaveText("Locked");
   await expect(page.getByTestId("invite-drafts").locator("[data-testid^='invite-']")).toHaveCount(4);
-  await expect(page.getByTestId("invite-Q1")).toContainText("AIT Worldwide Logistics quarterly meeting, Q1 2027");
-  await expect(page.getByTestId("invite-Q1").locator("[data-testid='face']")).toHaveCount(9);
-  await expect(page.getByTestId("invite-Q1")).toContainText("Gene and Georgetti Rosemont");
+  await expect(page.getByTestId("invite-2027-Q1")).toContainText("AIT Worldwide Logistics quarterly meeting, Q1 2027");
+  await expect(page.getByTestId("invite-2027-Q1").locator("[data-testid='face']")).toHaveCount(9);
+  await expect(page.getByTestId("invite-2027-Q1")).toContainText("Gene and Georgetti Rosemont");
   await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "off");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send invites");
   await page.getByTestId("primary-action").click();
@@ -182,8 +183,8 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "next");
   await page.getByTestId("sim-invites").click();
   await expect(page.getByTestId("attendance-summary")).toContainText("Invites accepted 34 of 36");
-  await expect(page.getByTestId("inv-Q2-b2")).toHaveAttribute("data-status", "tentative");
-  await expect(page.getByTestId("inv-Q4-ben-cox")).toHaveAttribute("data-status", "noReply");
+  await expect(page.getByTestId("inv-2027-Q2-b2")).toHaveAttribute("data-status", "tentative");
+  await expect(page.getByTestId("inv-2027-Q4-ben-cox")).toHaveAttribute("data-status", "noReply");
   await expect(page.getByTestId("travel-michael-wang")).toHaveAttribute("data-status", "booked");
   await expect(page.getByTestId("travel-ben-cox")).toHaveAttribute("data-status", "pending");
   await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "done");
@@ -213,14 +214,21 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   // Beat 6: scale picture.
   await page.getByTestId("ea-all").click();
   await expect(page.getByTestId("rows-view").locator("[data-row]")).toHaveCount(18);
-  await expect(page.getByTestId("count-confirmed")).toHaveText("20 of 72");
+  await expect(page.getByTestId("count-confirmed")).toHaveText("20 of 70");
   await expect(page.getByTestId("row-ontrac").getByTestId("row-ea")).toHaveText("Barbara Palmer");
   await page.getByTestId("view-board").click();
   await expect(page.getByTestId("board-view")).toBeVisible();
   await expect(page.getByTestId("column-count-6")).toHaveText("4");
   await expect(page.getByTestId("column-count-5")).toHaveText("1");
+  // Two companies show other windows: Sunvair plans two quarters, The Facilities Group spans 2026 into 2027.
+  await page.getByTestId("view-rows").click();
+  await expect(page.getByTestId("row-sunvair-aerospace-group").locator("[data-testid^='chip-']")).toHaveCount(2);
+  await expect(page.getByTestId("row-the-facilities-group").locator("[data-testid='chip-2026-Q4']")).toContainText("Q4 '26");
+  await expect(page.getByTestId("row-the-facilities-group").locator("[data-testid='chip-2027-Q1']")).toContainText("Q1 '27");
   await page.getByTestId("nav-calendar").click();
   await expect(page.getByTestId("year-view")).toBeVisible();
+  await expect(page.getByTestId("year-2026")).toBeVisible();
+  await expect(page.getByTestId("year-2027")).toBeVisible();
   await expect(page.getByTestId("cal-locked")).toHaveText("20 locked");
 
   // Reload: state persists.
@@ -245,7 +253,7 @@ test("If time is short: council-at-board starts at Beat 4", async ({ page }) => 
   await page.getByTestId("primary-action").click();
   await page.getByTestId("presenter-toggle").click();
   await page.getByTestId("sim-board-conflict").click();
-  await expect(page.getByTestId("conflict-Q3")).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByTestId("conflict-2027-Q3")).toBeVisible({ timeout: 15_000 });
   await page.getByTestId("primary-action").click();
   await page.getByTestId("sim-board-confirms").click();
   await page.getByTestId("primary-action").click();
@@ -294,7 +302,7 @@ test("Unchecking a partner removes them from the calendar check", async ({ page 
   await expect(page.getByTestId("action-hint")).toContainText("Checks 4 calendars");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey and Max Elgart.");
-  await expect(page.getByTestId("shortlist-Q1").locator("[data-testid='window']").first().locator("[data-testid='face']")).toHaveCount(4);
+  await expect(page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']").first().locator("[data-testid='face']")).toHaveCount(4);
 });
 
 test("People, Templates, and Settings: add a company and change a team", async ({ page }) => {
@@ -337,9 +345,27 @@ test("People, Templates, and Settings: add a company and change a team", async (
   // Find dates works with generated calendars and generic venues, and the row shows up.
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("explain")).toContainText("Checked calendars for Claire Ponnaiya and Anay Saraf");
-  await expect(page.getByTestId("shortlist-Q1").locator("[data-testid='window']").first()).toBeVisible();
+  await expect(page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']").first()).toBeVisible();
   await page.getByTestId("nav-portfolio").click();
   await expect(page.getByTestId("row-northgate-industrial")).toBeVisible();
   await page.getByTestId("nav-calendar").click();
   await expect(page.getByTestId("cal-proposed")).toContainText("waiting on others");
+});
+
+test("Step 1 Change control sets a two-quarter window that spans years", async ({ page }) => {
+  await signIn(page);
+  await page.getByTestId("row-action-ait-worldwide-logistics").click();
+  await page.getByTestId("looking-for-change").click();
+  await page.getByTestId("window-start").selectOption("2026-Q4");
+  await page.getByTestId("window-count").selectOption("2");
+  await page.getByTestId("window-hours").selectOption("3");
+  await page.getByTestId("window-save").click();
+  await expect(page.getByTestId("looking-for")).toContainText("Two 3-hour blocks, Q4 2026 to Q1 2027");
+  await expect(page.getByTestId("quarter-strip").locator("[data-testid^='quarter-']")).toHaveCount(2);
+  await expect(page.getByTestId("quarter-2026-Q4")).toContainText("Q4 '26");
+  await page.getByTestId("primary-action").click();
+  await expect(page.getByTestId("shortlist-2026-Q4").locator("[data-testid='window']").first()).toContainText("to");
+  await expect(page.getByTestId("shortlist-2027-Q1").locator("[data-testid='window']").first()).toBeVisible();
+  await page.getByTestId("nav-portfolio").click();
+  await expect(page.getByTestId("count-confirmed")).toHaveText("4 of 18");
 });

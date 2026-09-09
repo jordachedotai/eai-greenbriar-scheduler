@@ -17,12 +17,7 @@ import type {
 } from "./prompts";
 import type { Portco, Quarter, Window } from "./types";
 
-export const QUARTER_MONTHS_LABEL: Record<Quarter, string> = {
-  Q1: "January to March",
-  Q2: "April to June",
-  Q3: "July to September",
-  Q4: "October to December",
-};
+import { quarterLabel, quarterMonths } from "./quarters";
 
 export function timeRange(w: Window): string {
   return `${fmtTime(w.start)} to ${fmtTime(w.end)}`;
@@ -56,7 +51,8 @@ export function shortlistPayload(p: Portco, replyBy: string): ShortlistPayload {
     replyBy,
     quarters: p.targetQuarters.map((q) => ({
       quarter: q,
-      months: QUARTER_MONTHS_LABEL[q],
+      label: quarterLabel(q, p.targetQuarters),
+      months: quarterMonths(q),
       thin: !!p.quarters[q].thin,
       windows: p.quarters[q].shortlist.map(windowPayload),
     })),
@@ -67,7 +63,8 @@ export function shortlistPayload(p: Portco, replyBy: string): ShortlistPayload {
 function quarterOptions(p: Portco) {
   return p.targetQuarters.map((q) => ({
     quarter: q,
-    months: QUARTER_MONTHS_LABEL[q],
+    label: quarterLabel(q, p.targetQuarters),
+    months: quarterMonths(q),
     thin: !!p.quarters[q].thin,
     windows: p.quarters[q].shortlist.map(windowPayload),
   }));
@@ -111,7 +108,7 @@ export function boardEmailPayload(p: Portco, replyBy: string): BoardEmailPayload
     replyBy,
     picks: p.targetQuarters.flatMap((q) => {
       const w = pickedWindow(p, q);
-      return w ? [{ quarter: q, date: fmtDate(w.start), time: timeRange(w), dinner: fmtTime(w.dinnerStart) }] : [];
+      return w ? [{ quarter: quarterLabel(q, p.targetQuarters), date: fmtDate(w.start), time: timeRange(w), dinner: fmtTime(w.dinnerStart) }] : [];
     }),
     eaSignature: eaSignature(getCurrentEa()),
   };
@@ -127,7 +124,7 @@ export function conflictPayload(
 ): ConflictPayload {
   return {
     portco: { name: p.name },
-    quarter: q,
+    quarter: quarterLabel(q, p.targetQuarters),
     member: personName(memberId),
     declined: { date: fmtDate(declined.start), time: timeRange(declined) },
     fallback: fallback
@@ -146,7 +143,7 @@ export function logisticsPayload(p: Portco): LogisticsPayload {
     partners: partnerNames(p),
     meetings: p.targetQuarters.flatMap((q) => {
       const w = pickedWindow(p, q);
-      return w ? [{ quarter: q, date: fmtDate(w.start), time: timeRange(w), dinner: fmtTime(w.dinnerStart) }] : [];
+      return w ? [{ quarter: q, label: quarterLabel(q, p.targetQuarters), date: fmtDate(w.start), time: timeRange(w), dinner: fmtTime(w.dinnerStart) }] : [];
     }),
     venues: getVenues(p.city).map((v) => ({ id: v.id, type: v.type, name: v.name, distanceMi: v.distanceMi, note: v.note })),
   };

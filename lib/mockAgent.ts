@@ -82,7 +82,7 @@ export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Reco
   for (const q of p.quarters) reasons[q.quarter] = q.windows.map((w, i) => windowReason(w, i, q.thin ? q.windows.length : null));
   const partners = joinNames(p.partners);
   const onepager: EmailFields = {
-    title: `Proposed 2027 quarterly meeting dates, ${p.portco.name} and Greenbriar`,
+    title: `Proposed quarterly meeting dates, ${p.portco.name} and Greenbriar`,
     greeting: `Dear ${firstName(p.execContact.name)},`,
     paragraphs: [
       alt
@@ -90,7 +90,7 @@ export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Reco
         : `Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, ${p.portco.officeAddress}. Each meeting runs four hours, followed by dinner nearby. The options below work for ${partners}.`,
     ],
     lists: p.quarters.map((q) => ({
-      heading: `${q.quarter}, ${q.months}`,
+      heading: `${q.label}, ${q.months}`,
       note: q.thin ? `only ${q.windows.length} days worked for all partners` : undefined,
       items: q.windows.map((w, i) => `Option ${i + 1}: ${w.date}, ${w.time}. Dinner at ${w.dinner}.`),
     })),
@@ -104,7 +104,7 @@ export function mockShortlist(p: ShortlistPayload, variant = 0): { reasons: Reco
 // partner and company emails, so nothing has to be attached to be read.
 export function optionLists(quarters: QuarterOptions[]): NonNullable<EmailFields["lists"]> {
   return quarters.map((q) => ({
-    heading: `${q.quarter}, ${q.months}`,
+    heading: `${q.label}, ${q.months}`,
     note: q.thin ? `only ${q.windows.length} days worked for all partners` : undefined,
     items: q.windows.map((w, i) => `Option ${i + 1}: ${w.date}, ${w.time}. Dinner at ${w.dinner}.`),
   }));
@@ -169,11 +169,11 @@ export function mockBoardEmail(p: BoardEmailPayload, variant = 0): EmailFields {
     greeting: `Dear ${joinNames(p.boardMembers)},`,
     paragraphs: [
       alt
-        ? `${p.portco.name} has chosen the dates below for the 2027 quarterly meetings with Greenbriar, held at their office in ${p.portco.city}.`
+        ? `${p.portco.name} has chosen the dates below for the quarterly meetings with Greenbriar, held at their office in ${p.portco.city}.`
         : `The ${p.portco.name} team has picked the following dates for the 2027 quarterly meetings, to be held at their ${p.portco.city.split(",")[0]} office with dinner to follow.`,
     ],
     lists: [{ items: p.picks.map((k) => `${k.quarter}: ${k.date}, ${k.time}, dinner at ${k.dinner}`) }],
-    ask: `From Greenbriar, ${partners} will attend each meeting. Could you reply with a yes for all four by ${p.replyBy}? If any date does not work for you, please tell me right away and we will look at the alternates.`,
+    ask: `From Greenbriar, ${partners} will attend each meeting. Could you reply with a yes for ${p.picks.length === 4 ? "all four" : p.picks.length === 1 ? "the date" : `all ${p.picks.length}`} by ${p.replyBy}? If any date does not work for you, please tell me right away and we will look at the alternates.`,
     signoff: ["Thank you,", p.eaSignature],
   };
 }

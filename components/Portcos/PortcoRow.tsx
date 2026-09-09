@@ -8,7 +8,6 @@ import { portcoPhase, portcoStage } from "@/lib/pipeline";
 import { boardMembersOf } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import type { Portco } from "@/lib/types";
-import { QUARTERS } from "@/lib/types";
 import { FaceStack } from "@/components/ui/Face";
 import { LogoTile } from "@/components/ui/LogoTile";
 import { ProgressBar } from "./ProgressBar";
@@ -65,8 +64,8 @@ export function PortcoRow({ portco }: { portco: Portco }) {
         <ProgressBar stage={stage} done={phase === "done"} tone={st.tone} />
         <span className={"text-[14px] " + (phase === "done" ? "font-semibold text-lock" : "text-mut")}>{st.progress}</span>
       </div>
-      <div className="grid grid-cols-4 gap-2">
-        {QUARTERS.filter((q) => portco.targetQuarters.includes(q)).map((q) => (
+      <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${Math.min(4, portco.targetQuarters.length)}, minmax(0, 1fr))` }}>
+        {portco.targetQuarters.map((q) => (
           <QuarterChip key={q} portco={portco} quarter={q} variant="row" />
         ))}
       </div>

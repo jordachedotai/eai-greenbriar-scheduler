@@ -21,9 +21,9 @@ import type {
   QuarterState,
   Venue,
 } from "./types";
-import { QUARTERS } from "./types";
 import { fillTokens } from "./text";
 import { replyByDate } from "./simulate";
+import { windowQuarters } from "./quarters";
 
 // The deal-team partners plus everyone on the roster, so a person added
 // to a company from People resolves like any partner.
@@ -156,11 +156,13 @@ export function emptyQuarter(): QuarterState {
   };
 }
 
-// Build the fresh, stage-0 runtime record for a portco seed.
+// Build the fresh runtime record for a portco seed. The planning window
+// decides which quarters exist.
 export function hydratePortco(seed: PortcoSeed): Portco {
+  const targetQuarters = windowQuarters({ startQuarter: seed.startQuarter, quarterCount: seed.quarterCount });
   const quarters = {} as Record<Quarter, QuarterState>;
-  for (const q of QUARTERS) quarters[q] = emptyQuarter();
-  return { ...seed, waitingOn: "none", quarters, log: [], drafts: {} };
+  for (const q of targetQuarters) quarters[q] = emptyQuarter();
+  return { ...seed, targetQuarters, waitingOn: "none", quarters, log: [], drafts: {} };
 }
 
 export function freshPortcos(): Record<string, Portco> {

@@ -20,7 +20,7 @@ const ROOT = resolve(__dirname, "..");
 // No portco may have a partner set around or inside the walkthrough's, or
 // its Q3 would be empty or collide with the walkthrough's two days.
 const WALKTHROUGH = "ait-worldwide-logistics";
-const THIN: Record<string, Quarter> = { [WALKTHROUGH]: "Q3" };
+const THIN: Record<string, Quarter> = { [WALKTHROUGH]: "2027-Q3" };
 const THIN_COUNT = 2;
 const MIN_NORMAL = 4;
 // The walkthrough portco needs headroom: in the council state other portcos
@@ -33,7 +33,7 @@ function generateAvailability(seed: number, partnerList: Partner[]): Availabilit
 }
 
 function countWindows(blocks: AvailabilityBlock[], portco: PortcoSeed, q: Quarter) {
-  const res = findWindows({ portco, partners: partners as Partner[], boardMembers: boardMembers as BoardMember[], availability: blocks, year: YEAR });
+  const res = findWindows({ portco, partners: partners as Partner[], boardMembers: boardMembers as BoardMember[], availability: blocks });
   return res[q].windows;
 }
 
@@ -57,7 +57,7 @@ function carveThinQuarters(blocks: AvailabilityBlock[]): AvailabilityBlock[] {
     let windows = countWindows(out, portco, q);
     const keep = new Set<string>();
     for (const w of windows) if (protectedStarts.has(w.start)) keep.add(w.start);
-    for (const w of rankWindows(windows, YEAR)) {
+    for (const w of rankWindows(windows)) {
       if (keep.size >= THIN_COUNT) break;
       keep.add(w.start);
     }
@@ -104,13 +104,13 @@ function verify(blocks: AvailabilityBlock[]): { ok: boolean; report: string[] } 
       report.push(`${portco.id} has a partner set ${inside ? "inside" : "around"} the walkthrough portco's set. Its Q3 would collide or be empty.`);
       ok = false;
     }
-    const res = findWindows({ portco, partners: partners as Partner[], boardMembers: boardMembers as BoardMember[], availability: blocks, year: YEAR });
+    const res = findWindows({ portco, partners: partners as Partner[], boardMembers: boardMembers as BoardMember[], availability: blocks });
     const counts = portco.targetQuarters.map((q) => {
       const n = res[q].windows.length;
       const floor = portco.id === WALKTHROUGH ? WALK_MIN : MIN_NORMAL;
       const want = THIN[portco.id] === q ? n === THIN_COUNT : n >= floor;
       if (!want) ok = false;
-      return `${q}=${n}${THIN[portco.id] === q ? "*" : ""}`;
+      return `${q.slice(5)}=${n}${THIN[portco.id] === q ? "*" : ""}`;
     });
     report.push(`${portco.id.padEnd(4)} ${portco.name.padEnd(30)} ${counts.join("  ")}`);
   }

@@ -37,6 +37,8 @@ export type AppState = {
   setTeam: (id: string, partnerIds: string[]) => void;
   setEa: (id: string, eaId: string) => void;
   addVenue: (v: Venue) => void;
+  defaults: { quarterCount: number; blockHours: number; dinnerTime: string };
+  setDefaults: (d: Partial<{ quarterCount: number; blockHours: number; dinnerTime: string }>) => void;
   addLog: (id: string, actor: LogActor, text: string) => void;
   setMockMode: (v: boolean) => void;
   setLoggedIn: (v: boolean) => void;
@@ -57,6 +59,7 @@ export const useStore = create<AppState>()(
     (set) => ({
       portcos: loadDemoState(DEFAULT_STATE),
       customVenues: [],
+      defaults: { quarterCount: 4, blockHours: 4, dinnerTime: "18:30" },
       mockMode: DEFAULT_MOCK,
       loggedIn: false,
       view: "rows",
@@ -87,6 +90,7 @@ export const useStore = create<AppState>()(
         }),
       setEa: (id, eaId) => set((s) => (s.portcos[id] ? { portcos: { ...s.portcos, [id]: { ...s.portcos[id], eaId } } } : {})),
       addVenue: (v) => set((s) => ({ customVenues: [...s.customVenues.filter((x) => x.id !== v.id), v] })),
+      setDefaults: (d) => set((s) => ({ defaults: { ...s.defaults, ...d } })),
       addLog: (id, actor, text) =>
         set((s) => {
           const p = s.portcos[id];
@@ -113,6 +117,7 @@ export const useStore = create<AppState>()(
       partialize: (s) => ({
         portcos: s.portcos,
         customVenues: s.customVenues,
+        defaults: s.defaults,
         mockMode: s.mockMode,
         loggedIn: s.loggedIn,
         view: s.view,

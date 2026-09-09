@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { IconChevronRight, IconPresenter } from "@/components/ui/icons";
+import { yearsOf } from "@/lib/quarters";
 
 const TITLES: Record<string, string> = {
   "/portfolio": "Portfolio",
@@ -25,6 +26,10 @@ export function Header() {
   const showDemoTag = useStore((s) => s.showDemoTag);
   const setPresenterOpen = useStore((s) => s.setPresenterOpen);
   const presenterOpen = useStore((s) => s.presenterOpen);
+  const yearsLabel = useStore((s) => {
+    const ys = yearsOf(Object.values(s.portcos).flatMap((p) => p.targetQuarters));
+    return ys.length === 0 ? "2027" : ys.length === 1 ? String(ys[0]) : `${ys[0]} to ${ys[ys.length - 1]}`;
+  });
 
   return (
     <header className="flex h-[64px] shrink-0 items-center justify-between bg-header px-7 text-white">
@@ -37,7 +42,7 @@ export function Header() {
       ) : (
         <div className="flex items-baseline gap-3.5">
           <span className="serif text-[24px] font-semibold tracking-[-0.01em]" data-testid="header-title">{TITLES[base] ?? "Greenbriar"}</span>
-          <span className="text-[15px] text-white/72">Quarterly meetings, 2027</span>
+          <span className="text-[15px] text-white/72">Quarterly meetings, {yearsLabel}</span>
         </div>
       )}
       <div className="flex items-center gap-3">

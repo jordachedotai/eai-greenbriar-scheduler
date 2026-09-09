@@ -6,7 +6,7 @@ import type { EmailFields } from "@/lib/types";
 
 // "Q3: Tue Aug 26, 9am to 1pm, dinner at 6:30pm" -> label, date, dinner
 function splitItem(it: string): { label?: string; text: string; tail?: string } {
-  const m = it.match(/^(Q[1-4]):\s*(.+?)(?:,\s*(dinner at .+))?$/i);
+  const m = it.match(/^(Q[1-4](?: '\d\d)?):\s*(.+?)(?:,\s*(dinner at .+))?$/i);
   if (m) return { label: m[1], text: m[2], tail: m[3] };
   const o = it.match(/^(Option \d+):\s*(.+?)(?:\s+(Dinner at .+))?$/i);
   if (o) return { label: o[1], text: o[2].replace(/\.$/, ""), tail: o[3]?.replace(/\.$/, "") };

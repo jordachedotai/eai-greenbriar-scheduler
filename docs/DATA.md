@@ -7,7 +7,7 @@ All data is JSON in `/data`. Types in `lib/types.ts`. A generator in `scripts/ge
 ## Types
 
 ```ts
-type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
+type Quarter = string; // "YYYY-Qn". A company plans a window of 1 to 8 quarters, which can span two years.
 
 type Partner = { id: string; name: string; title: string; homeCity: string };
 
@@ -25,7 +25,11 @@ type Portco = {
   id: string; name: string; city: string; officeAddress: string;
   partnerIds: string[];            // 4 partners per portco by default
   execContact: { name: string; title: string };
-  targetQuarters: Quarter[];       // ["Q1","Q2","Q3","Q4"]
+  startQuarter: Quarter;           // "2027-Q1"
+  quarterCount: number;            // 1 to 8
+  blockHours?: number;             // default 4
+  dinnerTime?: string;             // default "18:30"
+  targetQuarters: Quarter[];       // derived from the window
   eaId: string;
   stage: Stage;
   waitingOn: WaitingOn;

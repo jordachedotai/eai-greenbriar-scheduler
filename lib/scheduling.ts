@@ -17,12 +17,18 @@ export const DINNER_HOUR = 18; // 6:30pm local
 export const DINNER_MINUTE = 30;
 export const THIN_THRESHOLD = 3; // fewer windows than this is a thin quarter
 
-export const QUARTER_MONTHS: Record<Quarter, [number, number]> = {
-  Q1: [1, 3],
-  Q2: [4, 6],
-  Q3: [7, 9],
-  Q4: [10, 12],
-};
+const QUARTER_MONTHS: [number, number][] = [
+  [1, 3],
+  [4, 6],
+  [7, 9],
+  [10, 12],
+];
+
+function parseKey(q: Quarter): { year: number; n: number } {
+  const m = /^(\d{4})-Q([1-4])$/.exec(q);
+  if (!m) throw new Error(`Bad quarter key ${q}`);
+  return { year: Number(m[1]), n: Number(m[2]) };
+}
 
 // ---------- date helpers (naive local ISO, no timezone) ----------
 
@@ -61,17 +67,20 @@ export function weekdayOf(dateKey: string): number {
 }
 
 export function quarterOf(dateKey: string): Quarter {
+  const y = Number(dateKey.slice(0, 4));
   const m = Number(dateKey.slice(5, 7));
-  if (m <= 3) return "Q1";
-  if (m <= 6) return "Q2";
-  if (m <= 9) return "Q3";
-  return "Q4";
+  return `${y}-Q${Math.floor((m - 1) / 3) + 1}`;
 }
 
-export function quarterDayRange(year: number, q: Quarter): { first: string; last: string } {
-  const [m1, m2] = QUARTER_MONTHS[q];
+export function quarterDayRange(q: Quarter): { first: string; last: string } {
+  const { year, n } = parseKey(q);
+  const [m1, m2] = QUARTER_MONTHS[n - 1];
   const lastDay = new Date(Date.UTC(year, m2, 0)).getUTCDate();
   return { first: `${year}-${pad(m1)}-01`, last: `${year}-${pad(m2)}-${pad(lastDay)}` };
+}
+
+export function yearOfQuarter(q: Quarter): number {
+  return parseKey(q).year;
 }
 
 export function addDays(dateKey: string, n: number): string {
@@ -146,8 +155,8 @@ export function intersectDay(perPerson: Map<string, Interval[]>[], day: string):
 }
 
 // Within a feasible start range, pick the start closest to the preferred hour.
-export function pickStart(ivStart: number, ivEnd: number, preferredHour = 10): number {
-  const latest = ivEnd - MEETING_HOURS * 60;
+export function pickStart(ivStart: number, ivEnd: number, preferredHour = 10, hours = MEETING_HOURS): number {
+  const latest = ivEnd - hours * 60;
   if (latest < ivStart) return -1;
   const preferred = preferredHour * 60;
   // snap to the hour
@@ -160,18 +169,18 @@ export function pickStart(ivStart: number, ivEnd: number, preferredHour = 10): n
 // ---------- stage 1: find windows ----------
 
 export type FindWindowsInput = {
-  portco: PortcoSeed;
+  portco: Pick<PortcoSeed, "id" | "partnerIds" | "targetQuarters" | "blockHours" | "dinnerTime">;
   partners: Partner[];
   boardMembers: BoardMember[];
   availability: AvailabilityBlock[];
-  year?: number;
   excludeDays?: Set<string>; // days already held for other meetings
 };
 
 export type QuarterWindows = { quarter: Quarter; windows: Window[]; thin: boolean };
 
 export function findWindows(input: FindWindowsInput): Record<Quarter, QuarterWindows> {
-  const year = input.year ?? 2027;
+  const hours = input.portco.blockHours ?? MEETING_HOURS;
+  const [dh, dm] = (input.portco.dinnerTime ?? `${DINNER_HOUR}:${pad(DINNER_MINUTE)}`).split(":").map(Number);
   const required = input.portco.partnerIds;
   const members = input.boardMembers.filter((b) => b.portcoId === input.portco.id);
   const visibleMembers = members.filter((b) => b.calendarVisible).map((b) => b.id);
@@ -181,7 +190,7 @@ export function findWindows(input: FindWindowsInput): Record<Quarter, QuarterWin
 
   const out = {} as Record<Quarter, QuarterWindows>;
   for (const q of input.portco.targetQuarters) {
-    const { first, last } = quarterDayRange(year, q);
+    const { first, last } = quarterDayRange(q);
     const windows: Window[] = [];
     for (let day = first; day <= last; day = addDays(day, 1)) {
       const wd = weekdayOf(day);
@@ -189,11 +198,11 @@ export function findWindows(input: FindWindowsInput): Record<Quarter, QuarterWin
       if (input.excludeDays?.has(day)) continue;
       const ivs = intersectDay(perPerson, day);
       for (const iv of ivs) {
-        const start = pickStart(iv.start, iv.end);
+        const start = pickStart(iv.start, iv.end, 10, hours);
         if (start < 0) continue;
         const { y, m, d } = parseIso(`${day}T00:00:00`);
         const startIso = toIso(y, m, d, Math.floor(start / 60), start % 60);
-        const endMin = start + MEETING_HOURS * 60;
+        const endMin = start + hours * 60;
         const endIso = toIso(y, m, d, Math.floor(endMin / 60), endMin % 60);
         windows.push({
           id: `${input.portco.id}-${q}-${day}-${pad(Math.floor(start / 60))}`,
@@ -202,7 +211,7 @@ export function findWindows(input: FindWindowsInput): Record<Quarter, QuarterWin
           end: endIso,
           attendeesFree: [...people],
           attendeesUnknown: [...unknown],
-          dinnerStart: toIso(y, m, d, DINNER_HOUR, DINNER_MINUTE),
+          dinnerStart: toIso(y, m, d, dh, dm),
         });
       }
     }
@@ -215,21 +224,21 @@ export function findWindows(input: FindWindowsInput): Record<Quarter, QuarterWin
 
 // Prefer mid-week, prefer a 10am to 2pm block, prefer the middle of the
 // quarter so meetings land about 13 weeks apart.
-export function scoreWindow(w: Window, year = 2027): number {
+export function scoreWindow(w: Window): number {
   const day = dayKey(w.start);
   const wd = weekdayOf(day);
   const midweek = wd === 2 || wd === 3 ? 2 : wd === 1 || wd === 4 ? 1 : 0;
   const startHour = parseIso(w.start).h;
   const hourScore = Math.max(0, 3 - Math.abs(startHour - 10));
-  const { first, last } = quarterDayRange(year, w.quarter);
+  const { first, last } = quarterDayRange(w.quarter);
   const span = daysBetween(first, last);
   const offset = Math.abs(daysBetween(first, day) - span / 2);
   const spacing = Math.max(0, 2 - offset / 21);
   return midweek + hourScore + spacing;
 }
 
-export function rankWindows(windows: Window[], year = 2027): Window[] {
-  const scored = windows.map((w) => ({ w, s: scoreWindow(w, year) }));
+export function rankWindows(windows: Window[]): Window[] {
+  const scored = windows.map((w) => ({ w, s: scoreWindow(w) }));
   scored.sort((a, b) => b.s - a.s || a.w.start.localeCompare(b.w.start));
   return scored.slice(0, 3).map(({ w }, i) => ({ ...w, rank: (i + 1) as 1 | 2 | 3 }));
 }

@@ -35,7 +35,9 @@ describe("availability generator", () => {
       officeAddress: "100 Main Street, Columbus, OH",
       partnerIds: ["tucker-catlin", "claire-ponnaiya", "anay-saraf"],
       execContact: { name: "Dana Whitfield", title: "Chief Executive Officer" },
-      targetQuarters: ["Q1", "Q2", "Q3", "Q4"],
+      startQuarter: "2027-Q1",
+      quarterCount: 4,
+      targetQuarters: ["2027-Q1", "2027-Q2", "2027-Q3", "2027-Q4"],
       eaId: "ea1",
     };
     const board: BoardMember[] = [{ id: "northgate-industrial-b1", name: "Ora Lind", portcoId: seed.id, role: "Board Chair", calendarVisible: false }];

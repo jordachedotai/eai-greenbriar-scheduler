@@ -1,35 +1,35 @@
 {
   "ait-worldwide-logistics.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday early in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later.",
         "A solid backup. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later."
       ],
-      "Q3": [
+      "2027-Q3": [
         "One of only 2 days this quarter when every partner is free. Tuesday early in the quarter, and a 9am start means partners fly in the night before.",
         "The other day that works for all partners. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday early in the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, AIT Worldwide Logistics and Greenbriar",
+      "title": "Proposed quarterly meeting dates, AIT Worldwide Logistics and Greenbriar",
       "greeting": "Dear Tom,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2 Pierce Place, Suite 800, Itasca, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Wang, Jill Raker, Niall McComiskey, Max Elgart and Ben Cox."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -37,7 +37,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed May 26, 1pm to 5pm. Dinner at 6:30pm.",
@@ -45,7 +45,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "note": "only 2 days worked for all partners",
           "items": [
             "Option 1: Tue Jul 20, 9am to 1pm. Dinner at 6:30pm.",
@@ -53,7 +53,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -76,7 +76,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -84,7 +84,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 26, 1pm to 5pm. Dinner at 6:30pm.",
@@ -92,7 +92,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "note": "only 2 days worked for all partners",
         "items": [
           "Option 1: Tue Jul 20, 9am to 1pm. Dinner at 6:30pm.",
@@ -100,7 +100,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -122,7 +122,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -130,7 +130,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 26, 1pm to 5pm. Dinner at 6:30pm.",
@@ -138,7 +138,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "note": "only 2 days worked for all partners",
         "items": [
           "Option 1: Tue Jul 20, 9am to 1pm. Dinner at 6:30pm.",
@@ -146,7 +146,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -182,7 +182,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "ait-worldwide-logistics.Q3.conflict": {
+  "ait-worldwide-logistics.2027-Q3.conflict": {
     "note": "Raymond Cho declined Q3 on Tue Jul 20, so I went back to the shortlist the partners approved and picked option 2, Thu Aug 26, 9am to 1pm. I re-checked partner calendars and all five are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "AIT Worldwide Logistics Q3 meeting: date change to Thu Aug 26",
@@ -206,22 +206,22 @@
   },
   "ait-worldwide-logistics.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v91",
         "restaurantId": "v94",
         "reason": "Westin Chicago Northwest is 0.4 miles from the office. Across the road from the office park, quiet, reliable. Gibsons Bar and Steakhouse Oak Brook for dinner, 6.5 miles away. Classic Chicago steakhouse, private rooms, needs a car."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v91",
         "restaurantId": "v95",
         "reason": "Westin Chicago Northwest is 0.4 miles from the office. Across the road from the office park, quiet, reliable. Reserve 22 for dinner, 4.1 miles away. Glen Ellyn, chef-driven, quiet enough for a board."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v91",
         "restaurantId": "v96",
         "reason": "Westin Chicago Northwest is 0.4 miles from the office. Across the road from the office park, quiet, reliable. Aliano's Ristorante for dinner, 4.8 miles away. Italian, family run, easy for a group."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v91",
         "restaurantId": "v94",
         "reason": "Westin Chicago Northwest is 0.4 miles from the office. Across the road from the office park, quiet, reliable. Gibsons Bar and Steakhouse Oak Brook for dinner, 6.5 miles away. Classic Chicago steakhouse, private rooms, needs a car."
@@ -230,36 +230,36 @@
   },
   "eshipping.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Monday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Wednesday late in the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later.",
         "A solid backup. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Monday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday late in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, eShipping and Greenbriar",
+      "title": "Proposed quarterly meeting dates, eShipping and Greenbriar",
       "greeting": "Dear Karen,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 6300 NW Prairie View Road, Suite 200, Parkville, MO. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Michael Wang, James Peng and Will Stewart."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -267,7 +267,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Tue Jun 22, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Jun 23, 10am to 2pm. Dinner at 6:30pm.",
@@ -275,7 +275,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.",
@@ -283,7 +283,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -306,7 +306,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -314,7 +314,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Tue Jun 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jun 23, 10am to 2pm. Dinner at 6:30pm.",
@@ -322,7 +322,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.",
@@ -330,7 +330,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -352,7 +352,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Tue Jun 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jun 23, 10am to 2pm. Dinner at 6:30pm.",
@@ -368,7 +368,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Sep 22, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Aug 18, 1pm to 5pm. Dinner at 6:30pm.",
@@ -376,7 +376,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -412,7 +412,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "eshipping.Q3.conflict": {
+  "eshipping.2027-Q3.conflict": {
     "note": "Linda Farrow declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 18, 1pm to 5pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "eShipping Q3 meeting: date change to Wed Aug 18",
@@ -436,22 +436,22 @@
   },
   "eshipping.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v97",
         "restaurantId": "v100",
         "reason": "Hotel Kansas City is 9.5 miles from the office. Downtown, converted club, good bar, needs a car. Piropos for dinner, 1.8 miles away. Argentine, Briarcliff Village, river view, private room."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v97",
         "restaurantId": "v101",
         "reason": "Hotel Kansas City is 9.5 miles from the office. Downtown, converted club, good bar, needs a car. Pierpont's at Union Station for dinner, 9.8 miles away. Classic, private rooms, partners have been before."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v97",
         "restaurantId": "v102",
         "reason": "Hotel Kansas City is 9.5 miles from the office. Downtown, converted club, good bar, needs a car. Stone Canyon Pizza for dinner, 0.3 miles away. Downtown Parkville, casual, better for lunch."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v97",
         "restaurantId": "v100",
         "reason": "Hotel Kansas City is 9.5 miles from the office. Downtown, converted club, good bar, needs a car. Piropos for dinner, 1.8 miles away. Argentine, Briarcliff Village, river view, private room."
@@ -460,36 +460,36 @@
   },
   "fragilepak.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Monday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday early in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, FragilePAK and Greenbriar",
+      "title": "Proposed quarterly meeting dates, FragilePAK and Greenbriar",
       "greeting": "Dear Renee,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2470 St. Rose Parkway, Suite 300, Henderson, NV. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Michael Wang and Jack Morris."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -497,7 +497,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 12, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -505,7 +505,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm.",
@@ -513,7 +513,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -536,7 +536,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -544,7 +544,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 12, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -552,7 +552,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm.",
@@ -560,7 +560,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -582,7 +582,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -590,7 +590,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 12, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -598,7 +598,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 29, 9am to 1pm. Dinner at 6:30pm.",
@@ -606,7 +606,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -642,7 +642,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "fragilepak.Q3.conflict": {
+  "fragilepak.2027-Q3.conflict": {
     "note": "Carol Nguyen declined Q3 on Mon Sep 20, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 29, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "FragilePAK Q3 meeting: date change to Wed Sep 29",
@@ -666,22 +666,22 @@
   },
   "fragilepak.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v103",
         "restaurantId": "v106",
         "reason": "Green Valley Ranch Resort is 2.1 miles from the office. Quiet, off the Strip, partners know it. Hank's Fine Steaks for dinner, 2.1 miles away. Inside Green Valley Ranch, private dining, a partner favorite."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v103",
         "restaurantId": "v107",
         "reason": "Green Valley Ranch Resort is 2.1 miles from the office. Quiet, off the Strip, partners know it. Todd's Unique Dining for dinner, 3 miles away. Local, chef-owned, quiet."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v103",
         "restaurantId": "v108",
         "reason": "Green Valley Ranch Resort is 2.1 miles from the office. Quiet, off the Strip, partners know it. Bottiglia Cucina for dinner, 2.1 miles away. Italian, lively, good for a mixed group."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v103",
         "restaurantId": "v106",
         "reason": "Green Valley Ranch Resort is 2.1 miles from the office. Quiet, off the Strip, partners know it. Hank's Fine Steaks for dinner, 2.1 miles away. Inside Green Valley Ranch, private dining, a partner favorite."
@@ -690,36 +690,36 @@
   },
   "jegs-automotive.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, JEGS Automotive and Greenbriar",
+      "title": "Proposed quarterly meeting dates, JEGS Automotive and Greenbriar",
       "greeting": "Dear Miguel,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 101 Innovation Drive, Suite 400, Delaware, OH. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke and Andrew Witherell."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Tue Feb 9, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
@@ -727,7 +727,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -735,7 +735,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Wed Aug 18, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
@@ -743,7 +743,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Nov 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -766,7 +766,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Feb 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
@@ -774,7 +774,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -782,7 +782,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Aug 18, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
@@ -790,7 +790,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Nov 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -812,7 +812,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Feb 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
@@ -820,7 +820,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -828,7 +828,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Aug 18, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
@@ -836,7 +836,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Nov 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -872,7 +872,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "jegs-automotive.Q3.conflict": {
+  "jegs-automotive.2027-Q3.conflict": {
     "note": "Robert Tran declined Q3 on Wed Aug 18, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 10am to 2pm. I re-checked partner calendars and all are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "JEGS Automotive Q3 meeting: date change to Tue Aug 3",
@@ -896,22 +896,22 @@
   },
   "jegs-automotive.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v109",
         "restaurantId": "v112",
         "reason": "Hilton Columbus at Easton is 16 miles from the office. Easton, reliable, needs a car. Veritas for dinner, 22 miles away. Downtown Columbus, tasting menu, private room, needs a car."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v109",
         "restaurantId": "v113",
         "reason": "Hilton Columbus at Easton is 16 miles from the office. Easton, reliable, needs a car. Lindey's for dinner, 23 miles away. German Village, classic, quiet enough for a board."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v109",
         "restaurantId": "v114",
         "reason": "Hilton Columbus at Easton is 16 miles from the office. Easton, reliable, needs a car. Amato's Woodfired Pizza for dinner, 0.8 miles away. Downtown Delaware, casual, better for lunch."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v109",
         "restaurantId": "v112",
         "reason": "Hilton Columbus at Easton is 16 miles from the office. Easton, reliable, needs a car. Veritas for dinner, 22 miles away. Downtown Columbus, tasting menu, private room, needs a car."
@@ -920,36 +920,36 @@
   },
   "ontrac.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday late in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, OnTrac and Greenbriar",
+      "title": "Proposed quarterly meeting dates, OnTrac and Greenbriar",
       "greeting": "Dear Priya,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2501 West Chandler Boulevard, Suite 500, Chandler, AZ. Each meeting runs four hours, followed by dinner nearby. The options below work for Jill Raker, Max Elgart and Will Stewart."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -957,7 +957,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -965,7 +965,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Aug 4, 9am to 1pm. Dinner at 6:30pm.",
@@ -973,7 +973,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -996,7 +996,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -1004,7 +1004,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -1012,7 +1012,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Aug 4, 9am to 1pm. Dinner at 6:30pm.",
@@ -1020,7 +1020,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -1042,7 +1042,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -1050,7 +1050,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -1058,7 +1058,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Aug 4, 9am to 1pm. Dinner at 6:30pm.",
@@ -1066,7 +1066,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -1102,7 +1102,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "ontrac.Q3.conflict": {
+  "ontrac.2027-Q3.conflict": {
     "note": "Nancy Whitaker declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 4, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "OnTrac Q3 meeting: date change to Wed Aug 4",
@@ -1126,22 +1126,22 @@
   },
   "ontrac.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v115",
         "restaurantId": "v118",
         "reason": "Sheraton Grand at Wild Horse Pass is 6.5 miles from the office. Resort, quiet, partners have stayed before. Kai for dinner, 6.5 miles away. Wild Horse Pass, tasting menu, memorable, book early."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v115",
         "restaurantId": "v119",
         "reason": "Sheraton Grand at Wild Horse Pass is 6.5 miles from the office. Resort, quiet, partners have stayed before. The Keg Steakhouse and Bar Chandler for dinner, 2 miles away. Steakhouse, private room, easy."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v115",
         "restaurantId": "v120",
         "reason": "Sheraton Grand at Wild Horse Pass is 6.5 miles from the office. Resort, quiet, partners have stayed before. Sibley's West for dinner, 1.8 miles away. Downtown Chandler, casual, better for a relaxed night."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v115",
         "restaurantId": "v118",
         "reason": "Sheraton Grand at Wild Horse Pass is 6.5 miles from the office. Resort, quiet, partners have stayed before. Kai for dinner, 6.5 miles away. Wild Horse Pass, tasting menu, memorable, book early."
@@ -1150,36 +1150,36 @@
   },
   "radwell-international.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Monday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Wednesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Thursday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday late in the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Radwell International and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Radwell International and Greenbriar",
       "greeting": "Dear Dale,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1 Millennium Drive, Suite 100, Willingboro, NJ. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang, Max Elgart and John Landry."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 24, 9am to 1pm. Dinner at 6:30pm.",
@@ -1187,7 +1187,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -1195,7 +1195,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -1203,7 +1203,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -1226,7 +1226,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 24, 9am to 1pm. Dinner at 6:30pm.",
@@ -1234,7 +1234,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -1242,7 +1242,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -1250,7 +1250,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -1272,7 +1272,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 24, 9am to 1pm. Dinner at 6:30pm.",
@@ -1280,7 +1280,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -1288,7 +1288,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -1296,7 +1296,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -1332,7 +1332,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "radwell-international.Q3.conflict": {
+  "radwell-international.2027-Q3.conflict": {
     "note": "Hector Ramos declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 10am to 2pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Radwell International Q3 meeting: date change to Thu Sep 9",
@@ -1356,22 +1356,22 @@
   },
   "radwell-international.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v121",
         "restaurantId": "v124",
         "reason": "Four Seasons Hotel Philadelphia is 21 miles from the office. Center City, quiet, needs a car. Vetri Cucina for dinner, 21 miles away. Philadelphia, tasting menu, private room, needs a car."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v121",
         "restaurantId": "v125",
         "reason": "Four Seasons Hotel Philadelphia is 21 miles from the office. Center City, quiet, needs a car. The Capital Grille Cherry Hill for dinner, 11 miles away. Reliable, private room seats twelve."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v121",
         "restaurantId": "v126",
         "reason": "Four Seasons Hotel Philadelphia is 21 miles from the office. Center City, quiet, needs a car. Chick's Deli for dinner, 12 miles away. Cherry Hill, casual, better for lunch."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v121",
         "restaurantId": "v124",
         "reason": "Four Seasons Hotel Philadelphia is 21 miles from the office. Center City, quiet, needs a car. Vetri Cucina for dinner, 21 miles away. Philadelphia, tasting menu, private room, needs a car."
@@ -1380,36 +1380,36 @@
   },
   "randys.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Wednesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, RANDYS and Greenbriar",
+      "title": "Proposed quarterly meeting dates, RANDYS and Greenbriar",
       "greeting": "Dear Ingrid,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 10411 Airport Road, Suite 200, Everett, WA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Matt Burke and James Karle."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -1417,7 +1417,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 5, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Jun 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -1425,7 +1425,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -1433,7 +1433,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Wed Nov 10, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -1456,7 +1456,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -1464,7 +1464,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Jun 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -1472,7 +1472,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -1480,7 +1480,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Wed Nov 10, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -1502,7 +1502,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -1510,7 +1510,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Jun 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -1518,7 +1518,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -1526,7 +1526,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Wed Nov 10, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -1562,7 +1562,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "randys.Q3.conflict": {
+  "randys.2027-Q3.conflict": {
     "note": "Grace Ito declined Q3 on Tue Aug 17, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "RANDYS Q3 meeting: date change to Tue Aug 3",
@@ -1586,22 +1586,22 @@
   },
   "randys.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v127",
         "restaurantId": "v130",
         "reason": "Hotel Indigo Seattle Everett Waterfront is 2.2 miles from the office. On the water, quiet, good restaurant. Bluewater Distilling for dinner, 2.2 miles away. Waterfront, private room, lively."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v127",
         "restaurantId": "v131",
         "reason": "Hotel Indigo Seattle Everett Waterfront is 2.2 miles from the office. On the water, quiet, good restaurant. Anthony's HomePort Everett for dinner, 2.5 miles away. Seafood on the marina, seats a group."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v127",
         "restaurantId": "v132",
         "reason": "Hotel Indigo Seattle Everett Waterfront is 2.2 miles from the office. On the water, quiet, good restaurant. Emory's on Silver Lake for dinner, 5.5 miles away. Lakeside, quiet, better for conversation."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v127",
         "restaurantId": "v130",
         "reason": "Hotel Indigo Seattle Everett Waterfront is 2.2 miles from the office. On the water, quiet, good restaurant. Bluewater Distilling for dinner, 2.2 miles away. Waterfront, private room, lively."
@@ -1610,36 +1610,36 @@
   },
   "renuity.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday late in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday early in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Thursday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Monday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday early in the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Renuity and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Renuity and Greenbriar",
       "greeting": "Dear Marcus,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 6000 Fairview Road, Suite 1200, Charlotte, NC. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang and Frances Sperry."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -1647,7 +1647,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -1655,7 +1655,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -1663,7 +1663,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -1686,7 +1686,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -1694,7 +1694,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -1702,7 +1702,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -1710,7 +1710,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -1732,7 +1732,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Mar 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -1740,7 +1740,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -1748,7 +1748,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Thu Sep 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -1756,7 +1756,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -1792,7 +1792,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "renuity.Q3.conflict": {
+  "renuity.2027-Q3.conflict": {
     "note": "Kwame Mensah declined Q3 on Tue Aug 24, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 10am to 2pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Renuity Q3 meeting: date change to Thu Sep 9",
@@ -1816,22 +1816,22 @@
   },
   "renuity.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v13",
         "restaurantId": "v16",
         "reason": "The Ritz-Carlton Charlotte is 0.2 miles from the office. Attached to the office tower district. The Capital Grille for dinner, 0.2 miles away. Reliable, private room seats twelve."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v13",
         "restaurantId": "v17",
         "reason": "The Ritz-Carlton Charlotte is 0.2 miles from the office. Attached to the office tower district. Fahrenheit for dinner, 0.5 miles away. Rooftop with a skyline view, ask for the enclosed side."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v13",
         "restaurantId": "v18",
         "reason": "The Ritz-Carlton Charlotte is 0.2 miles from the office. Attached to the office tower district. Angeline's for dinner, 0.3 miles away. Italian inside the Kimpton, easy for late arrivals."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v13",
         "restaurantId": "v16",
         "reason": "The Ritz-Carlton Charlotte is 0.2 miles from the office. Attached to the office tower district. The Capital Grille for dinner, 0.2 miles away. Reliable, private room seats twelve."
@@ -1840,36 +1840,36 @@
   },
   "sparkstone-electrical-group.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Thursday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday early in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Monday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday late in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Sparkstone Electrical Group and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Sparkstone Electrical Group and Greenbriar",
       "greeting": "Dear Jenna,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1240 North Wood Dale Road, Suite 300, Addison, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Niall McComiskey, Michael Wang, James Peng and Will Stewart."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Jan 26, 10am to 2pm. Dinner at 6:30pm.",
@@ -1877,7 +1877,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm.",
@@ -1885,7 +1885,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -1893,7 +1893,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -1916,7 +1916,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Jan 26, 10am to 2pm. Dinner at 6:30pm.",
@@ -1924,7 +1924,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm.",
@@ -1932,7 +1932,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -1940,7 +1940,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -1962,7 +1962,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Jan 26, 10am to 2pm. Dinner at 6:30pm.",
@@ -1970,7 +1970,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Apr 28, 9am to 1pm. Dinner at 6:30pm.",
@@ -1978,7 +1978,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 24, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -1986,7 +1986,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Dec 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -2022,7 +2022,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "sparkstone-electrical-group.Q3.conflict": {
+  "sparkstone-electrical-group.2027-Q3.conflict": {
     "note": "Maya Patel declined Q3 on Tue Aug 24, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 22, 10am to 2pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Sparkstone Electrical Group Q3 meeting: date change to Wed Sep 22",
@@ -2046,22 +2046,22 @@
   },
   "sparkstone-electrical-group.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v133",
         "restaurantId": "v136",
         "reason": "Westin Chicago Lombard is 3.5 miles from the office. Yorktown Center, reliable, quiet. Gibsons Bar and Steakhouse Oak Brook for dinner, 5 miles away. Classic Chicago steakhouse, private rooms."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v133",
         "restaurantId": "v137",
         "reason": "Westin Chicago Lombard is 3.5 miles from the office. Yorktown Center, reliable, quiet. Capri Ristorante Italiano for dinner, 2.4 miles away. Italian, family run, easy for a group."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v133",
         "restaurantId": "v138",
         "reason": "Westin Chicago Lombard is 3.5 miles from the office. Yorktown Center, reliable, quiet. Harry Caray's Lombard for dinner, 3.6 miles away. Steakhouse, private room, partners have been before."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v133",
         "restaurantId": "v136",
         "reason": "Westin Chicago Lombard is 3.5 miles from the office. Yorktown Center, reliable, quiet. Gibsons Bar and Steakhouse Oak Brook for dinner, 5 miles away. Classic Chicago steakhouse, private rooms."
@@ -2070,36 +2070,36 @@
   },
   "sunauto-tire-service.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Monday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, SunAuto Tire & Service and Greenbriar",
+      "title": "Proposed quarterly meeting dates, SunAuto Tire & Service and Greenbriar",
       "greeting": "Dear Victor,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 4800 East Broadway Boulevard, Suite 600, Tucson, AZ. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke, John Cofer and Andrew Witherell."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -2107,7 +2107,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -2115,7 +2115,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
@@ -2123,7 +2123,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -2146,7 +2146,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -2154,7 +2154,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -2162,7 +2162,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
@@ -2170,7 +2170,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -2192,7 +2192,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -2200,7 +2200,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -2208,7 +2208,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
@@ -2216,7 +2216,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -2252,7 +2252,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "sunauto-tire-service.Q3.conflict": {
+  "sunauto-tire-service.2027-Q3.conflict": {
     "note": "Dmitri Volkov declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Aug 18, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "SunAuto Tire & Service Q3 meeting: date change to Wed Aug 18",
@@ -2276,22 +2276,22 @@
   },
   "sunauto-tire-service.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v139",
         "restaurantId": "v142",
         "reason": "The Ritz-Carlton Dove Mountain is 20 miles from the office. Resort, memorable, needs a car and time. Charro Steak and Del Rey for dinner, 5 miles away. Downtown, steakhouse, private room."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v139",
         "restaurantId": "v143",
         "reason": "The Ritz-Carlton Dove Mountain is 20 miles from the office. Resort, memorable, needs a car and time. The Parish for dinner, 6.5 miles away. Southern, quiet, good for conversation."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v139",
         "restaurantId": "v144",
         "reason": "The Ritz-Carlton Dove Mountain is 20 miles from the office. Resort, memorable, needs a car and time. El Charro Cafe for dinner, 5.3 miles away. Tucson institution, lively, better for a relaxed night."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v139",
         "restaurantId": "v142",
         "reason": "The Ritz-Carlton Dove Mountain is 20 miles from the office. Resort, memorable, needs a car and time. Charro Steak and Del Rey for dinner, 5 miles away. Downtown, steakhouse, private room."
@@ -2300,36 +2300,36 @@
   },
   "sunvair-aerospace-group.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday early in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Sunvair Aerospace Group and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Sunvair Aerospace Group and Greenbriar",
       "greeting": "Dear Lorraine,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 28100 Avenue Stanford, Suite 100, Valencia, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Blitzer, Noah Roy and John Cofer."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -2337,7 +2337,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
@@ -2345,7 +2345,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -2353,7 +2353,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -2376,7 +2376,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -2384,7 +2384,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
@@ -2392,7 +2392,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -2400,7 +2400,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -2422,7 +2422,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -2430,7 +2430,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
@@ -2438,7 +2438,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -2446,7 +2446,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -2482,7 +2482,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "sunvair-aerospace-group.Q3.conflict": {
+  "sunvair-aerospace-group.2027-Q3.conflict": {
     "note": "Sheila Grant declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Sunvair Aerospace Group Q3 meeting: date change to Wed Sep 1",
@@ -2506,22 +2506,22 @@
   },
   "sunvair-aerospace-group.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v145",
         "restaurantId": "v148",
         "reason": "Hyatt Regency Valencia is 1.5 miles from the office. Closest full-service hotel, quiet, reliable. Salt Creek Grille Valencia for dinner, 1.4 miles away. Steak and seafood, private room, easy."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v145",
         "restaurantId": "v149",
         "reason": "Hyatt Regency Valencia is 1.5 miles from the office. Closest full-service hotel, quiet, reliable. Wolf Creek Restaurant for dinner, 2 miles away. Brewery kitchen, casual, good for a mixed group."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v145",
         "restaurantId": "v150",
         "reason": "Hyatt Regency Valencia is 1.5 miles from the office. Closest full-service hotel, quiet, reliable. The Old Town Junction for dinner, 3.5 miles away. Newhall, chef-driven, quiet."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v145",
         "restaurantId": "v148",
         "reason": "Hyatt Regency Valencia is 1.5 miles from the office. Closest full-service hotel, quiet, reliable. Salt Creek Grille Valencia for dinner, 1.4 miles away. Steak and seafood, private room, easy."
@@ -2530,36 +2530,36 @@
   },
   "the-facilities-group.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Thursday late in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, The Facilities Group and Greenbriar",
+      "title": "Proposed quarterly meeting dates, The Facilities Group and Greenbriar",
       "greeting": "Dear Curtis,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 400 North Ashley Drive, Suite 2100, Tampa, FL. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Niall McComiskey and John Cofer."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -2567,7 +2567,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -2575,7 +2575,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
@@ -2583,7 +2583,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -2606,7 +2606,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -2614,7 +2614,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -2622,7 +2622,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
@@ -2630,7 +2630,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -2652,7 +2652,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -2660,7 +2660,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -2668,7 +2668,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Sep 20, 10am to 2pm. Dinner at 6:30pm.",
@@ -2676,7 +2676,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -2712,7 +2712,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "the-facilities-group.Q3.conflict": {
+  "the-facilities-group.2027-Q3.conflict": {
     "note": "Laura Chen declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Mon Sep 20, 10am to 2pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "The Facilities Group Q3 meeting: date change to Mon Sep 20",
@@ -2736,22 +2736,22 @@
   },
   "the-facilities-group.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v61",
         "restaurantId": "v64",
         "reason": "Tampa Marriott Water Street is 0.5 miles from the office. Large, on the water, easy logistics. Bern's Steak House for dinner, 3.5 miles away. The Tampa institution, private rooms, book early."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v61",
         "restaurantId": "v65",
         "reason": "Tampa Marriott Water Street is 0.5 miles from the office. Large, on the water, easy logistics. Ulele for dinner, 1.4 miles away. Riverfront, lively, good for a mixed group."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v61",
         "restaurantId": "v66",
         "reason": "Tampa Marriott Water Street is 0.5 miles from the office. Large, on the water, easy logistics. Oystercatchers for dinner, 6.8 miles away. Waterfront seafood, better for a relaxed evening, needs a car."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v61",
         "restaurantId": "v64",
         "reason": "Tampa Marriott Water Street is 0.5 miles from the office. Large, on the water, easy logistics. Bern's Steak House for dinner, 3.5 miles away. The Tampa institution, private rooms, book early."
@@ -2760,36 +2760,36 @@
   },
   "towne.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Monday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday late in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Monday early in the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Thursday late in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday in the middle of the quarter; a 1pm start lets partners fly in that morning, though dinner runs later."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday late in the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Towne and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Towne and Greenbriar",
       "greeting": "Dear Angela,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 600 West Germantown Pike, Suite 400, Plymouth Meeting, PA. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Michael Wang, John Cofer and Andrew Witherell."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -2797,7 +2797,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -2805,7 +2805,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Mon Jul 26, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -2813,7 +2813,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -2836,7 +2836,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -2844,7 +2844,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -2852,7 +2852,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Mon Jul 26, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -2860,7 +2860,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -2882,7 +2882,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -2890,7 +2890,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed Apr 28, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu May 27, 10am to 2pm. Dinner at 6:30pm.",
@@ -2898,7 +2898,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Mon Jul 26, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Thu Sep 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -2906,7 +2906,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 9am to 1pm. Dinner at 6:30pm.",
@@ -2942,7 +2942,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "towne.Q3.conflict": {
+  "towne.2027-Q3.conflict": {
     "note": "Omar Haddad declined Q3 on Mon Jul 26, so I went back to the shortlist the partners approved and picked option 2, Thu Sep 9, 9am to 1pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Towne Q3 meeting: date change to Thu Sep 9",
@@ -2966,22 +2966,22 @@
   },
   "towne.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v151",
         "restaurantId": "v154",
         "reason": "Philadelphia Marriott West is 1.5 miles from the office. Closest to the office, reliable. Redstone American Grill for dinner, 0.9 miles away. Plymouth Meeting, private room, easy."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v151",
         "restaurantId": "v155",
         "reason": "Philadelphia Marriott West is 1.5 miles from the office. Closest to the office, reliable. Bluefin Sushi for dinner, 2.5 miles away. East Norriton, quiet, better for a small group."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v151",
         "restaurantId": "v156",
         "reason": "Philadelphia Marriott West is 1.5 miles from the office. Closest to the office, reliable. Vetri Cucina for dinner, 15 miles away. Philadelphia, tasting menu, memorable, needs a car."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v151",
         "restaurantId": "v154",
         "reason": "Philadelphia Marriott West is 1.5 miles from the office. Closest to the office, reliable. Redstone American Grill for dinner, 0.9 miles away. Plymouth Meeting, private room, easy."
@@ -2990,36 +2990,36 @@
   },
   "vive-collision.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Wednesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday early in the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday late in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Monday in the middle of the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, VIVE Collision and Greenbriar",
+      "title": "Proposed quarterly meeting dates, VIVE Collision and Greenbriar",
       "greeting": "Dear Owen,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1 Penn Plaza, Suite 3600, New York, NY. Each meeting runs four hours, followed by dinner nearby. The options below work for Matt Burke, Niall McComiskey, James Karle and John Landry."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Feb 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -3027,7 +3027,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -3035,7 +3035,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Jul 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -3043,7 +3043,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -3066,7 +3066,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Feb 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -3074,7 +3074,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -3082,7 +3082,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jul 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -3090,7 +3090,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -3112,7 +3112,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Feb 9, 9am to 1pm. Dinner at 6:30pm.",
@@ -3120,7 +3120,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed May 26, 9am to 1pm. Dinner at 6:30pm.",
@@ -3128,7 +3128,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Sep 22, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Jul 14, 9am to 1pm. Dinner at 6:30pm.",
@@ -3136,7 +3136,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -3172,7 +3172,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "vive-collision.Q3.conflict": {
+  "vive-collision.2027-Q3.conflict": {
     "note": "Ken Nakamura declined Q3 on Wed Sep 22, so I went back to the shortlist the partners approved and picked option 2, Wed Jul 14, 9am to 1pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "VIVE Collision Q3 meeting: date change to Wed Jul 14",
@@ -3196,22 +3196,22 @@
   },
   "vive-collision.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v157",
         "restaurantId": "v160",
         "reason": "The Langham New York, Fifth Avenue is 0.8 miles from the office. Midtown, quiet, partners know it. Keens Steakhouse for dinner, 0.5 miles away. Herald Square, private rooms, a New York classic."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v157",
         "restaurantId": "v161",
         "reason": "The Langham New York, Fifth Avenue is 0.8 miles from the office. Midtown, quiet, partners know it. The Modern for dinner, 1.2 miles away. MoMA, private dining, memorable."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v157",
         "restaurantId": "v162",
         "reason": "The Langham New York, Fifth Avenue is 0.8 miles from the office. Midtown, quiet, partners know it. Cote for dinner, 1 miles away. Korean steakhouse, lively, book early."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v157",
         "restaurantId": "v160",
         "reason": "The Langham New York, Fifth Avenue is 0.8 miles from the office. Midtown, quiet, partners know it. Keens Steakhouse for dinner, 0.5 miles away. Herald Square, private rooms, a New York classic."
@@ -3220,36 +3220,36 @@
   },
   "west-star-aviation.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, West Star Aviation and Greenbriar",
+      "title": "Proposed quarterly meeting dates, West Star Aviation and Greenbriar",
       "greeting": "Dear Sandra,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 2 Terminal Drive, Suite 200, East Alton, IL. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Blitzer, Noah Roy and Max Elgart."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -3257,7 +3257,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3265,7 +3265,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3273,7 +3273,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -3296,7 +3296,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -3304,7 +3304,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3312,7 +3312,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3320,7 +3320,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -3342,7 +3342,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
@@ -3350,7 +3350,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3358,7 +3358,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3366,7 +3366,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Dec 14, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Thu Nov 4, 10am to 2pm. Dinner at 6:30pm.",
@@ -3402,7 +3402,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "west-star-aviation.Q3.conflict": {
+  "west-star-aviation.2027-Q3.conflict": {
     "note": "Amara Nwosu declined Q3 on Tue Aug 17, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "West Star Aviation Q3 meeting: date change to Tue Aug 3",
@@ -3426,22 +3426,22 @@
   },
   "west-star-aviation.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v163",
         "restaurantId": "v166",
         "reason": "Four Seasons Hotel St. Louis is 21 miles from the office. Downtown St. Louis, quiet, needs a car. Tony's for dinner, 21 miles away. Downtown St. Louis, classic, private room."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v163",
         "restaurantId": "v167",
         "reason": "Four Seasons Hotel St. Louis is 21 miles from the office. Downtown St. Louis, quiet, needs a car. Cinder House for dinner, 21 miles away. Four Seasons rooftop, river view."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v163",
         "restaurantId": "v168",
         "reason": "Four Seasons Hotel St. Louis is 21 miles from the office. Downtown St. Louis, quiet, needs a car. Gentelin's on Broadway for dinner, 4 miles away. Alton, chef-owned, quiet."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v163",
         "restaurantId": "v166",
         "reason": "Four Seasons Hotel St. Louis is 21 miles from the office. Downtown St. Louis, quiet, needs a car. Tony's for dinner, 21 miles away. Downtown St. Louis, classic, private room."
@@ -3450,36 +3450,36 @@
   },
   "wineshipping.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Tuesday late in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday early in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Wednesday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Wednesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Monday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday late in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Wineshipping and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Wineshipping and Greenbriar",
       "greeting": "Dear Daniel,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 1100 Vintage Way, Suite 300, Napa, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Michael Weiss, Jill Raker and Ben Cox."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3487,7 +3487,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3495,7 +3495,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -3503,7 +3503,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Oct 26, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -3526,7 +3526,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3534,7 +3534,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3542,7 +3542,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -3550,7 +3550,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Oct 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -3572,7 +3572,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Tue Mar 9, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3580,7 +3580,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Wed May 5, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3588,7 +3588,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Wed Aug 18, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -3596,7 +3596,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Oct 26, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon Nov 22, 10am to 2pm. Dinner at 6:30pm.",
@@ -3632,7 +3632,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "wineshipping.Q3.conflict": {
+  "wineshipping.2027-Q3.conflict": {
     "note": "Bruce Halloran declined Q3 on Wed Aug 18, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Wineshipping Q3 meeting: date change to Wed Sep 1",
@@ -3656,22 +3656,22 @@
   },
   "wineshipping.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v169",
         "restaurantId": "v172",
         "reason": "Andaz Napa is 0.5 miles from the office. Downtown, walkable, good bar. Angele for dinner, 0.6 miles away. Riverfront, French, private room."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v169",
         "restaurantId": "v173",
         "reason": "Andaz Napa is 0.5 miles from the office. Downtown, walkable, good bar. Charlie Palmer Steak Napa for dinner, 0.4 miles away. Inside the Archer, steakhouse, easy."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v169",
         "restaurantId": "v174",
         "reason": "Andaz Napa is 0.5 miles from the office. Downtown, walkable, good bar. Oenotri for dinner, 0.5 miles away. Italian, downtown, lively but not loud."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v169",
         "restaurantId": "v172",
         "reason": "Andaz Napa is 0.5 miles from the office. Downtown, walkable, good bar. Angele for dinner, 0.6 miles away. Riverfront, French, private room."
@@ -3680,36 +3680,36 @@
   },
   "applied-aerospace-defense.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Tuesday late in the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Thursday in the middle of the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Thursday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday late in the quarter; a 9am start means partners fly in the night before."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Applied Aerospace & Defense and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Applied Aerospace & Defense and Greenbriar",
       "greeting": "Dear Louis,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 3437 South Airport Way, Suite 100, Stockton, CA. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Noah Blitzer, Jack Morris and Frances Sperry."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 24, 10am to 2pm. Dinner at 6:30pm.",
@@ -3717,7 +3717,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
@@ -3725,7 +3725,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -3733,7 +3733,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -3756,7 +3756,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 24, 10am to 2pm. Dinner at 6:30pm.",
@@ -3764,7 +3764,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
@@ -3772,7 +3772,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -3780,7 +3780,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -3802,7 +3802,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Feb 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 24, 10am to 2pm. Dinner at 6:30pm.",
@@ -3810,7 +3810,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Apr 14, 10am to 2pm. Dinner at 6:30pm.",
@@ -3818,7 +3818,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Wed Sep 1, 9am to 1pm. Dinner at 6:30pm.",
@@ -3826,7 +3826,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Oct 5, 10am to 2pm. Dinner at 6:30pm.",
@@ -3862,7 +3862,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "applied-aerospace-defense.Q3.conflict": {
+  "applied-aerospace-defense.2027-Q3.conflict": {
     "note": "Desmond Okafor declined Q3 on Tue Aug 3, so I went back to the shortlist the partners approved and picked option 2, Wed Sep 1, 9am to 1pm. I re-checked partner calendars and all four are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Applied Aerospace & Defense Q3 meeting: date change to Wed Sep 1",
@@ -3886,22 +3886,22 @@
   },
   "applied-aerospace-defense.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v175",
         "restaurantId": "v178",
         "reason": "University Plaza Waterfront Hotel is 2.5 miles from the office. Downtown waterfront, closest full-service. Papapavlo's Bistro and Bar for dinner, 5 miles away. Mediterranean, private room, easy."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v175",
         "restaurantId": "v179",
         "reason": "University Plaza Waterfront Hotel is 2.5 miles from the office. Downtown waterfront, closest full-service. Towne House Restaurant for dinner, 14 miles away. Lodi, inside Wine and Roses, quiet."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v175",
         "restaurantId": "v180",
         "reason": "University Plaza Waterfront Hotel is 2.5 miles from the office. Downtown waterfront, closest full-service. Bud's Seafood Grille for dinner, 4.8 miles away. Seafood, casual, seats a group."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v175",
         "restaurantId": "v178",
         "reason": "University Plaza Waterfront Hotel is 2.5 miles from the office. Downtown waterfront, closest full-service. Papapavlo's Bistro and Bar for dinner, 5 miles away. Mediterranean, private room, easy."
@@ -3910,36 +3910,36 @@
   },
   "pursuit-aerospace.all.shortlist": {
     "reasons": {
-      "Q1": [
+      "2027-Q1": [
         "Wednesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Wednesday late in the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q2": [
+      "2027-Q2": [
         "Monday in the middle of the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Monday in the middle of the quarter; a 10am start keeps travel easy and dinner on time.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q3": [
+      "2027-Q3": [
         "Tuesday in the middle of the quarter, and a 9am start means partners fly in the night before. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Wednesday in the middle of the quarter; a 9am start means partners fly in the night before."
       ],
-      "Q4": [
+      "2027-Q4": [
         "Tuesday early in the quarter, and a 10am start keeps travel easy and dinner on time. Best spacing from the other quarters.",
         "Nearly as good. Tuesday in the middle of the quarter; a 9am start means partners fly in the night before.",
         "A solid backup. Tuesday early in the quarter; a 10am start keeps travel easy and dinner on time."
       ]
     },
     "onepager": {
-      "title": "Proposed 2027 quarterly meeting dates, Pursuit Aerospace and Greenbriar",
+      "title": "Proposed quarterly meeting dates, Pursuit Aerospace and Greenbriar",
       "greeting": "Dear Ellen,",
       "paragraphs": [
         "Thank you for hosting us again next year. We would like to hold the four quarterly meetings at your office, 500 Main Street, Suite 700, Manchester, CT. Each meeting runs four hours, followed by dinner nearby. The options below work for Noah Roy, Noah Blitzer and James Karle."
       ],
       "lists": [
         {
-          "heading": "Q1, January to March",
+          "heading": "Q1, January to March 2027",
           "items": [
             "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3947,7 +3947,7 @@
           ]
         },
         {
-          "heading": "Q2, April to June",
+          "heading": "Q2, April to June 2027",
           "items": [
             "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3955,7 +3955,7 @@
           ]
         },
         {
-          "heading": "Q3, July to September",
+          "heading": "Q3, July to September 2027",
           "items": [
             "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
             "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -3963,7 +3963,7 @@
           ]
         },
         {
-          "heading": "Q4, October to December",
+          "heading": "Q4, October to December 2027",
           "items": [
             "Option 1: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.",
             "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -3986,7 +3986,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -3994,7 +3994,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -4002,7 +4002,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -4010,7 +4010,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -4032,7 +4032,7 @@
     ],
     "lists": [
       {
-        "heading": "Q1, January to March",
+        "heading": "Q1, January to March 2027",
         "items": [
           "Option 1: Wed Jan 27, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Wed Mar 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -4040,7 +4040,7 @@
         ]
       },
       {
-        "heading": "Q2, April to June",
+        "heading": "Q2, April to June 2027",
         "items": [
           "Option 1: Mon May 17, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Mon May 10, 10am to 2pm. Dinner at 6:30pm.",
@@ -4048,7 +4048,7 @@
         ]
       },
       {
-        "heading": "Q3, July to September",
+        "heading": "Q3, July to September 2027",
         "items": [
           "Option 1: Tue Aug 17, 9am to 1pm. Dinner at 6:30pm.",
           "Option 2: Tue Aug 3, 9am to 1pm. Dinner at 6:30pm.",
@@ -4056,7 +4056,7 @@
         ]
       },
       {
-        "heading": "Q4, October to December",
+        "heading": "Q4, October to December 2027",
         "items": [
           "Option 1: Tue Oct 12, 10am to 2pm. Dinner at 6:30pm.",
           "Option 2: Tue Nov 2, 9am to 1pm. Dinner at 6:30pm.",
@@ -4092,7 +4092,7 @@
       "Peggy Conway, Executive Assistant to the Greenbriar Partners"
     ]
   },
-  "pursuit-aerospace.Q3.conflict": {
+  "pursuit-aerospace.2027-Q3.conflict": {
     "note": "Mei Lin Chao declined Q3 on Tue Aug 17, so I went back to the shortlist the partners approved and picked option 2, Tue Aug 3, 9am to 1pm. I re-checked partner calendars and all three are still free, so this is ready to send if you approve.",
     "resend": {
       "subject": "Pursuit Aerospace Q3 meeting: date change to Tue Aug 3",
@@ -4116,22 +4116,22 @@
   },
   "pursuit-aerospace.all.logistics": {
     "picks": {
-      "Q1": {
+      "2027-Q1": {
         "hotelId": "v181",
         "restaurantId": "v184",
         "reason": "Delamar West Hartford is 12 miles from the office. Boutique, quiet, partners know it. Max Downtown for dinner, 10 miles away. Hartford steakhouse, private room, a partner favorite."
       },
-      "Q2": {
+      "2027-Q2": {
         "hotelId": "v181",
         "restaurantId": "v185",
         "reason": "Delamar West Hartford is 12 miles from the office. Boutique, quiet, partners know it. Artisanal Burger Company for dinner, 0.8 miles away. Manchester, casual, better for lunch."
       },
-      "Q3": {
+      "2027-Q3": {
         "hotelId": "v181",
         "restaurantId": "v186",
         "reason": "Delamar West Hartford is 12 miles from the office. Boutique, quiet, partners know it. Cavey's for dinner, 1.2 miles away. Manchester, French downstairs and Italian upstairs, quiet."
       },
-      "Q4": {
+      "2027-Q4": {
         "hotelId": "v181",
         "restaurantId": "v184",
         "reason": "Delamar West Hartford is 12 miles from the office. Boutique, quiet, partners know it. Max Downtown for dinner, 10 miles away. Hartford steakhouse, private room, a partner favorite."

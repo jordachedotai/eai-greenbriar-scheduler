@@ -7,6 +7,7 @@ import { setLogisticsPick } from "@/lib/actions";
 import { getCurrentEa, getVenue, getVenues } from "@/lib/data";
 import { useStore } from "@/lib/store";
 import type { Venue } from "@/lib/types";
+import { quarterLabel } from "@/lib/quarters";
 import { isLocked } from "@/lib/pipeline";
 import { fmtTime, fmtWindow } from "@/lib/scheduling";
 import type { LogisticsData } from "@/lib/types";
@@ -66,9 +67,9 @@ export function LockAndBook({ readOnly }: { readOnly: boolean }) {
         {done
           ? "Each meeting has a hotel and a dinner. The invites are the next step."
           : working
-            ? "The board confirmed all four dates. Picking a hotel and a restaurant near the office for each meeting."
+            ? "The board confirmed every date. Picking a hotel and a restaurant near the office for each meeting."
             : phase === "needsDraft"
-              ? "The board confirmed all four dates. Press the button to pick a hotel and a restaurant for each meeting."
+              ? "The board confirmed every date. Press the button to pick a hotel and a restaurant for each meeting."
               : "Check the hotel and dinner for each meeting. Change a pick if you know better. Approve and lock."}
       </PanelHeader>
 
@@ -89,7 +90,7 @@ export function LockAndBook({ readOnly }: { readOnly: boolean }) {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-[16px] font-semibold">
                     {locked ? <span className="text-lock"><IconLock size={14} /></span> : null}
-                    <span className="text-mut">{q}</span> {w ? fmtWindow(w) : ""}
+                    <span className="text-mut">{quarterLabel(q, portco.targetQuarters)}</span> {w ? fmtWindow(w) : ""}
                   </div>
                   {w ? <span className="text-[14px] text-mut">Dinner {fmtTime(w.dinnerStart)}</span> : null}
                 </div>
@@ -157,7 +158,7 @@ function VenueField({ label, value, options, locked, onChange, onAdd, onUseForAl
         </select>
       )}
       <button type="button" className="self-start text-[13px] font-semibold text-brand hover:underline" onClick={onUseForAll} data-testid={`${testId}-all`}>
-        Use for all four
+        Use for all
       </button>
     </div>
   );

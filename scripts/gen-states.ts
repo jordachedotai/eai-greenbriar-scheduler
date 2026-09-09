@@ -15,7 +15,7 @@ import {
   hydratePortco,
   personName,
 } from "../lib/data";
-import { CONFLICT_QUARTER, conflictMember, simulatedPicks } from "../lib/simulate";
+import { conflictMember, conflictQuarter, simulatedPicks } from "../lib/simulate";
 import { heldDays } from "../lib/pipeline";
 import { mockBoardEmail, mockConflict, mockLogistics, mockPartnerEmail, mockPortcoEmail, mockShortlist } from "../lib/mockAgent";
 import { boardEmailPayload, conflictPayload, logisticsPayload, partnerEmailPayload, portcoEmailPayload, shortlistPayload } from "../lib/payloads";
@@ -103,12 +103,13 @@ function toLockReview(p: Portco, withConflict: boolean): Portco {
   p = toWaitingBoard(p);
   if (withConflict) {
     const member = conflictMember(getBoardMembers(p.id))!;
-    const c = T.boardConflict(p, member.id, CONFLICT_QUARTER, deps);
+    const cq = conflictQuarter(p);
+    const c = T.boardConflict(p, member.id, cq, deps);
     p = c.portco;
     if (c.declined) {
-      const wording = mockConflict(conflictPayload(p, CONFLICT_QUARTER, member.id, c.declined, c.fallback, c.reverify));
-      p = T.applyConflict(p, CONFLICT_QUARTER, member.id, c.declined, c.fallback, c.reverify, wording, false, deps);
-      p = T.approveResend(p, CONFLICT_QUARTER, deps);
+      const wording = mockConflict(conflictPayload(p, cq, member.id, c.declined, c.fallback, c.reverify));
+      p = T.applyConflict(p, cq, member.id, c.declined, c.fallback, c.reverify, wording, false, deps);
+      p = T.approveResend(p, cq, deps);
     }
   }
   p = T.boardConfirmAll(p, deps);
@@ -147,8 +148,10 @@ function council(walkthroughAtBoard: boolean): DemoState {
   step("randys", 4, 11, (p) => toWaitingBoard(p, 2));
   step("renuity", 2, 9, toWaitingPortco);
   // Sofia (ea3): one on the board, one on the portco, one on partners, one not started.
-  step("sunvair-aerospace-group", 5, 13, (p) => toWaitingBoard(p, 0));
-  step("the-facilities-group", 3, 16, toWaitingPortco);
+  // Two of hers show other planning windows: Sunvair plans two quarters,
+  // The Facilities Group spans 2026 into 2027.
+  step("sunvair-aerospace-group", 5, 13, (p) => toWaitingBoard(T.setWindow(p, { startQuarter: "2027-Q1", quarterCount: 2 }, deps), 0));
+  step("the-facilities-group", 3, 16, (p) => toWaitingPortco(T.setWindow(p, { startQuarter: "2026-Q4", quarterCount: 4 }, deps)));
   step("towne", 1, 9, toWaitingPartners);
   // Jaquelyn (ea4): one locked, one on the portco, two not started.
   step("west-star-aviation", 7, 9, (p) => toInvited(p, false, "none"));
@@ -172,11 +175,11 @@ const states: Record<string, DemoState> = {
 {
   generated = states.council.portcos as Record<string, Portco>;
   const p = T.findDates(fresh(WALKTHROUGH), deps, heldDays(Object.values(generated), fresh(WALKTHROUGH).partnerIds));
-  const counts = p.targetQuarters.map((q) => `${q}=${p.quarters[q].windows.length}`);
+  const counts = p.targetQuarters.map((q) => `${q.slice(5)}=${p.quarters[q].windows.length}`);
   console.log(`${p.name} after council: ${counts.join(" ")}`);
   for (const q of p.targetQuarters) {
     const n = p.quarters[q].windows.length;
-    if ((q === "Q3" && n !== 2) || (q !== "Q3" && n < 3)) throw new Error(`${p.name} ${q} has ${n} windows after council. Adjust the staggering.`);
+    if ((q === "2027-Q3" && n !== 2) || (q !== "2027-Q3" && n < 3)) throw new Error(`${p.name} ${q} has ${n} windows after council. Adjust the staggering.`);
   }
 }
 

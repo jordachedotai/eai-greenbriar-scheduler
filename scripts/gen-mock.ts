@@ -10,7 +10,7 @@ import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { getAvailability, getBoardMembers, getPartners, getPortcoSeeds, getVenues, hydratePortco, personName } from "../lib/data";
 import { boardEmailPayload, conflictPayload, logisticsPayload, partnerEmailPayload, portcoEmailPayload, shortlistPayload } from "../lib/payloads";
-import { CONFLICT_QUARTER, conflictMember, simulatedPicks } from "../lib/simulate";
+import { conflictMember, conflictQuarter, simulatedPicks } from "../lib/simulate";
 import { buildPrompt, extractJson } from "../lib/prompts";
 import { mockStep } from "../lib/mockAgent";
 import * as T from "../lib/transitions";
@@ -53,9 +53,10 @@ async function main() {
     p = T.recordPortcoPicks(p, simulatedPicks(p), deps);
     out[key("all", "boardEmail")] = await write("boardEmail", boardEmailPayload(p, REPLY_BY), true);
     const member = conflictMember(getBoardMembers(p.id))!;
-    const declined = T.pickedWindow(p, CONFLICT_QUARTER) as Window;
-    const c = T.boardConflict(p, member.id, CONFLICT_QUARTER, deps);
-    out[key(CONFLICT_QUARTER, "conflict")] = await write("conflict", conflictPayload(p, CONFLICT_QUARTER, member.id, declined, c.fallback, c.reverify), true);
+    const cq = conflictQuarter(p);
+    const declined = T.pickedWindow(p, cq) as Window;
+    const c = T.boardConflict(p, member.id, cq, deps);
+    out[key(cq, "conflict")] = await write("conflict", conflictPayload(p, cq, member.id, declined, c.fallback, c.reverify), true);
     out[key("all", "logistics")] = await write("logistics", logisticsPayload(p), true);
   }
   writeFileSync(resolve(ROOT, "data/mock-agent-outputs.json"), JSON.stringify(out, null, 2) + "\n");

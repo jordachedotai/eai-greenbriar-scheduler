@@ -1,8 +1,9 @@
 // Types for the Greenbriar portco meeting scheduler, v2 (five stages).
 // Source of truth: docs/DATA.md. Keep this file in sync with it.
 
-export type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
-export const QUARTERS: Quarter[] = ["Q1", "Q2", "Q3", "Q4"];
+// A quarter key, "YYYY-Qn". Companies plan a window of one to eight of
+// them, so two years can appear side by side. See lib/quarters.ts.
+export type Quarter = string;
 
 export type Partner = { id: string; name: string; title: string; homeCity: string; avatar?: string };
 
@@ -32,7 +33,12 @@ export type PortcoSeed = {
   officeAddress: string; // fictional
   partnerIds: string[]; // the real Greenbriar deal team
   execContact: ExecContact; // fictional
-  targetQuarters: Quarter[];
+  // The planning window: which quarters this company is scheduling.
+  startQuarter: Quarter; // "2027-Q1"
+  quarterCount: number; // 1 to 8
+  blockHours?: number; // meeting length, default 4
+  dinnerTime?: string; // "18:30"
+  targetQuarters: Quarter[]; // derived from the window; kept so every loop reads it
   eaId: string; // placeholder until Peggy confirms
 };
 

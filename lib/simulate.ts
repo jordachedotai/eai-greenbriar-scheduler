@@ -3,33 +3,41 @@
 
 import type { BoardMember, Portco, Quarter, Window } from "./types";
 
-export const CONFLICT_QUARTER: Quarter = "Q3";
+// The quarter a board member declines: the thin quarter if there is one,
+// else the third quarter of the window, else the last.
+export function conflictQuarter(portco: Portco): Quarter {
+  const thin = portco.targetQuarters.find((q) => portco.quarters[q]?.thin);
+  if (thin) return thin;
+  const qs = portco.targetQuarters;
+  return qs[Math.min(2, qs.length - 1)];
+}
 
 // The portco picks rank 1 in most quarters and rank 2 in one, so the board
 // email is not a copy of the top line of the one-pager. Which quarter takes
 // rank 2 rotates by portco, so portcos that share partners land on different
 // days. The conflict quarter always picks rank 1 so the fallback is rank 2.
-export function simulatedPickRank(portcoId: string, q: Quarter): 1 | 2 | 3 {
-  if (q === CONFLICT_QUARTER) return 1;
+export function simulatedPickRank(portco: Portco, q: Quarter): 1 | 2 | 3 {
+  if (q === conflictQuarter(portco)) return 1;
   let n = 0;
-  for (const ch of portcoId) n = (n * 31 + ch.charCodeAt(0)) % 1000;
-  const others: Quarter[] = ["Q1", "Q2", "Q4"];
-  const rank2 = others[n % 3];
-  const rank3 = others[(n + 1) % 3];
+  for (const ch of portco.id) n = (n * 31 + ch.charCodeAt(0)) % 1000;
+  const others = portco.targetQuarters.filter((x) => x !== conflictQuarter(portco));
+  if (others.length === 0) return 1;
+  const rank2 = others[n % others.length];
+  const rank3 = others[(n + 1) % others.length];
   if (q === rank2) return 2;
-  if (q === rank3 && n % 2 === 0) return 3;
+  if (q === rank3 && rank3 !== rank2 && n % 2 === 0) return 3;
   return 1;
 }
 
-export function simulatedPick(shortlist: Window[], portcoId: string, q: Quarter): Window | undefined {
-  const want = simulatedPickRank(portcoId, q);
+export function simulatedPick(shortlist: Window[], portco: Portco, q: Quarter): Window | undefined {
+  const want = simulatedPickRank(portco, q);
   return shortlist.find((w) => w.rank === want) ?? shortlist.find((w) => w.rank === 1) ?? shortlist[0];
 }
 
 export function simulatedPicks(portco: Portco): Partial<Record<Quarter, Window>> {
   const out: Partial<Record<Quarter, Window>> = {};
   for (const q of portco.targetQuarters) {
-    const w = simulatedPick(portco.quarters[q].shortlist, portco.id, q);
+    const w = simulatedPick(portco.quarters[q].shortlist, portco, q);
     if (w) out[q] = w;
   }
   return out;

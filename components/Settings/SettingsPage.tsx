@@ -22,6 +22,47 @@ function Card({ id, title, sub, children }: { id: string; title: string; sub: st
   );
 }
 
+function MeetingDefaults() {
+  const defaults = useStore((s) => s.defaults);
+  const setDefaults = useStore((s) => s.setDefaults);
+  const sel = "rounded-[8px] border border-line bg-white px-2.5 py-1.5 text-[15px] font-semibold text-txt";
+  return (
+    <div className="flex flex-col gap-3" data-testid="defaults">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <label className="flex flex-col gap-1 rounded-[10px] border border-line bg-bg px-3.5 py-3">
+          <span className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Planning window</span>
+          <select className={sel} value={defaults.quarterCount} onChange={(e) => setDefaults({ quarterCount: Number(e.target.value) })} data-testid="default-quarters">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+              <option key={n} value={n}>Next {n} quarter{n === 1 ? "" : "s"}</option>
+            ))}
+          </select>
+        </label>
+        <label className="flex flex-col gap-1 rounded-[10px] border border-line bg-bg px-3.5 py-3">
+          <span className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Meeting length</span>
+          <select className={sel} value={defaults.blockHours} onChange={(e) => setDefaults({ blockHours: Number(e.target.value) })} data-testid="default-hours">
+            {[3, 4, 5, 6].map((h) => (
+              <option key={h} value={h}>{h} hours</option>
+            ))}
+          </select>
+        </label>
+        <label className="flex flex-col gap-1 rounded-[10px] border border-line bg-bg px-3.5 py-3">
+          <span className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Dinner</span>
+          <select className={sel} value={defaults.dinnerTime} onChange={(e) => setDefaults({ dinnerTime: e.target.value })} data-testid="default-dinner">
+            {[["18:00", "6pm"], ["18:30", "6:30pm"], ["19:00", "7pm"], ["19:30", "7:30pm"]].map(([v, l]) => (
+              <option key={v} value={v}>{l}, same day</option>
+            ))}
+          </select>
+        </label>
+        <div className="rounded-[10px] border border-line bg-bg px-3.5 py-3">
+          <div className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Days and hours</div>
+          <div className="text-[16px] font-semibold">Monday to Thursday, 8am to 6pm local</div>
+        </div>
+      </div>
+      <p className="text-[14px] text-mut">A new company starts on the next {defaults.quarterCount} quarter{defaults.quarterCount === 1 ? "" : "s"}, beginning the quarter after its last locked meeting, or the next quarter if it has none.</p>
+    </div>
+  );
+}
+
 export function SettingsPage() {
   const portcos = useStore((s) => s.portcos);
   const eas = getEas();
@@ -71,20 +112,8 @@ export function SettingsPage() {
         </div>
       </Card>
 
-      <Card id="defaults" title="Meeting defaults" sub="What Find dates looks for. Change these and the next search uses them.">
-        <dl className="grid grid-cols-2 gap-3 md:grid-cols-4" data-testid="defaults">
-          {[
-            ["Meeting length", "4 hours"],
-            ["Dinner", "6:30pm, same day"],
-            ["Days", "Monday to Thursday"],
-            ["Hours", "8am to 6pm local"],
-          ].map(([k, v]) => (
-            <div key={k} className="rounded-[10px] border border-line bg-bg px-3.5 py-3">
-              <dt className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">{k}</dt>
-              <dd className="text-[16px] font-semibold">{v}</dd>
-            </div>
-          ))}
-        </dl>
+      <Card id="defaults" title="Meeting defaults" sub="What a new company starts with. Each company can change its own window at step 1.">
+        <MeetingDefaults />
       </Card>
 
       <Card id="teams" title="Team assignment" sub="The Greenbriar people on each company. Edit the team and Find dates checks their calendars.">

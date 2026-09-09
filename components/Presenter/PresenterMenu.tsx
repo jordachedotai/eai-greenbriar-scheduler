@@ -12,6 +12,8 @@ import { getBoardMembers, getDemoStates } from "@/lib/data";
 import { allAccepted, allBoardConfirmed, allPartnersYes, allPicked, inviteCounts, invitesOut, openConflicts, portcoPhase, portcoStage } from "@/lib/pipeline";
 import { boardMembersOf } from "@/lib/pipeline";
 import { simulateBoardConfirms, simulateBoardConflict, simulateInvites, simulatePartnerReplies, simulatePortcoPicks } from "@/lib/actions";
+import { conflictQuarter } from "@/lib/simulate";
+import { quarterLabel } from "@/lib/quarters";
 import type { Portco } from "@/lib/types";
 import { IconChevronDown, IconChevronRight, IconPresenter } from "@/components/ui/icons";
 
@@ -41,7 +43,7 @@ function stepsFor(p: Portco | undefined): Step[] {
     },
     {
       key: "conflict",
-      label: "Board conflict, one declines Q3",
+      label: `Board conflict, one declines ${quarterLabel(conflictQuarter(p), p.targetQuarters)}`,
       state: declineDone ? "done" : phase === "waiting" && p.waitingOn === "board" ? "next" : "later",
       run: () => void simulateBoardConflict(p.id),
     },

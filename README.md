@@ -30,6 +30,10 @@ Opens on http://localhost:3000 at the mock sign-in. Lands on Portfolio with the 
 
 Order matters: `import:source`, then `gen:fixtures`, then `gen:states`. `eas.json` is hand-edited. The other names files come from the import.
 
+## Planning windows
+
+Each company plans a window: a starting quarter and one to eight quarters, plus block length and dinner time. Chips carry the year when a window crosses one ("Q4 '26"). Fixtures keep every current company on 2027 Q1 to Q4. In the council state Sunvair plans two quarters and The Facilities Group spans 2026 into 2027. New companies default to the next quarters after their last locked meeting, per the Settings defaults. The annual roll is not built; see the end of `BUILD_PLAN.md`.
+
 ## Modes
 
 `MOCK_MODE=true` (default) renders agent drafts from templates in `lib/mockAgent.ts` over the live shortlist, with a short working delay. No network needed. `MOCK_MODE=false` posts the generative steps to `app/api/agent/route.ts`, which calls the agent with the key from `.env.local`. If a live call fails, the app serves the mock output and tags the draft "Offline draft". The presenter menu (Shift+P) toggles modes at runtime.

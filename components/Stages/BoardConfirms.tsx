@@ -13,6 +13,7 @@ import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Face, FaceStack, resolvePerson } from "@/components/ui/Face";
 import { useStore } from "@/lib/store";
+import { quarterLabel } from "@/lib/quarters";
 import { IconCheck } from "@/components/ui/icons";
 import { PanelHeader, Pill, Section, WaitingState } from "./shared";
 
@@ -49,7 +50,7 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
           : decline
             ? "The agent went back to the shortlist the partners approved, proposed the next window, and re-checked the partners. Read the re-send and approve it."
             : phase === "waiting"
-              ? `Sent to ${names}. Each member confirms the four dates. If one declines, the agent proposes the next window from the approved shortlist.`
+              ? `Sent to ${names}. Each member confirms the dates. If one declines, the agent proposes the next window from the approved shortlist.`
               : working
                 ? `${names} confirm the dates ${portco.execContact.name} picked.`
                 : `${names} confirm the dates ${portco.execContact.name} picked. Read the email and approve it to send.`}
@@ -75,12 +76,12 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
         const checkedIds = activePartners(portco);
         return (
           <div key={q} className="mb-4 flex flex-col gap-4">
-            <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${q} date change`} to={members.map((m) => m.name).join(", ")} testId="draft-conflict" />
+            <DraftViewer draftKey={`conflict:${q}`} title={`Re-send to the board: ${quarterLabel(q, portco.targetQuarters)} date change`} to={members.map((m) => m.name).join(", ")} testId="draft-conflict" />
             <div className="flex flex-col gap-3 rounded-[12px] border border-you-line border-l-4 border-l-you bg-[#f3f7fc] px-[18px] py-4" data-testid={`conflict-${q}`}>
               <div className="flex items-center gap-3">
                 <span className="face-initials inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-you-line bg-white text-[13px] font-bold text-you" data-initials={(member?.name ?? "?").split(" ").map((n) => n[0]).join("").slice(0, 2)} />
                 <div className="flex flex-col">
-                  <span className="text-[16px] font-semibold">{personName(data.memberId)} declined {q}</span>
+                  <span className="text-[16px] font-semibold">{personName(data.memberId)} declined {quarterLabel(q, portco.targetQuarters)}</span>
                   <span className="text-[14px] text-mut">
                     {member?.role}
                     {repliedAt ? ` · replied ${fmtStamp(repliedAt)}` : ""}
@@ -147,7 +148,7 @@ export function BoardConfirms({ readOnly }: { readOnly: boolean }) {
                   const hot = !!cd && (!portco.drafts[`conflict:${q}`].approved || members.some((m) => qs.boardResponses[m.id] !== "confirmed"));
                   return (
                     <tr key={q} className={"border-t border-idle-line " + (hot ? "bg-[#f3f7fc]" : "")}>
-                      <td className={"px-3 py-2.5 font-bold " + (hot ? "text-you" : "text-mut")}>{q}</td>
+                      <td className={"whitespace-nowrap px-3 py-2.5 font-bold " + (hot ? "text-you" : "text-mut")}>{quarterLabel(q, portco.targetQuarters)}</td>
                       <td className="px-3 py-2.5">
                         {changed ? <span className="mr-1.5 text-mut line-through">{fmtWindow(declinedW).replace(/,.*$/, "")}</span> : null}
                         <span className={changed ? "font-semibold" : ""}>{w ? fmtWindow(w) : ""}</span>

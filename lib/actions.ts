@@ -15,7 +15,8 @@ import {
   portcoEmailPayload,
   shortlistPayload,
 } from "./payloads";
-import { CONFLICT_QUARTER, conflictMember, replyByDate, simulatedPartnerReplies, simulatedPicks } from "./simulate";
+import { conflictMember, conflictQuarter, replyByDate, simulatedPartnerReplies, simulatedPicks } from "./simulate";
+import type { PlanningWindow } from "./quarters";
 import * as T from "./transitions";
 import { asEmail } from "./email";
 import type { LogisticsPick, Portco, Quarter } from "./types";
@@ -55,6 +56,10 @@ function agentOpts(id: string, expectJson: boolean, variant = 0, quarter?: Quart
 }
 
 // ---------- stage 1 attendees ----------
+
+export function setWindow(id: string, w: PlanningWindow) {
+  apply(id, (p) => T.setWindow(p, w, deps));
+}
 
 export function togglePartner(id: string, partnerId: string) {
   apply(id, (p) => T.togglePartner(p, partnerId));
@@ -211,7 +216,7 @@ export function simulateInvites(id: string, mode: "mixed" | "all" = "mixed") {
 export async function simulateBoardConflict(id: string) {
   const member = conflictMember(getBoardMembers(id));
   if (!member) return;
-  const q = CONFLICT_QUARTER;
+  const q = conflictQuarter(get(id));
   const { portco, declined, fallback, reverify } = T.boardConflict(get(id), member.id, q, deps);
   apply(id, () => portco);
   if (!declined) return;

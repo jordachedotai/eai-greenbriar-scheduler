@@ -8,6 +8,7 @@ import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { ViewEmail } from "@/components/Drafts/EmailDrawer";
 import { firstName, fmtStamp } from "@/lib/format";
+import { quarterLabel } from "@/lib/quarters";
 import { PanelHeader, Section, WaitingState } from "./shared";
 
 export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
@@ -50,7 +51,7 @@ export function PortcoPicks({ readOnly }: { readOnly: boolean }) {
               const w = qs.shortlist.find((x) => x.id === qs.portcoPick);
               return (
                 <li key={q} className="flex gap-3 rounded-[10px] border border-line bg-white px-3 py-2">
-                  <span className="w-8 font-bold text-mut">{q}</span>
+                  <span className="w-14 shrink-0 font-bold text-mut">{quarterLabel(q, portco.targetQuarters)}</span>
                   {w ? (
                     <span className="flex min-w-0 flex-1 flex-wrap items-baseline justify-between gap-x-3">
                       <span>

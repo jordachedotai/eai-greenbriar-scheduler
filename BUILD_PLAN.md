@@ -140,3 +140,7 @@ See `docs/PHASE5_BATCH2.md` for the nine items from the 2026-09-09 walkthroughs,
 
 ### Cut line for Phase 5
 End of day 2 behind: Templates becomes a placeholder again, Attendance drops to a static panel. End of day 3 behind: Add portfolio company drops to a form that validates but does not save; team assignment and the attendee picker stay. The real data swap, faces and logos, the email renderer, and the type scale never get cut.
+
+## Future: annual roll
+
+Planning windows are per company (`startQuarter`, `quarterCount`, block length, dinner time), defaulting to the next four quarters after the last locked meeting. Not built yet: the annual roll, where a company whose window is fully locked gets its next window proposed automatically and the Find dates step starts again for it, with last year's venues and attendees carried forward. Needs a "start next window" action on a done company, a history of past windows on the company page, and Calendar filters by year.

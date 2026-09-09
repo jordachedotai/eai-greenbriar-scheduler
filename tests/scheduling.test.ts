@@ -30,7 +30,9 @@ const portco: PortcoSeed = {
   officeAddress: "1 Main St",
   partnerIds: ["p1", "p2"],
   execContact: { name: "E", title: "CEO" },
-  targetQuarters: ["Q1"],
+  startQuarter: "2027-Q1",
+  quarterCount: 1,
+  targetQuarters: ["2027-Q1"],
   eaId: "ea1",
 };
 
@@ -48,7 +50,8 @@ describe("date helpers", () => {
     expect(daysBetween("2027-01-01", "2027-03-31")).toBe(89);
   });
   it("gives quarter ranges", () => {
-    expect(quarterDayRange(2027, "Q2")).toEqual({ first: "2027-04-01", last: "2027-06-30" });
+    expect(quarterDayRange("2027-Q2")).toEqual({ first: "2027-04-01", last: "2027-06-30" });
+    expect(quarterDayRange("2026-Q4")).toEqual({ first: "2026-10-01", last: "2026-12-31" });
   });
 });
 
@@ -67,6 +70,16 @@ describe("intervals", () => {
     expect(pickStart(8 * 60, 18 * 60)).toBe(10 * 60);
     expect(pickStart(13 * 60, 18 * 60)).toBe(13 * 60);
     expect(pickStart(8 * 60, 11 * 60)).toBe(-1);
+    expect(pickStart(8 * 60, 11 * 60, 10, 3)).toBe(8 * 60); // a 3-hour block fits
+  });
+
+  it("honors the block length and dinner time", () => {
+    const availability = [block("p1", "2027-02-09", 8, 18), block("p2", "2027-02-09", 8, 18)];
+    const res = findWindows({ portco: { ...portco, blockHours: 5, dinnerTime: "19:00" }, partners, boardMembers: board, availability });
+    const w = res["2027-Q1"].windows[0];
+    expect(w.start).toBe("2027-02-09T10:00:00");
+    expect(w.end).toBe("2027-02-09T15:00:00");
+    expect(w.dinnerStart).toBe("2027-02-09T19:00:00");
   });
 });
 
@@ -80,20 +93,20 @@ describe("findWindows", () => {
       block("p2", "2027-02-11", 8, 11), // only 3 hours
     ];
     const res = findWindows({ portco, partners, boardMembers: board, availability });
-    expect(res.Q1.windows).toHaveLength(1);
-    const w = res.Q1.windows[0];
+    expect(res["2027-Q1"].windows).toHaveLength(1);
+    const w = res["2027-Q1"].windows[0];
     expect(w.start).toBe("2027-02-09T10:00:00");
     expect(w.end).toBe("2027-02-09T14:00:00");
     expect(w.attendeesFree).toEqual(["p1", "p2"]);
     expect(w.attendeesUnknown).toEqual(["b1"]);
     expect(w.dinnerStart).toBe("2027-02-09T18:30:00");
-    expect(res.Q1.thin).toBe(true);
+    expect(res["2027-Q1"].thin).toBe(true);
   });
 
   it("skips Fridays and weekends", () => {
     const availability = [block("p1", "2027-02-12", 8, 18), block("p2", "2027-02-12", 8, 18)];
     const res = findWindows({ portco, partners, boardMembers: board, availability });
-    expect(res.Q1.windows).toHaveLength(0);
+    expect(res["2027-Q1"].windows).toHaveLength(0);
   });
 
   it("emits two windows when morning and afternoon are split", () => {
@@ -103,14 +116,14 @@ describe("findWindows", () => {
       block("p2", "2027-02-09", 8, 18),
     ];
     const res = findWindows({ portco, partners, boardMembers: board, availability });
-    expect(res.Q1.windows.map((w) => w.start)).toEqual(["2027-02-09T08:00:00", "2027-02-09T13:00:00"]);
+    expect(res["2027-Q1"].windows.map((w) => w.start)).toEqual(["2027-02-09T08:00:00", "2027-02-09T13:00:00"]);
   });
 });
 
 describe("rankWindows", () => {
   function w(id: string, start: string): Window {
     const end = start.replace(/T(\d\d)/, (_, h) => `T${String(Number(h) + 4).padStart(2, "0")}`);
-    return { id, quarter: "Q1", start, end, attendeesFree: [], attendeesUnknown: [], dinnerStart: "" };
+    return { id, quarter: "2027-Q1", start, end, attendeesFree: [], attendeesUnknown: [], dinnerStart: "" };
   }
   it("prefers mid-week, 10am, and the middle of the quarter", () => {
     const list = [
@@ -130,7 +143,7 @@ describe("rankWindows", () => {
 describe("conflict fallback", () => {
   it("returns the next ranked window", () => {
     const shortlist: Window[] = [1, 2, 3].map((r) => ({
-      id: `w${r}`, quarter: "Q3", start: "", end: "", attendeesFree: [], attendeesUnknown: [], dinnerStart: "", rank: r as 1 | 2 | 3,
+      id: `w${r}`, quarter: "2027-Q3", start: "", end: "", attendeesFree: [], attendeesUnknown: [], dinnerStart: "", rank: r as 1 | 2 | 3,
     }));
     expect(nextBestWindow(shortlist, "w1")?.id).toBe("w2");
     expect(nextBestWindow(shortlist, "w3")).toBeNull();
@@ -138,7 +151,7 @@ describe("conflict fallback", () => {
 
   it("re-verifies attendees against availability", () => {
     const win: Window = {
-      id: "w", quarter: "Q1", start: "2027-02-09T10:00:00", end: "2027-02-09T14:00:00",
+      id: "w", quarter: "2027-Q1", start: "2027-02-09T10:00:00", end: "2027-02-09T14:00:00",
       attendeesFree: ["p1", "p2"], attendeesUnknown: [], dinnerStart: "",
     };
     const availability = [block("p1", "2027-02-09", 8, 18), block("p2", "2027-02-09", 11, 18)];

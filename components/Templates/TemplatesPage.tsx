@@ -8,6 +8,7 @@ import { useMemo } from "react";
 import { loadDemoState } from "@/lib/data";
 import { mockConflict } from "@/lib/mockAgent";
 import { conflictPayload } from "@/lib/payloads";
+import { conflictQuarter } from "@/lib/simulate";
 import { EmailDraft } from "@/components/Drafts/EmailDraft";
 import type { EmailFields } from "@/lib/types";
 
@@ -21,7 +22,7 @@ export function TemplatesPage() {
       { key: "boardEmail", title: "Confirmation email to the board", when: "Step 4", email: p?.drafts.boardEmail?.email },
     ];
     if (p) {
-      const q = "Q3";
+      const q = conflictQuarter(p);
       const declined = p.quarters[q].shortlist.find((w) => w.id === p.quarters[q].portcoPick) ?? p.quarters[q].shortlist[0];
       const fallback = p.quarters[q].shortlist.find((w) => w.rank === 2) ?? null;
       const wording = mockConflict(conflictPayload(p, q, "b2", declined, fallback, { ok: true, busy: [] }));

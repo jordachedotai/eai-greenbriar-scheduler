@@ -5,8 +5,8 @@
 // reasons, the full grid behind an expander, the one-pager.
 
 import { useState } from "react";
-import Link from "next/link";
-import { addPartner, togglePartner } from "@/lib/actions";
+import { addPartner, setWindow, togglePartner } from "@/lib/actions";
+import { quarterLabel, quarterLong, quarterRange, MAX_QUARTERS } from "@/lib/quarters";
 import { getBoardMembers, getPartner, getTeam, personName } from "@/lib/data";
 import { joinNames } from "@/lib/format";
 import { activePartners, heldDays } from "@/lib/pipeline";
@@ -138,13 +138,7 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-3.5 rounded-[10px] border border-idle-line bg-bg px-3.5 py-3 text-[14px] text-mut">
-          <span className="flex flex-col">
-            <span className="text-[12px] font-semibold uppercase tracking-[0.04em]">Looking for</span>
-            <span className="text-[15px] font-semibold text-txt">Four 4-hour blocks in 2027, one per quarter, dinner after</span>
-          </span>
-          <Link href="/settings" className="ml-auto hover:text-txt">Change in Settings</Link>
-        </div>
+        <LookingFor />
         <p className="text-[14px] text-mut">
           Calendars are checked for the people ticked. Email people are asked in later steps.
           {held > 0 ? ` ${held} days are already held for other portfolio company meetings and will be skipped.` : ""}
@@ -172,12 +166,12 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
             return (
               <div key={q} className="rounded-[12px] border border-idle-line bg-idle-soft p-2.5" data-testid={`shortlist-${q}`}>
                 <div className="mb-2 flex items-baseline justify-between px-1">
-                  <span className="text-[15px] font-semibold">{q}</span>
+                  <span className="text-[15px] font-semibold">{quarterLabel(q, portco.targetQuarters)}</span>
                   <span className="text-[13px] text-mut">{qs.windows.length} windows</span>
                 </div>
                 {qs.thin ? (
                   <div className="mb-2 rounded-[8px] border border-wait-line bg-wait-soft px-2.5 py-2 text-[13px] text-wait" data-testid={`thin-${q}`}>
-                    Only {qs.windows.length} windows in {q}. Consider widening to 3-hour blocks.
+                    Only {qs.windows.length} windows in {quarterLabel(q, portco.targetQuarters)}. Consider widening to 3-hour blocks.
                   </div>
                 ) : null}
                 <div className="flex flex-col gap-2">
@@ -196,7 +190,7 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
           <div className="mt-2 grid grid-cols-2 gap-3 2xl:grid-cols-4" data-testid="all-windows">
             {portco.targetQuarters.map((q) => (
               <div key={q} className="max-h-[360px] overflow-y-auto rounded-[12px] border border-idle-line bg-idle-soft p-2.5">
-                <div className="mb-1 px-1 text-[13px] font-semibold text-mut">{q}</div>
+                <div className="mb-1 px-1 text-[13px] font-semibold text-mut">{quarterLabel(q, portco.targetQuarters)}</div>
                 <div className="flex flex-col gap-1.5">
                   {portco.quarters[q].windows.map((w) => (
                     <WindowCard key={w.id} w={w} showReason={false} />
@@ -211,6 +205,98 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
     </div>
   );
 }
+
+// The planning window, and a Change control to set it before dates are found.
+function LookingFor() {
+  const { portco } = useDetail();
+  const [editing, setEditing] = useState(false);
+  const qs = portco.targetQuarters;
+  const [start, setStart] = useState(portco.startQuarter);
+  const [count, setCount] = useState(portco.quarterCount);
+  const [hours, setHours] = useState(portco.blockHours ?? 4);
+  const [dinner, setDinner] = useState(portco.dinnerTime ?? "18:30");
+  const first = qs[0];
+  const last = qs[qs.length - 1];
+  const span = qs.length === 1 ? quarterLong(first) : `${quarterLong(first)} to ${quarterLong(last)}`;
+  const countWord = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"][qs.length] ?? String(qs.length);
+  const dinnerLabel = (t: string) => {
+    const [h, m] = t.split(":").map(Number);
+    return `${h % 12 === 0 ? 12 : h % 12}${m ? ":" + String(m).padStart(2, "0") : ""}${h >= 12 ? "pm" : "am"}`;
+  };
+  if (!editing) {
+    return (
+      <div className="flex items-center gap-3.5 rounded-[10px] border border-idle-line bg-bg px-3.5 py-3 text-[14px] text-mut" data-testid="looking-for">
+        <span className="flex flex-col">
+          <span className="text-[12px] font-semibold uppercase tracking-[0.04em]">Looking for</span>
+          <span className="text-[15px] font-semibold text-txt">
+            {countWord} {portco.blockHours ?? 4}-hour block{qs.length === 1 ? "" : "s"}, {span}, one per quarter, dinner at {dinnerLabel(portco.dinnerTime ?? "18:30")}
+          </span>
+        </span>
+        <button type="button" className="ml-auto font-semibold text-brand hover:underline" onClick={() => setEditing(true)} data-testid="looking-for-change">
+          Change
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-col gap-3 rounded-[10px] border border-brand/40 bg-bg px-3.5 py-3" data-testid="looking-for-form">
+      <span className="text-[12px] font-semibold uppercase tracking-[0.04em] text-mut">Planning window</span>
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          Starting quarter
+          <select className={sel} value={start} onChange={(e) => setStart(e.target.value)} data-testid="window-start">
+            {quarterRange(2026, 2028).map((q) => (
+              <option key={q} value={q}>{quarterLong(q)}</option>
+            ))}
+          </select>
+        </label>
+        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          How many quarters
+          <select className={sel} value={count} onChange={(e) => setCount(Number(e.target.value))} data-testid="window-count">
+            {Array.from({ length: MAX_QUARTERS }, (_, i) => i + 1).map((n) => (
+              <option key={n} value={n}>{n}</option>
+            ))}
+          </select>
+        </label>
+        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          Block length
+          <select className={sel} value={hours} onChange={(e) => setHours(Number(e.target.value))} data-testid="window-hours">
+            {[3, 4, 5, 6].map((h) => (
+              <option key={h} value={h}>{h} hours</option>
+            ))}
+          </select>
+        </label>
+        <label className="flex flex-col gap-1 text-[13px] text-mut">
+          Dinner
+          <select className={sel} value={dinner} onChange={(e) => setDinner(e.target.value)} data-testid="window-dinner">
+            {["18:00", "18:30", "19:00", "19:30"].map((t) => (
+              <option key={t} value={t}>{dinnerLabel(t)}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div className="flex items-center justify-between">
+        <span className="text-[13px] text-mut">{quarterLong(start)}{count > 1 ? ` to ${quarterLong(quarterRange(2026, 2030)[quarterRange(2026, 2030).indexOf(start) + count - 1] ?? start)}` : ""}. Chips show the year when the window crosses one.</span>
+        <div className="flex gap-2">
+          <button type="button" className="rounded-[8px] border border-ring bg-white px-3 py-1.5 text-[13px] font-semibold" onClick={() => setEditing(false)}>Cancel</button>
+          <button
+            type="button"
+            className="rounded-[8px] bg-brand px-3 py-1.5 text-[13px] font-semibold text-white hover:bg-brand2"
+            onClick={() => {
+              setWindow(portco.id, { startQuarter: start, quarterCount: count, blockHours: hours, dinnerTime: dinner });
+              setEditing(false);
+            }}
+            data-testid="window-save"
+          >
+            Save window
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const sel = "rounded-[8px] border border-line bg-white px-2.5 py-1.5 text-[14px] text-txt";
 
 function shortTitle(t: string): string {
   return t.replace("Chief Executive Officer", "CEO").replace("Chief Financial Officer", "CFO");

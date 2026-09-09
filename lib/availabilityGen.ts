@@ -69,26 +69,32 @@ export function generateAvailability(personIds: string[], seed: number, year = Y
   return blocks;
 }
 
-// One person's blocks, seeded from their id, so a roster member gets the
-// same calendar every time without a rebuild.
+// One person's blocks for one year, seeded from their id and the year, so a
+// roster member, or a fixture partner in a year the fixture does not cover,
+// gets the same calendar every time without a rebuild.
 export function generatePersonAvailability(personId: string, year = YEAR): AvailabilityBlock[] {
-  return generateAvailability([personId], seedFrom(personId), year);
+  return generateAvailability([personId], seedFrom(`${personId}:${year}`), year);
 }
 
-// The fixture plus generated blocks for anyone in `ids` who has none.
+// The fixture plus generated blocks for every (person, year) the fixture
+// does not cover. The fixture holds 2027 for the deal team; other years and
+// other people are generated on demand.
 const cache = new Map<string, AvailabilityBlock[]>();
-export function ensureAvailability(availability: AvailabilityBlock[], ids: string[]): AvailabilityBlock[] {
-  const have = new Set(availability.map((b) => b.personId));
-  const missing = ids.filter((id) => !have.has(id));
-  if (missing.length === 0) return availability;
+export function ensureAvailability(availability: AvailabilityBlock[], ids: string[], years: number[] = [YEAR]): AvailabilityBlock[] {
+  const have = new Set(availability.map((b) => `${b.personId}:${b.start.slice(0, 4)}`));
   let out = availability;
-  for (const id of missing) {
-    let blocks = cache.get(id);
-    if (!blocks) {
-      blocks = generatePersonAvailability(id);
-      cache.set(id, blocks);
+  for (const id of ids) {
+    for (const year of years) {
+      const key = `${id}:${year}`;
+      if (have.has(key)) continue;
+      let blocks = cache.get(key);
+      if (!blocks) {
+        blocks = generatePersonAvailability(id, year);
+        cache.set(key, blocks);
+      }
+      out = out.concat(blocks);
+      have.add(key);
     }
-    out = out.concat(blocks);
   }
   return out;
 }

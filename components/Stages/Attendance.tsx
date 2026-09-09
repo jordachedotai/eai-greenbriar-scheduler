@@ -11,6 +11,7 @@ import type { AttendanceStatus } from "@/lib/types";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { Face, resolvePerson, type Person } from "@/components/ui/Face";
 import { Label } from "./shared";
+import { quarterLabel } from "@/lib/quarters";
 
 const PILL: Record<AttendanceStatus, string> = {
   accepted: "bg-lock-soft text-lock",
@@ -59,7 +60,7 @@ export function Attendance() {
               return (
                 <tr key={q} className="border-t border-idle-line">
                   <td className="whitespace-nowrap px-3 py-2.5">
-                    <span className="mr-2 font-bold text-mut">{q}</span>
+                    <span className="mr-2 font-bold text-mut">{quarterLabel(q, portco.targetQuarters)}</span>
                     {w ? fmtDate(w.start) : ""}
                   </td>
                   {ids.map((id) => {

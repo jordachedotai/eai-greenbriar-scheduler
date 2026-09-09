@@ -105,7 +105,10 @@ function main() {
       officeAddress: `${fiction.address}, ${c.city}`,
       partnerIds: c.team.map((t) => t.id),
       execContact: { name: fiction.exec[0], title: fiction.exec[1] },
-      targetQuarters: ["Q1", "Q2", "Q3", "Q4"],
+      // Every current company plans 2027, Q1 to Q4, so the demo is unchanged.
+      startQuarter: "2027-Q1",
+      quarterCount: 4,
+      targetQuarters: ["2027-Q1", "2027-Q2", "2027-Q3", "2027-Q4"],
       eaId: ea,
     });
     for (const [name, role] of fiction.board) {

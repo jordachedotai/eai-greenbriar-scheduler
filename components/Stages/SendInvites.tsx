@@ -15,6 +15,7 @@ import { Face, resolvePerson, type Person } from "@/components/ui/Face";
 import { IconCalendar } from "@/components/ui/icons";
 import { Attendance } from "./Attendance";
 import { Label, PanelHeader, Pill, WaitingState } from "./shared";
+import { quarterLabel } from "@/lib/quarters";
 
 export function SendInvites({ readOnly }: { readOnly: boolean }) {
   const { portco, members, phase } = useDetail();
@@ -28,7 +29,7 @@ export function SendInvites({ readOnly }: { readOnly: boolean }) {
 
   const title = done ? "Every invite accepted" : sent ? "Invites are out" : "Send the calendar invites";
   const sentence = done
-    ? "All four meetings are on every calendar and travel is booked. Nothing left to do for 2027."
+    ? "Every meeting is on every calendar and travel is booked. Nothing left to do for this window."
     : sent
       ? `Replies land here as they come in. ${counts.accepted} of ${counts.total} accepted so far.`
       : `One invite per meeting, to the ${invites[0]?.attendeeIds.length ?? 0} people in the room, with the dinner as a second entry. Read them and press Approve and send invites.`;
@@ -40,7 +41,7 @@ export function SendInvites({ readOnly }: { readOnly: boolean }) {
       {!sent && !readOnly ? (
         <div className="mb-4 flex flex-col gap-3" data-testid="invite-drafts">
           {invites.map((inv) => (
-            <InviteCard key={inv.quarter} inv={inv} personOf={personOf} />
+            <InviteCard key={inv.quarter} inv={inv} personOf={personOf} label={quarterLabel(inv.quarter, portco.targetQuarters)} />
           ))}
         </div>
       ) : null}
@@ -58,7 +59,7 @@ export function SendInvites({ readOnly }: { readOnly: boolean }) {
           <span className="flex items-center gap-2.5 text-[14px] text-mut">
             <span className="rounded-full bg-lock-soft px-2 py-0.5 text-[12px] font-semibold text-lock">Sent</span>
             <span>
-              Four calendar invites{sentAt ? ` · ${fmtStamp(sentAt)}` : ""} · {invites[0]?.attendeeIds.length ?? 0} people each
+              {invites.length === 4 ? "Four" : invites.length} calendar invite{invites.length === 1 ? "" : "s"}{sentAt ? ` · ${fmtStamp(sentAt)}` : ""} · {invites[0]?.attendeeIds.length ?? 0} people each
             </span>
           </span>
         </div>
@@ -67,14 +68,14 @@ export function SendInvites({ readOnly }: { readOnly: boolean }) {
   );
 }
 
-function InviteCard({ inv, personOf }: { inv: Invite; personOf: (id: string) => Person }) {
+function InviteCard({ inv, personOf, label }: { inv: Invite; personOf: (id: string) => Person; label: string }) {
   const w = { start: inv.start, end: inv.end };
   return (
     <div className="overflow-hidden rounded-[12px] border border-line" data-testid={`invite-${inv.quarter}`}>
       <div className="flex items-center justify-between gap-3 border-b border-line bg-bg px-[18px] py-3">
         <div className="flex items-center gap-2.5">
           <span className="text-mut"><IconCalendar size={18} stroke="#61705f" /></span>
-          <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Invite · {inv.quarter}</span>
+          <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">Invite · {label}</span>
           <Pill tone="wait">Draft</Pill>
         </div>
         <span className="text-[13px] text-mut">{inv.attendeeIds.length} attendees</span>

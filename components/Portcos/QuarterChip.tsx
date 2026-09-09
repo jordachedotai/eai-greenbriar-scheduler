@@ -3,6 +3,7 @@
 import type { Portco, Quarter } from "@/lib/types";
 import { STATUS_LABEL } from "@/lib/types";
 import { IconLock } from "@/components/ui/icons";
+import { quarterLabel, quarterLong } from "@/lib/quarters";
 import { quarterChip, type Tone } from "./status";
 
 const BOX: Record<Tone, string> = {
@@ -21,7 +22,7 @@ export function QuarterChip({ portco, quarter, variant = "row" }: { portco: Port
   const card = variant === "card";
   return (
     <div
-      title={`${quarter}: ${STATUS_LABEL[qs.status]}${c.label ? `, ${c.label}` : ""}`}
+      title={`${quarterLong(quarter)}: ${STATUS_LABEL[qs.status]}${c.label ? `, ${c.label}` : ""}`}
       className={`flex min-w-0 flex-col gap-px border ${BOX[c.tone]} ${card ? "rounded-[6px] px-1.5 py-[5px]" : "rounded-[8px] px-2 py-2"}`}
       data-testid={`chip-${quarter}`}
       data-status={qs.status}
@@ -29,7 +30,7 @@ export function QuarterChip({ portco, quarter, variant = "row" }: { portco: Port
     >
       <span className={`flex items-center gap-1 text-[12px] font-bold ${TEXT[c.tone]}`}>
         {c.locked ? <IconLock size={card ? 10 : 11} /> : null}
-        {quarter}
+        {quarterLabel(quarter, portco.targetQuarters)}
       </span>
       {c.label ? (
         <span className={card ? "text-[12px] font-semibold" : "text-[14px] font-semibold"}>{c.label}</span>

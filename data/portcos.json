@@ -18,11 +18,13 @@
       "name": "Tom Haggerty",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea1"
   },
@@ -44,11 +46,13 @@
       "name": "Karen Delgado",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea1"
   },
@@ -69,11 +73,13 @@
       "name": "Renee Ashby",
       "title": "President"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea1"
   },
@@ -93,11 +99,13 @@
       "name": "Miguel Santana",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea2"
   },
@@ -119,11 +127,13 @@
       "name": "Priya Raman",
       "title": "Chief Financial Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea2"
   },
@@ -145,11 +155,13 @@
       "name": "Dale Whitcomb",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea1"
   },
@@ -170,11 +182,13 @@
       "name": "Ingrid Solberg",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea2"
   },
@@ -195,11 +209,13 @@
       "name": "Marcus Greene",
       "title": "President"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea2"
   },
@@ -221,11 +237,13 @@
       "name": "Jenna Holt",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea1"
   },
@@ -246,11 +264,13 @@
       "name": "Victor Malone",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea2"
   },
@@ -271,11 +291,13 @@
       "name": "Lorraine Pike",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea3"
   },
@@ -296,11 +318,13 @@
       "name": "Curtis Hale",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea3"
   },
@@ -323,11 +347,13 @@
       "name": "Angela Ruiz",
       "title": "Chief Financial Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea3"
   },
@@ -349,11 +375,13 @@
       "name": "Owen Fairbanks",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea3"
   },
@@ -374,11 +402,13 @@
       "name": "Sandra Okoye",
       "title": "President"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea4"
   },
@@ -399,11 +429,13 @@
       "name": "Daniel Brightwater",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea4"
   },
@@ -425,11 +457,13 @@
       "name": "Louis Ferrante",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea4"
   },
@@ -450,11 +484,13 @@
       "name": "Ellen Sorensen",
       "title": "Chief Executive Officer"
     },
+    "startQuarter": "2027-Q1",
+    "quarterCount": 4,
     "targetQuarters": [
-      "Q1",
-      "Q2",
-      "Q3",
-      "Q4"
+      "2027-Q1",
+      "2027-Q2",
+      "2027-Q3",
+      "2027-Q4"
     ],
     "eaId": "ea4"
   }

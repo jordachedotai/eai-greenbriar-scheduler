@@ -12,7 +12,7 @@ import {
   personName,
 } from "@/lib/data";
 import { allAccepted, allLocked, confirmedMeetings, inviteCounts, portcoPhase, portcoStage, primaryAction, travelBookedCount } from "@/lib/pipeline";
-import { CONFLICT_QUARTER, conflictMember, simulatedPicks } from "@/lib/simulate";
+import { conflictMember, conflictQuarter, simulatedPicks } from "@/lib/simulate";
 import * as T from "@/lib/transitions";
 import { mockBoardEmail, mockConflict, mockLogistics, mockPartnerEmail, mockPortcoEmail, mockShortlist } from "@/lib/mockAgent";
 import { boardEmailPayload, conflictPayload, logisticsPayload, partnerEmailPayload, portcoEmailPayload, shortlistPayload } from "@/lib/payloads";
@@ -33,7 +33,7 @@ const seed = getPortcoSeeds().find((s) => s.id === "ait-worldwide-logistics")!;
 
 const RB = "Monday, September 21";
 
-describe("five-stage flow for AIT Worldwide Logistics", () => {
+describe("six-stage flow for AIT Worldwide Logistics", () => {
   let p = hydratePortco(seed);
 
   it("starts idle at stage 1", () => {
@@ -44,16 +44,16 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
 
   it("finds dates, ranks, drafts, and flags Q3 thin", () => {
     p = T.findDates(p, deps);
-    expect(p.quarters.Q3.thin).toBe(true);
-    expect(p.quarters.Q3.shortlist).toHaveLength(2);
-    expect(p.quarters.Q1.shortlist).toHaveLength(3);
-    expect(p.quarters.Q1.shortlist[0].attendeesFree).toEqual(["michael-wang", "jill-raker", "niall-mccomiskey", "max-elgart", "ben-cox"]);
-    expect(p.quarters.Q1.shortlist[0].attendeesUnknown).toEqual(members.map((m) => m.id));
+    expect(p.quarters["2027-Q3"].thin).toBe(true);
+    expect(p.quarters["2027-Q3"].shortlist).toHaveLength(2);
+    expect(p.quarters["2027-Q1"].shortlist).toHaveLength(3);
+    expect(p.quarters["2027-Q1"].shortlist[0].attendeesFree).toEqual(["michael-wang", "jill-raker", "niall-mccomiskey", "max-elgart", "ben-cox"]);
+    expect(p.quarters["2027-Q1"].shortlist[0].attendeesUnknown).toEqual(members.map((m) => m.id));
     expect(portcoPhase(p, members)).toBe("needsDraft");
     const result = mockShortlist(shortlistPayload(p, RB));
     p = T.applyOnepager(p, result, false, 0, deps);
-    expect(p.quarters.Q1.shortlist[0].reason).toBeTruthy();
-    expect(p.quarters.Q3.shortlist[0].reason).toContain("One of only 2 days");
+    expect(p.quarters["2027-Q1"].shortlist[0].reason).toBeTruthy();
+    expect(p.quarters["2027-Q3"].shortlist[0].reason).toContain("One of only 2 days");
     expect(p.drafts.onepager.text).toContain("Dear Tom");
     expect(p.drafts.onepager.text).toContain(RB);
     expect(p.drafts.onepager.text).not.toContain("—");
@@ -99,7 +99,7 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     p = T.sendToPortco(p, deps);
     expect(p.waitingOn).toBe("portco");
     p = T.recordPortcoPicks(p, simulatedPicks(p), deps);
-    expect(p.quarters.Q3.portcoPick).toBe(p.quarters.Q3.shortlist[0].id);
+    expect(p.quarters["2027-Q3"].portcoPick).toBe(p.quarters["2027-Q3"].shortlist[0].id);
     const picksReply = (p.replies ?? []).find((r) => r.kind === "portco");
     expect(picksReply?.from.name).toBe("Tom Haggerty");
     expect(picksReply?.body).toContain("Q1");
@@ -118,28 +118,28 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(p.waitingOn).toBe("board");
     const member = conflictMember(members)!;
     expect(member.name).toBe("Raymond Cho");
-    const c = T.boardConflict(p, member.id, CONFLICT_QUARTER, deps);
+    const c = T.boardConflict(p, member.id, conflictQuarter(p), deps);
     p = c.portco;
-    expect(p.quarters.Q3.boardResponses[member.id]).toBe("declined");
-    expect(p.quarters.Q1.boardResponses[member.id]).toBe("confirmed");
+    expect(p.quarters["2027-Q3"].boardResponses[member.id]).toBe("declined");
+    expect(p.quarters["2027-Q1"].boardResponses[member.id]).toBe("confirmed");
     const decline = (p.replies ?? []).find((r) => r.kind === "board" && r.from.personId === member.id);
-    expect(decline?.quarter).toBe("Q3");
+    expect(decline?.quarter).toBe("2027-Q3");
     expect(decline?.body).toContain("cannot make Q3");
     expect(c.fallback?.rank).toBe(2);
     expect(c.reverify.ok).toBe(true);
-    const wording = mockConflict(conflictPayload(p, CONFLICT_QUARTER, member.id, c.declined!, c.fallback, c.reverify));
+    const wording = mockConflict(conflictPayload(p, conflictQuarter(p), member.id, c.declined!, c.fallback, c.reverify));
     expect(wording.note).toContain("option 2");
     expect(wording.resend.subject).toContain("Q3");
     expect(wording.resend.lists?.[0].items).toHaveLength(1);
-    p = T.applyConflict(p, CONFLICT_QUARTER, member.id, c.declined!, c.fallback, c.reverify, wording, false, deps);
+    p = T.applyConflict(p, conflictQuarter(p), member.id, c.declined!, c.fallback, c.reverify, wording, false, deps);
     expect(portcoPhase(p, members)).toBe("conflict");
     expect(primaryAction(p, members)?.label).toBe("Approve and re-send to board");
-    const data = p.drafts["conflict:Q3"].data as ConflictData;
+    const data = p.drafts["conflict:2027-Q3"].data as ConflictData;
     expect(data.fallbackWindowId).toBe(c.fallback!.id);
-    expect(p.drafts["conflict:Q3"].email?.greeting).toContain("Dear");
-    p = T.approveResend(p, CONFLICT_QUARTER, deps);
-    expect(p.quarters.Q3.portcoPick).toBe(c.fallback!.id);
-    expect(p.quarters.Q3.boardResponses[member.id]).toBe("pending");
+    expect(p.drafts["conflict:2027-Q3"].email?.greeting).toContain("Dear");
+    p = T.approveResend(p, conflictQuarter(p), deps);
+    expect(p.quarters["2027-Q3"].portcoPick).toBe(c.fallback!.id);
+    expect(p.quarters["2027-Q3"].boardResponses[member.id]).toBe("pending");
     expect(p.waitingOn).toBe("board");
     p = T.boardConfirmAll(p, deps);
     expect(confirmedMeetings(p, members)).toBe(4);
@@ -152,16 +152,16 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     const result = mockLogistics(logisticsPayload(p));
     const wrongCity = deps.venues.find((v) => v.city !== p.city && v.type === "hotel")!;
     const wrongRest = deps.venues.find((v) => v.city !== p.city && v.type === "restaurant")!;
-    const tampered = { picks: { ...result.picks, Q2: { hotelId: wrongCity.id, restaurantId: wrongRest.id, reason: "wrong city" } } };
+    const tampered = { picks: { ...result.picks, "2027-Q2": { hotelId: wrongCity.id, restaurantId: wrongRest.id, reason: "wrong city" } } };
     p = T.applyLogistics(p, tampered, false, 0, deps);
     const picks = p.drafts.logistics.data as Record<string, unknown>;
-    expect(picks.Q2).toBeUndefined();
-    expect(picks.Q1).toBeDefined();
+    expect(picks["2027-Q2"]).toBeUndefined();
+    expect(picks["2027-Q1"]).toBeDefined();
     expect(primaryAction(p, members)?.label).toBe("Approve and lock");
     p = T.applyLogistics(p, result, false, 0, deps);
     p = T.approveAndLock(p, deps);
     expect(allLocked(p)).toBe(true);
-    expect(p.quarters.Q3.logistics?.hotel.city).toBe("Itasca, IL");
+    expect(p.quarters["2027-Q3"].logistics?.hotel.city).toBe("Itasca, IL");
     // Stage 6: the invites are drafted, nothing has been sent.
     expect(portcoStage(p)).toBe(6);
     expect(portcoPhase(p, members)).toBe("review");
@@ -169,21 +169,21 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     const invites = p.drafts.invites.data as { quarter: string; attendeeIds: string[]; dinner: { venue: string } }[];
     expect(invites).toHaveLength(4);
     expect(invites[0].attendeeIds).toHaveLength(9);
-    expect(invites[0].dinner.venue).toBe(p.quarters.Q1.logistics?.restaurant.name);
+    expect(invites[0].dinner.venue).toBe(p.quarters["2027-Q1"].logistics?.restaurant.name);
     expect(p.attendance).toBeUndefined();
   });
 
   it("sends the invites, then simulates replies and travel", () => {
     p = T.sendInvites(p, deps);
-    expect(p.quarters.Q1.status).toBe("invited");
+    expect(p.quarters["2027-Q1"].status).toBe("invited");
     expect(p.waitingOn).toBe("attendees");
     expect(portcoPhase(p, members)).toBe("waiting");
     expect(inviteCounts(p, members)).toMatchObject({ total: 36, noReply: 36, replied: false });
     p = T.simulateInvites(p, deps, "mixed");
     const c = inviteCounts(p, members);
     expect(c).toMatchObject({ accepted: 34, tentative: 1, noReply: 1, total: 36, replied: true });
-    expect(p.attendance?.Q2?.b2).toBe("tentative");
-    expect(p.attendance?.Q4?.["ben-cox"]).toBe("noReply");
+    expect(p.attendance?.["2027-Q2"]?.b2).toBe("tentative");
+    expect(p.attendance?.["2027-Q4"]?.["ben-cox"]).toBe("noReply");
     expect(travelBookedCount(p)).toEqual({ booked: 4, total: 5 });
     expect(allAccepted(p, members)).toBe(false);
     p = T.simulateInvites(p, deps, "all");

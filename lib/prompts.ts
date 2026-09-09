@@ -15,16 +15,18 @@ export type WindowPayload = {
   confirmByEmail: string[];
 };
 
+// `quarter` is the key ("2027-Q1"); `label` is what people read ("Q1" or "Q4 '26").
+export type QuarterOptions = { quarter: string; label: string; months: string; thin: boolean; windows: WindowPayload[] };
+
 export type ShortlistPayload = {
   portco: { name: string; city: string; officeAddress: string };
   execContact: { name: string; title: string };
   partners: string[];
   replyBy: string;
-  quarters: { quarter: string; months: string; thin: boolean; windows: WindowPayload[] }[];
+  quarters: QuarterOptions[];
   eaSignature: string;
 };
 
-export type QuarterOptions = { quarter: string; months: string; thin: boolean; windows: WindowPayload[] };
 
 export type PartnerEmailPayload = {
   portco: { name: string; city: string };
@@ -71,7 +73,7 @@ export type ConflictPayload = {
 export type LogisticsPayload = {
   portco: { name: string; city: string; officeAddress: string };
   partners: string[];
-  meetings: { quarter: string; date: string; time: string; dinner: string }[];
+  meetings: { quarter: string; label: string; date: string; time: string; dinner: string }[];
   venues: { id: string; type: string; name: string; distanceMi: number; note: string }[];
 };
 
@@ -99,10 +101,10 @@ Do two things.
 
 2. Write a one page proposal addressed to the exec contact by first name, from the assistant on behalf of the partners. Ask them to pick one option per quarter and reply by the replyBy date. If a quarter is thin, say so in that quarter's note. Sign off with eaSignature.
 
-Return JSON only, shaped exactly like this:
-{"reasons": {"Q1": ["...", "...", "..."], "Q2": [...], "Q3": [...], "Q4": [...]},
- "onepager": {"title": "...", "greeting": "Dear ...,", "paragraphs": ["...", "..."], "lists": [{"heading": "Q1, January to March", "note": "only 2 days worked", "items": ["Option 1: Tue Jan 12, 10am to 2pm. Dinner at 6:30pm.", "..."]}], "ask": "...", "signoff": ["...", "..."]}}
-The reasons arrays must match the number and order of windows given per quarter. One list per quarter, one item per window, in the order given. "note" is optional.
+Return JSON only, shaped exactly like this, with "reasons" keyed by each quarter's "quarter" key exactly as given (for example "2027-Q1"):
+{"reasons": {"2027-Q1": ["...", "...", "..."], "2027-Q2": [...]},
+ "onepager": {"title": "...", "greeting": "Dear ...,", "paragraphs": ["...", "..."], "lists": [{"heading": "Q1, January to March 2027", "note": "only 2 days worked", "items": ["Option 1: Tue Jan 12, 10am to 2pm. Dinner at 6:30pm.", "..."]}], "ask": "...", "signoff": ["...", "..."]}}
+Use each quarter's "label" and "months" in headings. The reasons arrays must match the number and order of windows given per quarter. One list per quarter, one item per window, in the order given. "note" is optional.
 
 Payload:
 ${json(payload)}`;
@@ -148,8 +150,8 @@ ${json(payload)}`;
     case "logistics":
       return `Pick one hotel and one restaurant for each meeting from the venue list. Only use venue ids from the list. Prefer places close to the office and suited to a partner group and a board dinner. Give one sentence per meeting on why, in the assistant's voice.
 
-Return JSON only, shaped like:
-{"picks": {"Q1": {"hotelId": "...", "restaurantId": "...", "reason": "..."}, "Q2": {...}, "Q3": {...}, "Q4": {...}}}
+Return JSON only, keyed by each meeting's "quarter" key exactly as given:
+{"picks": {"2027-Q1": {"hotelId": "...", "restaurantId": "...", "reason": "..."}, "2027-Q2": {...}}}
 
 Payload:
 ${json(payload)}`;

@@ -11,6 +11,7 @@ import { useStore } from "@/lib/store";
 import type { BoardMember, PortcoSeed } from "@/lib/types";
 import { LogoTile } from "@/components/ui/LogoTile";
 import { PeoplePicker } from "./PeoplePicker";
+import { defaultWindow, quarterLong, quarterRange, windowQuarters, MAX_QUARTERS } from "@/lib/quarters";
 
 type BoardRow = { name: string; role: string; calendarVisible: boolean };
 
@@ -36,6 +37,9 @@ export function AddCompanyForm() {
   ]);
   const [eaId, setEaId] = useState(eas[0]?.id ?? "ea1");
   const [team, setTeam] = useState<string[]>([]);
+  const defaults = useStore((s) => s.defaults);
+  const [startQuarter, setStartQuarter] = useState(defaultWindow([], defaults.quarterCount).startQuarter);
+  const [quarterCount, setQuarterCount] = useState(defaults.quarterCount);
   const [error, setError] = useState<string | null>(null);
 
   const id = slugify(name);
@@ -54,7 +58,11 @@ export function AddCompanyForm() {
       officeAddress: `${address.trim()}, ${city.trim()}`,
       partnerIds: team,
       execContact: { name: execName.trim(), title: execTitle.trim() || "Chief Executive Officer" },
-      targetQuarters: ["Q1", "Q2", "Q3", "Q4"],
+      startQuarter,
+      quarterCount,
+      blockHours: defaults.blockHours,
+      dinnerTime: defaults.dinnerTime,
+      targetQuarters: windowQuarters({ startQuarter, quarterCount }),
       eaId,
     };
     const members: BoardMember[] = board
@@ -108,6 +116,20 @@ export function AddCompanyForm() {
               <option key={ea.id} value={ea.id}>{ea.name}</option>
             ))}
           </select>
+        </Field>
+        <Field label="Planning window">
+          <div className="grid grid-cols-2 gap-2">
+            <select className={input} value={startQuarter} onChange={(e) => setStartQuarter(e.target.value)} data-testid="add-start">
+              {quarterRange(2026, 2028).map((q) => (
+                <option key={q} value={q}>Starts {quarterLong(q)}</option>
+              ))}
+            </select>
+            <select className={input} value={quarterCount} onChange={(e) => setQuarterCount(Number(e.target.value))} data-testid="add-count">
+              {Array.from({ length: MAX_QUARTERS }, (_, i) => i + 1).map((n) => (
+                <option key={n} value={n}>{n} quarter{n === 1 ? "" : "s"}</option>
+              ))}
+            </select>
+          </div>
         </Field>
       </div>
 

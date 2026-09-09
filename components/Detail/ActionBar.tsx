@@ -4,7 +4,8 @@
 // right. One primary button, brand green, or blue when a decline needs the EA.
 
 import { primary, regenerate } from "@/lib/actions";
-import { activePartners, primaryAction, STAGE_DRAFT } from "@/lib/pipeline";
+import { activePartners, openConflicts, primaryAction, STAGE_DRAFT } from "@/lib/pipeline";
+import { quarterLabel } from "@/lib/quarters";
 import { joinNames } from "@/lib/format";
 import { personName } from "@/lib/data";
 import { IconSearch, IconSend } from "@/components/ui/icons";
@@ -29,12 +30,12 @@ function useStepSentence(): string {
       if (phase === "ready") return `Step 3 of 6. Dates picked. Next, the confirmation email to the board.`;
       return `Step 3 of 6. Sends the proposal and one-pager to ${exec}. They pick one option per quarter.`;
     case 4:
-      if (phase === "conflict") return `Step 4 of 6. Sends the Q3 change to ${boardCount} board members. The other quarters stay as confirmed.`;
-      if (phase === "waiting") return `Step 4 of 6. Waiting for ${boardCount} board members to confirm the four dates.`;
+      if (phase === "conflict") return `Step 4 of 6. Sends the ${quarterLabel(openConflicts(portco)[0] ?? portco.targetQuarters[0], portco.targetQuarters)} change to ${boardCount} board members. The other quarters stay as confirmed.`;
+      if (phase === "waiting") return `Step 4 of 6. Waiting for ${boardCount} board members to confirm the dates.`;
       if (phase === "ready") return `Step 4 of 6. Every board member confirmed. Lock the dates and book hotels and dinners.`;
-      return `Step 4 of 6. Sends the four picked dates to ${boardCount} board members for a yes.`;
+      return `Step 4 of 6. Sends the picked dates to ${boardCount} board members for a yes.`;
     case 5:
-      return "Step 5 of 6. Locks the four dates and books a hotel and a dinner for each. The invites come next.";
+      return "Step 5 of 6. Locks the dates and books a hotel and a dinner for each. The invites come next.";
     default:
       if (phase === "done") return "All six steps done. Every invite accepted, travel booked.";
       if (phase === "waiting") return "Step 6 of 6. Invites are out. Replies and travel show as they come in.";

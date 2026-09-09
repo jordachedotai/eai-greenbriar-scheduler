@@ -9,6 +9,7 @@ import { allAccepted, allPartnersYes, allPicked, boardConfirmedQuarter, boardMem
 import { fmtDate } from "@/lib/scheduling";
 import type { ConflictData, Portco, Quarter } from "@/lib/types";
 import { STAGE_NAMES } from "@/lib/types";
+import { quarterLabel } from "@/lib/quarters";
 
 export type Tone = "you" | "wait" | "lock" | "idle";
 
@@ -63,7 +64,7 @@ export function rowStatus(p: Portco): RowStatus {
 
   if (phase === "idle") {
     pill = "Not started";
-    sentence = `${word(p.partnerIds.length)[0].toUpperCase() + word(p.partnerIds.length).slice(1)} partners assigned. Calendars connected.`;
+    sentence = `${word(p.partnerIds.length)[0].toUpperCase() + word(p.partnerIds.length).slice(1)} partners assigned. ${p.targetQuarters.length === 4 ? "Four" : String(p.targetQuarters.length)} quarter${p.targetQuarters.length === 1 ? "" : "s"} to plan.`;
     button = { label: "Find dates", kind: "brand" };
   } else if (phase === "done") {
     pill = "All accepted";
@@ -79,7 +80,7 @@ export function rowStatus(p: Portco): RowStatus {
     button = { label: "Open", kind: "secondary" };
   } else if (stage === 6 && phase === "review") {
     pill = "Locked";
-    sentence = "Dates and venues locked. Four invites ready to send.";
+    sentence = `Dates and venues locked. ${p.targetQuarters.length === 4 ? "Four" : String(p.targetQuarters.length)} invite${p.targetQuarters.length === 1 ? "" : "s"} ready to send.`;
     button = { label: action?.label ?? "Open", kind: "you" };
   } else if (phase === "waiting") {
     if (p.waitingOn === "partners") {
@@ -105,7 +106,7 @@ export function rowStatus(p: Portco): RowStatus {
       const data = p.drafts[`conflict:${q}`]?.data as ConflictData | undefined;
       const fallback = data && p.quarters[q].shortlist.find((w) => w.id === data.fallbackWindowId);
       sentence = data
-        ? `${nameOf(data.memberId)} declined ${q}. ${fallback ? fmtDate(fallback.start).replace(/^\w+ /, "") + " proposed from the approved shortlist, partners re-checked." : "No other window on the shortlist."}`
+        ? `${nameOf(data.memberId)} declined ${quarterLabel(q, p.targetQuarters)}. ${fallback ? fmtDate(fallback.start).replace(/^\w+ /, "") + " proposed from the approved shortlist, partners re-checked." : "No other window on the shortlist."}`
         : "A board member declined.";
       button = { label: "Review re-send", kind: "you" };
     } else if (phase === "ready") {

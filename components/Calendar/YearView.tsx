@@ -11,6 +11,7 @@ import { boardConfirmedQuarter, boardMembersOf } from "@/lib/pipeline";
 import { addDays, dayKey, fmtTime, pad, weekdayOf } from "@/lib/scheduling";
 import type { Portco, Window } from "@/lib/types";
 import { LogoTile } from "@/components/ui/LogoTile";
+import { parseQuarter, yearsOf } from "@/lib/quarters";
 
 type Meeting = { day: string; portco: Portco; w: Window; kind: "locked" | "proposed" };
 
@@ -41,11 +42,26 @@ export function YearView() {
   const locked = meetings.filter((m) => m.kind === "locked").length;
   const byDay = new Map<string, Meeting[]>();
   for (const m of meetings) byDay.set(m.day, [...(byDay.get(m.day) ?? []), m]);
+  // Every year any company in view is planning, so a window that spans years shows both.
+  const { years, months } = useMemo(() => {
+    const me = getCurrentEa().id;
+    const list = Object.values(portcos).filter((p) => eaFilter === "all" || p.eaId === me);
+    const quarters = list.flatMap((p) => p.targetQuarters);
+    const ys = yearsOf(quarters);
+    // Only the months some company in view is planning, so a window that
+    // starts in Q4 2026 shows October to December 2026, not the whole year.
+    const ms = new Set<string>();
+    for (const q of quarters) {
+      const { year, n } = parseQuarter(q);
+      for (let m = (n - 1) * 3 + 1; m <= n * 3; m++) ms.add(`${year}-${pad(m)}`);
+    }
+    return { years: ys.length ? ys : [2027], months: ms };
+  }, [portcos, eaFilter]);
 
   return (
     <div className="flex flex-col gap-4" data-testid="year-view">
       <div className="flex flex-wrap items-center gap-5 rounded-[12px] border border-line bg-white px-[18px] py-3.5 shadow-[0_1px_2px_rgba(23,34,26,0.05)]">
-        <span className="serif text-[22px] font-semibold">2027</span>
+        <span className="serif text-[22px] font-semibold">{years.length === 1 ? years[0] : `${years[0]} to ${years[years.length - 1]}`}</span>
         <span className="text-[16px] text-mut">
           <span className="font-semibold text-lock" data-testid="cal-locked">{locked} locked</span>
           {" and "}
@@ -59,23 +75,26 @@ export function YearView() {
           <span className="rounded-full bg-wait-soft px-2 py-0.5 text-[12px] font-semibold text-wait">Waiting on others</span> proposed
         </span>
       </div>
-      <div className="grid grid-cols-2 gap-3.5 lg:grid-cols-3 2xl:grid-cols-4">
-        {MONTHS.map((name, i) => (
-          <Month key={name} name={name} month={i + 1} byDay={byDay} />
-        ))}
-      </div>
+      {years.map((year) => (
+        <section key={year} className="flex flex-col gap-3" data-testid={`year-${year}`}>
+          {years.length > 1 ? <h3 className="serif text-[20px] font-semibold">{year}</h3> : null}
+          <div className="grid grid-cols-2 gap-3.5 lg:grid-cols-3 2xl:grid-cols-4">
+            {MONTHS.map((name, i) => (months.has(`${year}-${pad(i + 1)}`) ? <Month key={name} year={year} name={name} month={i + 1} byDay={byDay} /> : null))}
+          </div>
+        </section>
+      ))}
     </div>
   );
 }
 
-function Month({ name, month, byDay }: { name: string; month: number; byDay: Map<string, Meeting[]> }) {
-  const first = `2027-${pad(month)}-01`;
+function Month({ year, name, month, byDay }: { year: number; name: string; month: number; byDay: Map<string, Meeting[]> }) {
+  const first = `${year}-${pad(month)}-01`;
   const startWd = weekdayOf(first);
   const days: string[] = [];
   for (let d = first; d.slice(5, 7) === pad(month); d = addDays(d, 1)) days.push(d);
   const list = days.flatMap((d) => byDay.get(d) ?? []);
   return (
-    <div className="flex flex-col gap-3 rounded-[14px] border border-line bg-white p-4 shadow-[var(--shadow-card)]" data-testid={`month-${month}`}>
+    <div className="flex flex-col gap-3 rounded-[14px] border border-line bg-white p-4 shadow-[var(--shadow-card)]" data-testid={`month-${year}-${month}`}>
       <div className="flex items-baseline justify-between">
         <span className="serif text-[20px] font-semibold">{name}</span>
         <span className="text-[13px] font-semibold uppercase tracking-[0.04em] text-mut">{list.length ? `${list.length} meeting${list.length === 1 ? "" : "s"}` : ""}</span>

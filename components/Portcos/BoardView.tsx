@@ -6,7 +6,7 @@ import Link from "next/link";
 import { portcoStage } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import type { Portco, Stage } from "@/lib/types";
-import { QUARTERS, STAGES, STAGE_NAMES } from "@/lib/types";
+import { STAGES, STAGE_NAMES } from "@/lib/types";
 import { FaceStack } from "@/components/ui/Face";
 import { LogoTile } from "@/components/ui/LogoTile";
 import { IconCheck } from "@/components/ui/icons";
@@ -74,8 +74,8 @@ function BoardCard({ portco }: { portco: Portco }) {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-1">
-        {QUARTERS.filter((q) => portco.targetQuarters.includes(q)).map((q) => (
+      <div className="grid gap-1" style={{ gridTemplateColumns: `repeat(${Math.min(4, portco.targetQuarters.length)}, minmax(0, 1fr))` }}>
+        {portco.targetQuarters.map((q) => (
           <QuarterChip key={q} portco={portco} quarter={q} variant="card" />
         ))}
       </div>
