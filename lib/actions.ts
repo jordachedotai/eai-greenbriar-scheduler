@@ -1,18 +1,25 @@
 "use client";
 
-// Store and agent glue for the stage actions. The state changes themselves
+// Store and agent glue for the five stages. The state changes themselves
 // live in lib/transitions.ts so the demo state generator runs the same code.
 
 import { useStore } from "./store";
 import { runAgent } from "./agent";
 import { getAvailability, getBoardMembers, getPartners, getVenues, personName } from "./data";
-import { nowIso } from "./pipeline";
-import { boardEmailPayload, conflictPayload, logisticsPayload, portcoEmailPayload, shortlistPayload } from "./payloads";
-import { CONFLICT_QUARTER, conflictMember, replyByDate, simulatedPicks } from "./simulate";
+import { heldDays, nowIso, portcoPhase, portcoStage } from "./pipeline";
+import {
+  boardEmailPayload,
+  conflictPayload,
+  logisticsPayload,
+  partnerEmailPayload,
+  portcoEmailPayload,
+  shortlistPayload,
+} from "./payloads";
+import { CONFLICT_QUARTER, conflictMember, replyByDate, simulatedPartnerReplies, simulatedPicks } from "./simulate";
 import * as T from "./transitions";
 import type { LogisticsPick, Portco, Quarter } from "./types";
 
-export { allInternalApproved, allPicked, openConflicts, draftLabel } from "./transitions";
+export { draftLabel } from "./transitions";
 
 const deps: T.Deps = {
   partners: getPartners(),
@@ -34,8 +41,7 @@ function apply(id: string, fn: (p: Portco) => Portco) {
 }
 
 async function withWorking<R>(id: string, label: string, fn: () => Promise<R>): Promise<R> {
-  const s = useStore.getState();
-  s.setWorking({ portcoId: id, label });
+  useStore.getState().setWorking({ portcoId: id, label });
   try {
     return await fn();
   } finally {
@@ -47,101 +53,139 @@ function agentOpts(id: string, expectJson: boolean, variant = 0, quarter?: Quart
   return { mock: useStore.getState().mockMode, portcoId: id, expectJson, variant, quarter, tokens: { replyBy: replyByDate() } };
 }
 
-export function allBoardConfirmed(p: Portco): boolean {
-  return T.allBoardConfirmed(p, deps);
-}
+// ---------- drafting steps, each callable on its own (Regenerate, or a
+// missing draft after a reload) ----------
 
-// ---------- stage 0 -> 1 ----------
-
-export function pullAvailability(id: string) {
-  apply(id, (p) => T.pullAvailability(p, deps));
-}
-
-// ---------- stage 1 -> 2 ----------
-
-export async function buildShortlist(id: string) {
-  apply(id, T.buildShortlist);
-  await runShortlist(id, 0);
-}
-
-async function runShortlist(id: string, variant: number) {
+export async function draftOnepager(id: string, variant = 0) {
   const p = get(id);
-  await withWorking(id, variant === 0 ? "Ranking windows and drafting the one-pager" : "Rewriting the one-pager", async () => {
+  await withWorking(id, variant === 0 ? "Writing reasons and drafting the one-pager" : "Rewriting the one-pager", async () => {
     const { data, offline } = await runAgent<T.ShortlistResult>("shortlist", shortlistPayload(p, replyByDate()), agentOpts(id, true, variant));
-    apply(id, (cur) => T.applyShortlist(cur, data, offline, variant, deps));
+    apply(id, (cur) => T.applyOnepager(cur, data, offline, variant, deps));
   });
 }
 
-export async function regenerateShortlist(id: string) {
-  await runShortlist(id, (get(id).drafts.onepager?.variant ?? 0) + 1);
-}
-
-export function approveOnepager(id: string) {
-  apply(id, (p) => T.approveOnepager(p, deps));
-}
-
-// ---------- stage 3 ----------
-
-export function markInternalApproval(id: string, partnerId: string) {
-  apply(id, (p) => T.markInternalApproval(p, partnerId, deps));
-}
-
-export function simulateInternalApprovals(id: string) {
-  apply(id, (p) => T.approveAllInternal(p, deps));
-}
-
-// ---------- stage 3 -> 4 ----------
-
-export async function sendToPortco(id: string) {
-  apply(id, T.sendToPortco);
-  await runPortcoEmail(id, 0);
-}
-
-async function runPortcoEmail(id: string, variant: number) {
+export async function draftPartnerEmail(id: string, variant = 0) {
   const p = get(id);
-  await withWorking(id, variant === 0 ? "Drafting the proposal email" : "Rewriting the proposal email", async () => {
+  await withWorking(id, variant === 0 ? "Drafting the sign-off email to the partners" : "Rewriting the partner email", async () => {
+    const payload = partnerEmailPayload(p, p.drafts.onepager?.text ?? "", replyByDate());
+    const { data, offline } = await runAgent<string>("partnerEmail", payload, agentOpts(id, false, variant));
+    apply(id, (cur) => T.applyPartnerEmail(cur, data, offline, variant, deps));
+  });
+}
+
+export async function draftPortcoEmail(id: string, variant = 0) {
+  const p = get(id);
+  await withWorking(id, variant === 0 ? "Drafting the proposal email to the portco" : "Rewriting the proposal email", async () => {
     const payload = portcoEmailPayload(p, p.drafts.onepager?.text ?? "", replyByDate());
     const { data, offline } = await runAgent<string>("portcoEmail", payload, agentOpts(id, false, variant));
     apply(id, (cur) => T.applyPortcoEmail(cur, data, offline, variant, deps));
   });
 }
 
-export async function regeneratePortcoEmail(id: string) {
-  await runPortcoEmail(id, (get(id).drafts.portcoEmail?.variant ?? 0) + 1);
-}
-
-export function approvePortcoEmail(id: string) {
-  apply(id, (p) => T.approvePortcoEmail(p, deps));
-}
-
-export function simulatePortcoReply(id: string) {
-  apply(id, (p) => T.recordPortcoPicks(p, simulatedPicks(p), deps));
-}
-
-// ---------- stage 4 -> 5 ----------
-
-export async function sendToBoard(id: string) {
-  apply(id, (p) => T.sendToBoard(p, deps));
-  await runBoardEmail(id, 0);
-}
-
-async function runBoardEmail(id: string, variant: number) {
+export async function draftBoardEmail(id: string, variant = 0) {
   const p = get(id);
-  await withWorking(id, variant === 0 ? "Drafting the board email" : "Rewriting the board email", async () => {
+  await withWorking(id, variant === 0 ? "Drafting the confirmation email to the board" : "Rewriting the board email", async () => {
     const { data, offline } = await runAgent<string>("boardEmail", boardEmailPayload(p, replyByDate()), agentOpts(id, false, variant));
     apply(id, (cur) => T.applyBoardEmail(cur, data, offline, variant, deps));
   });
 }
 
-export async function regenerateBoardEmail(id: string) {
-  await runBoardEmail(id, (get(id).drafts.boardEmail?.variant ?? 0) + 1);
+export async function draftLogistics(id: string, variant = 0) {
+  const p = get(id);
+  await withWorking(id, variant === 0 ? "Choosing a hotel and a restaurant for each meeting" : "Re-picking venues", async () => {
+    const { data, offline } = await runAgent<T.LogisticsResult>("logistics", logisticsPayload(p), agentOpts(id, true, variant));
+    apply(id, (cur) => T.applyLogistics(cur, data, offline, variant, deps));
+  });
 }
 
-export function approveBoardEmail(id: string) {
-  apply(id, (p) => T.approveBoardEmail(p, deps));
+// ---------- the primary button, one handler ----------
+
+export async function primary(id: string) {
+  const p = get(id);
+  const members = getBoardMembers(id);
+  const stage = portcoStage(p);
+  const phase = portcoPhase(p, members);
+  if (phase === "done" || phase === "waiting") return;
+  switch (stage) {
+    case 1:
+      if (phase === "idle") {
+        const others = Object.values(useStore.getState().portcos).filter((o) => o.id !== id);
+        apply(id, (cur) => T.findDates(cur, deps, heldDays(others, cur.partnerIds)));
+        await draftOnepager(id);
+      } else if (phase === "needsDraft") {
+        await draftOnepager(id);
+      } else {
+        apply(id, (cur) => T.approveOnepager(cur, deps));
+        await draftPartnerEmail(id);
+      }
+      return;
+    case 2:
+      if (phase === "needsDraft") await draftPartnerEmail(id);
+      else if (phase === "review") apply(id, (cur) => T.sendToPartners(cur, deps));
+      else {
+        apply(id, (cur) => T.startPortcoPicks(cur, deps));
+        await draftPortcoEmail(id);
+      }
+      return;
+    case 3:
+      if (phase === "needsDraft") await draftPortcoEmail(id);
+      else if (phase === "review") apply(id, (cur) => T.sendToPortco(cur, deps));
+      else {
+        apply(id, (cur) => T.startBoardConfirms(cur, deps));
+        await draftBoardEmail(id);
+      }
+      return;
+    case 4:
+      if (phase === "needsDraft") await draftBoardEmail(id);
+      else if (phase === "review") apply(id, (cur) => T.sendToBoard(cur, deps));
+      else if (phase === "conflict") {
+        for (const q of p.targetQuarters) {
+          if (p.drafts[`conflict:${q}`] && !p.drafts[`conflict:${q}`].approved) apply(id, (cur) => T.approveResend(cur, q, deps));
+        }
+      } else {
+        apply(id, (cur) => T.lockAndBook(cur, deps));
+        await draftLogistics(id);
+      }
+      return;
+    default:
+      if (phase === "needsDraft") await draftLogistics(id);
+      else apply(id, (cur) => T.approveAndLock(cur, deps));
+  }
 }
 
-export function simulateBoardConfirmAll(id: string) {
+// ---------- regenerate the draft for the current stage ----------
+
+export async function regenerate(id: string) {
+  const p = get(id);
+  const stage = portcoStage(p);
+  const key = ["", "onepager", "partnerEmail", "portcoEmail", "boardEmail", "logistics"][stage];
+  const variant = (p.drafts[key]?.variant ?? 0) + 1;
+  if (stage === 1) await draftOnepager(id, variant);
+  else if (stage === 2) await draftPartnerEmail(id, variant);
+  else if (stage === 3) await draftPortcoEmail(id, variant);
+  else if (stage === 4) await draftBoardEmail(id, variant);
+  else await draftLogistics(id, variant);
+}
+
+export function editDraft(id: string, key: string, text: string) {
+  apply(id, (p) => T.editDraft(p, key, text, deps));
+}
+
+export function setLogisticsPick(id: string, q: Quarter, patch: Partial<LogisticsPick>) {
+  apply(id, (p) => T.setLogisticsPick(p, q, patch));
+}
+
+// ---------- demo simulations (the replies that Outlook would deliver) ----------
+
+export function simulatePartnerReplies(id: string) {
+  apply(id, (p) => T.partnerReplies(p, simulatedPartnerReplies(p), deps));
+}
+
+export function simulatePortcoPicks(id: string) {
+  apply(id, (p) => T.recordPortcoPicks(p, simulatedPicks(p), deps));
+}
+
+export function simulateBoardConfirms(id: string) {
   apply(id, (p) => T.boardConfirmAll(p, deps));
 }
 
@@ -152,46 +196,9 @@ export async function simulateBoardConflict(id: string) {
   const { portco, declined, fallback, reverify } = T.boardConflict(get(id), member.id, q, deps);
   apply(id, () => portco);
   if (!declined) return;
-  await withWorking(id, "Checking the shortlist and re-verifying partner calendars", async () => {
+  await withWorking(id, "Checking the approved shortlist and re-verifying partner calendars", async () => {
     const payload = conflictPayload(portco, q, member.id, declined, fallback, reverify);
     const { data, offline } = await runAgent<T.ConflictResult>("conflict", payload, agentOpts(id, true, 0, q));
     apply(id, (cur) => T.applyConflict(cur, q, member.id, declined, fallback, reverify, data, offline, deps));
   });
-}
-
-export function approveConflictResend(id: string, q: Quarter) {
-  apply(id, (p) => T.approveConflictResend(p, q, deps));
-}
-
-// ---------- stage 5 -> 6 ----------
-
-export async function lockAndPlan(id: string) {
-  apply(id, (p) => T.lockDates(p, deps));
-  await runLogistics(id, 0);
-}
-
-async function runLogistics(id: string, variant: number) {
-  const p = get(id);
-  await withWorking(id, variant === 0 ? "Choosing a hotel and restaurant for each meeting" : "Re-picking venues", async () => {
-    const { data, offline } = await runAgent<T.LogisticsResult>("logistics", logisticsPayload(p), agentOpts(id, true, variant));
-    apply(id, (cur) => T.applyLogistics(cur, data, offline, variant, deps));
-  });
-}
-
-export async function regenerateLogistics(id: string) {
-  await runLogistics(id, (get(id).drafts.logistics?.variant ?? 0) + 1);
-}
-
-export function setLogisticsPick(id: string, q: Quarter, patch: Partial<LogisticsPick>) {
-  apply(id, (p) => T.setLogisticsPick(p, q, patch));
-}
-
-export function approveLogistics(id: string) {
-  apply(id, (p) => T.approveLogistics(p, deps));
-}
-
-// ---------- drafts ----------
-
-export function editDraft(id: string, key: string, text: string) {
-  apply(id, (p) => T.editDraft(p, key, text, deps));
 }

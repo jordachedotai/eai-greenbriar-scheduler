@@ -2,16 +2,17 @@
 // Swap this file for a real backend later without touching components.
 
 import partnersJson from "@/data/partners.json";
+import easJson from "@/data/eas.json";
 import portcosJson from "@/data/portcos.json";
 import boardMembersJson from "@/data/board-members.json";
 import availabilityJson from "@/data/availability.json";
 import venuesJson from "@/data/venues.json";
-import mockOutputsJson from "@/data/mock-agent-outputs.json";
 import demoStatesJson from "@/data/demo-states.json";
 import type {
   AvailabilityBlock,
   BoardMember,
   DemoState,
+  EA,
   Partner,
   Portco,
   PortcoSeed,
@@ -25,6 +26,19 @@ import { replyByDate } from "./simulate";
 
 export function getPartners(): Partner[] {
   return partnersJson as Partner[];
+}
+
+export function getEas(): EA[] {
+  return easJson as EA[];
+}
+
+export function getEa(id: string): EA | undefined {
+  return getEas().find((e) => e.id === id);
+}
+
+export function getCurrentEa(): EA {
+  const eas = getEas();
+  return eas.find((e) => e.isCurrentUser) ?? eas[0];
 }
 
 export function getPartner(id: string): Partner | undefined {
@@ -53,13 +67,6 @@ export function getVenues(city?: string): Venue[] {
   return city ? all.filter((v) => v.city === city) : all;
 }
 
-export function getMockOutput(portcoId: string, quarter: Quarter | "all", kind: string, variant = 0): unknown {
-  const map = mockOutputsJson as Record<string, unknown>;
-  const key = `${portcoId}.${quarter}.${kind}`;
-  if (variant % 2 === 1 && map[`${key}.alt`] !== undefined) return map[`${key}.alt`];
-  return map[key];
-}
-
 export function getVenue(id: string): Venue | undefined {
   return getVenues().find((v) => v.id === id);
 }
@@ -74,7 +81,7 @@ export function personName(id: string): string {
 
 export function emptyQuarter(): QuarterState {
   return {
-    status: "pending",
+    status: "notStarted",
     windows: [],
     shortlist: [],
     internalApprovals: {},
@@ -86,7 +93,7 @@ export function emptyQuarter(): QuarterState {
 export function hydratePortco(seed: PortcoSeed): Portco {
   const quarters = {} as Record<Quarter, QuarterState>;
   for (const q of QUARTERS) quarters[q] = emptyQuarter();
-  return { ...seed, stage: 0, quarters, log: [], drafts: {} };
+  return { ...seed, waitingOn: "none", quarters, log: [], drafts: {} };
 }
 
 export function freshPortcos(): Record<string, Portco> {
@@ -112,6 +119,7 @@ export function loadDemoState(name: string, now = Date.now()): Record<string, Po
     if (!base[id]) continue;
     const merged = fillTokens({ ...base[id], ...partial } as Portco, tokens);
     merged.log = merged.log.map((e) => ({ ...e, at: new Date(Date.parse(e.at) + shift).toISOString() }));
+    if (merged.waitingSince) merged.waitingSince = new Date(Date.parse(merged.waitingSince) + shift).toISOString();
     base[id] = merged;
   }
   return base;

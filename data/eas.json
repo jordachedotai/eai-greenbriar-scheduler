@@ -1,0 +1,5 @@
+[
+  { "id": "ea1", "name": "Peggy Conway", "title": "Executive Assistant", "isCurrentUser": true },
+  { "id": "ea2", "name": "EA 2", "title": "Executive Assistant", "isCurrentUser": false },
+  { "id": "ea3", "name": "EA 3", "title": "Executive Assistant", "isCurrentUser": false }
+]

@@ -78,7 +78,8 @@ Three per portco. `calendarVisible: false` for all in the demo.
 ### availability.json
 Free blocks per partner for all of 2027, generated. Rules for the generator so the demo has texture:
 - Each partner is free roughly 40 percent of weekday working hours.
-- Bake in at least one quarter per portco where the intersection is thin (2 windows, not 3), so the warning shows.
+- The walkthrough portco (Cumberland) is thin in Q3: exactly two days when its three partners are all free. The fourth partner is made busy on those days so no other portco lists them. No portco uses all four partners, and no other portco's set sits inside Cumberland's, or its Q3 would be empty.
+- Find dates skips days already held for other portcos that share a partner: while options are out, the first option is penciled in; a pick or lock holds that day. The calendar shows the same days. Demo states are generated in order so the calendar never stacks meetings on one day.
 - Bake in a quarter where a later board decline forces a fallback to the rank-2 window.
 - Blocks are 8am to 6pm local, Monday to Thursday. No Fridays.
 
@@ -86,7 +87,7 @@ Free blocks per partner for all of 2027, generated. Rules for the generator so t
 Per city: three hotels and three restaurants with distance from the portco office and a one-line note. Fictional or generic. The agent picks one of each.
 
 ### mock-agent-outputs.json
-Pre-written outputs for every agent step for every portco and quarter, keyed `${portcoId}.${quarter}.${kind}`. Mock mode reads these. Written in the EA's voice, not a developer's. Regenerate once the real names land.
+A preview of every agent step for every portco, keyed `${portcoId}.${quarter}.${kind}`, written by `npm run gen:mock`. Mock mode does not read it: it renders the same templates (`lib/mockAgent.ts`) at runtime over the live shortlist, so the one-pager always lists the dates on screen. Pre-written text would drift as held days change the shortlist. Written in the EA's voice, not a developer's.
 
 ### demo-states.json
 Saved snapshots of the full app state: `fresh` (all 15 not started), `council` (staggered per above, Cumberland not started; the default for the room), `council-at-board` (same, with Cumberland at stage 4 and picks recorded). The presenter menu loads them.
@@ -95,5 +96,6 @@ Saved snapshots of the full app state: `fresh` (all 15 not started), `council` (
 
 1. Replace names in `partners.json`, `eas.json`, and `portcos.json`. Keep ids.
 2. Run `npm run gen:fixtures` to rebuild availability and venues for any new city.
-3. Run `npm run gen:mock` (live Claude call) to rebuild `mock-agent-outputs.json` with the new names.
-4. Run the Playwright smoke test.
+3. Run `npm run gen:states` to rebuild the demo states with the new names.
+4. Run `npm run gen:mock` to preview the wording, or `npm run gen:mock -- --live` to preview Claude's.
+5. Run the Playwright smoke test.

@@ -13,11 +13,13 @@ import { addDays, dayKey, findWindows, rankWindows, toIso, weekdayOf } from "../
 const YEAR = 2027;
 const ROOT = resolve(__dirname, "..");
 
-// One thin quarter per portco. The demo portco pc1 has all four partners, so
-// its windows are a subset of every other portco's windows in the same
-// quarter. That means every portco has to be thin in the same quarter or pc1
-// ends up thin everywhere. Q3 is that quarter: summer travel makes it tight.
-const THIN: Record<string, Quarter> = { pc1: "Q3", pc2: "Q3", pc3: "Q3", pc4: "Q3", pc5: "Q3" };
+// The walkthrough portco is thin in Q3: exactly two days when its partners
+// are all free. Partners outside its set are made busy on those two days so
+// no other portco lists them, which keeps the calendar free of pile-ups.
+// No portco may use all four partners, or its windows would be a subset of
+// the walkthrough portco's and it would have no Q3 at all.
+const WALKTHROUGH = "pc2";
+const THIN: Record<string, Quarter> = { [WALKTHROUGH]: "Q3" };
 const THIN_COUNT = 2;
 const MIN_NORMAL = 4;
 
@@ -130,6 +132,12 @@ function carveThinQuarters(blocks: AvailabilityBlock[]): AvailabilityBlock[] {
     windows = countWindows(out, portco, q);
     if (windows.length !== THIN_COUNT) throw new Error(`carve failed for ${portco.id} ${q}: ${windows.length}`);
     for (const w of windows) protectedStarts.add(w.start);
+    // Partners not on this portco are busy on its thin days.
+    for (const w of windows) {
+      for (const partner of partners as Partner[]) {
+        if (!portco.partnerIds.includes(partner.id)) out = removeDay(out, partner.id, dayKey(w.start));
+      }
+    }
   }
   return out;
 }
@@ -137,7 +145,12 @@ function carveThinQuarters(blocks: AvailabilityBlock[]): AvailabilityBlock[] {
 function verify(blocks: AvailabilityBlock[]): { ok: boolean; report: string[] } {
   const report: string[] = [];
   let ok = true;
+  const walk = (portcos as PortcoSeed[]).find((p) => p.id === WALKTHROUGH)!;
   for (const portco of portcos as PortcoSeed[]) {
+    if (portco.partnerIds.length === 4 || (portco.id !== WALKTHROUGH && portco.partnerIds.every((id) => walk.partnerIds.includes(id)))) {
+      report.push(`${portco.id} uses a partner set inside the walkthrough portco's set. Change it in data/portcos.json.`);
+      ok = false;
+    }
     const res = findWindows({ portco, partners: partners as Partner[], boardMembers: boardMembers as BoardMember[], availability: blocks, year: YEAR });
     const counts = portco.targetQuarters.map((q) => {
       const n = res[q].windows.length;
@@ -226,6 +239,126 @@ const VENUES: Record<string, { hotels: [string, number, string][]; restaurants: 
       ["Grill 23 and Bar", 1.0, "Back Bay steakhouse with a private dining room"],
       ["Mooo....", 0.9, "Beacon Hill, wine cellar room for a private dinner"],
       ["Row 34", 0.7, "Seafood in Fort Point, good for a relaxed evening"],
+    ],
+  },
+  "Austin, TX": {
+    hotels: [
+      ["The Driskill", 0.4, "Historic, on Sixth Street, two blocks from the office"],
+      ["Four Seasons Austin", 0.6, "Quiet, on the lake, easy for early calls"],
+      ["Hotel Van Zandt", 0.9, "Rainey Street, lively, better for a younger group"],
+    ],
+    restaurants: [
+      ["Jeffrey's", 1.8, "Clarksville, private room, a long-time partner favorite"],
+      ["Red Ash", 0.3, "Italian steakhouse downtown, seats a board easily"],
+      ["Uchi", 2.1, "Sushi, excellent but loud, better for a smaller group"],
+    ],
+  },
+  "Minneapolis, MN": {
+    hotels: [
+      ["Four Seasons Minneapolis", 0.5, "Newer, quiet, skyway connected for winter"],
+      ["Hotel Ivy", 0.3, "Downtown, walkable to the office through the skyway"],
+      ["The Hewing Hotel", 0.9, "North Loop, converted warehouse, good bar"],
+    ],
+    restaurants: [
+      ["Manny's Steakhouse", 0.4, "Classic steakhouse with private dining, reliable in any season"],
+      ["Spoon and Stable", 0.9, "North Loop, chef-driven, private room seats twelve"],
+      ["Murray's", 0.3, "Old Minneapolis, quiet, good for conversation"],
+    ],
+  },
+  "Atlanta, GA": {
+    hotels: [
+      ["Four Seasons Atlanta", 0.4, "Midtown, steps from the office, quiet rooms"],
+      ["Loews Atlanta", 0.6, "Midtown, larger, easy for late check-in"],
+      ["The St. Regis Atlanta", 3.2, "Buckhead, upscale, needs a car"],
+    ],
+    restaurants: [
+      ["South City Kitchen Midtown", 0.5, "Southern, private room, easy walk"],
+      ["Bones", 3.4, "Buckhead steakhouse, partners know it, private rooms"],
+      ["Ecco Midtown", 0.3, "Mediterranean, relaxed, good for a mixed group"],
+    ],
+  },
+  "Salt Lake City, UT": {
+    hotels: [
+      ["The Grand America Hotel", 0.6, "Largest rooms in the city, quiet, reliable"],
+      ["Hotel Monaco Salt Lake City", 0.2, "Boutique, on Main Street, walkable"],
+      ["Le Meridien Salt Lake City", 0.5, "Newer, near the arena, simple"],
+    ],
+    restaurants: [
+      ["Bambara", 0.2, "Inside the Monaco, private room, easy after a long day"],
+      ["Log Haven", 8.5, "Canyon setting, memorable, needs cars and time"],
+      ["Current Fish and Oyster", 0.7, "Seafood, lively, seats a group"],
+    ],
+  },
+  "Pittsburgh, PA": {
+    hotels: [
+      ["Fairmont Pittsburgh", 0.2, "Attached to the office district, quiet"],
+      ["Kimpton Hotel Monaco Pittsburgh", 0.3, "Downtown, walkable, good breakfast"],
+      ["Omni William Penn", 0.4, "Historic, large, reliable for groups"],
+    ],
+    restaurants: [
+      ["Eddie V's", 0.3, "Steak and seafood, private room, downtown"],
+      ["Altius", 2.6, "Mount Washington, city view, needs a car"],
+      ["Or, The Whale", 0.3, "Inside the Distrikt Hotel, relaxed, good for a group"],
+    ],
+  },
+  "Tampa, FL": {
+    hotels: [
+      ["Tampa Marriott Water Street", 0.5, "Large, on the water, easy logistics"],
+      ["The Tampa EDITION", 0.6, "Newer, quiet, good rooftop for a drink"],
+      ["Le Meridien Tampa", 0.4, "Converted courthouse, boutique, walkable"],
+    ],
+    restaurants: [
+      ["Bern's Steak House", 3.5, "The Tampa institution, private rooms, book early"],
+      ["Ulele", 1.4, "Riverfront, lively, good for a mixed group"],
+      ["Oystercatchers", 6.8, "Waterfront seafood, better for a relaxed evening, needs a car"],
+    ],
+  },
+  "Kansas City, MO": {
+    hotels: [
+      ["Loews Kansas City", 0.3, "Newer, near the convention center, quiet"],
+      ["Hotel Kansas City", 0.5, "Converted club, boutique, good bar"],
+      ["The Fontaine", 4.0, "Plaza area, upscale, needs a car"],
+    ],
+    restaurants: [
+      ["Pierpont's at Union Station", 1.2, "Classic, private rooms, partners have been before"],
+      ["The Antler Room", 2.5, "Small and chef-driven, better for a small group"],
+      ["Jack Stack Barbecue Freight House", 1.3, "Kansas City barbecue, private room, a crowd pleaser"],
+    ],
+  },
+  "Columbus, OH": {
+    hotels: [
+      ["Hotel LeVeque", 0.2, "Historic tower, walkable to the office"],
+      ["Le Meridien Columbus, The Joseph", 1.0, "Short North, art-filled, good restaurant"],
+      ["Hilton Columbus Downtown", 0.6, "Large, reliable, near the convention center"],
+    ],
+    restaurants: [
+      ["The Guild House", 1.0, "Short North, private room, chef-driven"],
+      ["Lindey's", 1.3, "German Village, classic, quiet enough for a board"],
+      ["Mitchell's Steakhouse Downtown", 0.2, "Steakhouse in a former bank, private rooms"],
+    ],
+  },
+  "Portland, OR": {
+    hotels: [
+      ["The Heathman Hotel", 0.1, "Next door to the office, historic, quiet"],
+      ["The Nines", 0.3, "Downtown, rooftop restaurant, larger rooms"],
+      ["Sentinel", 0.4, "Boutique, walkable, good bar"],
+    ],
+    restaurants: [
+      ["Headwaters at the Heathman", 0.1, "Seafood, private room, no travel after a long day"],
+      ["Le Pigeon", 1.5, "Small and celebrated, better for a small group"],
+      ["Departure", 0.3, "Rooftop at The Nines, city view, lively"],
+    ],
+  },
+  "Raleigh, NC": {
+    hotels: [
+      ["The Longleaf Hotel", 0.8, "Boutique, quiet, near the office"],
+      ["Raleigh Marriott City Center", 0.2, "Downtown, reliable, easy logistics"],
+      ["Guest House Raleigh", 0.6, "Small and personal, good for a partner group"],
+    ],
+    restaurants: [
+      ["Death and Taxes", 0.2, "Wood-fired, private room, downtown"],
+      ["Second Empire", 0.4, "Historic house, quiet rooms, classic"],
+      ["Poole's Diner", 0.3, "Southern, lively, better for a relaxed night"],
     ],
   },
 };

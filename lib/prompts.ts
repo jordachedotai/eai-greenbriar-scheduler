@@ -3,7 +3,7 @@
 
 export const SYSTEM_PROMPT = `You are the scheduling assistant for a private equity firm's executive assistant. You write short, plain, warm business English. No jargon. No em-dashes. You never invent dates, names, or venues. You only use what is in the payload. When something is uncertain you say so in one line. Every output is a draft the assistant will review before anything is sent.`;
 
-export type AgentStep = "shortlist" | "portcoEmail" | "boardEmail" | "conflict" | "logistics";
+export type AgentStep = "shortlist" | "partnerEmail" | "portcoEmail" | "boardEmail" | "conflict" | "logistics";
 
 export type WindowPayload = {
   id: string;
@@ -21,6 +21,15 @@ export type ShortlistPayload = {
   partners: string[];
   replyBy: string;
   quarters: { quarter: string; months: string; thin: boolean; windows: WindowPayload[] }[];
+  eaSignature: string;
+};
+
+export type PartnerEmailPayload = {
+  portco: { name: string; city: string };
+  execContact: { name: string; title: string };
+  partners: string[];
+  replyBy: string;
+  onepager: string;
   eaSignature: string;
 };
 
@@ -63,6 +72,7 @@ export type LogisticsPayload = {
 
 export type StepPayload = {
   shortlist: ShortlistPayload;
+  partnerEmail: PartnerEmailPayload;
   portcoEmail: PortcoEmailPayload;
   boardEmail: BoardEmailPayload;
   conflict: ConflictPayload;
@@ -87,6 +97,12 @@ Do two things.
 Return JSON only, shaped exactly like this:
 {"reasons": {"Q1": ["...", "...", "..."], "Q2": [...], "Q3": [...], "Q4": [...]}, "onepager": "..."}
 The reasons arrays must match the number and order of windows given per quarter.
+
+Payload:
+${json(payload)}`;
+
+    case "partnerEmail":
+      return `Write the email from the assistant to the Greenbriar partners assigned to this portfolio company, asking them to confirm the attached one-pager is fine to send to the portco. Four sentences or fewer. Address them by first names. Ask for a yes by the replyBy date. Sign off with eaSignature. Plain text only. Start with the subject line on its own first line as "Subject: ...".
 
 Payload:
 ${json(payload)}`;

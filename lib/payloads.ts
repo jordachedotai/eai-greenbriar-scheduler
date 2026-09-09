@@ -9,6 +9,7 @@ import type {
   BoardEmailPayload,
   ConflictPayload,
   LogisticsPayload,
+  PartnerEmailPayload,
   PortcoEmailPayload,
   ShortlistPayload,
   WindowPayload,
@@ -58,6 +59,17 @@ export function shortlistPayload(p: Portco, replyBy: string): ShortlistPayload {
       thin: !!p.quarters[q].thin,
       windows: p.quarters[q].shortlist.map(windowPayload),
     })),
+    eaSignature: EA_SIGNATURE,
+  };
+}
+
+export function partnerEmailPayload(p: Portco, onepager: string, replyBy: string): PartnerEmailPayload {
+  return {
+    portco: { name: p.name, city: p.city },
+    execContact: p.execContact,
+    partners: partnerNames(p),
+    replyBy,
+    onepager,
     eaSignature: EA_SIGNATURE,
   };
 }

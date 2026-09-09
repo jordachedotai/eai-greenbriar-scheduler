@@ -31,6 +31,7 @@ const portco: PortcoSeed = {
   partnerIds: ["p1", "p2"],
   execContact: { name: "E", title: "CEO" },
   targetQuarters: ["Q1"],
+  eaId: "ea1",
 };
 
 function block(personId: string, day: string, h1: number, h2: number): AvailabilityBlock {

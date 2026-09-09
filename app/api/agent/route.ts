@@ -5,7 +5,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { buildPrompt, type AgentStep } from "@/lib/prompts";
 import { callClaude } from "@/lib/claude";
 
-const STEPS: AgentStep[] = ["shortlist", "portcoEmail", "boardEmail", "conflict", "logistics"];
+const STEPS: AgentStep[] = ["shortlist", "partnerEmail", "portcoEmail", "boardEmail", "conflict", "logistics"];
 
 export async function POST(req: Request) {
   let body: { step?: string; payload?: unknown };

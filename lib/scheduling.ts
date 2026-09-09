@@ -165,6 +165,7 @@ export type FindWindowsInput = {
   boardMembers: BoardMember[];
   availability: AvailabilityBlock[];
   year?: number;
+  excludeDays?: Set<string>; // days already held for other meetings
 };
 
 export type QuarterWindows = { quarter: Quarter; windows: Window[]; thin: boolean };
@@ -185,6 +186,7 @@ export function findWindows(input: FindWindowsInput): Record<Quarter, QuarterWin
     for (let day = first; day <= last; day = addDays(day, 1)) {
       const wd = weekdayOf(day);
       if (wd === 0 || wd === 5 || wd === 6) continue; // no Fri, Sat, Sun
+      if (input.excludeDays?.has(day)) continue;
       const ivs = intersectDay(perPerson, day);
       for (const iv of ivs) {
         const start = pickStart(iv.start, iv.end);

@@ -4,44 +4,327 @@
     "name": "Summit Ridge Logistics",
     "city": "Denver, CO",
     "officeAddress": "1700 Lincoln Street, Suite 2400, Denver, CO 80203",
-    "partnerIds": ["p1", "p2", "p3", "p4"],
-    "execContact": { "name": "Karen Delgado", "title": "Chief Executive Officer" },
-    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+    "partnerIds": [
+      "p1",
+      "p2",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Karen Delgado",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea1"
   },
   {
     "id": "pc2",
     "name": "Cumberland Packaging Group",
     "city": "Nashville, TN",
     "officeAddress": "150 Fourth Avenue North, Suite 1100, Nashville, TN 37219",
-    "partnerIds": ["p1", "p2", "p3"],
-    "execContact": { "name": "Tom Haggerty", "title": "Chief Executive Officer" },
-    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+    "partnerIds": [
+      "p1",
+      "p2",
+      "p3"
+    ],
+    "execContact": {
+      "name": "Tom Haggerty",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea1"
   },
   {
     "id": "pc3",
     "name": "Piedmont Industrial Services",
     "city": "Charlotte, NC",
     "officeAddress": "301 South College Street, Suite 3000, Charlotte, NC 28202",
-    "partnerIds": ["p2", "p3", "p4"],
-    "execContact": { "name": "Renee Ashby", "title": "President" },
-    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+    "partnerIds": [
+      "p2",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Renee Ashby",
+      "title": "President"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea1"
   },
   {
     "id": "pc4",
     "name": "Sonoran Aerospace Components",
     "city": "Phoenix, AZ",
     "officeAddress": "2 North Central Avenue, Suite 1800, Phoenix, AZ 85004",
-    "partnerIds": ["p1", "p3", "p4"],
-    "execContact": { "name": "Miguel Santana", "title": "Chief Executive Officer" },
-    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+    "partnerIds": [
+      "p1",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Miguel Santana",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea1"
   },
   {
     "id": "pc5",
     "name": "Harborline Medical Supply",
     "city": "Boston, MA",
     "officeAddress": "100 Summer Street, 20th Floor, Boston, MA 02110",
-    "partnerIds": ["p1", "p2", "p4"],
-    "execContact": { "name": "Priya Raman", "title": "Chief Financial Officer" },
-    "targetQuarters": ["Q1", "Q2", "Q3", "Q4"]
+    "partnerIds": [
+      "p1",
+      "p2",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Priya Raman",
+      "title": "Chief Financial Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea1"
+  },
+  {
+    "id": "pc6",
+    "name": "Lone Star Fabrication",
+    "city": "Austin, TX",
+    "officeAddress": "500 West 2nd Street, Suite 1900, Austin, TX 78701",
+    "partnerIds": [
+      "p2",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Dale Whitcomb",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea2"
+  },
+  {
+    "id": "pc7",
+    "name": "Northland Dairy Holdings",
+    "city": "Minneapolis, MN",
+    "officeAddress": "225 South Sixth Street, Suite 3500, Minneapolis, MN 55402",
+    "partnerIds": [
+      "p1",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Ingrid Solberg",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea2"
+  },
+  {
+    "id": "pc8",
+    "name": "Peachtree Facility Services",
+    "city": "Atlanta, GA",
+    "officeAddress": "1180 Peachtree Street NE, Suite 2100, Atlanta, GA 30309",
+    "partnerIds": [
+      "p1",
+      "p2",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Marcus Greene",
+      "title": "President"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea2"
+  },
+  {
+    "id": "pc9",
+    "name": "Wasatch Outdoor Products",
+    "city": "Salt Lake City, UT",
+    "officeAddress": "222 South Main Street, Suite 1600, Salt Lake City, UT 84101",
+    "partnerIds": [
+      "p2",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Jenna Holt",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea2"
+  },
+  {
+    "id": "pc10",
+    "name": "Allegheny Precision Castings",
+    "city": "Pittsburgh, PA",
+    "officeAddress": "600 Grant Street, Suite 4800, Pittsburgh, PA 15219",
+    "partnerIds": [
+      "p1",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Victor Malone",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea2"
+  },
+  {
+    "id": "pc11",
+    "name": "Gulf Coast Marine Supply",
+    "city": "Tampa, FL",
+    "officeAddress": "100 North Tampa Street, Suite 2700, Tampa, FL 33602",
+    "partnerIds": [
+      "p2",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Lorraine Pike",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea3"
+  },
+  {
+    "id": "pc12",
+    "name": "Prairie Ag Equipment",
+    "city": "Kansas City, MO",
+    "officeAddress": "1200 Main Street, Suite 3800, Kansas City, MO 64105",
+    "partnerIds": [
+      "p1",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Curtis Hale",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea3"
+  },
+  {
+    "id": "pc13",
+    "name": "Scioto Building Products",
+    "city": "Columbus, OH",
+    "officeAddress": "41 South High Street, Suite 2200, Columbus, OH 43215",
+    "partnerIds": [
+      "p1",
+      "p2",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Angela Ruiz",
+      "title": "Chief Financial Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea3"
+  },
+  {
+    "id": "pc14",
+    "name": "Cascadia Timber Systems",
+    "city": "Portland, OR",
+    "officeAddress": "1000 SW Broadway, Suite 1500, Portland, OR 97205",
+    "partnerIds": [
+      "p1",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Owen Fairbanks",
+      "title": "Chief Executive Officer"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea3"
+  },
+  {
+    "id": "pc15",
+    "name": "Triangle Lab Services",
+    "city": "Raleigh, NC",
+    "officeAddress": "421 Fayetteville Street, Suite 1100, Raleigh, NC 27601",
+    "partnerIds": [
+      "p2",
+      "p3",
+      "p4"
+    ],
+    "execContact": {
+      "name": "Sandra Okoye",
+      "title": "President"
+    },
+    "targetQuarters": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ],
+    "eaId": "ea3"
   }
 ]

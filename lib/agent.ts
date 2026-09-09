@@ -1,12 +1,13 @@
 "use client";
 
-// One entry point for every agent step. Mock reads fixtures with a short
-// working delay. Live posts to /api/agent and falls back to mock if the call
+// One entry point for every agent step. Mock renders templates over the
+// payload with a short working delay, so the text always matches the dates
+// on screen. Live posts to /api/agent and falls back to mock if the call
 // fails, tagging the draft "offline". The UI never knows which ran.
 
-import { getMockOutput } from "./data";
 import { extractJson, type AgentStep } from "./prompts";
 import { fillTokens } from "./text";
+import { mockStep } from "./mockAgent";
 import type { Quarter } from "./types";
 
 export type AgentOutcome<T> = { data: T; offline: boolean };
@@ -27,14 +28,9 @@ export type RunOptions = {
   expectJson: boolean;
 };
 
-async function fromMock<T>(step: AgentStep, opts: RunOptions): Promise<T> {
+async function fromMock<T>(step: AgentStep, payload: unknown, opts: RunOptions): Promise<T> {
   await sleep(MOCK_DELAY_MIN + Math.random() * (MOCK_DELAY_MAX - MOCK_DELAY_MIN));
-  const raw = getMockOutput(opts.portcoId, opts.quarter ?? "all", step, opts.variant ?? 0);
-  if (raw === undefined) {
-    throw new Error(`No mock output for ${opts.portcoId}.${opts.quarter ?? "all"}.${step}. Run npm run gen:mock.`);
-  }
-  const value = typeof raw === "string" && opts.expectJson ? extractJson<T>(raw) : (raw as T);
-  return fillTokens(value, opts.tokens ?? {});
+  return fillTokens(mockStep(step, payload, opts.variant ?? 0) as T, opts.tokens ?? {});
 }
 
 async function fromLive<T>(step: AgentStep, payload: unknown, opts: RunOptions): Promise<T> {
@@ -50,12 +46,12 @@ async function fromLive<T>(step: AgentStep, payload: unknown, opts: RunOptions):
 
 export async function runAgent<T>(step: AgentStep, payload: unknown, opts: RunOptions): Promise<AgentOutcome<T>> {
   if (opts.mock) {
-    return { data: await fromMock<T>(step, opts), offline: false };
+    return { data: await fromMock<T>(step, payload, opts), offline: false };
   }
   try {
     return { data: await fromLive<T>(step, payload, opts), offline: false };
   } catch (err) {
     console.warn("[agent] live call failed, serving offline draft:", err instanceof Error ? err.message : err);
-    return { data: await fromMock<T>(step, opts), offline: true };
+    return { data: await fromMock<T>(step, payload, opts), offline: true };
   }
 }

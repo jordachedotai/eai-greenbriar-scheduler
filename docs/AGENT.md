@@ -26,8 +26,8 @@ Rule: anything that must be correct is code. Anything that must read well is Cla
 ## Mock mode
 
 - `MOCK_MODE=true` in `.env.local`, or toggled from the presenter menu.
-- Reads `data/mock-agent-outputs.json` by key. Adds a 1.2 to 2.5 second delay with a working indicator so it reads as real work.
-- Mock outputs are generated once by a script using the live path, then hand-checked. They must be regenerated when names change.
+- Renders template writers in `lib/mockAgent.ts` over the same payload the live agent would get, so the wording always matches the dates on screen. Adds a 1.2 to 2.5 second delay with a working indicator so it reads as real work.
+- `npm run gen:mock` writes `data/mock-agent-outputs.json` as a preview of every step for every portco, for reading and hand-checking. With `--live` it previews Claude's wording instead. The app does not read that file.
 
 ## System prompt, shared
 
