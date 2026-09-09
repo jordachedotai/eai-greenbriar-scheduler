@@ -10,7 +10,7 @@ import type { Bucket } from "./pipeline";
 import { hydratePortco, loadDemoState, setExtraBoardMembers, setExtraVenues } from "./data";
 import { nowIso } from "./pipeline";
 
-export const STORE_VERSION = 4;
+export const STORE_VERSION = 5; // 5: quarter keys became YYYY-Qn (planning windows)
 export const DEFAULT_STATE = "council";
 
 const DEFAULT_MOCK = process.env.MOCK_MODE !== "false";
@@ -126,6 +126,20 @@ export const useStore = create<AppState>()(
         sidebarCollapsed: s.sidebarCollapsed,
       }),
       migrate: () => ({ portcos: loadDemoState(DEFAULT_STATE), mockMode: DEFAULT_MOCK, loggedIn: false }) as Partial<AppState>,
+      // Never let a stale or hand-edited store crash the page. If any saved
+      // company carries a quarter key that is not YYYY-Qn, drop the saved
+      // companies and start from the demo state, keeping the harmless prefs.
+      merge: (persisted, current) => {
+        const saved = (persisted ?? {}) as Partial<AppState>;
+        const valid = Object.values(saved.portcos ?? {}).every((pc) =>
+          Object.keys((pc as Portco).quarters ?? {}).every((k) => /^\d{4}-Q[1-4]$/.test(k)),
+        );
+        if (!valid) {
+          const { portcos: _drop, customVenues: _venues, ...prefs } = saved;
+          return { ...current, ...prefs, portcos: loadDemoState(DEFAULT_STATE) };
+        }
+        return { ...current, ...saved };
+      },
     },
   ),
 );

@@ -144,3 +144,6 @@ End of day 2 behind: Templates becomes a placeholder again, Attendance drops to 
 ## Future: annual roll
 
 Planning windows are per company (`startQuarter`, `quarterCount`, block length, dinner time), defaulting to the next four quarters after the last locked meeting. Not built yet: the annual roll, where a company whose window is fully locked gets its next window proposed automatically and the Find dates step starts again for it, with last year's venues and attendees carried forward. Needs a "start next window" action on a done company, a history of past windows on the company page, and Calendar filters by year.
+
+### Batch 3
+See `docs/PHASE5_BATCH3.md`: step 1 explanation block, editable shortlist, venue cards instead of selects, demo script Q&A line.

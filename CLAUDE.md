@@ -15,6 +15,7 @@ The sponsor is Peggy Conway, EA at Greenbriar. Today this takes her about two mo
 - **Every stage panel opens with one plain sentence** saying what this stage does and what the EA should do now.
 - **Waiting states are never dead ends.** Show who we are waiting on, since when, and a visible "Demo: simulate reply" control.
 - **Mock mode must work with no network.** `MOCK_MODE` defaults to true. Live mode calls Claude for drafting only and falls back to mock on failure.
+- **Any change to the persisted store shape bumps `STORE_VERSION` in the same commit.** Old browsers load old state; without the bump, migrate never runs and the page crashes before Reset is reachable. The merge guard in `lib/store.ts` is a backstop, not a substitute.
 - **Data access goes through `lib/data.ts`.**
 - **No em-dashes anywhere in UI copy.** Short sentences. Plain words.
 
