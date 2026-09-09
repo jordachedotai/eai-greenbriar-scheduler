@@ -153,6 +153,15 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("step-5")).toHaveAttribute("data-state", "current");
   await waitForAgent(page);
   await expect(page.getByTestId("logistics-Q1")).toContainText("miles from the office");
+  // The tool learns Peggy's venues: add one, it is selected, then use it for all four.
+  await page.getByTestId("venue-restaurant-Q1-select").selectOption("__add__");
+  await page.getByTestId("venue-restaurant-Q1-name").fill("Gene and Georgetti Rosemont");
+  await page.getByTestId("venue-restaurant-Q1-address").fill("9421 West Higgins Road, Rosemont, IL");
+  await page.getByTestId("venue-restaurant-Q1-save").click();
+  await expect(page.getByTestId("logistics-Q1")).toContainText("Added by Peggy Conway");
+  await page.getByTestId("venue-restaurant-Q1-all").click();
+  await expect(page.getByTestId("venue-restaurant-Q4-select")).toHaveValue(/custom:/);
+  await expect(page.getByTestId("logistics-Q4")).toContainText("Added by Peggy Conway");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and lock");
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("quarter-strip").locator("[data-final='true']")).toHaveCount(4);
@@ -163,6 +172,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("invite-drafts").locator("[data-testid^='invite-']")).toHaveCount(4);
   await expect(page.getByTestId("invite-Q1")).toContainText("AIT Worldwide Logistics quarterly meeting, Q1 2027");
   await expect(page.getByTestId("invite-Q1").locator("[data-testid='face']")).toHaveCount(9);
+  await expect(page.getByTestId("invite-Q1")).toContainText("Gene and Georgetti Rosemont");
   await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "off");
   await expect(page.getByTestId("primary-action")).toHaveText("Approve and send invites");
   await page.getByTestId("primary-action").click();
@@ -211,7 +221,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("column-count-5")).toHaveText("1");
   await page.getByTestId("nav-calendar").click();
   await expect(page.getByTestId("year-view")).toBeVisible();
-  await expect(page.getByTestId("cal-locked")).toHaveText("20 confirmed");
+  await expect(page.getByTestId("cal-locked")).toHaveText("20 locked");
 
   // Reload: state persists.
   await page.reload();
@@ -331,5 +341,5 @@ test("People, Templates, and Settings: add a company and change a team", async (
   await page.getByTestId("nav-portfolio").click();
   await expect(page.getByTestId("row-northgate-industrial")).toBeVisible();
   await page.getByTestId("nav-calendar").click();
-  await expect(page.getByTestId("cal-proposed")).toContainText("proposed");
+  await expect(page.getByTestId("cal-proposed")).toContainText("waiting on others");
 });

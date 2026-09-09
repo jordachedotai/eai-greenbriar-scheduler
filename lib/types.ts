@@ -113,6 +113,9 @@ export type Venue = {
   name: string;
   distanceMi: number;
   note: string;
+  address?: string;
+  addedBy?: string; // EA id, for venues the assistant added
+  addedAt?: string; // ISO
 };
 
 export type Logistics = { hotel: Venue; restaurant: Venue; reason: string };

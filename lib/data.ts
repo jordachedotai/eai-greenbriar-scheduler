@@ -113,14 +113,24 @@ export function genericVenues(city: string): Venue[] {
   }));
 }
 
+// Venues the assistant added in a lock step. The store registers them so
+// every later dropdown for that city, and the agent, can pick them.
+let extraVenues: Venue[] = [];
+export function setExtraVenues(list: Venue[]) {
+  extraVenues = list;
+}
+
 export function getVenues(city?: string): Venue[] {
-  const all = venuesJson as Venue[];
+  const all = [...(venuesJson as Venue[]), ...extraVenues];
   if (!city) return all;
   const found = all.filter((v) => v.city === city);
-  return found.length ? found : genericVenues(city);
+  const base = found.some((v) => !v.addedBy) ? found : [...genericVenues(city), ...found];
+  return base;
 }
 
 export function getVenue(id: string): Venue | undefined {
+  const extra = extraVenues.find((v) => v.id === id);
+  if (extra) return extra;
   if (id.startsWith("gen:")) {
     const [, city, idx] = id.split(":");
     return genericVenues(city)[Number(idx)];
