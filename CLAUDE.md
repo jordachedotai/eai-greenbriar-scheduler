@@ -1,54 +1,57 @@
-# Greenbriar Portco Meeting Scheduler: POC Build Brief
+# Greenbriar Portco Meeting Scheduler: POC Build Brief (v2)
 
-You are building a demo web app for the Greenbriar AI Council (target date 2026-09-14). It shows an Executive Assistant's quarterly portfolio-company meeting scheduling running as one tool: a pipeline board where each portco moves through six stages, and an agent does the work at each stage when the EA presses a button.
+You are building a demo web app for the Greenbriar AI Council (target date 2026-09-14). It shows an Executive Assistant's quarterly portfolio-company meeting scheduling running as one tool: a list of portcos, each moving through five stages, with an agent doing the work at each stage when the EA presses one button.
 
 The sponsor is Peggy Conway, EA at Greenbriar. Today this takes her about two months per portco by hand. She handles five portcos. Two other EAs handle five each. Four quarterly meetings per portco in 2027, each with a dinner, plus travel.
 
-Read `docs/PRD.md`, `docs/DATA.md`, `docs/AGENT.md`, `docs/DEMO_SCRIPT.md`, and `BUILD_PLAN.md` before writing code. They are the source of truth. Do not redesign the workflow. Peggy's flow is the product.
+**Phase 3 shipped a working six-stage Kanban version. Phase 4 rebuilds the experience on the v2 spec.** Read, in order: `docs/V2_FEEDBACK.md` (why), `docs/PRD.md` (what), `docs/DATA.md`, `docs/AGENT.md`, `docs/DEMO_SCRIPT.md`, then `BUILD_PLAN.md` Phase 4. They are the source of truth. Keep `lib/scheduling.ts`, `lib/agent.ts`, the fixtures generator, and the tests; refactor the stage model and rebuild the UI.
 
 ## Hard rules
 
-- **Mock data only.** No real calendars, no real email, no real names until the fixture swap. Everything comes from JSON fixtures in `/data`. No Outlook, Microsoft Graph, or DealCloud calls. Ever, in this repo.
-- **One tool on screen.** The demo never shows Copilot, Claude.ai, or a chat window. The user sees a board, cards, buttons, and results.
-- **Every AI output is a draft with an Approve button.** Nothing gets "sent" or "locked" without the EA clicking. This matches Greenbriar's AI Usage Policy: decision support, human in the loop.
-- **Mock mode must work with no network.** The room may have bad wifi. `MOCK_MODE=true` serves pre-generated agent outputs from fixtures with a short typing delay. `MOCK_MODE=false` calls the Claude API for the generative steps only. Both paths produce identical UI.
-- **Data access goes through `lib/data.ts`.** Fixtures today. Later it can be swapped for a real backend without touching components.
-- **No em-dashes anywhere in UI copy.** Short sentences. Plain words. The EA is the reader, not a developer.
+- **Mock data only.** No real calendars, email, or names until the fixture swap. No Outlook, Graph, or DealCloud calls, ever, in this repo.
+- **One tool on screen.** Never show Copilot, Claude.ai, or a chat window. The user sees pages, rows, buttons, drafts, and results.
+- **Every AI output is a draft with an Approve button.** Nothing is sent or locked without the EA clicking. The agent never advances a stage on its own.
+- **One primary button per stage, pinned in a fixed action bar, labeled with exactly what it does.** "Draft the email" makes a draft. "Approve and send" sends. Never a button that says send and opens a draft.
+- **Every stage panel opens with one plain sentence** saying what this stage does and what the EA should do now.
+- **Waiting states are never dead ends.** Show who we are waiting on, since when, and a visible "Demo: simulate reply" control.
+- **Mock mode must work with no network.** `MOCK_MODE` defaults to true. Live mode calls Claude for drafting only and falls back to mock on failure.
+- **Data access goes through `lib/data.ts`.**
+- **No em-dashes anywhere in UI copy.** Short sentences. Plain words.
 
 ## Stack
 
-- Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4. Same as `~/Documents/Tools/eai-medalist`.
-- `@anthropic-ai/sdk` for live mode. Model: `claude-sonnet-5` for drafting steps. Read `docs/AGENT.md` for the calls.
-- Client state in React (Zustand is fine if it helps). No auth. No database. Deploy target: Vercel, or run locally on a laptop in the room.
-- State persists to `localStorage` so a rehearsal can be resumed. A "Reset demo" control clears it.
+Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4, `@anthropic-ai/sdk` (model `claude-sonnet-5`) for live mode. Zustand store persisted to `localStorage`. Vitest for unit tests, Playwright for the walkthrough. Deployed on Vercel at https://eai-greenbriar-scheduler.vercel.app with `vercel.json` declaring the Next.js framework.
 
-## Suggested structure
+## Structure (target after Phase 4)
 
 ```
-app/                  # one page, client-side view switching
+app/
+  login/page.tsx
+  (shell)/layout.tsx          # sidebar + header + avatar
+  (shell)/portcos/page.tsx    # work strip, Rows view, Board view toggle
+  (shell)/portcos/[id]/       # detail: stepper, quarter strip, stage panel, action bar, activity tab
+  (shell)/calendar/page.tsx
+  (shell)/people|templates|settings/page.tsx   # placeholders
+  api/agent/route.ts
 components/
-  Board/              # pipeline columns and portco cards
-  PortcoDetail/       # the drawer or page for one portco: per-quarter status, stage actions
-  Stages/             # one component per stage action (Availability, Shortlist, Approval, PortcoSend, BoardSend, Logistics)
-  Drafts/             # draft viewer with Approve / Edit / Regenerate
-  Presenter/          # hidden presenter menu: simulate replies, reset, jump to state
-  Metrics/            # the header strip: portcos, meetings locked, days vs months
-data/
-  partners.json  portcos.json  board-members.json  availability.json
-  venues.json    mock-agent-outputs.json  demo-states.json
-lib/
-  data.ts             # single data-access layer
-  scheduling.ts       # pure functions: availability intersection, 4-hour block finder, top-3 ranking
-  agent.ts            # live vs mock agent calls, one function per stage
-  types.ts
-docs/                 # the brief (PRD, DATA, AGENT, DEMO_SCRIPT)
+  Shell/  Sidebar  Header  Avatar  ViewToggle  EaFilter
+  Portcos/  WorkStrip  PortcoRow  ProgressBar  QuarterChip  BoardView  BoardCard
+  Detail/  Stepper  QuarterStrip  StagePanel  ActionBar  ActivityTab
+  Stages/  FindDates  PartnerSignoff  PortcoPicks  BoardConfirms  LockAndBook
+  Drafts/  DraftViewer
+  Presenter/  PresenterMenu  SimulateButton
+  Calendar/  YearView
+data/     partners  eas  portcos (15)  board-members  availability  venues  mock-agent-outputs  demo-states
+lib/      data  scheduling  agent  prompts  pipeline (5 stages)  simulate  store  types
 ```
 
-## Definition of done
+## Definition of done (Phase 4)
 
-1. `npm run dev` opens the board with five portcos in the Setup column and the metrics strip reading 0 of 20 meetings locked.
-2. A presenter can walk one portco through all six stages in under four minutes using only the on-screen buttons and the presenter menu, per `docs/DEMO_SCRIPT.md`.
-3. Every agent step shows its output as a draft, and the card does not advance until Approve is clicked.
-4. Mock mode runs the full walkthrough with wifi off.
-5. Swapping `data/partners.json` and `data/portcos.json` for real names requires no code changes.
-6. No console errors. Playwright smoke test covers the full walkthrough in mock mode.
+1. Login lands on Portcos, Rows view, "My portcos," work strip showing the counts from state `council`.
+2. Rows and Board views toggle with no reload and show the same fifteen portcos, filterable by EA.
+3. A presenter can run `docs/DEMO_SCRIPT.md` in under four minutes using only on-screen buttons and the demo controls, never scrolling to find the primary action.
+4. Every stage panel opens with its one-line explanation. Every waiting state has its simulate button.
+5. The board conflict path works: one decline, fallback to the approved number two window, re-verify, re-send.
+6. Calendar page shows locked and proposed meetings for 2027, filterable by EA.
+7. Mock mode passes the Playwright walkthrough with wifi off. No console errors.
+8. Swapping names in `partners.json`, `eas.json`, and `portcos.json` needs no code changes.

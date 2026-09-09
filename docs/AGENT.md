@@ -2,16 +2,16 @@
 
 One function per stage in `lib/agent.ts`. Each returns a `Draft` or structured result. Each has a mock path and a live path. The UI never knows which ran.
 
-## Which steps are code and which are Claude
+## Which steps are code and which are Claude (v2, five stages)
 
 | Stage | Work | Code or Claude |
 |---|---|---|
-| 1 Availability | Intersect free blocks, find 4-hour windows, flag thin quarters | Pure code, `lib/scheduling.ts`. Deterministic. Never Claude. |
-| 2 Shortlist | Rank top three per quarter, write a reason per window, draft the one-pager | Ranking: code (prefer mid-week, prefer 10am to 2pm, prefer spacing between quarters). Reasons and one-pager: Claude. |
-| 3 Internal approval | Track partner sign-off | Code. No agent. |
-| 4 Portco confirmation | Draft the proposal email. Record the portco's picks | Email: Claude. Picks: code. |
-| 5 Board buy-in | Draft the board email. Handle a decline by proposing the next-best window and re-verifying | Email: Claude. Fallback and re-verify: code. Explanation of the fallback: Claude. |
-| 6 Logistics | Pick one hotel and one restaurant per meeting from `venues.json`, with a reason | Selection: Claude, constrained to the venue list. Never invent a venue. |
+| 1 Find dates | Intersect the assigned partners' free blocks, find 4-hour windows, flag thin quarters, rank top three per quarter | Pure code, `lib/scheduling.ts`. Deterministic. |
+| 1 Find dates | One-line reason per ranked window, the one-pager to the portco | Claude |
+| 2 Partner sign-off | Draft the email to the partners asking for sign-off. Track replies | Email: Claude. Tracking: code. |
+| 3 Portco picks | Draft the proposal email to the portco executive. Record the picks | Email: Claude. Picks: code. |
+| 4 Board confirms | Draft the board email. On a decline, pick the next-best window from the approved shortlist and re-verify the partners | Email and the two-sentence conflict note: Claude. Fallback and re-verify: code. |
+| 5 Lock and book | Pick one hotel and one restaurant per meeting from `venues.json`, with a reason | Selection: Claude, constrained to the venue list. Never invent a venue. |
 
 Rule: anything that must be correct is code. Anything that must read well is Claude.
 
@@ -40,6 +40,8 @@ Rule: anything that must be correct is code. Anything that must read well is Cla
 **Portco proposal email.** Given the approved one-pager: a cover email of five sentences or fewer from the EA, on behalf of the partners, attaching the one-pager.
 
 **Board email.** Given the portco's picks: an email to the board members confirming the dates, asking for a yes by a date, and noting who from Greenbriar will attend.
+
+**Partner sign-off email.** Given the approved one-pager and the partner names: four sentences or fewer from the EA asking the partners to confirm the options are fine to send to the portco, with a reply-by date.
 
 **Conflict explanation.** Given a decline and the fallback window: two sentences to the EA explaining what changed and what the agent proposes, plus a one-paragraph re-send to the board.
 

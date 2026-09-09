@@ -1,37 +1,32 @@
-# Demo script: four minutes in the room
+# Demo script v2: four minutes in the room
 
-Presenter: Jordache. Audience: Greenbriar AI Council, about 40 seats, mixed investment team and back office. Devrin frames it, Jordache drives.
+Presenter: Jordache. Devrin frames. Mock mode on. State loaded: `council`, which is fifteen portcos staggered, with Cumberland Packaging Group (Peggy's) not started.
 
-## Setup before the session
-- Laptop on `MOCK_MODE=true`. Wifi off is fine.
-- Load state `fresh`. Five cards in Setup.
-- Presenter menu tested. `Shift+P` opens it.
+## Beat 0: login and the morning view (20 seconds)
+Sign in as Peggy. Rows view, "My portcos." Work strip reads: Waiting on you 1, Waiting on others 3, Not started 1, Confirmed 4 of 20. "This is what Peggy sees at eight in the morning. One thing needs her. Three are out with other people. One hasn't started. Let's start it."
 
-## Beat 1: the before (30 seconds, Devrin talks, screen shows the board)
-"Peggy schedules four quarterly meetings a year for five portfolio companies. Partners, the portco's executives, their board, four hours, in their city, with a dinner. Then travel. She told me it takes about two months per portco. She built the first step herself in the QuickStart. This is what the whole thing looks like as one tool."
+## Beat 1: find dates (40 seconds)
+Open Cumberland. Stepper shows step 1. Press Find dates. The panel explains who was checked and who will be asked by email. Three options per quarter with reasons. Q3 warning: only two windows. "It checked three partner calendars, found the blocks, ranked them, and wrote the proposal. It also told her Q3 is tight instead of hiding it." Scroll the one-pager. Approve.
 
-## Beat 2: availability (30 seconds)
-Open the first portco card. Press Pull availability. Grid appears per quarter. Point at the source tags: "every block says whose calendar it came from." Point at Q3: "only two windows. It tells her instead of hiding it."
+## Beat 2: partner sign-off (25 seconds)
+Draft email to the partners. "Before the portco ever sees a date, the partners sign off. That's Peggy's rule." Approve and send. Waiting on the partners. Press Demo: simulate partner replies. Three yeses land in the activity log.
 
-## Beat 3: shortlist and the one-pager (45 seconds)
-Press Build shortlist. Three windows per quarter with a reason each. The one-pager renders. "This is the document she sends today. She used to build it by hand." Press Approve. Card moves to Internal approval.
+## Beat 3: portco picks (30 seconds)
+Draft email to Tom Haggerty. Approve and send. Waiting on the portco. Simulate portco picks. Quarter chips fill with the chosen dates.
 
-## Beat 4: internal approval and the portco (45 seconds)
-"Before anything goes to the portco, the partners sign off internally. That's her rule, not ours." Presenter menu: simulate approvals. Press Send to portco. Email draft. Approve. Presenter menu: simulate portco reply. Chosen dates appear on the quarter chips.
+## Beat 4: board confirms, with the conflict (60 seconds)
+Draft email to the board. Approve and send. Simulate board conflict. Raymond Cho declines Q3. The agent proposes the number two Q3 window from the shortlist the partners already approved, re-checks the three partner calendars, and writes two sentences explaining what changed. "It didn't guess a new date. It went back to the list Peggy already approved and checked again." Approve the re-send. Simulate board confirms. Four quarters confirmed.
 
-## Beat 5: the board, with a conflict (60 seconds)
-Press Send to board. Draft, approve. Presenter menu: simulate board conflict. One member declines Q3. The agent proposes the rank-2 window from the shortlist, re-checks the partners, and writes a two-sentence note. "It didn't guess. It went back to the shortlist she already approved and checked again." Approve the re-send. Simulate confirmations. Four quarters confirmed.
+## Beat 5: lock and book (30 seconds)
+Press Lock and book. Hotel and restaurant per meeting, near the office, one reason each. Approve and lock. Four lock icons. Work strip: Confirmed 8 of 20.
 
-## Beat 6: lock and logistics (30 seconds)
-Press Lock and plan logistics. Hotel and restaurant per meeting, near the office, with a reason. Approve. Lock icons on all four quarters. Metrics strip ticks to 4 of 20 locked.
-
-## Close (20 seconds, Devrin)
-"That's one portco. Peggy has five. Three EAs have fifteen. The portfolio is twenty-five. And when the next fund goes to market, the same engine schedules two hundred and fifty LP meetings." One slide of the board at scale. Do not build it. Show it.
+## Beat 6: the scale picture (25 seconds, Devrin)
+Toggle to "All EAs." Fifteen rows. Open Calendar. 2027 fills with meetings. "Three assistants, fifteen companies. The portfolio is twenty-five. And when the next fund goes to market, the same engine schedules two hundred and fifty LP meetings."
 
 ## If time is short
-Load `one-portco-at-board` and start at Beat 5. The conflict is the wow moment. Never skip it.
+Load `council-at-board` and start at Beat 4. The conflict is the wow moment. Never skip it.
 
 ## What not to say
 - No dollar figure. Devrin owes it. Say "two months to days" and stop.
-- Do not say Claude, Copilot, or any vendor. Say "the agent."
-- Do not claim it reads Greenbriar calendars today. Say "connected to calendars" and let Scott's connector list carry the production conversation.
+- No vendor names. Say "the agent."
+- Do not claim it reads Greenbriar calendars today. Say "connected to calendars." The connector list carries the production conversation.
