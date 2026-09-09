@@ -1,6 +1,6 @@
 "use client";
 
-// Mock sign-in. No real auth. Lands on the Portcos page.
+// Mock sign-in, to reference/design/Tokens.dc.html. No real auth.
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -13,34 +13,41 @@ export default function LoginPage() {
   const ea = getCurrentEa();
   const email = `${ea.name.toLowerCase().replace(/\s+/g, ".")}@greenbriar.com`;
   return (
-    <main className="flex min-h-screen items-center justify-center bg-bg px-4">
-      <form
-        className="w-full max-w-[380px] rounded-xl border border-line bg-panel p-8 shadow-[0_2px_12px_rgba(0,0,0,0.05)]"
-        onSubmit={(e) => {
-          e.preventDefault();
-          setLoggedIn(true);
-          router.push("/portfolio");
-        }}
-      >
-        <div className="mb-6 flex justify-center">
-          <Image src="/greenbriar-logo.png" alt="Greenbriar" width={200} height={33} priority />
-        </div>
-        <h1 className="mb-1 text-center text-[16px] font-semibold">Portco meeting scheduler</h1>
-        <p className="mb-6 text-center text-[12.5px] text-mut">Sign in to see your portfolio companies.</p>
-        <label className="mb-3 block text-[12px] text-mut">
-          Email
-          <input className={input} defaultValue={email} readOnly />
-        </label>
-        <label className="mb-6 block text-[12px] text-mut">
-          Password
-          <input className={input} type="password" defaultValue="greenbriar2027" readOnly />
-        </label>
-        <button type="submit" className="w-full rounded-md bg-brand px-3 py-2 text-[13.5px] font-medium text-white hover:bg-brand2" data-testid="sign-in">
-          Sign in
-        </button>
-      </form>
+    <main className="flex min-h-screen flex-col bg-bg">
+      <div className="h-[64px] shrink-0 bg-header" />
+      <div className="flex flex-1 items-center justify-center px-4 py-10">
+        <form
+          className="flex w-full max-w-[420px] flex-col gap-5 rounded-[14px] border border-line bg-white px-9 py-8 shadow-[var(--shadow-card)]"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setLoggedIn(true);
+            router.push("/portfolio");
+          }}
+        >
+          <div className="flex justify-center">
+            <Image src="/greenbriar-logo.png" alt="Greenbriar" width={160} height={26} priority />
+          </div>
+          <div className="flex flex-col gap-1 text-center">
+            <h1 className="serif text-[26px] font-semibold leading-tight">Portfolio meeting scheduler</h1>
+            <p className="text-[16px] text-mut">Sign in to see your portfolio companies.</p>
+          </div>
+          <label className="flex flex-col gap-1.5">
+            <span className={label}>Email</span>
+            <input className={input} defaultValue={email} readOnly />
+          </label>
+          <label className="flex flex-col gap-1.5">
+            <span className={label}>Password</span>
+            <input className={input} type="password" defaultValue="greenbriar2027" readOnly />
+          </label>
+          <button type="submit" className="inline-flex h-11 items-center justify-center rounded-[10px] bg-brand text-[16px] font-semibold text-white shadow-[0_1px_2px_rgba(20,63,31,0.3)] hover:bg-brand2" data-testid="sign-in">
+            Sign in
+          </button>
+          <p className="text-center text-[13px] text-mut">Demo sign-in. No password is checked.</p>
+        </form>
+      </div>
     </main>
   );
 }
 
-const input = "mt-1 block w-full rounded border border-line bg-bg px-2.5 py-1.5 text-[13px] text-txt";
+const label = "text-[13px] font-semibold uppercase tracking-[0.04em] text-mut";
+const input = "h-11 w-full rounded-[10px] border border-line bg-bg px-3.5 text-[16px] text-txt";

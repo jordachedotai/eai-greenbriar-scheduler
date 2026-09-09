@@ -25,7 +25,21 @@ import { QUARTERS } from "./types";
 import { fillTokens } from "./text";
 import { replyByDate } from "./simulate";
 
+// The deal-team partners plus everyone on the roster, so a person added
+// to a company from People resolves like any partner.
+let partnersCache: Partner[] | null = null;
 export function getPartners(): Partner[] {
+  if (!partnersCache) {
+    const base = partnersJson as Partner[];
+    const seen = new Set(base.map((p) => p.id));
+    const extra = (teamJson as TeamMember[]).filter((t) => !seen.has(t.id)).map((t) => ({ id: t.id, name: t.name, title: t.title, homeCity: "Rye, NY", avatar: t.avatar }));
+    partnersCache = [...base, ...extra];
+  }
+  return partnersCache;
+}
+
+// The 17 people on a current deal team, from the fixture only.
+export function getDealTeamPartners(): Partner[] {
   return partnersJson as Partner[];
 }
 
@@ -56,8 +70,15 @@ export function getPortcoSeeds(): PortcoSeed[] {
   return portcosJson as PortcoSeed[];
 }
 
+// Board members of companies added in Settings live on the portco record.
+// The store registers them here so names resolve everywhere.
+let extraMembers: BoardMember[] = [];
+export function setExtraBoardMembers(list: BoardMember[]) {
+  extraMembers = list;
+}
+
 export function getBoardMembers(portcoId?: string): BoardMember[] {
-  const all = boardMembersJson as BoardMember[];
+  const all = [...(boardMembersJson as BoardMember[]), ...extraMembers];
   return portcoId ? all.filter((b) => b.portcoId === portcoId) : all;
 }
 
@@ -69,12 +90,41 @@ export function getAvailability(): AvailabilityBlock[] {
   return availabilityJson as AvailabilityBlock[];
 }
 
+// Cities without fixture venues get a generic set, so a company added in
+// Settings can still lock and book. Ids carry the city so they resolve.
+const GENERIC: [Venue["type"], string, number, string][] = [
+  ["hotel", "The Grand Hotel", 0.4, "Closest full-service hotel, quiet, reliable"],
+  ["hotel", "Marriott Downtown", 0.8, "Larger, easy for late check-in"],
+  ["hotel", "The Boutique Inn", 1.1, "Smaller rooms, good bar, walkable to dinner"],
+  ["restaurant", "The Capital Grille", 0.5, "Steakhouse, private room seats twelve"],
+  ["restaurant", "Harvest Table", 0.9, "Chef-driven, quiet enough for a board"],
+  ["restaurant", "The Corner Bistro", 0.3, "Casual, better for a relaxed night"],
+];
+
+export function genericVenues(city: string): Venue[] {
+  const short = city.split(",")[0];
+  return GENERIC.map(([type, name, distanceMi, note], i) => ({
+    id: `gen:${city}:${i}`,
+    city,
+    type,
+    name: `${name} ${short}`,
+    distanceMi,
+    note,
+  }));
+}
+
 export function getVenues(city?: string): Venue[] {
   const all = venuesJson as Venue[];
-  return city ? all.filter((v) => v.city === city) : all;
+  if (!city) return all;
+  const found = all.filter((v) => v.city === city);
+  return found.length ? found : genericVenues(city);
 }
 
 export function getVenue(id: string): Venue | undefined {
+  if (id.startsWith("gen:")) {
+    const [, city, idx] = id.split(":");
+    return genericVenues(city)[Number(idx)];
+  }
   return getVenues().find((v) => v.id === id);
 }
 

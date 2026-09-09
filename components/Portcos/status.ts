@@ -5,7 +5,7 @@
 
 import { getBoardMembers, getEa, getPartner } from "@/lib/data";
 import { firstName, sinceLabel } from "@/lib/format";
-import { allPartnersYes, allPicked, boardConfirmedQuarter, bucketOf, openConflicts, portcoPhase, portcoStage, primaryAction, type Bucket } from "@/lib/pipeline";
+import { allPartnersYes, allPicked, boardConfirmedQuarter, boardMembersOf, bucketOf, inviteCounts, openConflicts, portcoPhase, portcoStage, primaryAction, travelBookedCount, type Bucket } from "@/lib/pipeline";
 import { fmtDate } from "@/lib/scheduling";
 import type { ConflictData, Portco, Quarter } from "@/lib/types";
 import { STAGE_NAMES } from "@/lib/types";
@@ -47,7 +47,7 @@ export type RowStatus = {
 };
 
 export function rowStatus(p: Portco): RowStatus {
-  const members = getBoardMembers(p.id);
+  const members = boardMembersOf(p);
   const stage = portcoStage(p);
   const phase = portcoPhase(p, members);
   const bucket = bucketOf(p, members);
@@ -67,7 +67,11 @@ export function rowStatus(p: Portco): RowStatus {
     button = { label: "Find dates", kind: "brand" };
   } else if (phase === "done") {
     pill = "Locked";
-    sentence = "All four meetings booked. Invites go out from Outlook.";
+    const inv = inviteCounts(p, members);
+    const tr = travelBookedCount(p);
+    sentence = inv.replied
+      ? `Invites accepted ${inv.accepted} of ${inv.total}. Travel booked for ${tr.booked === tr.total ? "all" : word(tr.booked)} ${tr.booked === 1 ? "partner" : "partners"}.`
+      : "All four meetings booked. Invites out from Outlook, no replies yet.";
     button = { label: "View", kind: "secondary" };
   } else if (phase === "waiting") {
     if (p.waitingOn === "partners") {
@@ -122,7 +126,7 @@ export function eaName(p: Portco): string {
 // Chip caption and tone per quarter.
 export function quarterChip(p: Portco, q: Quarter): { tone: Tone; label: string; caption: string; locked: boolean } {
   const qs = p.quarters[q];
-  const members = getBoardMembers(p.id);
+  const members = boardMembersOf(p);
   const pick = qs.shortlist.find((w) => w.id === qs.portcoPick);
   const proposed = qs.shortlist.find((w) => w.rank === 1);
   const date = pick ?? (qs.status !== "notStarted" ? proposed : undefined);

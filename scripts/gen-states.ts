@@ -116,8 +116,9 @@ function toLockReview(p: Portco, withConflict: boolean): Portco {
   return T.applyLogistics(p, mockLogistics(logisticsPayload(p)), false, 0, deps);
 }
 
-function toLocked(p: Portco, withConflict: boolean): Portco {
-  return T.approveAndLock(toLockReview(p, withConflict), deps);
+function toLocked(p: Portco, withConflict: boolean, withInvites = true): Portco {
+  p = T.approveAndLock(toLockReview(p, withConflict), deps);
+  return withInvites ? T.simulateInvites(p, deps) : p;
 }
 
 // ---------- states ----------

@@ -11,6 +11,7 @@ import { Working } from "@/components/Drafts/DraftViewer";
 import { IconLock } from "@/components/ui/icons";
 import { useDetail } from "@/components/Detail/DetailContext";
 import { PanelHeader } from "./shared";
+import { Attendance } from "./Attendance";
 
 export function LockAndBook({ readOnly }: { readOnly: boolean }) {
   const { portco, phase, working } = useDetail();
@@ -24,7 +25,7 @@ export function LockAndBook({ readOnly }: { readOnly: boolean }) {
     <div>
       <PanelHeader title={done ? "All four meetings are locked" : "Lock the dates and book"}>
         {done
-          ? "Each meeting has a hotel and a dinner. Calendar invites go out from Outlook. Partner travel is booked against these dates."
+          ? "Each meeting has a hotel and a dinner. Invites went out from Outlook. Replies and partner travel show below."
           : working
             ? "The board confirmed all four dates. Picking a hotel and a restaurant near the office for each meeting."
             : phase === "needsDraft"
@@ -33,6 +34,12 @@ export function LockAndBook({ readOnly }: { readOnly: boolean }) {
       </PanelHeader>
 
       {working ? <Working label={working} /> : null}
+
+      {done ? (
+        <div className="mb-5">
+          <Attendance />
+        </div>
+      ) : null}
 
       {!working && (draft || done) ? (
         <div className="flex flex-col gap-2.5" data-testid="logistics">

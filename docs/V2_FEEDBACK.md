@@ -81,3 +81,12 @@ Jordache walked the five-stage build. Login, sidebar, avatar, stepper, pinned ac
 - The presenter menu gets the redesign: dark brand-green panel, bottom right, one section "Simulate for this company" listing the steps in order with done ones dimmed and the next one highlighted, and a "Demo" section with Jump to state, Agent mode, the header demo-tag toggle, and Reset. Reference: `reference/design/Decline.dc.html`, shown open.
 - Waiting states still say who we are waiting on and since when. They just do not carry a button.
 - Detail page reference now exists: `reference/design/FindDates.dc.html` (stage 1 with the attendee picker, task 57) and `reference/design/Decline.dc.html` (stage 4 decline view, task 49, with the presenter menu open).
+
+## Round 5 (2026-09-09, late afternoon): stage panel order
+- **Order inside every stage panel: what needs the EA first, the reason second, the evidence third, history last.** On the decline stage that is the re-send draft, then the decline card, then the board replies table, then the folded sent email. `reference/design/Decline.dc.html` updated to match.
+- Picks and confirmations come from reply emails the agent reads. Every pick row shows provenance and a View link to the reply in a drawer. Sent emails fold to one line after sending. Mock replies are real emails in the fixtures, in the sender's voice.
+- Every draft signs off with the logged-in EA's name and title. Partner sign-off email lists the options inline. The company proposal lists options inline and carries the one attachment chip in the tool, the one-pager, with a Preview.
+
+## Round 6 (2026-09-09, evening): stage 6 and venues
+- **Six stages, not five.** Send invites is a real step after Lock and book, with invite drafts, an Approve and send button, and an attendance tracker afterwards. "Invites go out from Outlook" is gone. Done means all invites accepted.
+- Venue dropdowns get "Add your own" and "Use for all four". The tool learns Peggy's venues.

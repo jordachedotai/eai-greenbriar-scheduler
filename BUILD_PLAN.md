@@ -113,8 +113,13 @@ Inputs already in the repo: `data/source/greenbriar-portfolio.json` (18 current 
 50. Base 16px. Metadata 14px minimum. Headings 20 to 28px. Test on a 13-inch laptop.
 51. Design pass: typeface, spacing scale, card elevation, status color system (needs you blue, waiting amber, locked green, not started gray), sidebar and stepper icons, brand color in the header bar.
 
-### 5e. After lock: Attendance (day 2)
-52. Locked portcos get an Attendance panel: per meeting, per attendee, invite accepted / tentative / no reply; travel booked per partner. Simulated from the presenter menu ("Invites accepted"). Rows view shows "3 of 6 accepted" for locked portcos instead of a bare green bar.
+### 5e. Stage 6, Send invites (replaces the Attendance panel)
+52. Add stage 6, "Send invites", after Lock and book. Stage 5 approval locks dates and venues and advances to 6. Stage 6 panel: one calendar invite draft per meeting (title, date and time, office address, a dinner entry, attendees with faces, one-line body), one primary button "Approve and send invites". After sending, the same panel becomes the attendance tracker: per meeting, per attendee, Accepted / Tentative / No reply pills, plus travel booked per partner. The presenter menu's "Invites accepted" simulates the replies. Done state "All invites accepted": row and card fully green. Confirmed count in the work strip is unchanged (board-confirmed or later).
+52a. Stepper to 6 steps, rows progress bar to 6 dots, board to 6 columns (last one "Invites out"), demo script Beat 6a, council states with locked companies at stage 6 and mixed acceptances, tests. Remove every "Invites go out from Outlook" sentence.
+52b. Step 5 venue dropdowns: "Add your own" as the last option (name, address, optional note), saved to the city's venue list with addedBy and date, selectable by the agent later. "Use for all four" link under each dropdown.
+
+### 5e-2. Batch 2 feedback
+See `docs/PHASE5_BATCH2.md` for the nine items from the 2026-09-09 walkthroughs, in build order. Do it before 5f.
 
 ### 5f. People, Settings, Templates (day 3)
 53. People: from `greenbriar-team.json`, grouped Investment Team and Portfolio Support, Finance & Administration, headshot, name, title. Click a person to see the portcos they sit on. Six people without a site headshot get initials.

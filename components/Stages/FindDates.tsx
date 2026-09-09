@@ -10,6 +10,7 @@ import { addPartner, togglePartner } from "@/lib/actions";
 import { getBoardMembers, getPartner, getTeam, personName } from "@/lib/data";
 import { joinNames } from "@/lib/format";
 import { activePartners, heldDays } from "@/lib/pipeline";
+import { boardMembersOf } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import { DraftViewer, Working } from "@/components/Drafts/DraftViewer";
 import { useDetail } from "@/components/Detail/DetailContext";
@@ -65,13 +66,13 @@ export function FindDates({ readOnly }: { readOnly: boolean }) {
   const [adding, setAdding] = useState(false);
   const checked = activePartners(portco);
   const partnerPeople = checked.map(resolvePerson);
-  const members = getBoardMembers(portco.id);
+  const members = boardMembersOf(portco);
   const emailPeople: Person[] = members.filter((m) => !m.calendarVisible).map((m) => ({ id: m.id, name: m.name }));
   const exec: Person = { name: portco.execContact.name };
   const found = portco.targetQuarters.some((q) => portco.quarters[q].windows.length > 0);
   const total = portco.targetQuarters.reduce((n, q) => n + portco.quarters[q].windows.length, 0);
   const held = useStore((s) => heldDays(Object.values(s.portcos).filter((o) => o.id !== portco.id), portco.partnerIds).size);
-  const roster = getTeam().filter((t) => !portco.partnerIds.includes(t.id) && getPartner(t.id));
+  const roster = getTeam().filter((t) => !portco.partnerIds.includes(t.id));
 
   if (!found && !readOnly) {
     return (

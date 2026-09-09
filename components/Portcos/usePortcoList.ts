@@ -4,8 +4,8 @@
 
 import { useMemo } from "react";
 import { useStore } from "@/lib/store";
-import { getBoardMembers, getCurrentEa } from "@/lib/data";
-import { bucketOf, workCounts, type WorkCounts } from "@/lib/pipeline";
+import { getCurrentEa } from "@/lib/data";
+import { boardMembersOf, bucketOf, workCounts, type WorkCounts } from "@/lib/pipeline";
 import type { Portco } from "@/lib/types";
 
 export function usePortcoList(): { list: Portco[]; visible: Portco[]; counts: WorkCounts } {
@@ -15,8 +15,8 @@ export function usePortcoList(): { list: Portco[]; visible: Portco[]; counts: Wo
   return useMemo(() => {
     const me = getCurrentEa().id;
     const list = Object.values(portcos).filter((p) => eaFilter === "all" || p.eaId === me);
-    const counts = workCounts(list, getBoardMembers);
-    const visible = workFilter ? list.filter((p) => bucketOf(p, getBoardMembers(p.id)) === workFilter) : list;
+    const counts = workCounts(list, (id) => boardMembersOf(portcos[id]));
+    const visible = workFilter ? list.filter((p) => bucketOf(p, boardMembersOf(p)) === workFilter) : list;
     return { list, visible, counts };
   }, [portcos, eaFilter, workFilter]);
 }

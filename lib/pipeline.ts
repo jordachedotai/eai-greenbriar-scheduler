@@ -2,8 +2,42 @@
 // Stage comes from the least-advanced quarter. Phase says what the EA sees
 // inside that stage and which primary button the action bar shows.
 
-import type { BoardMember, EA, Portco, Quarter, Stage, WaitingOn } from "./types";
+import type { AttendanceStatus, BoardMember, EA, Portco, Quarter, Stage, WaitingOn } from "./types";
 import { STATUS_STAGE } from "./types";
+import { getBoardMembers } from "./data";
+
+// A company's board: its own list when added in Settings, else the fixture.
+export function boardMembersOf(p: Portco): BoardMember[] {
+  return p.boardMembers ?? getBoardMembers(p.id);
+}
+
+// Everyone invited to a locked meeting: checked partners, the company
+// contact ("exec"), and the board.
+export function attendeeIds(p: Portco, members: BoardMember[]): string[] {
+  return [...activePartners(p), "exec", ...members.map((m) => m.id)];
+}
+
+export type InviteCounts = { accepted: number; tentative: number; noReply: number; total: number; replied: boolean };
+
+export function inviteCounts(p: Portco, members: BoardMember[]): InviteCounts {
+  const c: InviteCounts = { accepted: 0, tentative: 0, noReply: 0, total: 0, replied: false };
+  const ids = attendeeIds(p, members);
+  for (const q of p.targetQuarters) {
+    const a = p.attendance?.[q];
+    for (const id of ids) {
+      const st: AttendanceStatus = a?.[id] ?? "noReply";
+      c[st]++;
+      c.total++;
+      if (st !== "noReply") c.replied = true;
+    }
+  }
+  return c;
+}
+
+export function travelBookedCount(p: Portco): { booked: number; total: number } {
+  const ids = activePartners(p);
+  return { booked: ids.filter((id) => p.travel?.[id] === "booked").length, total: ids.length };
+}
 
 // The partners whose calendars are checked. Sign-off still goes to everyone assigned.
 export function activePartners(p: Portco): string[] {

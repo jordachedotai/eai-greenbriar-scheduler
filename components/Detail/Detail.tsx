@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "@/lib/store";
 import { getBoardMembers, getEa } from "@/lib/data";
 import { portcoPhase, portcoStage } from "@/lib/pipeline";
+import { boardMembersOf } from "@/lib/pipeline";
 import type { Portco, Stage } from "@/lib/types";
 import { rowStatus, TONE_PILL } from "@/components/Portcos/status";
 import { LogoTile } from "@/components/ui/LogoTile";
@@ -23,7 +24,7 @@ export function Detail({ portco }: { portco: Portco }) {
   const working = useStore((s) => (s.working?.portcoId === portco.id ? s.working.label : null));
   const [editingKey, setEditingKey] = useState<string | null>(null);
   const [viewStep, setViewStep] = useState<Stage | null>(null);
-  const members = getBoardMembers(portco.id);
+  const members = boardMembersOf(portco);
   const stage = portcoStage(portco);
   const phase = portcoPhase(portco, members);
   const ea = getEa(portco.eaId);

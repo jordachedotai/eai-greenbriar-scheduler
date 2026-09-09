@@ -125,6 +125,9 @@ export type QuarterState = {
   logistics?: Logistics;
 };
 
+export type AttendanceStatus = "accepted" | "tentative" | "noReply";
+export type TravelStatus = "booked" | "pending";
+
 export type LogActor = "ea" | "agent" | "portco" | "board" | "partner";
 export type LogEntry = { at: string; actor: LogActor; text: string; personId?: string };
 
@@ -171,6 +174,9 @@ export type ConflictData = {
 // not stored, so it can never disagree with them.
 export type Portco = PortcoSeed & {
   checkedPartnerIds?: string[]; // whose calendars Find dates checks; defaults to partnerIds
+  boardMembers?: BoardMember[]; // set for companies added in Settings; otherwise board-members.json
+  attendance?: Partial<Record<Quarter, Record<string, AttendanceStatus>>>; // after lock: invite replies per attendee ("exec" for the company contact)
+  travel?: Record<string, TravelStatus>; // after lock: per partner
   waitingOn: WaitingOn;
   waitingSince?: string; // ISO
   quarters: Record<Quarter, QuarterState>;

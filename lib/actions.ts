@@ -200,6 +200,10 @@ export function simulateBoardConfirms(id: string) {
   apply(id, (p) => T.boardConfirmAll(p, deps));
 }
 
+export function simulateInvites(id: string) {
+  apply(id, (p) => T.simulateInvites(p, deps));
+}
+
 export async function simulateBoardConflict(id: string) {
   const member = conflictMember(getBoardMembers(id));
   if (!member) return;

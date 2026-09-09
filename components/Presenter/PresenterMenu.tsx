@@ -9,8 +9,9 @@ import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { getBoardMembers, getDemoStates } from "@/lib/data";
-import { allBoardConfirmed, allPartnersYes, allPicked, openConflicts, portcoPhase, portcoStage } from "@/lib/pipeline";
-import { simulateBoardConfirms, simulateBoardConflict, simulatePartnerReplies, simulatePortcoPicks } from "@/lib/actions";
+import { allBoardConfirmed, allPartnersYes, allPicked, inviteCounts, openConflicts, portcoPhase, portcoStage } from "@/lib/pipeline";
+import { boardMembersOf } from "@/lib/pipeline";
+import { simulateBoardConfirms, simulateBoardConflict, simulateInvites, simulatePartnerReplies, simulatePortcoPicks } from "@/lib/actions";
 import type { Portco } from "@/lib/types";
 import { IconChevronDown, IconChevronRight, IconPresenter } from "@/components/ui/icons";
 
@@ -18,7 +19,7 @@ type Step = { key: string; label: string; state: "done" | "next" | "later" | "of
 
 function stepsFor(p: Portco | undefined): Step[] {
   if (!p) return [];
-  const members = getBoardMembers(p.id);
+  const members = boardMembersOf(p);
   const stage = portcoStage(p);
   const phase = portcoPhase(p, members);
   const conflicts = openConflicts(p);
@@ -50,7 +51,13 @@ function stepsFor(p: Portco | undefined): Step[] {
       state: boardDone ? "done" : phase === "waiting" && p.waitingOn === "board" && conflicts.length === 0 ? "next" : "later",
       run: () => simulateBoardConfirms(p.id),
     },
-    { key: "invites", label: "Invites accepted", state: "off", note: "after lock" },
+    {
+      key: "invites",
+      label: "Invites accepted",
+      state: phase !== "done" ? "off" : inviteCounts(p, members).replied ? "done" : "next",
+      note: "after lock",
+      run: () => simulateInvites(p.id),
+    },
   ];
   // Only one step is "next": the first one marked next; the conflict step
   // and the confirms step can both be actionable, so the conflict wins

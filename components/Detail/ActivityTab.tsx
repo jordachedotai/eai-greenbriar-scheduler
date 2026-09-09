@@ -43,7 +43,7 @@ export function ActivityTab() {
     if (actor === "ea") return "You";
     if (personId) return resolvePerson(personId).name;
     if (actor === "portco") return portco.execContact.name;
-    return actor;
+    return actor === "board" ? "Board" : actor === "partner" ? "Partners" : actor;
   };
 
   return (
@@ -71,8 +71,12 @@ export function ActivityTab() {
                   ) : (
                     <Face person={f} size={28} />
                   )
-                ) : (
+                ) : e.actor === "agent" ? (
                   <AgentMark />
+                ) : (
+                  <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-idle-soft text-[12px] font-bold text-mut" title={who(e.actor)}>
+                    {who(e.actor)[0]}
+                  </span>
                 )}
                 <div className="flex min-w-0 flex-col gap-0.5">
                   <span className="text-[13px] text-mut">

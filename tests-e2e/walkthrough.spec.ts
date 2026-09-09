@@ -139,6 +139,17 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await expect(page.getByTestId("primary-action")).toHaveCount(0);
   await expect(page.getByTestId("action-hint")).toContainText("All five steps done");
 
+  // After lock: invites are out, nobody has replied. The presenter simulates replies.
+  await expect(page.getByTestId("attendance-summary")).toContainText("No replies yet");
+  await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "next");
+  await page.getByTestId("sim-invites").click();
+  await expect(page.getByTestId("attendance-summary")).toContainText("Invites accepted 34 of 36");
+  await expect(page.getByTestId("inv-Q2-b2")).toHaveAttribute("data-status", "tentative");
+  await expect(page.getByTestId("inv-Q4-ben-cox")).toHaveAttribute("data-status", "noReply");
+  await expect(page.getByTestId("travel-michael-wang")).toHaveAttribute("data-status", "booked");
+  await expect(page.getByTestId("travel-ben-cox")).toHaveAttribute("data-status", "pending");
+  await expect(page.getByTestId("sim-invites")).toHaveAttribute("data-state", "done");
+
   // A done step opens read-only.
   await page.getByTestId("step-4").click();
   await expect(page.getByTestId("board-matrix")).toBeVisible();
@@ -152,6 +163,7 @@ test("Beat 0 to 5: AIT from not started to locked", async ({ page }) => {
   await page.getByTestId("nav-portfolio").click();
   await expect(page.getByTestId("count-confirmed")).toHaveText("8 of 20");
   await expect(page.getByTestId("count-notStarted")).toHaveText("0");
+  await expect(page.getByTestId("row-ait-worldwide-logistics").getByTestId("row-sentence")).toContainText("Invites accepted 34 of 36. Travel booked for four partners.");
 
   // Beat 6: scale picture.
   await page.getByTestId("ea-all").click();
@@ -236,4 +248,51 @@ test("Unchecking a partner removes them from the calendar check", async ({ page 
   await page.getByTestId("primary-action").click();
   await expect(page.getByTestId("explain")).toContainText("Checked calendars for Michael Wang, Jill Raker, Niall McComiskey and Max Elgart.");
   await expect(page.getByTestId("shortlist-Q1").locator("[data-testid='window']").first().locator("[data-testid='face']")).toHaveCount(4);
+});
+
+test("People, Templates, and Settings: add a company and change a team", async ({ page }) => {
+  await signIn(page);
+
+  // People: grouped roster, click a person to see their companies.
+  await page.getByTestId("nav-people").click();
+  await expect(page.getByTestId("people-investment").locator("[data-testid^='person-']")).toHaveCount(31);
+  await page.getByTestId("person-jill-raker").click();
+  await expect(page.getByTestId("person-companies").locator("li")).toHaveCount(5);
+
+  // Templates: five read-only templates rendered by the email renderer.
+  await page.getByTestId("nav-templates").click();
+  await expect(page.locator("[data-testid='email-draft']")).toHaveCount(5);
+  await expect(page.getByTestId("template-resend")).toContainText("Q3");
+
+  // Settings: team assignment changes flow into Find dates.
+  await page.getByTestId("nav-settings").click();
+  await expect(page.getByTestId("calendar-connections")).toContainText("Connected");
+  await page.getByTestId("team-edit-fragilepak").click();
+  await page.getByTestId("team-picker-fragilepak-tucker-catlin").click();
+  await page.getByTestId("team-save-fragilepak").click();
+  await expect(page.getByTestId("team-count-fragilepak")).toHaveText("4");
+
+  // Add a company with two roster people and a fictional board.
+  await page.getByTestId("add-name").fill("Northgate Industrial");
+  await page.getByTestId("add-city").fill("Columbus, OH");
+  await page.getByTestId("add-address").fill("100 Main Street, Suite 400");
+  await page.getByTestId("add-exec").fill("Dana Whitfield");
+  await page.getByTestId("add-board-name-0").fill("Ora Lind");
+  await page.getByTestId("add-board-name-1").fill("Sam Reyes");
+  await page.getByTestId("add-team-claire-ponnaiya").click();
+  await page.getByTestId("add-team-anay-saraf").click();
+  await page.getByTestId("add-save").click();
+  await expect(page).toHaveURL(/\/portfolio\/northgate-industrial$/);
+  await expect(page.getByTestId("header-title")).toHaveText("Northgate Industrial");
+  await expect(page.getByTestId("picker-partners").locator("[data-checked='true']")).toHaveCount(2);
+  await expect(page.getByTestId("picker-email")).toContainText("Ora Lind");
+
+  // Find dates works with generated calendars and generic venues, and the row shows up.
+  await page.getByTestId("primary-action").click();
+  await expect(page.getByTestId("explain")).toContainText("Checked calendars for Claire Ponnaiya and Anay Saraf");
+  await expect(page.getByTestId("shortlist-Q1").locator("[data-testid='window']").first()).toBeVisible();
+  await page.getByTestId("nav-portfolio").click();
+  await expect(page.getByTestId("row-northgate-industrial")).toBeVisible();
+  await page.getByTestId("nav-calendar").click();
+  await expect(page.getByTestId("cal-proposed")).toContainText("proposed");
 });

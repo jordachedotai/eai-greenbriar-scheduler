@@ -11,7 +11,7 @@ import {
   hydratePortco,
   personName,
 } from "@/lib/data";
-import { allLocked, confirmedMeetings, portcoPhase, portcoStage, primaryAction } from "@/lib/pipeline";
+import { allLocked, confirmedMeetings, inviteCounts, portcoPhase, portcoStage, primaryAction, travelBookedCount } from "@/lib/pipeline";
 import { CONFLICT_QUARTER, conflictMember, simulatedPicks } from "@/lib/simulate";
 import * as T from "@/lib/transitions";
 import { mockBoardEmail, mockConflict, mockLogistics, mockPartnerEmail, mockPortcoEmail, mockShortlist } from "@/lib/mockAgent";
@@ -146,5 +146,17 @@ describe("five-stage flow for AIT Worldwide Logistics", () => {
     expect(portcoPhase(p, members)).toBe("done");
     expect(primaryAction(p, members)).toBeNull();
     expect(p.quarters.Q3.logistics?.hotel.city).toBe("Itasca, IL");
+    // Invites went out, nobody has replied.
+    expect(inviteCounts(p, members)).toMatchObject({ total: 36, noReply: 36, replied: false });
+  });
+
+  it("simulates invite replies and travel after lock", () => {
+    p = T.simulateInvites(p, deps);
+    const c = inviteCounts(p, members);
+    expect(c).toMatchObject({ accepted: 34, tentative: 1, noReply: 1, total: 36, replied: true });
+    expect(p.attendance?.Q2?.b2).toBe("tentative");
+    expect(p.attendance?.Q4?.["ben-cox"]).toBe("noReply");
+    expect(travelBookedCount(p)).toEqual({ booked: 4, total: 5 });
+    expect(p.log.at(-2)?.text).toContain("Invites accepted, 34 of 36");
   });
 });

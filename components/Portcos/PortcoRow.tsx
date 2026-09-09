@@ -5,6 +5,7 @@
 import Link from "next/link";
 import { getBoardMembers } from "@/lib/data";
 import { portcoPhase, portcoStage } from "@/lib/pipeline";
+import { boardMembersOf } from "@/lib/pipeline";
 import { useStore } from "@/lib/store";
 import type { Portco } from "@/lib/types";
 import { QUARTERS } from "@/lib/types";
@@ -24,7 +25,7 @@ export const BUTTON: Record<"brand" | "you" | "secondary", string> = {
 
 export function PortcoRow({ portco }: { portco: Portco }) {
   const eaFilter = useStore((s) => s.eaFilter);
-  const members = getBoardMembers(portco.id);
+  const members = boardMembersOf(portco);
   const stage = portcoStage(portco);
   const phase = portcoPhase(portco, members);
   const st = rowStatus(portco);

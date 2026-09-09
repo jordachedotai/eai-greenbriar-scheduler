@@ -42,4 +42,4 @@ Saved states: `fresh`, `council` (the room default), `council-at-board` (start a
 
 ## Status
 
-Phase 5a to 5d built: real Greenbriar companies and deal teams, faces and logos, the Portfolio rename, rows, board, and the company page per `reference/design` (attendee picker at step 1, decline view at step 4, presenter menu), one structured email renderer, base type 16px. Next: 5e Attendance, 5f People, Settings, Templates, then the rest of 5g. See `BUILD_PLAN.md`.
+Phase 5 built through 5g: real Greenbriar companies and deal teams, faces and logos, the Portfolio rename, rows, board, and the company page per `reference/design`, one structured email renderer, base type 16px, Attendance after lock, People, Settings (calendar connections, assistants, defaults, team assignment, add a company), Templates, the seeded availability generator in `lib/`. Next: rehearse per `docs/DEMO_SCRIPT.md`. See `BUILD_PLAN.md`.

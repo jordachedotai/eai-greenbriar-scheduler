@@ -5,8 +5,11 @@
 
 import { findWindows, fmtDate, fmtWindow, nextBestWindow, rankWindows, reverifyWindow } from "./scheduling";
 import { emailToText } from "./email";
-import { activePartners } from "./pipeline";
+import { activePartners, attendeeIds } from "./pipeline";
+import { ensureAvailability } from "./availabilityGen";
+import { getVenue } from "./data";
 import type {
+  AttendanceStatus,
   AvailabilityBlock,
   BoardMember,
   ConflictData,
@@ -20,6 +23,7 @@ import type {
   Portco,
   Quarter,
   QuarterState,
+  TravelStatus,
   Venue,
   Window,
 } from "./types";
@@ -62,7 +66,7 @@ function emailDraft(p: Portco, kind: DraftKind, email: EmailFields, offline: boo
 }
 
 export function membersOf(p: Portco, deps: Deps): BoardMember[] {
-  return deps.boardMembers.filter((b) => b.portcoId === p.id);
+  return p.boardMembers ?? deps.boardMembers.filter((b) => b.portcoId === p.id);
 }
 
 export function pickedWindow(p: Portco, q: Quarter): Window | undefined {
@@ -98,7 +102,8 @@ export function addPartner(p: Portco, partnerId: string, deps: Deps): Portco {
 
 export function findDates(p: Portco, deps: Deps, excludeDays: Set<string> = new Set()): Portco {
   const checked = activePartners(p);
-  const res = findWindows({ portco: { ...p, partnerIds: checked }, partners: deps.partners, boardMembers: deps.boardMembers, availability: deps.availability, excludeDays });
+  const availability = ensureAvailability(deps.availability, checked);
+  const res = findWindows({ portco: { ...p, partnerIds: checked }, partners: deps.partners, boardMembers: membersOf(p, deps), availability, excludeDays });
   const next = mapQuarters(p, (q, qs) => ({
     ...qs,
     windows: res[q].windows,
@@ -267,7 +272,7 @@ export function boardConflict(
   }
   next = waiting(next, "none", deps.now());
   const fallback = nextBestWindow(next.quarters[q].shortlist, declined.id);
-  const reverify = fallback ? reverifyWindow(fallback, activePartners(p), deps.availability) : { ok: false, busy: [] as string[] };
+  const reverify = fallback ? reverifyWindow(fallback, activePartners(p), ensureAvailability(deps.availability, activePartners(p))) : { ok: false, busy: [] as string[] };
   return { portco: next, declined, fallback, reverify };
 }
 
@@ -334,6 +339,10 @@ export function lockAndBook(p: Portco, deps: Deps): Portco {
   return withLog(next, "ea", `Board confirmed. Dates held: ${dates.join(", ")}.`, deps.now());
 }
 
+function venueOf(deps: Deps, id: string): Venue | undefined {
+  return deps.venues.find((v) => v.id === id) ?? getVenue(id);
+}
+
 // ---------- stage 5: lock and book ----------
 
 // Only venue ids from the list, in this city. Anything else is dropped.
@@ -342,8 +351,8 @@ export function applyLogistics(p: Portco, result: LogisticsResult, offline: bool
   for (const q of p.targetQuarters) {
     const pick = result.picks?.[q];
     if (!pick) continue;
-    const hotel = deps.venues.find((v) => v.id === pick.hotelId);
-    const restaurant = deps.venues.find((v) => v.id === pick.restaurantId);
+    const hotel = venueOf(deps, pick.hotelId);
+    const restaurant = venueOf(deps, pick.restaurantId);
     if (!hotel || !restaurant || hotel.city !== p.city || restaurant.city !== p.city) continue;
     picks[q] = pick;
   }
@@ -368,13 +377,58 @@ export function approveAndLock(p: Portco, deps: Deps): Portco {
   const data = (p.drafts.logistics?.data ?? {}) as LogisticsData;
   let next = mapQuarters(p, (q, qs) => {
     const pick = data[q];
-    const hotel = pick && deps.venues.find((v) => v.id === pick.hotelId);
-    const restaurant = pick && deps.venues.find((v) => v.id === pick.restaurantId);
+    const hotel = pick && venueOf(deps, pick.hotelId);
+    const restaurant = pick && venueOf(deps, pick.restaurantId);
     if (!hotel || !restaurant) return qs;
     return { ...qs, status: "locked", logistics: { hotel, restaurant, reason: pick.reason } };
   });
   next = withDraft(next, "logistics", { ...next.drafts.logistics, approved: true });
-  return withLog(next, "ea", "Locked all four meetings with hotel and dinner. Calendar invites go out from Outlook.", deps.now());
+  next = withLog(next, "ea", "Locked all four meetings with hotel and dinner.", deps.now());
+  // Invites go out from Outlook. Nobody has replied yet.
+  const members = membersOf(next, deps);
+  const ids = attendeeIds(next, members);
+  const attendance: Portco["attendance"] = {};
+  for (const q of next.targetQuarters) {
+    const row: Record<string, AttendanceStatus> = {};
+    for (const id of ids) row[id] = "noReply";
+    attendance[q] = row;
+  }
+  const travel: Record<string, TravelStatus> = {};
+  for (const id of activePartners(next)) travel[id] = "pending";
+  next = { ...next, attendance, travel };
+  return withLog(next, "agent", `Calendar invites went out from Outlook to ${ids.length} people for all four meetings. Travel requests opened for ${joinNames(activePartners(next).map(deps.name))}.`, deps.now());
+}
+
+// ---------- after lock: attendance ----------
+
+// Simulated replies to the invites. Deterministic: everyone accepts except
+// the second board member, tentative for Q2, and the last partner, no reply
+// for Q4. Travel booked for every partner but the last.
+export function simulateInvites(p: Portco, deps: Deps): Portco {
+  const members = membersOf(p, deps);
+  const partners = activePartners(p);
+  const ids = attendeeIds(p, members);
+  const tentativeId = members[1]?.id;
+  const quietId = partners[partners.length - 1];
+  const attendance: Portco["attendance"] = {};
+  for (const q of p.targetQuarters) {
+    const row: Record<string, AttendanceStatus> = {};
+    for (const id of ids) {
+      row[id] = q === "Q2" && id === tentativeId ? "tentative" : q === "Q4" && id === quietId && partners.length > 1 ? "noReply" : "accepted";
+    }
+    attendance[q] = row;
+  }
+  const travel: Record<string, TravelStatus> = {};
+  partners.forEach((id, i) => {
+    travel[id] = i === partners.length - 1 && partners.length > 1 ? "pending" : "booked";
+  });
+  let next: Portco = { ...p, attendance, travel };
+  const accepted = Object.values(attendance).reduce((n, row) => n + Object.values(row ?? {}).filter((v) => v === "accepted").length, 0);
+  const total = ids.length * p.targetQuarters.length;
+  next = withLog(next, "board", `Invites accepted, ${accepted} of ${total}.` + (tentativeId ? ` ${deps.name(tentativeId)} is tentative for Q2.` : "") + (quietId && partners.length > 1 ? ` ${deps.name(quietId)} has not replied for Q4.` : ""), deps.now());
+  const booked = partners.filter((id) => travel[id] === "booked");
+  next = withLog(next, "agent", `Travel booked for ${joinNames(booked.map(deps.name))}.` + (booked.length < partners.length ? ` ${deps.name(partners[partners.length - 1])} still pending.` : ""), deps.now());
+  return next;
 }
 
 // ---------- drafts ----------

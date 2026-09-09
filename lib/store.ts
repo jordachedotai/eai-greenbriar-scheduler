@@ -5,9 +5,9 @@
 
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import type { LogActor, Portco } from "./types";
+import type { BoardMember, LogActor, Portco, PortcoSeed } from "./types";
 import type { Bucket } from "./pipeline";
-import { loadDemoState } from "./data";
+import { hydratePortco, loadDemoState, setExtraBoardMembers } from "./data";
 import { nowIso } from "./pipeline";
 
 export const STORE_VERSION = 4;
@@ -31,6 +31,9 @@ export type AppState = {
   working: { portcoId: string; label: string } | null;
 
   updatePortco: (id: string, fn: (p: Portco) => Portco) => void;
+  addPortco: (seed: PortcoSeed, boardMembers: BoardMember[]) => void;
+  setTeam: (id: string, partnerIds: string[]) => void;
+  setEa: (id: string, eaId: string) => void;
   addLog: (id: string, actor: LogActor, text: string) => void;
   setMockMode: (v: boolean) => void;
   setLoggedIn: (v: boolean) => void;
@@ -61,6 +64,22 @@ export const useStore = create<AppState>()(
 
       updatePortco: (id, fn) =>
         set((s) => (s.portcos[id] ? { portcos: { ...s.portcos, [id]: fn(s.portcos[id]) } } : {})),
+      addPortco: (seed, boardMembers) =>
+        set((s) => {
+          const p: Portco = { ...hydratePortco(seed), boardMembers };
+          p.log = [{ at: nowIso(), actor: "ea", text: `Added ${seed.name} in Settings.` }];
+          return { portcos: { ...s.portcos, [seed.id]: p } };
+        }),
+      setTeam: (id, partnerIds) =>
+        set((s) => {
+          const p = s.portcos[id];
+          if (!p || partnerIds.length === 0) return {};
+          const checked = (p.checkedPartnerIds ?? p.partnerIds).filter((x) => partnerIds.includes(x));
+          const next: Portco = { ...p, partnerIds, checkedPartnerIds: checked.length ? checked : undefined };
+          next.log = [...p.log, { at: nowIso(), actor: "ea", text: "Changed the Greenbriar team in Settings." }];
+          return { portcos: { ...s.portcos, [id]: next } };
+        }),
+      setEa: (id, eaId) => set((s) => (s.portcos[id] ? { portcos: { ...s.portcos, [id]: { ...s.portcos[id], eaId } } } : {})),
       addLog: (id, actor, text) =>
         set((s) => {
           const p = s.portcos[id];
@@ -96,3 +115,11 @@ export const useStore = create<AppState>()(
     },
   ),
 );
+
+// Board members of added companies live on the record; register them so
+// names resolve through lib/data.
+function syncExtra(portcos: Record<string, Portco>) {
+  setExtraBoardMembers(Object.values(portcos).flatMap((p) => p.boardMembers ?? []));
+}
+syncExtra(useStore.getState().portcos);
+useStore.subscribe((s) => syncExtra(s.portcos));
